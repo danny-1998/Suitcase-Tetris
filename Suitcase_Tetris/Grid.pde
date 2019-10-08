@@ -1,6 +1,6 @@
 class Grid {
-  int w = 40;
-  int h = 40;
+  int w = 10;
+  int h = 20;
   int q = 20;
   int [][] cells = new int[w][h];
 

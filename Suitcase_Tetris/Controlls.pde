@@ -3,29 +3,18 @@ class Control {
   float blockY = 200;
   int moveDistance = 50;
   boolean lock = false;
-  Control() {
-  }
-
-
-  void blockDraw() {        //draws the current block
-
-    rectMode(CENTER);
-    rect(blockX, blockY, 100, 200);
-  }
-
 
   void movement() {
-    if (key=='a' && !lock) {
-      blockX -= moveDistance;
+    if (key=='a' && !lock && keyPressed) {
       lock = true;
+      tBlock.mainBlockW -= 1;
     } else
-      if (key == 'd' && !lock) {
-        blockX += moveDistance; 
+      if (key == 'd' && !lock && keyPressed) {
         lock = true;
+        tBlock.mainBlockW += 1;
       } else {
-      key=0;
-      lock = false;
-    }
-    println(lock);
+        key=0;
+        lock = false;
+      }
   }
 }

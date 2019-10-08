@@ -1,7 +1,7 @@
 class Grid {
-  int w = 10;
+  int w = 22;
   int h = 20;
-  int q = 20;
+  int q = 50;
   int [][] cells = new int[w][h];
 
   Grid() {
@@ -17,7 +17,7 @@ class Grid {
   void drawGrid() {
     stroke(120);
     pushMatrix();
-    translate(160, 40);
+    translate(350, 40);
     for (int i = 0; i <= w; i ++) {
       line(i*q, 0, i*q, h*q);
     }
@@ -35,5 +35,13 @@ class Grid {
       }
     }
     popMatrix();
+  }
+
+  void gridClear() {
+    for (int i = 0; i<w; i++) {
+      for (int o = 0; o<h; o++) {
+        cells[i][o] = 0;
+      }
+    }
   }
 }

@@ -1,12 +1,16 @@
 PImage img1, img2;
 Grid grid;
 TBlock tBlock;
+PointBlock pointblock;
+OBlock oblock;
 Control control;
 void setup()
 {
   //img2 = loadImage("2.jpg");
   grid = new Grid();
   tBlock = new TBlock();
+  pointblock = new PointBlock();
+  oblock = new OBlock();
   control = new Control();
   fullScreen();
 }
@@ -17,14 +21,16 @@ void draw()
   grid.drawGrid();
   grid.gridClear();
   tBlock.TBlockDraw();
+  pointblock.PointBlockDraw();
+  oblock.OBlockDraw();
   control.movement();
-  
+
   /*if (keyPressed == true)//in milliseconds
-  {
-    image(img1, 0, 0);
-  }
-  else {
-    //rest of the code
-    image(img2, 0, 0);
-  }*/
+   {
+   image(img1, 0, 0);
+   }
+   else {
+   //rest of the code
+   image(img2, 0, 0);
+   }*/
 }

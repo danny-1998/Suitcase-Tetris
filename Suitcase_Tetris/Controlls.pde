@@ -23,14 +23,14 @@ class Control {
   }
 
   void rotation() {
-    if (key=='w' && !lock2 && keyPressed) {
+    if (key == 'z' && !lock2 && keyPressed) {
       lock2 = true;
-      tBlock.mainBlockX -= 1;
+      rotation += 1;
       println("yes");
     } else
       if (key == 'z' && !lock2 && keyPressed) {
         lock2 = true;
-        tBlock.mainBlockX += 1;
+        rotation -= 1;
       } else {
         key=0;
         lock2 = false;

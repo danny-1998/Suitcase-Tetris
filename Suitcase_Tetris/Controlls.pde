@@ -1,35 +1,39 @@
 class Control {
-  float blockX = width/2;
-  float blockY = 200;
-  int moveDistance = 50;
-  boolean lock = false;
-  int rotation = 0;
+  boolean lock1, lock2;
+  int rotation;
+
+  Control() {
+    lock1 = false;
+    lock2 = false;
+    rotation = 1;
+  }
 
   void movement() {
-    if (key=='a' && !lock && keyPressed) {
-      lock = true;
-      tBlock.mainBlockW -= 1;
+    if (key=='a' && !lock1 && keyPressed) {
+      lock1 = true;
+      tBlock.mainBlockX -= 1;
     } else
-      if (key == 'd' && !lock && keyPressed) {
-        lock = true;
-        tBlock.mainBlockW += 1;
+      if (key == 'd' && !lock1 && keyPressed) {
+        lock1 = true;
+        tBlock.mainBlockX += 1;
       } else {
         key=0;
-        lock = false;
+        lock1 = false;
       }
   }
 
   void rotation() {
-    if (key=='w' && !lock && keyPressed) {
-      lock = true;
-      rotation -= 1;
+    if (key=='w' && !lock2 && keyPressed) {
+      lock2 = true;
+      tBlock.mainBlockX -= 1;
+      println("yes");
     } else
-      if (key == 'z' && !lock && keyPressed) {
-        lock = true;
-        rotation += 1;
+      if (key == 'z' && !lock2 && keyPressed) {
+        lock2 = true;
+        tBlock.mainBlockX += 1;
       } else {
         key=0;
-        lock = false;
+        lock2 = false;
       }
   }
 }

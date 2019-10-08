@@ -4,30 +4,62 @@ class TBlock {
    *             [1][2][3]
    * Where block nr2 is my mainBlock, and the coördinates of the other blocks depend on the coördinate of the main block
    */
-  int mainBlockW, mainBlockH;   //the sets of coördinates for each cube of the T_Block
-  int block0W, block0H;
-  int block1W, block1H;
-  int block3W, block3H;
+  int mainBlockX, mainBlockY;   //the sets of coördinates for each cube of the T_Block
+  int block0X, block0Y;
+  int block1X, block1Y;
+  int block3X, block3Y;
 
 
   TBlock() {
-    mainBlockW = 11;
-    mainBlockH = 1;
+    mainBlockX = 11;
+    mainBlockY = 1;
   }
 
   void TBlockDraw() {
-    block0W = mainBlockW;
-    block0H = mainBlockH-1;
+    if (control.rotation == 0) {            //      [0]
+      block0X = mainBlockX;                 //   [1][M][3]
+      block0Y = mainBlockY-1;
 
-    block1W = mainBlockW-1;
-    block1H = mainBlockH;
+      block1X = mainBlockX-1;
+      block1Y = mainBlockY;
 
-    block3W = mainBlockW+1;
-    block3H = mainBlockH;
+      block3X = mainBlockX+1;
+      block3Y = mainBlockY;
+    } else 
+    if (control.rotation == 1) {           //     [1]
+      block0X = mainBlockX+1;              //     [M][0]
+      block0Y = mainBlockY;                //     [3]
 
-    grid.cells[mainBlockW][mainBlockH] = 1;
-    grid.cells[block0W][block0H] = 1;
-    grid.cells[block1W][block1H] = 1;
-    grid.cells[block3W][block3H]  = 1;
+      block1X = mainBlockX;
+      block1Y = mainBlockY-1;
+
+      block3X = mainBlockX;
+      block3Y = mainBlockY+1;
+    } else
+      if (control.rotation == 2) {        //   [3][M][1]
+        block0X = mainBlockX;             //      [0]
+        block0Y = mainBlockY+1;
+
+        block1X = mainBlockX+1;
+        block1Y = mainBlockY;
+
+        block3X = mainBlockX-1;
+        block3Y = mainBlockY;
+      } else
+        if (control.rotation == 3) {        //      [3]
+          block0X = mainBlockX-1;         //   [0][M]
+          block0Y = mainBlockY;           //      [1]
+
+          block1X = mainBlockX;
+          block1Y = mainBlockY+1;
+
+          block3X = mainBlockX;
+          block3Y = mainBlockY-1;
+        }
+
+    grid.cells[mainBlockX][mainBlockY] = 1;
+    grid.cells[block0X][block0Y] = 1;
+    grid.cells[block1X][block1Y] = 1;
+    grid.cells[block3X][block3Y]  = 1;
   }
 }

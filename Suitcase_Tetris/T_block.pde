@@ -13,7 +13,9 @@ class TBlock {
   TBlock() {
     mainBlockW = 11;
     mainBlockH = 1;
-    
+  }
+
+  void TBlockDraw() {
     block0W = mainBlockW;
     block0H = mainBlockH-1;
 
@@ -22,9 +24,7 @@ class TBlock {
 
     block3W = mainBlockW+1;
     block3H = mainBlockH;
-  }
-
-  void TBlockDraw() {
+    
     grid.cells[mainBlockW][mainBlockH] = 1;
     grid.cells[block0W][block0H] = 1;
     grid.cells[block1W][block1H] = 1;

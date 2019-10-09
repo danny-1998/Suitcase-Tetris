@@ -7,9 +7,9 @@ In the first year of school, you get a project collaborated with Corendon Dutch 
 ### Members of the project
 | **Name** | **Student number** |
 | :------------- | :------------- |
-| Danny Ha | 500832407 |
-| Jeffrey Baas | 500762669 |
-| Ole Neuman | 500827044 |
-| Kiano Wortel | 500825684 |
-| Nina Brochard | 5008320669 |
-| Yves Prinz | 500818315 |
+| Ole Neuman | 500827044 | Head of Project |
+| Danny Ha | 500832407 | Developer/Designer |
+| Jeffrey Baas | 500762669 | Developer/Designer |
+| Kiano Wortel | 500825684 | Developer/Designer |
+| Nina Brochard | 5008320669 | Developer/Designer |
+| Yves Prinz | 500818315 | Developer/Designer |

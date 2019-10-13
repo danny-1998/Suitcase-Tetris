@@ -3,6 +3,7 @@ Grid grid;
 TBlock tBlock;
 PointBlock pointblock;
 OBlock oblock;
+SBlock sblock;
 Control control;
 void setup()
 {
@@ -12,6 +13,7 @@ void setup()
   pointblock = new PointBlock();
   oblock = new OBlock();
   control = new Control();
+  sblock = new SBlock();
   fullScreen();
 }
 
@@ -23,6 +25,7 @@ void draw()
   tBlock.TBlockDraw();
   pointblock.PointBlockDraw();
   oblock.OBlockDraw();
+  sblock.SBlockDraw();
   control.movement();
 
   /*if (keyPressed == true)//in milliseconds

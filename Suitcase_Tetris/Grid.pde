@@ -1,4 +1,5 @@
 class Grid {
+  //By Danny Ha
   int w = 22;
   int h = 20;
   int q = 50;

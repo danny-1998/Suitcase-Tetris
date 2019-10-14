@@ -14,11 +14,13 @@ class TBlock {
   int minX, maxX;              //the minimum and maximum X value the block can have before going outside of the array, and thus crashing the program 
 
   TBlock() {
-    mainBlockX = 12;
+    mainBlockX = 11;
     mainBlockY =  1;
   }
 
   void TBlockDraw() {
+    mainBlockX = currentBlock.currentBlockX;
+    mainBlockY = currentBlock.currentBlockY;
     if (control.rotation == 0) {            //      [0]
       block0X = mainBlockX;                 //   [1][M][3]
       block0Y = mainBlockY-1;

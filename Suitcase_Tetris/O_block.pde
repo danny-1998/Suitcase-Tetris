@@ -23,6 +23,9 @@ class OBlock {
   }
 
   void OBlockDraw() {
+    mainBlockX = currentBlock.currentBlockX;
+    mainBlockY = currentBlock.currentBlockY;
+    
     width1=mainBlockX+1;
     height1=mainBlockY;
 

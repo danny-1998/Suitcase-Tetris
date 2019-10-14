@@ -1,19 +1,21 @@
 PImage img1, img2;
 Grid grid;
 TBlock tBlock;
-PointBlock pointblock;
-OBlock oblock;
-SBlock sblock;
+PointBlock pointBlock;
+OBlock oBlock;
+SBlock sBlock;
 Control control;
+CurrentBlock currentBlock;
 void setup()
 {
   //img2 = loadImage("2.jpg");
   grid = new Grid();
   tBlock = new TBlock();
-  pointblock = new PointBlock();
-  oblock = new OBlock();
+  pointBlock = new PointBlock();
+  oBlock = new OBlock();
+  currentBlock = new CurrentBlock();
   control = new Control();
-  sblock = new SBlock();
+  sBlock = new SBlock();
   fullScreen();
 }
 
@@ -22,10 +24,12 @@ void draw()
   background(255);
   grid.drawGrid();
   grid.gridClear();
-  tBlock.TBlockDraw();
-  pointblock.PointBlockDraw();
-  oblock.OBlockDraw();
-  sblock.SBlockDraw();
+  //tBlock.TBlockDraw();
+  //pointBlock.PointBlockDraw();
+  //oBlock.OBlockDraw();
+  //sBlock.SBlockDraw();
+  currentBlock.currentBlockDraw();
+  currentBlock.currentBlockControlls();
   control.movement();
 
   /*if (keyPressed == true)//in milliseconds

@@ -18,6 +18,8 @@ class PointBlock {
   }
 
   void PointBlockDraw() {
+    mainBlockX = currentBlock.currentBlockX;
+    mainBlockY = currentBlock.currentBlockY;
     grid.cells[mainBlockX][mainBlockY] = 1;
   }
 }

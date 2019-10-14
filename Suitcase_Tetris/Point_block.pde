@@ -6,15 +6,18 @@ class PointBlock {
    *I mean, it kinda speaks for itself
    */
 
-  int width0;
-  int height0;
+  int mainBlockX;
+  int mainBlockY;
+  int minX, maxX;
 
   PointBlock() {
-    width0=6;
-    height0=13;
+    mainBlockX=6;
+    mainBlockY=13;
+    minX = mainBlockX;
+    maxX = mainBlockX;
   }
 
   void PointBlockDraw() {
-    grid.cells[width0][height0] = 1;
+    grid.cells[mainBlockX][mainBlockY] = 1;
   }
 }

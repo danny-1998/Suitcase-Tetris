@@ -21,5 +21,7 @@ class PointBlock {
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
     grid.cells[mainBlockX][mainBlockY] = 1;
+    minX = mainBlockX;
+    maxX = mainBlockX;
   }
 }

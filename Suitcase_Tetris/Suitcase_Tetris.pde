@@ -4,6 +4,7 @@ TBlock tBlock;
 PointBlock pointBlock;
 OBlock oBlock;
 SBlock sBlock;
+ZBlock zBlock;
 Control control;
 CurrentBlock currentBlock;
 void setup()
@@ -16,6 +17,7 @@ void setup()
   currentBlock = new CurrentBlock();
   control = new Control();
   sBlock = new SBlock();
+  zBlock = new ZBlock();
   fullScreen();
 }
 
@@ -28,6 +30,7 @@ void draw()
   currentBlock.currentBlockDraw();
   currentBlock.currentBlockControlls();
   control.movement();
+  
 
   /*if (keyPressed == true)//in milliseconds
    {

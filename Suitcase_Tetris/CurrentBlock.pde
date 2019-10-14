@@ -60,5 +60,11 @@ class CurrentBlock {
      onEdgeLeft = sBlock.onEdgeLeft;
      onEdgeRight = sBlock.onEdgeRight;
     }
+    if(blockPicker == 5){
+      minX = zBlock.minX;
+      maxX = zBlock.maxX;
+      onEdgeLeft = zBlock.onEdgeLeft;
+      onEdgeRight = zBlock.onEdgeRight;
+    }
   }
 }

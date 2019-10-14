@@ -47,7 +47,7 @@ class Control {
       rotation = 0;
     }
     if (rotation<0) {
-      rotation = 1;
+      rotation = 3;
     }
   }
 }

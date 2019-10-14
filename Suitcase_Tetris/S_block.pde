@@ -26,15 +26,57 @@ class SBlock {
   void SBlockDraw() {
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
-    
-    width1=mainBlockX+1;
-    height1=mainBlockY;
 
-    width2= mainBlockX-1;
-    height2 = mainBlockY+1;
+    if (control.rotation == 0) {            //   [0][1]
+      width1=mainBlockX+1;                    //[2][3]
+      height1=mainBlockY;
 
-    width3= mainBlockX;
-    height3=mainBlockY+1;
+      width2= mainBlockX-1;
+      height2 = mainBlockY+1;
+
+      width3= mainBlockX;
+      height3=mainBlockY+1;
+    } else 
+    if (control.rotation == 1) {        //     [1]
+      width1 = mainBlockX;              //     [0][3]
+      height1 = mainBlockY-1;           //        [2]
+
+      width2 = mainBlockX+1;
+      height2 = mainBlockY+1;
+
+      width3 = mainBlockX+1;
+      height2 = mainBlockY;
+
+      minX = mainBlockX;
+      maxX = mainBlockX+1;
+    } else
+      if (control.rotation == 2) {           //      [0][1]
+        width1=mainBlockX+1;                    //[2][3]
+        height1=mainBlockY;
+
+        width2= mainBlockX-1;
+        height2 = mainBlockY+1;
+
+        width3= mainBlockX;
+        height3=mainBlockY+1;
+
+        minX = mainBlockX-1;
+        maxX = mainBlockX+1;
+      } else
+        if (control.rotation == 3) {          //   [1]
+          width1 = mainBlockX;              //     [0][3]
+          height1 = mainBlockY-1;           //        [2]
+
+          width2 = mainBlockX+1;
+          height2 = mainBlockY+1;
+
+          width3 = mainBlockX+1;
+          height2 = mainBlockY;
+
+          minX = mainBlockX-1;
+          maxX = mainBlockX;
+        }    
+
 
     minX = mainBlockX-1;
     maxX = mainBlockX+1;

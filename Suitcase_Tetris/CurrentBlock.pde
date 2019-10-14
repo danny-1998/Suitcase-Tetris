@@ -3,10 +3,21 @@ class CurrentBlock {
   int currentBlockX, currentBlockY;
   int minX, maxX;
   boolean onEdgeLeft, onEdgeRight;
+  boolean newBlock = false;
   CurrentBlock() {
     currentBlockX = 11;
     currentBlockY = 1;
     blockPicker = 1;
+    newBlock = true;
+  }
+  
+  void newBlock(){
+    if(newBlock){
+     blockPicker = int(random(1,5));
+    newBlock = false;
+    println(blockPicker);
+  }
+    
   }
 
   void currentBlockDraw() {

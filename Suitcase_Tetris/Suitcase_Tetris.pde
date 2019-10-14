@@ -24,10 +24,7 @@ void draw()
   background(255);
   grid.drawGrid();
   grid.gridClear();
-  //tBlock.TBlockDraw();
-  //pointBlock.PointBlockDraw();
-  //oBlock.OBlockDraw();
-  //sBlock.SBlockDraw();
+  currentBlock.newBlock();
   currentBlock.currentBlockDraw();
   currentBlock.currentBlockControlls();
   control.movement();

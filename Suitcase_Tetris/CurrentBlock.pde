@@ -10,14 +10,13 @@ class CurrentBlock {
     blockPicker = 1;
     newBlock = true;
   }
-  
-  void newBlock(){
-    if(newBlock){
-     blockPicker = int(random(1,5));
-    newBlock = false;
-    println(blockPicker);
-  }
-    
+
+  void newBlock() {
+    if (newBlock) {
+      blockPicker = int(random(1, 5));
+      newBlock = false;
+      println(blockPicker);
+    }
   }
 
   void currentBlockDraw() {
@@ -27,11 +26,14 @@ class CurrentBlock {
     if (blockPicker==2) {
       oBlock.OBlockDraw();
     }
-    if(blockPicker == 3){
-     pointBlock.PointBlockDraw(); 
+    if (blockPicker == 3) {
+      pointBlock.PointBlockDraw();
     }
-    if(blockPicker == 4){
-     sBlock.SBlockDraw(); 
+    if (blockPicker == 4) {
+      sBlock.SBlockDraw();
+    }
+    if (blockPicker == 5) {
+      zBlock.ZBlockDraw();
     }
   }
 
@@ -42,25 +44,25 @@ class CurrentBlock {
       onEdgeLeft = tBlock.onEdgeLeft;
       onEdgeRight = tBlock.onEdgeRight;
     }
-    if(blockPicker==2){
-     minX = oBlock.minX;
-     maxX = oBlock.maxX;
-     onEdgeLeft = false;
-     onEdgeRight = false;
+    if (blockPicker==2) {
+      minX = oBlock.minX;
+      maxX = oBlock.maxX;
+      onEdgeLeft = false;
+      onEdgeRight = false;
     }
-    if(blockPicker==3){
-     minX = pointBlock.minX;
-     maxX = pointBlock.maxX;
-     onEdgeLeft = false;
-     onEdgeRight = false;
+    if (blockPicker==3) {
+      minX = pointBlock.minX;
+      maxX = pointBlock.maxX;
+      onEdgeLeft = false;
+      onEdgeRight = false;
     }
-    if(blockPicker == 4){
-     minX = sBlock.minX;
-     maxX = sBlock.maxX;
-     onEdgeLeft = sBlock.onEdgeLeft;
-     onEdgeRight = sBlock.onEdgeRight;
+    if (blockPicker == 4) {
+      minX = sBlock.minX;
+      maxX = sBlock.maxX;
+      onEdgeLeft = sBlock.onEdgeLeft;
+      onEdgeRight = sBlock.onEdgeRight;
     }
-    if(blockPicker == 5){
+    if (blockPicker == 5) {
       minX = zBlock.minX;
       maxX = zBlock.maxX;
       onEdgeLeft = zBlock.onEdgeLeft;

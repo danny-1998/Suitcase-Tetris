@@ -1,8 +1,9 @@
 // By Kiano Wortel
 
-class SBlock {
-  /*diagram of how im coding this S_Block in the grid:
-   *                   [0][1]
+class JBlock {
+  /*diagram of how im coding this J_Block in the grid:
+   *                   [1]
+   *                   [0]
    *                [2][3]
    *               0 = main
    */
@@ -16,19 +17,18 @@ class SBlock {
   int width3;
   int height3;
   int minX, maxX;
-  int maxY;
   boolean onEdgeLeft, onEdgeRight;
 
-  SBlock() {
+  JBlock() {
     mainBlockX=5;
     mainBlockY=10;
   }
 
-  void SBlockDraw() {
+  void JBlockDraw() {
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
-
-    if (control.rotation == 0) {              //   [0][1]
+                                              //   [1]
+    if (control.rotation == 0) {              //   [0]
       width1=mainBlockX+1;                    //[2][3]
       height1=mainBlockY;
 
@@ -38,9 +38,9 @@ class SBlock {
       width3= mainBlockX;
       height3=mainBlockY+1;
     } else 
-    if (control.rotation == 1) {        //     [1]
-      width1 = mainBlockX;              //     [0][3]
-      height1 = mainBlockY-1;           //        [2]
+    if (control.rotation == 1) {        //     
+      width1 = mainBlockX;              //     [1][0][3]
+      height1 = mainBlockY-1;           //           [2]
 
       width2 = mainBlockX+1;
       height2 = mainBlockY+1;
@@ -102,6 +102,5 @@ class SBlock {
           grid.cells[width2][height2] = 1;
           grid.cells[width3][height3] = 1;
         }
-        maxY = mainBlockY+1;
       }
   }

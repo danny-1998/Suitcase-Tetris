@@ -1,7 +1,7 @@
 // By Kiano Wortel
 
 class ZBlock {
-  /*diagram of how im coding this Point_Block in the grid:
+  /*diagram of how im coding this Z_Block in the grid:
    *                   [1][0]
    *                      [2][3]
    *               0 = main
@@ -41,11 +41,11 @@ class ZBlock {
       width1 = mainBlockX;              //     [2][0]
       height1 = mainBlockY-1;           //     [3]
 
-      width2 = mainBlockX+1;
-      height2 = mainBlockY+1;
-
-      width3 = mainBlockX+1;
+      width2 = mainBlockX-1;
       height2 = mainBlockY;
+
+      width3 = mainBlockX-1;
+      height3 = mainBlockY+1;
 
       minX = mainBlockX-1;
       maxX = mainBlockX;
@@ -71,10 +71,10 @@ class ZBlock {
           height2 = mainBlockY+1;
 
           width3 = mainBlockX+1;
-          height2 = mainBlockY;
+          height3 = mainBlockY;
 
-          minX = mainBlockX-1;
-          maxX = mainBlockX;
+          minX = mainBlockX;
+          maxX = mainBlockX+1;
         }    
 
     if (control.rotation == 3 || control.rotation == 1) {

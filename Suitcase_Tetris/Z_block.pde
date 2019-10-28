@@ -51,30 +51,27 @@ class ZBlock {
       maxX = mainBlockX;
     } else
       if (control.rotation == 2) {           //      [1][0]
-        width1=mainBlockX+1;                    //      [2][3]
+        width1=mainBlockX-1;                    //      [2][3]
         height1=mainBlockY;
 
-        width2= mainBlockX-1;
+        width2= mainBlockX;
         height2 = mainBlockY+1;
 
-        width3= mainBlockX;
+        width3= mainBlockX+1;
         height3=mainBlockY+1;
-
-        minX = mainBlockX-1;
-        maxX = mainBlockX+1;
       } else
         if (control.rotation == 3) {          //      [1]
           width1 = mainBlockX;              //     [2][0]
           height1 = mainBlockY-1;           //     [3]
 
-          width2 = mainBlockX+1;
-          height2 = mainBlockY+1;
+          width2 = mainBlockX-1;
+          height2 = mainBlockY;
 
-          width3 = mainBlockX+1;
-          height3 = mainBlockY;
+          width3 = mainBlockX-1;
+          height3 = mainBlockY+1;
 
-          minX = mainBlockX;
-          maxX = mainBlockX+1;
+          minX = mainBlockX-1;
+          maxX = mainBlockX;
         }    
 
     if (control.rotation == 3 || control.rotation == 1) {

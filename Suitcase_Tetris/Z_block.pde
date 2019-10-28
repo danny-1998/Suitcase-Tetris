@@ -75,7 +75,7 @@ class ZBlock {
         }    
 
     if (control.rotation == 3 || control.rotation == 1) {
-      minX = mainBlockX;
+      minX = mainBlockX-1;
       maxX = mainBlockX;
     } else
       if (control.rotation == 0 || control.rotation == 2) {

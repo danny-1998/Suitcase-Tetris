@@ -12,7 +12,7 @@ class TBlock {
   
   boolean onEdgeLeft, onEdgeRight;              //if the block is right up to the wall, is used so that the rotate function doesnt rotate a piece outside of the array
   int minX, maxX;              //the minimum and maximum X value the block can have before going outside of the array, and thus crashing the program 
-
+int maxY;
   TBlock() {
     mainBlockX = 11;
     mainBlockY =  1;
@@ -33,6 +33,7 @@ class TBlock {
       
       minX = mainBlockX-1;
       maxX = mainBlockX+1;
+      maxY = mainBlockY;
       
     } else 
     if (control.rotation == 1) {           //     [1]
@@ -48,6 +49,8 @@ class TBlock {
       minX = mainBlockX;
       maxX = mainBlockX+1;
       
+      maxY = mainBlockY+1;
+      
     } else
       if (control.rotation == 2) {        //   [3][M][1]
         block0X = mainBlockX;             //      [0]
@@ -62,6 +65,8 @@ class TBlock {
         minX = mainBlockX-1;
         maxX = mainBlockX+1;
         
+        maxY = mainBlockY+1;
+        
       } else
         if (control.rotation == 3) {      //      [3]
           block0X = mainBlockX-1;         //   [0][M]
@@ -75,6 +80,8 @@ class TBlock {
           
           minX = mainBlockX-1;
           maxX = mainBlockX;
+          
+          maxY = mainBlockY+1;
           
         }                           //                                    |[1]
     if(mainBlockX == 0){            //if the piece is up to the wall like |[M][0]
@@ -93,6 +100,6 @@ class TBlock {
     grid.cells[mainBlockX][mainBlockY] = 1;
     grid.cells[block0X][block0Y] = 1;
     grid.cells[block1X][block1Y] = 1; //<>//
-    grid.cells[block3X][block3Y]  = 1;
+    grid.cells[block3X][block3Y]  = 1; //<>//
   }
 }

@@ -7,6 +7,7 @@ SBlock sBlock;
 ZBlock zBlock;
 Control control;
 CurrentBlock currentBlock;
+Location blockPlace;
 void setup()
 {
   //img2 = loadImage("2.jpg");
@@ -18,6 +19,7 @@ void setup()
   control = new Control();
   sBlock = new SBlock();
   zBlock = new ZBlock();
+  blockPlace = new Location();
   fullScreen();
 }
 
@@ -30,6 +32,15 @@ void draw()
   currentBlock.currentBlockDraw();
   currentBlock.currentBlockControlls();
   control.movement();
+  blockPlace.draw();
+  
+  /*if(keyPressed == true){
+      println(key);
+    if(key == '0' ){
+     currentBlock.blockPicker += 1;
+     println(currentBlock.blockPicker);
+    }
+  }*/
   
 
   /*if (keyPressed == true)//in milliseconds

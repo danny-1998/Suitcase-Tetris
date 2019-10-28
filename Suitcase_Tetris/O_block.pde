@@ -16,6 +16,7 @@ class OBlock {
   int width3;
   int height3;
   int minX, maxX;
+  int maxY;
 
   OBlock() {
     mainBlockX=10;
@@ -37,6 +38,8 @@ class OBlock {
 
     minX = mainBlockX;
     maxX = mainBlockX+1;
+    
+    maxY = mainBlockY+1;
 
     grid.cells[mainBlockX][mainBlockY] = 1;
     grid.cells[width1][height1] = 1;

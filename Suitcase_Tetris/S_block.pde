@@ -16,6 +16,7 @@ class SBlock {
   int width3;
   int height3;
   int minX, maxX;
+  int maxY;
   boolean onEdgeLeft, onEdgeRight;
 
   SBlock() {
@@ -101,5 +102,6 @@ class SBlock {
           grid.cells[width2][height2] = 1;
           grid.cells[width3][height3] = 1;
         }
+        maxY = mainBlockY+1;
       }
   }

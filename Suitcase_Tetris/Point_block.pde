@@ -9,6 +9,7 @@ class PointBlock {
   int mainBlockX;
   int mainBlockY;
   int minX, maxX;
+  int maxY;
 
   PointBlock() {
     mainBlockX=6;
@@ -23,5 +24,6 @@ class PointBlock {
     grid.cells[mainBlockX][mainBlockY] = 1;
     minX = mainBlockX;
     maxX = mainBlockX;
+    maxY = mainBlockY;
   }
 }

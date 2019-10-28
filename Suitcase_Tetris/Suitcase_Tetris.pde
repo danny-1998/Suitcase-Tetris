@@ -5,6 +5,7 @@ PointBlock pointBlock;
 OBlock oBlock;
 SBlock sBlock;
 ZBlock zBlock;
+JBlock jBlock;
 Control control;
 CurrentBlock currentBlock;
 void setup()
@@ -18,6 +19,7 @@ void setup()
   control = new Control();
   sBlock = new SBlock();
   zBlock = new ZBlock();
+  jBlock = new JBlock();
   fullScreen();
 }
 

@@ -27,7 +27,7 @@ class JBlock {
   void JBlockDraw() {
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
-                                              //   [1]
+    //   [1]
     if (control.rotation == 0) {              //   [0]
       width1=mainBlockX;                      //[2][3]
       height1=mainBlockY-1;
@@ -79,28 +79,28 @@ class JBlock {
         }    
 
     if (control.rotation == 3 || control.rotation == 1) {
-      minX = mainBlockX;
+      minX = mainBlockX-1;
       maxX = mainBlockX+1;
     } else
       if (control.rotation == 0 || control.rotation == 2) {
         minX = mainBlockX-1;
-        maxX = mainBlockX+1;
+        maxX = mainBlockX;
       }
-        if (mainBlockX == 0) {            
-          onEdgeLeft = true;
-        } else {
-          onEdgeLeft = false;
-        }
+    if (mainBlockX == 0) {            
+      onEdgeLeft = true;
+    } else {
+      onEdgeLeft = false;
+    }
 
-        if (mainBlockX == grid.w-1) {   
-          onEdgeRight = true;
-        } else {
-          onEdgeRight = false; 
+    if (mainBlockX == grid.w-1) {   
+      onEdgeRight = true;
+    } else {
+      onEdgeRight = false; 
 
-          grid.cells[mainBlockX][mainBlockY] = 1;
-          grid.cells[width1][height1] = 1;
-          grid.cells[width2][height2] = 1;
-          grid.cells[width3][height3] = 1;
-        }
-      }
+      grid.cells[mainBlockX][mainBlockY] = 1;
+      grid.cells[width1][height1] = 1;
+      grid.cells[width2][height2] = 1;
+      grid.cells[width3][height3] = 1;
+    }
   }
+}

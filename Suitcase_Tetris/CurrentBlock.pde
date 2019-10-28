@@ -13,7 +13,7 @@ class CurrentBlock {
 
   void newBlock() {
     if (newBlock) {
-      blockPicker = 5;
+      blockPicker = int(random(1, 6));
       newBlock = false;
       println(blockPicker);
     }
@@ -34,6 +34,9 @@ class CurrentBlock {
     }
     if (blockPicker == 5) {
       zBlock.ZBlockDraw();
+    }
+    if (blockPicker == 6) {
+      jBlock.JBlockDraw();
     }
   }
 
@@ -67,6 +70,12 @@ class CurrentBlock {
       maxX = zBlock.maxX;
       onEdgeLeft = zBlock.onEdgeLeft;
       onEdgeRight = zBlock.onEdgeRight;
+    }
+    if (blockPicker == 6) {
+      minX = jBlock.minX;
+      maxX = jBlock.maxX;
+      onEdgeLeft = jBlock.onEdgeLeft;
+      onEdgeRight = jBlock.onEdgeRight;
     }
   }
 }

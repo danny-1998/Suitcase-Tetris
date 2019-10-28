@@ -13,7 +13,7 @@ class CurrentBlock {
 
   void newBlock() {
     if (newBlock) {
-      blockPicker = int(random(1, 6));
+      blockPicker = int(random(1, 8));
       newBlock = false;
       println(blockPicker);
     }
@@ -37,6 +37,12 @@ class CurrentBlock {
     }
     if (blockPicker == 6) {
       jBlock.JBlockDraw();
+    }
+    if (blockPicker == 7) {
+      lblock.LblockDraw();
+    }
+    if (blockPicker == 8) {
+      commaBlock.CommaBlockDraw();
     }
   }
 

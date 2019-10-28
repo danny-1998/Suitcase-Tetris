@@ -1,10 +1,74 @@
 class Lblock {
-  /*diagram of how im coding this Point_Block in the grid:
-   *                [0]
+  /*diagram of how im coding this L_Block in the grid:
    *                [1]
+   *                [0]
    *                [2][3]
-   *               2 = main
+   *               0 = main
    */
   
+  int mainBlockX;
+  int mainBlockY;
+  int block1X, block1Y;
+  int block2X, block2Y;
+  int block3X, block3Y;
   
+  Lblock(){
+    mainBlockX = 5;
+    mainBlockY = 5;
+  }
+  
+ void LblockDraw () {
+   if (control.rotation == 0) {
+     block1X = mainBlockX;
+     block1Y = mainBlockY - 1;
+                                         //    [1]
+     block2X = mainBlockX;               //    [0]       
+     block2Y = mainBlockY + 1;           //    [2][3]
+     
+     block3X = mainBlockX + 1;
+     block3Y = mainBlockY + 1;
+   }
+   
+   if (control.rotation == 1) {
+     block1X = mainBlockX + 1;
+     block1Y = mainBlockY;
+                                         //    [2][0][1]      
+     block2X = mainBlockX - 1;           //    [3]                    
+     block2Y = mainBlockY;                     
+     
+     block3X = mainBlockX - 1;
+     block3Y = mainBlockY + 1;
+   }
+   
+   if (control.rotation == 2) {
+     block1X = mainBlockX;
+     block1Y = mainBlockY + 1;
+                                         //    [3][2]
+     block2X = mainBlockX;               //       [0]       
+     block2Y = mainBlockY - 1;           //       [1]
+     
+     block3X = mainBlockX - 1;
+     block3Y = mainBlockY - 1;
+   }
+   
+   if (control.rotation == 3) {
+     block1X = mainBlockX - 1;
+     block1Y = mainBlockY;
+                                         //          [3]
+     block2X = mainBlockX + 1;           //    [1][0][2]       
+     block2Y = mainBlockY;           
+     
+     block3X = mainBlockX + 1;
+     block3Y = mainBlockY - 1;
+   }
+   
+    grid.cells[mainBlockX][mainBlockY] = 1;
+    grid.cells[block1X][block1Y] = 1;
+    grid.cells[block2X][block2Y] = 1;
+    grid.cells[block3X][block3Y] = 1;
+   
+ }
+ 
+ 
+ 
 }

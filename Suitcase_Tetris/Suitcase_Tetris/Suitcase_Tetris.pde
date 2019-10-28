@@ -5,7 +5,6 @@ PointBlock pointBlock;
 OBlock oBlock;
 SBlock sBlock;
 ZBlock zBlock;
-JBlock jBlock;
 Control control;
 CurrentBlock currentBlock;
 Location blockPlace;
@@ -22,18 +21,20 @@ void setup()
   zBlock = new ZBlock();
   blockPlace = new Location();
   fullScreen();
+  blockPlace.setup();
 }
 
 void draw()
 {
   background(255);
+   blockPlace.draw();
   grid.drawGrid();
   grid.gridClear();
   currentBlock.newBlock();
   currentBlock.currentBlockDraw();
   currentBlock.currentBlockControlls();
   control.movement();
-  blockPlace.draw();
+  
   
   /*if(keyPressed == true){
       println(key);

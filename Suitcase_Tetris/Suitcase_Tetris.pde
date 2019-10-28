@@ -8,6 +8,7 @@ ZBlock zBlock;
 JBlock jBlock;
 Control control;
 CurrentBlock currentBlock;
+Score score;
 void setup()
 {
   //img2 = loadImage("2.jpg");
@@ -20,6 +21,7 @@ void setup()
   sBlock = new SBlock();
   zBlock = new ZBlock();
   jBlock = new JBlock();
+  score = new Score();
   fullScreen();
 }
 
@@ -32,6 +34,7 @@ void draw()
   currentBlock.currentBlockDraw();
   currentBlock.currentBlockControlls();
   control.movement();
+  score.scoreDraw();
   
 
   /*if (keyPressed == true)//in milliseconds

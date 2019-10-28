@@ -27,7 +27,7 @@ class JBlock {
   void JBlockDraw() {
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
-    //   [1]
+                                              //   [1]
     if (control.rotation == 0) {              //   [0]
       width1=mainBlockX;                      //[2][3]
       height1=mainBlockY-1;

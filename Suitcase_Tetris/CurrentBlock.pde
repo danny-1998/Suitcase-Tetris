@@ -19,8 +19,6 @@ class CurrentBlock {
     newBlock = false;
     println(blockPicker);
   }
-    
-  }
 
   void currentBlockDraw() {
     if (blockPicker==1) {
@@ -29,14 +27,23 @@ class CurrentBlock {
     if (blockPicker==2) {
       oBlock.OBlockDraw();
     }
-    if(blockPicker == 3){
-     pointBlock.PointBlockDraw(); 
+    if (blockPicker == 3) {
+      pointBlock.PointBlockDraw();
     }
-    if(blockPicker == 4){
-     sBlock.SBlockDraw(); 
+    if (blockPicker == 4) {
+      sBlock.SBlockDraw();
     }
-    if(blockPicker == 5){
-     zBlock.ZBlockDraw(); 
+    if (blockPicker == 5) {
+      zBlock.ZBlockDraw();
+    }
+    if (blockPicker == 6) {
+      jBlock.JBlockDraw();
+    }
+    if (blockPicker == 7) {
+      lblock.LblockDraw();
+    }
+    if (blockPicker == 8) {
+      commaBlock.CommaBlockDraw();
     }
   }
 
@@ -47,29 +54,43 @@ class CurrentBlock {
       onEdgeLeft = tBlock.onEdgeLeft;
       onEdgeRight = tBlock.onEdgeRight;
     }
-    if(blockPicker==2){
-     minX = oBlock.minX;
-     maxX = oBlock.maxX;
-     onEdgeLeft = false;
-     onEdgeRight = false;
+    if (blockPicker==2) {
+      minX = oBlock.minX;
+      maxX = oBlock.maxX;
+      onEdgeLeft = false;
+      onEdgeRight = false;
     }
-    if(blockPicker==3){
-     minX = pointBlock.minX;
-     maxX = pointBlock.maxX;
-     onEdgeLeft = false;
-     onEdgeRight = false;
+    if (blockPicker==3) {
+      minX = pointBlock.minX;
+      maxX = pointBlock.maxX;
+      onEdgeLeft = false;
+      onEdgeRight = false;
     }
-    if(blockPicker == 4){
-     minX = sBlock.minX;
-     maxX = sBlock.maxX;
-     onEdgeLeft = sBlock.onEdgeLeft;
-     onEdgeRight = sBlock.onEdgeRight;
+    if (blockPicker == 4) {
+      minX = sBlock.minX;
+      maxX = sBlock.maxX;
+      onEdgeLeft = sBlock.onEdgeLeft;
+      onEdgeRight = sBlock.onEdgeRight;
     }
-    if(blockPicker == 5){
+    if (blockPicker == 5) {
       minX = zBlock.minX;
       maxX = zBlock.maxX;
       onEdgeLeft = zBlock.onEdgeLeft;
       onEdgeRight = zBlock.onEdgeRight;
+    }
+    if (blockPicker == 6) {
+      minX = jBlock.minX;
+      maxX = jBlock.maxX;
+      onEdgeLeft = jBlock.onEdgeLeft;
+      onEdgeRight = jBlock.onEdgeRight;
+    }
+    if (blockPicker == 7) {
+      minX = lblock.minX;
+      maxX = lblock.maxX;
+      onEdgeLeft = lblock.onEdgeLeft;
+      onEdgeRight = lblock.onEdgeRight;
+    }
+    if (blockPicker == 8) {
     }
   }
 }

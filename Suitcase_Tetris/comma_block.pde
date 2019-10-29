@@ -1,6 +1,6 @@
 class CommaBlock { 
 
-  /*diagram of how im coding this Point_Block in the grid:
+  /*diagram of how im coding this comma_Block in the grid:
    *                [0]
    *                [1][2]
    *               1 = main
@@ -9,6 +9,8 @@ class CommaBlock {
   int mainBlockX, mainBlockY;
   int block0X, block0Y;
   int block2X, block2Y;
+  int minX, maxX;
+  boolean onEdgeLeft, onEdgeRight;
 
   CommaBlock() {
     mainBlockX = 6;

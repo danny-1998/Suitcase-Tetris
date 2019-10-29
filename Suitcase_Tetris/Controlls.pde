@@ -2,6 +2,7 @@ class Control {
   //By Ole Neuman
   boolean lock1, lock2;
   int rotation;
+  boolean top = false;
 
   Control() {
     lock1 = false;
@@ -10,7 +11,9 @@ class Control {
   }
 
   void movement() {
-
+    if(key == 'c'){
+      top = true;
+    }
     if (key=='a' && !lock1 && keyPressed&&currentBlock.minX>=1) {   //if a is pressed, moves block to left
       lock1 = true;
       currentBlock.currentBlockX -= 1;

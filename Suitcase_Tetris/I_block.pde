@@ -30,6 +30,7 @@ class IBlock {
       
       minX = mainBlockX;
       maxX = mainBlockX;
+      maxY = mainBlockY + 2;
     }
     
     if (control.rotation == 1 || control.rotation == 3) {
@@ -44,6 +45,7 @@ class IBlock {
       
       minX = mainBlockX - 1;
       maxX = mainBlockX + 2;
+      maxY = mainBlockY;
     }
     
      if (mainBlockX == 0) {            

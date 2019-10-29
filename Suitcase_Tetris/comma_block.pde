@@ -18,6 +18,8 @@ class CommaBlock {
   }
 
   void CommaBlockDraw () {
+    mainBlockX = currentBlock.currentBlockX;
+    mainBlockY = currentBlock.currentBlockY;
     
     if (control.rotation == 0) {
       block0X = mainBlockX;                  // the block looks like this:
@@ -25,6 +27,9 @@ class CommaBlock {
                                              //        [M][2]              
       block2X = mainBlockX + 1;
       block2Y = mainBlockY;
+      
+      minX = mainBlockX;
+      maxX = mainBlockX + 1;
     }
     
     if (control.rotation == 1) {
@@ -33,6 +38,9 @@ class CommaBlock {
                                              //        [2]
       block2X = mainBlockX;
       block2Y = mainBlockY + 1;
+      
+      minX = mainBlockX;
+      maxX = mainBlockX + 1;
     }
     
     if (control.rotation == 2) {
@@ -41,6 +49,9 @@ class CommaBlock {
                                              //        [0]
       block2X = mainBlockX - 1;
       block2Y = mainBlockY;
+      
+      minX = mainBlockX - 1;
+      maxX = mainBlockX;
     }
     
     if (control.rotation == 3) {
@@ -49,6 +60,22 @@ class CommaBlock {
                                              //     [0][M]
       block2X = mainBlockX;
       block2Y = mainBlockY - 1;
+      
+      minX = mainBlockX - 1;
+      maxX = mainBlockX;
+    }
+    
+   
+   if (mainBlockX == 0) {            
+      onEdgeLeft = true;
+    } else {
+      onEdgeLeft = false;
+    }
+
+    if (mainBlockX == grid.w-1) {   
+      onEdgeRight = true;
+    } else {
+      onEdgeRight = false;
     }
     
     grid.cells[mainBlockX][mainBlockY] = 1;

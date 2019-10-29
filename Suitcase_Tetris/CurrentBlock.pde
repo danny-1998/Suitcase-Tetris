@@ -3,6 +3,7 @@ class CurrentBlock {
   int currentBlockX, currentBlockY;
   int minX, maxX;
   boolean onEdgeLeft, onEdgeRight;
+  boolean wallClockwise, wallAnticlockwise;
   boolean newBlock = false;
   CurrentBlock() {
     currentBlockX = 11;
@@ -56,36 +57,48 @@ class CurrentBlock {
       maxX = tBlock.maxX;
       onEdgeLeft = tBlock.onEdgeLeft;
       onEdgeRight = tBlock.onEdgeRight;
+      wallClockwise = tBlock.wallClockwise;
+      wallAnticlockwise = tBlock.wallAnticlockwise;
     }
     if (blockPicker==2) {
       minX = oBlock.minX;
       maxX = oBlock.maxX;
       onEdgeLeft = false;
       onEdgeRight = false;
+      wallClockwise = false;
+      wallAnticlockwise = false;
     }
     if (blockPicker==3) {
       minX = pointBlock.minX;
       maxX = pointBlock.maxX;
       onEdgeLeft = false;
       onEdgeRight = false;
+      wallClockwise = false;
+      wallAnticlockwise = false;;
     }
     if (blockPicker == 4) {
       minX = sBlock.minX;
       maxX = sBlock.maxX;
       onEdgeLeft = sBlock.onEdgeLeft;
       onEdgeRight = sBlock.onEdgeRight;
+      wallClockwise = sBlock.wallClockwise;
+      wallAnticlockwise = sBlock.wallAnticlockwise;
     }
     if (blockPicker == 5) {
       minX = zBlock.minX;
       maxX = zBlock.maxX;
       onEdgeLeft = zBlock.onEdgeLeft;
       onEdgeRight = zBlock.onEdgeRight;
+      wallClockwise = zBlock.wallClockwise;
+      wallAnticlockwise = zBlock.wallAnticlockwise;
     }
     if (blockPicker == 6) {
       minX = jBlock.minX;
       maxX = jBlock.maxX;
       onEdgeLeft = jBlock.onEdgeLeft;
       onEdgeRight = jBlock.onEdgeRight;
+      wallClockwise = jBlock.wallClockwise;
+      wallAnticlockwise = jBlock.wallAnticlockwise;
     }
     if (blockPicker == 7) {
       minX = lblock.minX;

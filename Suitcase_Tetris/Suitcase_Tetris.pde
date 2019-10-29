@@ -72,13 +72,8 @@ void draw()
 
   currentBlock.currentBlockDraw();
   currentBlock.currentBlockControlls();
-
- // tBlock.TBlockDraw();
-  //pointblock.PointBlockDraw();
-  //oblock.OBlockDraw();
- // commaBlock.CommaBlockDraw();
-
-  control.movement();
+  //control.movement();
+  control.keyPressed();
   score.scoreDraw();
   
   

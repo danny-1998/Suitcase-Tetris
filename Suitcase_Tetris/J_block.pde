@@ -18,6 +18,7 @@ class JBlock {
   int height3;
   int minX, maxX;
   boolean onEdgeLeft, onEdgeRight;
+  boolean wallClockwise, wallAnticlockwise;
 
   JBlock() {
     mainBlockX=5;
@@ -40,6 +41,9 @@ class JBlock {
 
       minX = mainBlockX-1;
       maxX = mainBlockX;
+      
+      wallClockwise = true;
+      wallAnticlockwise = true;
     } else 
 
     if (control.rotation == 1) {          //   [2]
@@ -54,6 +58,9 @@ class JBlock {
 
       minX = mainBlockX-1;
       maxX = mainBlockX+1;
+
+      wallClockwise = false;
+      wallAnticlockwise = false;
     } else
       if (control.rotation == 2) {           //      [3][2]
         width1=mainBlockX;                   //      [0]
@@ -67,6 +74,9 @@ class JBlock {
 
         minX = mainBlockX;
         maxX = mainBlockX+1;
+
+        wallClockwise = true ;
+        wallAnticlockwise = true;
       } else
         if (control.rotation == 3) {
           width1 = mainBlockX-1;              //     [1][0][3]
@@ -80,9 +90,10 @@ class JBlock {
 
           minX = mainBlockX-1;
           maxX = mainBlockX+1;
-        }
 
-
+          wallClockwise = false ;
+          wallAnticlockwise = false;
+        }    
 
     if (mainBlockX == 0) {            
       onEdgeLeft = true;

@@ -13,7 +13,7 @@ class CurrentBlock {
 
   void newBlock() {
     if (newBlock) {
-      blockPicker = int(random(1, 8));
+      blockPicker = int(random(5, 5));
       newBlock = false;
       println(blockPicker);
     }

@@ -11,7 +11,7 @@ class Score {
   void scoreDraw() {
 
     if (control.top == true) {
-      // stop the game
+      // stop the gamec
       GameOver = true;
     }
     if (GameOver == true) {

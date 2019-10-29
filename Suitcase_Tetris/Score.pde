@@ -6,23 +6,18 @@ class Score {
   //   - if yes: make the game stop
   //   - if no: do nothing
 
-
+  boolean GameOver = false;
   boolean top = false;
   void scoreDraw() {
 
-    if (top == true) {
+    if (control.top == true) {
       // stop the game
-      currentBlock.newBlock = false;
-      rect(0, 0, width, height);
+      GameOver = true;
+    }
+    if (GameOver == true) {
+      noStroke();
+      fill(255,0,0);
+      rect(0,0,width,height);
     }
   }
-
-
-// debug stuff ↓
-  void keyPressed() {
-    if (key == 'c') {
-      top = true;
-    }
-  }
-  
 }

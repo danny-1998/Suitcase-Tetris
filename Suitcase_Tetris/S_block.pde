@@ -63,7 +63,7 @@ class SBlock {
         minX = mainBlockX-1;
         maxX = mainBlockX+1;
       } else
-        if (control.rotation == 3) {          //   [1]
+        if (control.rotation == 3) {        //     [1]
           width1 = mainBlockX;              //     [0][3]
           height1 = mainBlockY-1;           //        [2]
 

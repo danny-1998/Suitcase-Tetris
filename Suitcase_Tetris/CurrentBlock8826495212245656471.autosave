@@ -13,11 +13,7 @@ class CurrentBlock {
 
   void newBlock() {
     if (newBlock) {
-<<<<<<< HEAD
-      blockPicker = int(random(1,9));
-=======
-      blockPicker = int(random(5, 5));
->>>>>>> master
+      blockPicker = int(random(1, 6));
       newBlock = false;
       println(blockPicker);
     }
@@ -41,15 +37,6 @@ class CurrentBlock {
     }
     if (blockPicker == 6) {
       jBlock.JBlockDraw();
-    }
-    if (blockPicker == 7) {
-      lblock.LblockDraw();
-    }
-    if (blockPicker == 8) {
-      commaBlock.CommaBlockDraw();
-    }
-    if (blockPicker == 9) {
-      iBlock.IBlockDraw();
     }
   }
 
@@ -89,24 +76,6 @@ class CurrentBlock {
       maxX = jBlock.maxX;
       onEdgeLeft = jBlock.onEdgeLeft;
       onEdgeRight = jBlock.onEdgeRight;
-    }
-    if (blockPicker == 7) {
-      minX = lblock.minX;
-      maxX = lblock.maxX;
-      onEdgeLeft = lblock.onEdgeLeft;
-      onEdgeRight = lblock.onEdgeRight;
-    }
-    if (blockPicker == 8) {
-      minX = commaBlock.minX;
-      maxX = commaBlock.maxX;
-      onEdgeLeft = commaBlock.onEdgeLeft;
-      onEdgeRight = commaBlock.onEdgeRight;
-    }
-    if (blockPicker == 9){
-      minX = iBlock.minX;
-      maxX = iBlock.maxX;
-      onEdgeLeft = iBlock.onEdgeLeft;
-      onEdgeRight = iBlock.onEdgeRight;
     }
   }
 }

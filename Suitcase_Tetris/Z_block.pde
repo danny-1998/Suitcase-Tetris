@@ -51,7 +51,7 @@ class ZBlock {
       maxX = mainBlockX;
     } else
       if (control.rotation == 2) {           //      [1][0]
-        width1=mainBlockX-1;                    //      [2][3]
+        width1=mainBlockX-1;                 //         [2][3]
         height1=mainBlockY;
 
         width2= mainBlockX;
@@ -60,7 +60,7 @@ class ZBlock {
         width3= mainBlockX+1;
         height3=mainBlockY+1;
       } else
-        if (control.rotation == 3) {          //      [1]
+        if (control.rotation == 3) {        //        [1]
           width1 = mainBlockX;              //     [2][0]
           height1 = mainBlockY-1;           //     [3]
 

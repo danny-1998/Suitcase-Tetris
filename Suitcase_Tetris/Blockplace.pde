@@ -18,7 +18,7 @@ class Location {
   }
 
   void draw() {
-    grid.cells[12][10] = 1;
+    grid.cells[12][10] = 1; //blok wat altijd aan is voor collision testing
 
     println(tBlock.maxY);
     if (currentBlock.blockPicker == 1) {// t-block

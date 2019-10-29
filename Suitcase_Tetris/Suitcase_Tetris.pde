@@ -58,8 +58,8 @@ void setup()
 void draw()
 {
   background(255);
-   blockPlace.draw();
   grid.drawGrid();
+  blockPlace.draw();
   grid.gridClear();
 
   currentBlock.newBlock();

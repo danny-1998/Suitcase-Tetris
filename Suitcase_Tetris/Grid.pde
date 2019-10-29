@@ -41,7 +41,7 @@ class Grid {
   void gridClear() {
     for (int i = 0; i<w; i++) {
       for (int o = 0; o<h; o++) {
-        cells[i][o] = 0;
+        cells[i][o] = blockPlace.filled[i][o];
       }
     }
   }

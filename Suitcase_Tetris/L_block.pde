@@ -11,6 +11,8 @@ class Lblock {
   int block1X, block1Y;
   int block2X, block2Y;
   int block3X, block3Y;
+  int minX, maxX;
+  boolean onEdgeLeft, onEdgeRight;
   
   Lblock(){
     mainBlockX = 5;
@@ -18,6 +20,9 @@ class Lblock {
   }
   
  void LblockDraw () {
+   mainBlockX = currentBlock.currentBlockX;
+   mainBlockY = currentBlock.currentBlockY;
+   
    if (control.rotation == 0) {
      block1X = mainBlockX;
      block1Y = mainBlockY - 1;
@@ -61,6 +66,26 @@ class Lblock {
      block3X = mainBlockX + 1;
      block3Y = mainBlockY - 1;
    }
+   
+   if (control.rotation == 0 || control.rotation == 2) {
+     minX = mainBlockX - 1;
+     maxX = mainBlockX;
+   }
+   else if (control.rotation == 1 || control.rotation == 3) {
+     minX = mainBlockX - 1;
+     maxX = mainBlockX + 1;
+   }
+   if (mainBlockX == 0) {            
+      onEdgeLeft = true;
+    } else {
+      onEdgeLeft = false;
+    }
+
+    if (mainBlockX == grid.w-1) {   
+      onEdgeRight = true;
+    } else {
+      onEdgeRight = false;
+    }
    
     grid.cells[mainBlockX][mainBlockY] = 1;
     grid.cells[block1X][block1Y] = 1;

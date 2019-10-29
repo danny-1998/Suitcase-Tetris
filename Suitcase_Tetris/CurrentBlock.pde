@@ -83,5 +83,13 @@ class CurrentBlock {
       onEdgeLeft = jBlock.onEdgeLeft;
       onEdgeRight = jBlock.onEdgeRight;
     }
+    if (blockPicker == 7) {
+      minX = lblock.minX;
+      maxX = lblock.maxX;
+      onEdgeLeft = lblock.onEdgeLeft;
+      onEdgeRight = lblock.onEdgeRight;
+    }
+    if (blockPicker == 8) {
+    }
   }
 }

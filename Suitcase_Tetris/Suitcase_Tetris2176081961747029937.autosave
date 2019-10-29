@@ -6,18 +6,12 @@ PointBlock pointBlock;
 OBlock oBlock;
 SBlock sBlock;
 
-ZBlock zBlock;
-JBlock jBlock;
-Lblock lblock;
-
-
 PointBlock pointblock;
 OBlock oblock;
 CommaBlock commaBlock;
 
 Control control;
 CurrentBlock currentBlock;
-Score score;
 void setup()
 {
   //img2 = loadImage("2.jpg");
@@ -34,13 +28,6 @@ void setup()
 
   control = new Control();
   sBlock = new SBlock();
-  zBlock = new ZBlock();
-  jBlock = new JBlock();
-
-  score = new Score();
-
-  lblock = new Lblock();
-
   fullScreen();
 }
 
@@ -50,25 +37,19 @@ void draw()
   grid.drawGrid();
   grid.gridClear();
 
-  currentBlock.newBlock();
-
-
   //tBlock.TBlockDraw();
   //pointBlock.PointBlockDraw();
   //oBlock.OBlockDraw();
   //sBlock.SBlockDraw();
-
   currentBlock.currentBlockDraw();
   currentBlock.currentBlockControlls();
 
- // tBlock.TBlockDraw();
-  //pointblock.PointBlockDraw();
-  //oblock.OBlockDraw();
- // commaBlock.CommaBlockDraw();
-
+  tBlock.TBlockDraw();
+  pointblock.PointBlockDraw();
+  oblock.OBlockDraw();
+  commaBlock.CommaBlockDraw();
+>>>>>>> Stashed changes
   control.movement();
-  score.scoreDraw();
-  
 
   /*if (keyPressed == true)//in milliseconds
    {

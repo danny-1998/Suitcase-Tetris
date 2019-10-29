@@ -9,6 +9,8 @@ class CommaBlock {
   int mainBlockX, mainBlockY;
   int block0X, block0Y;
   int block2X, block2Y;
+  int minX, maxX;
+  boolean onEdgeLeft, onEdgeRight;
 
   CommaBlock() {
     mainBlockX = 6;

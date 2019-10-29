@@ -106,4 +106,8 @@ class CurrentBlock {
       onEdgeRight = iBlock.onEdgeRight;
     }
   }
-  }
+  
+  void oneStepDown() { 
+    currentBlockY += 1; 
+  } 
+}

@@ -1,7 +1,9 @@
+import processing.sound.*;
 PImage img1, img2;
+SoundFile beep, bgmusic;
 Grid grid;
 TBlock tBlock;
-
+Location blockPlace;
 PointBlock pointBlock;
 OBlock oBlock;
 SBlock sBlock;
@@ -17,12 +19,10 @@ OBlock oblock;
 CommaBlock commaBlock;
 
 Control control;
-CurrentBlock currentBlock;
-
-Location blockPlace;
-
+CurrentBlock currentBlock, nextPiece;
 Score score;
-
+boolean gameOn;
+int dt, currentTime;
 void setup()
 {
   //img2 = loadImage("2.jpg");
@@ -50,14 +50,23 @@ void setup()
   lblock = new Lblock();
   iBlock = new IBlock();
 
-
-  fullScreen();
-  blockPlace.setup();
+  //fullScreen();
+  size(1920, 1080);
+  gameOn = true;
+  dt = 1000;
+  beep = new SoundFile(this, "beep.wav");
+  bgmusic = new SoundFile(this, "background_music.wav");
+  bgmusic.loop();
+  
 }
 
 void draw()
 {
   background(255);
+<<<<<<< HEAD
+=======
+  //blockPlace.draw();
+>>>>>>> master
   grid.drawGrid();
   blockPlace.draw();
   grid.gridClear();
@@ -75,16 +84,24 @@ void draw()
   //control.movement();
   control.keyPressed();
   score.scoreDraw();
-  
-  
-  /*if(keyPressed == true){
-      println(key);
-    if(key == '0' ){
-     currentBlock.blockPicker += 1;
-     println(currentBlock.blockPicker);
+  if(grid != null){
+    grid.drawGrid();
+    int now = millis();
+    if (gameOn) {
+      if (now - currentTime > dt) {
+        currentTime = now;
+        if(currentBlock.currentBlockY < grid.h-1) {
+          currentBlock.oneStepDown();
+          beep.play();
+          println("dropping down" + " Position of block:" + currentBlock.currentBlockY + " Grid height:" + grid.h);
+        } else if(currentBlock.currentBlockY == grid.h-1){
+          currentBlock = new CurrentBlock();
+          currentBlock.newBlock();
+          println("new block");
+        }
+      }
     }
-  }*/
-  
+  }
 
   /*if (keyPressed == true)//in milliseconds
    {

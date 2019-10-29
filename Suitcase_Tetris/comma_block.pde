@@ -11,6 +11,7 @@ class CommaBlock {
   int block2X, block2Y;
   int minX, maxX;
   boolean onEdgeLeft, onEdgeRight;
+  boolean wallClockwise, wallAnticlockwise;
 
   CommaBlock() {
     mainBlockX = 6;
@@ -29,7 +30,10 @@ class CommaBlock {
       block2Y = mainBlockY;
       
       minX = mainBlockX;
-      maxX = mainBlockX + 1;
+      maxX = mainBlockX+1;
+      
+      wallClockwise = false;
+      wallAnticlockwise = true;
     }
     
     if (control.rotation == 1) {
@@ -40,7 +44,10 @@ class CommaBlock {
       block2Y = mainBlockY + 1;
       
       minX = mainBlockX;
-      maxX = mainBlockX + 1;
+      maxX = mainBlockX+1;
+      
+      wallClockwise = true;
+      wallAnticlockwise = false;
     }
     
     if (control.rotation == 2) {
@@ -50,19 +57,25 @@ class CommaBlock {
       block2X = mainBlockX - 1;
       block2Y = mainBlockY;
       
-      minX = mainBlockX - 1;
+      minX = mainBlockX-1;
       maxX = mainBlockX;
+      
+      wallClockwise = false;
+      wallAnticlockwise = true;
     }
     
     if (control.rotation == 3) {
-      block0X = mainBlockX - 1;              // the block looks like this:
-      block0Y = mainBlockY;                  //        [2]
-                                             //     [0][M]
+      block0X = mainBlockX - 1;              // the block looks like this
+      block0Y = mainBlockY;                  //            [2] 
+                                             //         [0][M]
       block2X = mainBlockX;
       block2Y = mainBlockY - 1;
       
-      minX = mainBlockX - 1;
+      minX = mainBlockX-1;
       maxX = mainBlockX;
+      
+      wallClockwise = true;
+      wallAnticlockwise = false;
     }
     
    

@@ -32,6 +32,10 @@ class Lblock {
      
      block3X = mainBlockX + 1;
      block3Y = mainBlockY + 1;
+     
+     minX = mainBlockX;
+     maxX = mainBlockX+1;
+     
    }
    
    if (control.rotation == 1) {
@@ -43,6 +47,9 @@ class Lblock {
      
      block3X = mainBlockX - 1;
      block3Y = mainBlockY + 1;
+     
+     minX = mainBlockX-1;
+     maxX = mainBlockX+1;
    }
    
    if (control.rotation == 2) {
@@ -54,6 +61,9 @@ class Lblock {
      
      block3X = mainBlockX - 1;
      block3Y = mainBlockY - 1;
+     
+     minX = mainBlockX-1;
+     maxX = mainBlockX;
    }
    
    if (control.rotation == 3) {
@@ -65,16 +75,11 @@ class Lblock {
      
      block3X = mainBlockX + 1;
      block3Y = mainBlockY - 1;
+     
+     minX = mainBlockX-1;
+     maxX = mainBlockX+1;
    }
-   
-   if (control.rotation == 0 || control.rotation == 2) {
-     minX = mainBlockX - 1;
-     maxX = mainBlockX;
-   }
-   else if (control.rotation == 1 || control.rotation == 3) {
-     minX = mainBlockX - 1;
-     maxX = mainBlockX + 1;
-   }
+
    if (mainBlockX == 0) {            
       onEdgeLeft = true;
     } else {

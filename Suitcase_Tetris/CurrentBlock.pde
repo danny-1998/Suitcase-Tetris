@@ -45,6 +45,9 @@ class CurrentBlock {
     if (blockPicker == 8) {
       commaBlock.CommaBlockDraw();
     }
+    if (blockPicker == 9) {
+      iBlock.IBlockDraw();
+    }
   }
 
   void currentBlockControlls() {
@@ -91,6 +94,16 @@ class CurrentBlock {
       onEdgeRight = lblock.onEdgeRight;
     }
     if (blockPicker == 8) {
+      minX = commaBlock.minX;
+      maxX = commaBlock.maxX;
+      onEdgeLeft = commaBlock.onEdgeLeft;
+      onEdgeRight = commaBlock.onEdgeRight;
+    }
+    if (blockPicker == 9){
+      minX = iBlock.minX;
+      maxX = iBlock.maxX;
+      onEdgeLeft = iBlock.onEdgeLeft;
+      onEdgeRight = iBlock.onEdgeRight;
     }
   }
 }

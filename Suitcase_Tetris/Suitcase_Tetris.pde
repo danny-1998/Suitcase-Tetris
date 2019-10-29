@@ -9,6 +9,7 @@ SBlock sBlock;
 ZBlock zBlock;
 JBlock jBlock;
 Lblock lblock;
+IBlock iBlock;
 
 
 PointBlock pointblock;
@@ -47,6 +48,7 @@ void setup()
   score = new Score();
 
   lblock = new Lblock();
+  iBlock = new IBlock();
 
 >>>>>>>
   fullScreen();

@@ -96,10 +96,12 @@ int maxY;
      onEdgeRight = false; 
     }
     
+    currentBlock.currentBlockX = mainBlockX;
+    currentBlock.currentBlockY = mainBlockY;
     
     grid.cells[mainBlockX][mainBlockY] = 1;
     grid.cells[block0X][block0Y] = 1;
-    grid.cells[block1X][block1Y] = 1; //<>//
-    grid.cells[block3X][block3Y]  = 1; //<>//
+    grid.cells[block1X][block1Y] = 1; //<>// //<>//
+    grid.cells[block3X][block3Y]  = 1; //<>// //<>// //<>//
   }
 }

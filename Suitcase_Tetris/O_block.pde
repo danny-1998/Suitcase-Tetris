@@ -1,7 +1,7 @@
 // By Kiano Wortel
 
 class OBlock {
-  /*diagram of how im coding this O_Block in the grid:
+  /*diagram of how im coding this Point_Block in the grid:
    *                [0][1]
    *                [2][3]
    *               0 = mainBlock

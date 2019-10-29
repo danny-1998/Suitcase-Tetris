@@ -19,7 +19,7 @@ class Control {
         lock1 = true;
         currentBlock.currentBlockX += 1;
       } else 
-      if (key == 'q' && !lock2 && keyPressed) {  //if q is pressed, rotates block clockwise
+      if (key == 'w' && !lock2 && keyPressed) {  //if w is pressed, rotates block clockwise
         if (currentBlock.onEdgeLeft==true) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid
           currentBlock.currentBlockX+=1;
         } else
@@ -28,6 +28,9 @@ class Control {
           }
         lock2 = true;
         rotation += 1;
+      } else
+      if (key == 's' && !lock2 && keyPressed) {  //if s is pressed, get DOWN (toegevoegd door yves)
+        currentBlock.currentBlockY += 1;
       } else
         if (key == 'z' && !lock2 && keyPressed) {  // if z is pressed, rotates block counterclockwise
           if (currentBlock.onEdgeLeft==true) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid

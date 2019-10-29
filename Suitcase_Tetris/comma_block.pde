@@ -10,7 +10,7 @@ class CommaBlock {
   int block0X, block0Y;
   int block2X, block2Y;
   int minX, maxX;
-  int maxY
+  int maxY;
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
 
@@ -47,7 +47,7 @@ class CommaBlock {
       
       minX = mainBlockX;
       maxX = mainBlockX+1;
-      maxY = mainBlock + 1;
+      maxY = mainBlockY + 1;
       
       wallClockwise = true;
       wallAnticlockwise = false;

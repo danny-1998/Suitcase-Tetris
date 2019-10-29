@@ -63,10 +63,10 @@ void setup()
 void draw()
 {
   background(255);
-<<<<<<< HEAD
-=======
+
+
   //blockPlace.draw();
->>>>>>> master
+
   grid.drawGrid();
   blockPlace.draw();
   grid.gridClear();

@@ -10,16 +10,15 @@ class CurrentBlock {
     blockPicker = 1;
     newBlock = true;
   }
-  
-  void newBlock(){
-    if(newBlock){
-     currentBlockY = 1;
-     currentBlockX = 11;
-     blockPicker = int(random(1,9));
-    newBlock = false;
-    println(blockPicker);
+
+  void newBlock() {
+    if (newBlock) {
+      blockPicker = int(random(1, 9));
+      newBlock = false;
+      println(blockPicker);
+    }
   }
-  }
+
   void currentBlockDraw() {
     if (blockPicker==1) {
       tBlock.TBlockDraw();
@@ -99,11 +98,11 @@ class CurrentBlock {
       onEdgeLeft = commaBlock.onEdgeLeft;
       onEdgeRight = commaBlock.onEdgeRight;
     }
-    if (blockPicker == 9){
+    if (blockPicker == 9) {
       minX = iBlock.minX;
       maxX = iBlock.maxX;
       onEdgeLeft = iBlock.onEdgeLeft;
       onEdgeRight = iBlock.onEdgeRight;
     }
   }
-  }
+}

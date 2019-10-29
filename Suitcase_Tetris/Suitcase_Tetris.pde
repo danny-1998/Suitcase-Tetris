@@ -18,11 +18,11 @@ CommaBlock commaBlock;
 
 Control control;
 CurrentBlock currentBlock;
-<<<<<<<
+
 Location blockPlace;
-=======
+
 Score score;
->>>>>>>
+
 void setup()
 {
   //img2 = loadImage("2.jpg");
@@ -40,9 +40,9 @@ void setup()
   control = new Control();
   sBlock = new SBlock();
   zBlock = new ZBlock();
-<<<<<<<
+
   blockPlace = new Location();
-=======
+
   jBlock = new JBlock();
 
   score = new Score();
@@ -50,7 +50,7 @@ void setup()
   lblock = new Lblock();
   iBlock = new IBlock();
 
->>>>>>>
+
   fullScreen();
   blockPlace.setup();
 }

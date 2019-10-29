@@ -18,7 +18,7 @@ class Location {
   }
 
   void draw() {
-    grid.cells[12][10] = 1; //blok wat altijd aan is voor collision testing
+    //grid.cells[12][10] = 1; //blok wat altijd(?) aan is voor collision testing
 
     println(tBlock.maxY);
     if (currentBlock.blockPicker == 1) {// t-block
@@ -29,21 +29,21 @@ class Location {
       }
     }
     if (currentBlock.blockPicker == 2) {// o-block
-      if (oBlock.maxY >= grid.h) {
+      if ((oBlock.maxY >= grid.h-1) /*|| (grid.cells[oBlock.width1][tBlock.maxY+1] == 1) /*|| (grid.cells[oBlock.width2][tBlock.maxY+1] == 1) || (grid.cells[oBlock.width3][tBlock.maxY+1] == 1) || (grid.cells[oBlock.mainBlockX][tBlock.maxY+1] == 1)*/ ) {
         println("hier is de bodem");
         B_lock = true;
         //noLoop();
       }
     }
     if (currentBlock.blockPicker == 3) {// point-block
-      if (pointBlock.maxY >= grid.h) {
+      if ((pointBlock.maxY >= grid.h-1) /*|| (grid.cells[pointBlock.mainBlockX][pointblock.maxY+1] == 1)*/) {
         println("hier is de bodem");
         B_lock = true;
         //noLoop();
       }
     }
     if (currentBlock.blockPicker == 4) {// s-block
-      if (sBlock.maxY >= grid.h) {
+      if (sBlock.maxY >= grid.h-1) {
         println("hier is de bodem");
         B_lock = true;
         //noLoop();
@@ -61,9 +61,10 @@ class Location {
       }
     }
     if (_new == true) {
+      _new = false;
       currentBlock.newBlock = true;
       B_lock = false;
-      _new = false;
+      
     }
   }
 }

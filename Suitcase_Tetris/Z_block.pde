@@ -16,6 +16,7 @@ class ZBlock {
   int width3;
   int height3;
   int minX, maxX;
+  int maxY;
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
 
@@ -40,6 +41,7 @@ class ZBlock {
 
       minX = mainBlockX-1;
       maxX = mainBlockX+1;
+      maxY = mainBlockY + 1;
 
       wallClockwise = false;
       wallAnticlockwise = false;
@@ -56,6 +58,7 @@ class ZBlock {
 
       minX = mainBlockX-1;
       maxX = mainBlockX;
+      maxY = mainBlockY + 1;
       
       wallClockwise = true;
       wallAnticlockwise = true;
@@ -72,6 +75,7 @@ class ZBlock {
 
         minX = mainBlockX-1;
         maxX = mainBlockX+1;
+        maxY = mainBlockY + 1;
 
         wallClockwise = false;
         wallAnticlockwise = false;
@@ -88,6 +92,7 @@ class ZBlock {
 
           minX = mainBlockX-1;
           maxX = mainBlockX;
+          maxY = mainBlockY + 1; 
 
           wallClockwise = true;
           wallAnticlockwise = true;

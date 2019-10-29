@@ -17,6 +17,7 @@ class JBlock {
   int width3;
   int height3;
   int minX, maxX;
+  int maxY;
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
 
@@ -41,6 +42,7 @@ class JBlock {
 
       minX = mainBlockX-1;
       maxX = mainBlockX;
+      maxY = mainBlockY + 1;
       
       wallClockwise = true;
       wallAnticlockwise = true;
@@ -58,6 +60,7 @@ class JBlock {
 
       minX = mainBlockX-1;
       maxX = mainBlockX+1;
+      maxY = mainBlockY;
 
       wallClockwise = false;
       wallAnticlockwise = false;
@@ -74,7 +77,8 @@ class JBlock {
 
         minX = mainBlockX;
         maxX = mainBlockX+1;
-
+        maxY = mainBlockY + 1;
+        
         wallClockwise = true ;
         wallAnticlockwise = true;
       } else
@@ -90,6 +94,7 @@ class JBlock {
 
           minX = mainBlockX-1;
           maxX = mainBlockX+1;
+          maxY = mainBlockY + 1;
 
           wallClockwise = false ;
           wallAnticlockwise = false;

@@ -7,17 +7,25 @@ class Score {
   //   - if no: do nothing
 
   boolean GameOver = false;
-  boolean top = false;
-  void scoreDraw() {
+  boolean BlockOverBlock = false;
 
+  void scoreDraw() {
+for (int i = 0; i < grid.w; i++){
+    if ((currentBlock.newBlock == true) && (blockPlace.filled[i][1] == 1)) {
+      GameOver = true;
+    }
+    if(blockPlace.filled[2][11] == 1){
+     GameOver = true; 
+    }
+}
     if (control.top == true) {
-      // stop the gamec
+      // stop the game
       GameOver = true;
     }
     if (GameOver == true) {
       noStroke();
-      fill(255,0,0);
-      rect(0,0,width,height);
+      fill(255, 0, 0);
+      rect(0, 0, width, height);
     }
   }
 }

@@ -83,6 +83,8 @@ class Control {
     } else if (keyCode == RIGHT && currentBlock.maxX < grid.w-1 && !lock) {
       currentBlock.currentBlockX+=1;
       lock = true;
+    } else if (keyCode == 67 && !lock){
+      top = true;
     } else if (keyCode == 0 && lock) {
       lock = false;
     } else if (!keyPressed) {

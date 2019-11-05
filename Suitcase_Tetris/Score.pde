@@ -11,9 +11,8 @@ class Score {
 
   void scoreDraw() {
     for (int i = 0; i < grid.w; i++) {
-      if ((currentBlock.newBlock == true) && (blockPlace.filled[i][0] > 0)) {
+      if ((currentBlock.newBlock == true) && (blockPlace.filled[i][1] > 0)) {
         GameOver = true;
-        println("OwO");
       }
       if (blockPlace.filled[2][11] == 1) {
         GameOver = true;

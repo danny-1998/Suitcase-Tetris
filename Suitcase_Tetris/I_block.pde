@@ -12,7 +12,6 @@ class IBlock {
   int block3X, block3Y;
   int block4X, block4Y;
   int minX, maxX;
-  int maxY;
   boolean onEdgeLeft, onEdgeRight;
   int maxY;
   

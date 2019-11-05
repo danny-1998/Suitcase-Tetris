@@ -39,8 +39,10 @@ class Location {
       }
     }
     if (currentBlock.blockPicker == 3) {// point-block
-      if ((pointBlock.maxY >= grid.h-1) /*|| (grid.cells[pointBlock.mainBlockX][pointblock.mainBlockY] == 1)/**/) {
+    println(pointBlock.mainBlockY);
+      if ((pointBlock.mainBlockY >= grid.h-1) || (grid.cells[pointBlock.mainBlockX][pointBlock.mainBlockY+1] == 1)/**/) {
         //println("hier is de bodem");
+        //println(pointBlock.mainBlockY);
         B_lock = true;
         //noLoop();
       }

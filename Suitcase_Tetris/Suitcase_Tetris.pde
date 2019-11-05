@@ -1,6 +1,6 @@
-import processing.sound.*;
+//import processing.sound.*;
 PImage img1, img2;
-SoundFile beep, bgmusic;
+//SoundFile beep, bgmusic;
 Grid grid;
 TBlock tBlock;
 Location blockPlace;
@@ -54,9 +54,9 @@ void setup()
   size(1920, 1080);
   gameOn = true;
   dt = 1000;
-  beep = new SoundFile(this, "beep.wav");
-  bgmusic = new SoundFile(this, "background_music.wav");
-  bgmusic.loop();
+ // beep = new SoundFile(this, "beep.wav");
+  //bgmusic = new SoundFile(this, "background_music.wav");
+  //bgmusic.loop();
 }
 
 void draw()
@@ -92,7 +92,7 @@ void draw()
           currentTime = now;
           if (currentBlock.currentBlockY < grid.h-1) {
             currentBlock.oneStepDown();
-            beep.play();
+            //beep.play();
             println("dropping down" + " Position of block:" + currentBlock.currentBlockY + " Grid height:" + grid.h);
           } else if (currentBlock.currentBlockY == grid.h-1) {
             currentBlock = new CurrentBlock();

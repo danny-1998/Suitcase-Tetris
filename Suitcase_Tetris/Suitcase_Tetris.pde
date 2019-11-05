@@ -57,7 +57,6 @@ void setup()
   beep = new SoundFile(this, "beep.wav");
   bgmusic = new SoundFile(this, "background_music.wav");
   bgmusic.loop();
-  
 }
 
 void draw()
@@ -66,43 +65,47 @@ void draw()
 
 
   //blockPlace.draw();
-
-  grid.drawGrid();
-  blockPlace.draw();
-  grid.gridClear();
-
-  currentBlock.newBlock();
-
-
-  //tBlock.TBlockDraw();
-  //pointBlock.PointBlockDraw();
-  //oBlock.OBlockDraw();
-  //sBlock.SBlockDraw();
-
-  currentBlock.currentBlockDraw();
-  currentBlock.currentBlockControlls();
-  //control.movement();
-  control.keyPressed();
-  score.scoreDraw();
-  if(grid != null){
+  if (!score.GameOver) {
     grid.drawGrid();
-    int now = millis();
-    if (gameOn) {
-      if (now - currentTime > dt) {
-        currentTime = now;
-        if(currentBlock.currentBlockY < grid.h-1) {
-          currentBlock.oneStepDown();
-          beep.play();
-          println("dropping down" + " Position of block:" + currentBlock.currentBlockY + " Grid height:" + grid.h);
-        } else if(currentBlock.currentBlockY == grid.h-1){
-          currentBlock = new CurrentBlock();
-          currentBlock.newBlock();
-          println("new block");
+    blockPlace.draw();
+    score.scoreDraw();
+    grid.gridClear();
+
+    currentBlock.newBlock();
+
+
+    //tBlock.TBlockDraw();
+    //pointBlock.PointBlockDraw();
+    //oBlock.OBlockDraw();
+    //sBlock.SBlockDraw();
+
+    currentBlock.currentBlockDraw();
+    currentBlock.currentBlockControlls();
+    //control.movement();
+    control.keyPressed();
+
+    if (grid != null) {
+      grid.drawGrid();
+      int now = millis();
+      if (gameOn) {
+        if (now - currentTime > dt) {
+          currentTime = now;
+          if (currentBlock.currentBlockY < grid.h-1) {
+            currentBlock.oneStepDown();
+            beep.play();
+            println("dropping down" + " Position of block:" + currentBlock.currentBlockY + " Grid height:" + grid.h);
+          } else if (currentBlock.currentBlockY == grid.h-1) {
+            currentBlock = new CurrentBlock();
+            currentBlock.newBlock();
+            println("new block");
+          }
         }
       }
     }
   }
-
+  if (score.GameOver) {
+    score.gameOver();
+  }
   /*if (keyPressed == true)//in milliseconds
    {
    image(img1, 0, 0);

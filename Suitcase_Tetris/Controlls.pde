@@ -22,12 +22,20 @@ class Control {
         currentBlock.currentBlockX += 1;
       } else 
       if (key == 'w' && !lock && keyPressed) {  //if w is pressed, rotates block clockwise
-        if (currentBlock.onEdgeLeft==true) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid
+        if (currentBlock.onEdgeLeft && currentBlock.wallClockwise) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid
           currentBlock.currentBlockX+=1;
         } else
-          if (currentBlock.onEdgeRight==true) {
+          if (currentBlock.onEdgeRight && currentBlock.wallClockwise) {
             currentBlock.currentBlockX-=1;
           }
+        if (currentBlock.blockPicker==9) {
+          if (currentBlock.onEdgeRight) {
+            currentBlock.currentBlockX-=2;
+          }
+          if ((rotation==0 || rotation==2) && currentBlock.currentBlockX == grid.w-2) {
+            currentBlock.currentBlockX-=1;
+          }
+        }
         lock = true;
         rotation += 1;
       } else
@@ -35,10 +43,10 @@ class Control {
           currentBlock.currentBlockY += 1;
         } else
           if (key == 'z' && !lock && keyPressed) {  // if z is pressed, rotates block counterclockwise
-            if (currentBlock.onEdgeLeft==true) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid
+            if (currentBlock.onEdgeLeft==true && currentBlock.wallAnticlockwise) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid
               currentBlock.currentBlockX+=1;
             } else
-              if (currentBlock.onEdgeRight==true) {
+              if (currentBlock.onEdgeRight==true && currentBlock.wallAnticlockwise) {
                 currentBlock.currentBlockX-=1;
               }
             lock = true;
@@ -48,7 +56,18 @@ class Control {
             lock = false;
             lock = false;
           }
-   
+    if (rotation>3) {
+      rotation = 0;
+    }
+    if (rotation<0) {
+      rotation = 3;
+    }
+    if (rotation>3) {
+      rotation = 0;
+    }
+    if (rotation<0) {
+      rotation = 3;
+    }
   }
 
   void keyPressed() {
@@ -99,7 +118,7 @@ class Control {
     if (rotation<0) {
       rotation = 3;
     }
-     if (rotation>3) {
+    if (rotation>3) {
       rotation = 0;
     }
     if (rotation<0) {

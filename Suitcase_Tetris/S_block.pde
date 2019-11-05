@@ -50,7 +50,7 @@ class SBlock {
       height2 = mainBlockY+1;
 
       width3 = mainBlockX+1;
-      height2 = mainBlockY;
+      height3 = mainBlockY;
 
       wallClockwise = true;
       wallAnticlockwise = true;
@@ -76,7 +76,7 @@ class SBlock {
           height2 = mainBlockY+1;
 
           width3 = mainBlockX+1;
-          height2 = mainBlockY;
+          height3 = mainBlockY;
 
           wallClockwise = true;
           wallAnticlockwise = true;

@@ -20,31 +20,34 @@ class Location {
   void draw() {
     //grid.cells[12][10] = 1; //blok wat altijd(?) aan is voor collision testing
 
-    println(tBlock.maxY);
+    //println(tBlock.maxY);
     if (currentBlock.blockPicker == 1) {// t-block
-      if ((tBlock.maxY >= grid.h-1) || (grid.cells[tBlock.block0X][tBlock.maxY+1] == 1) || (grid.cells[tBlock.block1X][tBlock.maxY+1] == 1) || (grid.cells[tBlock.block3X][tBlock.maxY+1] == 1) || (grid.cells[tBlock.mainBlockX][tBlock.maxY+1] == 1) ) {
-        println("hier is de bodem");
+      if ((tBlock.maxY >= grid.h-1) ||
+      ((grid.cells[tBlock.mainBlockX][tBlock.maxY+1] == 1) ||
+      ((grid.cells[tBlock.minX][tBlock.mainBlockY+1] == 1) && (tBlock.minX != tBlock.mainBlockX)) ||
+      ((grid.cells[tBlock.maxX][tBlock.mainBlockY+1] == 1) && (tBlock.maxX != tBlock.mainBlockX)) ) ) {
+        //println("hier is de bodem");
         B_lock = true;
         //noLoop();
       }
     }
     if (currentBlock.blockPicker == 2) {// o-block
-      if ((oBlock.maxY >= grid.h-1) /*|| (grid.cells[oBlock.width1][tBlock.maxY+1] == 1) /*|| (grid.cells[oBlock.width2][tBlock.maxY+1] == 1) || (grid.cells[oBlock.width3][tBlock.maxY+1] == 1) || (grid.cells[oBlock.mainBlockX][tBlock.maxY+1] == 1)*/ ) {
-        println("hier is de bodem");
+      if ((oBlock.maxY >= grid.h-1) || (grid.cells[oBlock.width2][oBlock.maxY+1] == 1) || (grid.cells[oBlock.width3][oBlock.maxY+1] == 1) ) {
+        //println("hier is de bodem");
         B_lock = true;
         //noLoop();
       }
     }
     if (currentBlock.blockPicker == 3) {// point-block
-      if ((pointBlock.maxY >= grid.h-1) /*|| (grid.cells[pointBlock.mainBlockX][pointblock.maxY+1] == 1)*/) {
-        println("hier is de bodem");
+      if ((pointBlock.maxY >= grid.h-1) /*|| (grid.cells[pointBlock.mainBlockX][pointblock.mainBlockY] == 1)/**/) {
+        //println("hier is de bodem");
         B_lock = true;
         //noLoop();
       }
     }
     if (currentBlock.blockPicker == 4) {// s-block
       if (sBlock.maxY >= grid.h-1) {
-        println("hier is de bodem");
+        //println("hier is de bodem");
         B_lock = true;
         //noLoop();
       }

@@ -48,12 +48,7 @@ class Control {
             lock = false;
             lock = false;
           }
-    if (rotation>3) {
-      rotation = 0;
-    }
-    if (rotation<0) {
-      rotation = 3;
-    }
+   
   }
 
   void keyPressed() {
@@ -92,6 +87,12 @@ class Control {
       lock = false;
     }
     if (rotation>3) {
+      rotation = 0;
+    }
+    if (rotation<0) {
+      rotation = 3;
+    }
+     if (rotation>3) {
       rotation = 0;
     }
     if (rotation<0) {

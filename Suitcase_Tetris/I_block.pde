@@ -14,6 +14,7 @@ class IBlock {
   int minX, maxX;
   int maxY;
   boolean onEdgeLeft, onEdgeRight;
+  int maxY;
   
   void IBlockDraw () {
     mainBlockX = currentBlock.currentBlockX;

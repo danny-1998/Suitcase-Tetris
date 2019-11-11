@@ -31,7 +31,8 @@ class Grid {
       for (int j = 0; j < h; j ++) {
         if (cells[i][j] != 0) {
           fill(cells[i][j]);
-          fill(random(255),random(255),random(255));
+          //fill(random(255),random(255),random(255));
+          //DISCO PARTY CODE
           rect(i*q, j*q, q, q);
         }
       }

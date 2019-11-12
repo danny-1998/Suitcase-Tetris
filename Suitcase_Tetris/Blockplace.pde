@@ -17,7 +17,7 @@ class Location {
     }
   }
 
-  void draw() {
+  void check() {
     //grid.cells[12][10] = 1; //blok wat altijd(?) aan is voor collision testing
 
     //println(tBlock.maxY);
@@ -33,7 +33,6 @@ class Location {
     }
     if (currentBlock.blockPicker == 2) {// o-block
       if ((oBlock.maxY >= grid.h-1) || (grid.cells[oBlock.width2][oBlock.maxY+1] == 1) || (grid.cells[oBlock.width3][oBlock.maxY+1] == 1) ) {
-        //println("hier is de bodem");
         B_lock = true;
         //noLoop();
       }
@@ -41,19 +40,21 @@ class Location {
     if (currentBlock.blockPicker == 3) {// point-block
     println(pointBlock.mainBlockY);
       if ((pointBlock.mainBlockY >= grid.h-1) || (grid.cells[pointBlock.mainBlockX][pointBlock.mainBlockY+1] == 1)/**/) {
-        //println("hier is de bodem");
         //println(pointBlock.mainBlockY);
         B_lock = true;
         //noLoop();
       }
     }
     if (currentBlock.blockPicker == 4) {// s-block
-      if (sBlock.maxY >= grid.h-1) {
-        //println("hier is de bodem");
+      if ((sBlock.maxY >= grid.h-1) || ((control.rotation == 3 || control.rotation == 1) && ((grid.cells[sBlock.maxX][sBlock.maxY+1] == 1) || (grid.cells[sBlock.minX][sBlock.maxY]==1))) ||
+      ((control.rotation == 0 || control.rotation == 2) && ((grid.cells[sBlock.minX][sBlock.maxY+1] == 1) || (grid.cells[sBlock.mainBlockX][sBlock.maxY+1]==1)|| (grid.cells[sBlock.maxX][sBlock.maxY]==1)))
+      ) {
         B_lock = true;
         //noLoop();
       }
     }
+  }
+    void fills(){
     for (int i = 0; i<grid.w; i++) {
       for (int b = 0; b<grid.h; b++) {
         if ((grid.cells[i][b] == 1) && (B_lock == true)) {

@@ -59,15 +59,14 @@ void setup()
   dt = 1000;
   //beep = new SoundFile(this, "beep.wav");
   //bgmusic = new SoundFile(this, "background_music.wav");
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
->>>>>>> master
+
+
+
   
-=======
+
   //bgmusic.loop();
->>>>>>> master
+
 
   //bgmusic.loop();
 

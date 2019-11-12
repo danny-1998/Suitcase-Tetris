@@ -18,10 +18,15 @@ class Score {
   //  - , = 150
 
   int Score = 0;
+  float Textx = 850;
+  float Texty = height/2;
   boolean GameOver = false;
   boolean BlockOverBlock = false;
-
+  boolean[][] ScorePlus = new boolean[22][20];
+  
+  
   void scoreDraw() {
+    
     for (int i = 0; i < grid.w; i++) {
       if ((currentBlock.newBlock == true) && (blockPlace.filled[i][1] > 0)) {
         GameOver = true;
@@ -40,12 +45,22 @@ class Score {
       noStroke();
       fill(255, 0, 0);
       rect(0, 0, width, height);
+      textMode(CENTER);
+      fill(255);
+      textSize(80);
+      text(Score, Textx, Texty);
     }
   }
 
   void scoreCounter() {
-    if (blockPlace.filled[1][1] == 1) {
+    for(int w = 0; w < 22; w++){
+      for(int h = 0; h<20; h++){  
+    if (blockPlace.filled[w][h] == 1 && ScorePlus[w][h] == false) {
+      ScorePlus[w][h] = true;
       Score += 50;
+    }
+    text(Score, 50, 50);
+      }
     }
   }
 }

@@ -16,7 +16,7 @@ class CurrentBlock {
     if(newBlock){
      currentBlockY = 1;
      currentBlockX = 11;
-     blockPicker = int(random(1,4));
+     blockPicker = ceil(random(1,7));
     newBlock = false;
     println(blockPicker);
   }
@@ -41,7 +41,7 @@ class CurrentBlock {
       jBlock.JBlockDraw();
     }
     if (blockPicker == 7) {
-      lblock.LblockDraw();
+      lBlock.LblockDraw();
     }
     if (blockPicker == 8) {
       commaBlock.CommaBlockDraw();
@@ -101,10 +101,10 @@ class CurrentBlock {
       wallAnticlockwise = jBlock.wallAnticlockwise;
     }
     if (blockPicker == 7) {
-      minX = lblock.minX;
-      maxX = lblock.maxX;
-      onEdgeLeft = lblock.onEdgeLeft;
-      onEdgeRight = lblock.onEdgeRight;
+      minX = lBlock.minX;
+      maxX = lBlock.maxX;
+      onEdgeLeft = lBlock.onEdgeLeft;
+      onEdgeRight = lBlock.onEdgeRight;
     }
     if (blockPicker == 8) {
       minX = commaBlock.minX;

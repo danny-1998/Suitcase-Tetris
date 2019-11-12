@@ -10,7 +10,7 @@ SBlock sBlock;
 
 ZBlock zBlock;
 JBlock jBlock;
-Lblock lblock;
+Lblock lBlock;
 IBlock iBlock;
 
 
@@ -51,7 +51,7 @@ void setup()
 
   score = new Score();
 
-  lblock = new Lblock();
+  lBlock = new Lblock();
   iBlock = new IBlock();
 
   fullScreen();

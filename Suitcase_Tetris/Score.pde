@@ -7,15 +7,15 @@ class Score {
   //   - if no: do nothing
 
   //how many points is one block worth:
-  //  - T = 200
-  //  - S = 200
-  //  - O = 200
-  //  - I = 200
-  //  - Z = 200
-  //  - J = 200
-  //  - L = 200
-  //  - . = 50
-  //  - , = 150
+  //  - T = 200  == Shirt V
+  //  - S = 200  == 
+  //  - O = 200  == Book V
+  //  - I = 200  == Comb V
+  //  - Z = 200  == 
+  //  - J = 200  == 
+  //  - L = 200  == Sock V
+  //  - . = 50   == Coin V
+  //  - , = 150  == 
 
   int Score = 0;
   float Textx = 850;

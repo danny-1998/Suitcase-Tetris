@@ -23,6 +23,8 @@ CurrentBlock currentBlock, nextPiece;
 Score score;
 boolean gameOn;
 int dt, currentTime;
+final int KEY_LIMIT = 1024;
+boolean[] keysPressed = new boolean[KEY_LIMIT];
 void setup()
 {
   //img2 = loadImage("2.jpg");
@@ -50,11 +52,10 @@ void setup()
   lblock = new Lblock();
   iBlock = new IBlock();
 
-  //fullScreen();
-  size(1920, 1080);
+  fullScreen();
   gameOn = true;
   dt = 1000;
- // beep = new SoundFile(this, "beep.wav");
+  //beep = new SoundFile(this, "beep.wav");
   //bgmusic = new SoundFile(this, "background_music.wav");
   //bgmusic.loop();
 
@@ -63,8 +64,6 @@ void setup()
 void draw()
 {
   background(255);
-
-
   //blockPlace.draw();
   if (!score.GameOver) {
     grid.drawGrid();
@@ -72,20 +71,10 @@ void draw()
     score.scoreDraw();
     score.scoreCounter();
     grid.gridClear();
-
     currentBlock.newBlock();
-
-
-    //tBlock.TBlockDraw();
-    //pointBlock.PointBlockDraw();
-    //oBlock.OBlockDraw();
-    //sBlock.SBlockDraw();
-
     currentBlock.currentBlockDraw();
     currentBlock.currentBlockControlls();
-    //control.movement();
-    control.keyPressed();
-
+    control.controllsV3();
     if (grid != null) {
       grid.drawGrid();
       int now = millis();
@@ -116,4 +105,14 @@ void draw()
    //rest of the code
    image(img2, 0, 0);
    }*/
+}
+
+void keyPressed() {
+  if (keyCode >= KEY_LIMIT) return;
+  keysPressed[keyCode] = true;
+}
+
+void keyReleased() {
+  if (keyCode >= KEY_LIMIT) return;
+  keysPressed[keyCode] = false;
 }

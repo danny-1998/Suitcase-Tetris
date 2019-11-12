@@ -1,84 +1,31 @@
 class Control {
   //By Ole Neuman
   boolean lock;
-  int rotation;
+  int rotation, cooldown1, cooldown2, cooldown3;
   boolean top = false;
 
   Control() {
-    lock = false;
     rotation = 0;
   }
 
-  void movement() {
-    if (key == 'c') {
-      top = true;
-    }
-    if (key=='a' && !lock && keyPressed&&currentBlock.minX>=1) {   //if a is pressed, moves block to left
-      lock = true;
+  void controllsV3() {
+    if (keysPressed[LEFT] && currentBlock.minX > 0 && cooldown1 == 0) {
       currentBlock.currentBlockX -= 1;
-    } else
-      if (key == 'd' && !lock && keyPressed&&currentBlock.maxX<=grid.w-2) {  //if d is pressed, moves block to right
-        lock = true;
-        currentBlock.currentBlockX += 1;
-      } else 
-      if (key == 'w' && !lock && keyPressed) {  //if w is pressed, rotates block clockwise
-        if (currentBlock.onEdgeLeft && currentBlock.wallClockwise) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid
-          currentBlock.currentBlockX+=1;
-        } else
-          if (currentBlock.onEdgeRight && currentBlock.wallClockwise) {
-            currentBlock.currentBlockX-=1;
-          }
-        if (currentBlock.blockPicker==9) {
-          if (currentBlock.onEdgeRight) {
-            currentBlock.currentBlockX-=2;
-          }
-          if ((rotation==0 || rotation==2) && currentBlock.currentBlockX == grid.w-2) {
-            currentBlock.currentBlockX-=1;
-          }
-        }
-        lock = true;
-        rotation += 1;
-      } else
-        if (key == 's' && !lock && keyPressed) {  //if s is pressed, get DOWN (toegevoegd door yves)
-          currentBlock.currentBlockY += 1;
-        } else
-          if (key == 'z' && !lock && keyPressed) {  // if z is pressed, rotates block counterclockwise
-            if (currentBlock.onEdgeLeft==true && currentBlock.wallAnticlockwise) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid
-              currentBlock.currentBlockX+=1;
-            } else
-              if (currentBlock.onEdgeRight==true && currentBlock.wallAnticlockwise) {
-                currentBlock.currentBlockX-=1;
-              }
-            lock = true;
-            rotation -= 1;
-          } else {
-            key=0;
-            lock = false;
-            lock = false;
-          }
-    if (rotation>3) {
-      rotation = 0;
+      cooldown1 = 4;
     }
-    if (rotation<0) {
-      rotation = 3;
+    
+    if (keysPressed[RIGHT] && currentBlock.maxX < grid.w-1 && cooldown1 == 0) {
+      currentBlock.currentBlockX += 1;
+      cooldown1 = 4;
     }
-    if (rotation>3) {
-      rotation = 0;
-    }
-    if (rotation<0) {
-      rotation = 3;
-    }
-  }
-
-  void keyPressed() {
-    if (key==CODED) {
-    }
-    if (keyCode == UP && !lock) {
-      if (currentBlock.onEdgeLeft && currentBlock.wallClockwise) {
+    
+    if (keysPressed[UP] && cooldown2 == 0) {
+      if (currentBlock.onEdgeLeft && currentBlock.wallClockwise) {           
         currentBlock.currentBlockX+=1;
-      } else if (currentBlock.onEdgeRight && currentBlock.wallClockwise) {
-        currentBlock.currentBlockX-=1;
-      }
+      } else
+        if (currentBlock.onEdgeRight && currentBlock.wallClockwise) {
+          currentBlock.currentBlockX-=1;
+        }
       if (currentBlock.blockPicker==9) {
         if (currentBlock.onEdgeRight) {
           currentBlock.currentBlockX-=2;
@@ -88,29 +35,34 @@ class Control {
         }
       }
       rotation+=1;
-      lock = true;
-    } else if (keyCode == 90 && !lock) {
-      if (currentBlock.onEdgeLeft && currentBlock.wallAnticlockwise) {
+      cooldown2 = 10;
+    }
+    
+    if (keysPressed[90] && currentBlock.currentBlockY > grid.h-1 && cooldown2 == 0 ) {
+      if (currentBlock.onEdgeLeft==true && currentBlock.wallAnticlockwise) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid
         currentBlock.currentBlockX+=1;
-      } else if (currentBlock.onEdgeRight && currentBlock.wallAnticlockwise) {
-        currentBlock.currentBlockX-=1;
+      } else
+        if (currentBlock.onEdgeRight==true && currentBlock.wallAnticlockwise) {
+          currentBlock.currentBlockX-=1;
+        }
+      if (currentBlock.blockPicker==9) {
+        if (currentBlock.onEdgeRight) {
+          currentBlock.currentBlockX-=2;
+        }
+        if ((rotation==0 || rotation==2) && currentBlock.currentBlockX == grid.w-2) {
+          currentBlock.currentBlockX-=1;
+        }
       }
       rotation-=1;
-      lock = true;
-    } else if (keyCode == DOWN && keyPressed) {
-      currentBlock.currentBlockY+=1;
-    } else if (keyCode == LEFT && currentBlock.minX > 0 && !lock) {
-      currentBlock.currentBlockX-=1;
-      lock = true;
-    } else if (keyCode == RIGHT && currentBlock.maxX < grid.w-1 && !lock) {
-      currentBlock.currentBlockX+=1;
-      lock = true;
-    } else if (keyCode == 0 && lock) {
-      lock = false;
-    } else if (!keyPressed) {
-      keyCode = 0;
-      lock = false;
+      cooldown2 = 10;
     }
+    if (keysPressed[DOWN] && cooldown3 ==0) {
+      currentBlock.currentBlockY+=1;
+      cooldown3 = 5;
+    }
+    if (cooldown1 > 0) cooldown1--;
+    if (cooldown2 > 0) cooldown2--;
+    if (cooldown3 > 0) cooldown3--;
 
     if (rotation>3) {
       rotation = 0;

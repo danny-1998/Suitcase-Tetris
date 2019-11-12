@@ -16,7 +16,7 @@ class CurrentBlock {
     if(newBlock){
      currentBlockY = 1;
      currentBlockX = 11;
-     blockPicker = int(random(1,4));
+     blockPicker = ceil(random(4));
     newBlock = false;
     println(blockPicker);
   }

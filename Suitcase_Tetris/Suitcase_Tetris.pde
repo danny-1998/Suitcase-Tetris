@@ -57,6 +57,7 @@ void setup()
  // beep = new SoundFile(this, "beep.wav");
   //bgmusic = new SoundFile(this, "background_music.wav");
   //bgmusic.loop();
+
 }
 
 void draw()
@@ -69,6 +70,7 @@ void draw()
     grid.drawGrid();
     blockPlace.draw();
     score.scoreDraw();
+    score.scoreCounter();
     grid.gridClear();
 
     currentBlock.newBlock();

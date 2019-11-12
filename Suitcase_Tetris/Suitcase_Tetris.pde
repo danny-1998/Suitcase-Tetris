@@ -67,12 +67,13 @@ void draw()
   //blockPlace.draw();
   if (!score.GameOver) {
     grid.drawGrid();
-    blockPlace.draw();
+    blockPlace.fills();
     score.scoreDraw();
     score.scoreCounter();
     grid.gridClear();
     currentBlock.newBlock();
     currentBlock.currentBlockDraw();
+    blockPlace.check();
     currentBlock.currentBlockControlls();
     control.controllsV3();
     if (grid != null) {

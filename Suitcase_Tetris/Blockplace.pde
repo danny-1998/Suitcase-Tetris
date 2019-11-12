@@ -53,6 +53,14 @@ class Location {
         //noLoop();
       }
     }
+    if (currentBlock.blockPicker == 5) {// z-block
+      if ((zBlock.maxY >= grid.h-1) || ((control.rotation == 3 || control.rotation == 1) && ((grid.cells[zBlock.minX][zBlock.maxY+1] == 1) || (grid.cells[zBlock.maxX][zBlock.maxY]==1))) ||
+      ((control.rotation == 0 || control.rotation == 2) && ((grid.cells[zBlock.maxX][zBlock.maxY+1] == 1) || (grid.cells[zBlock.mainBlockX][zBlock.maxY+1]==1)|| (grid.cells[zBlock.minX][zBlock.maxY]==1)))
+      ) {
+        B_lock = true;
+        //noLoop();
+      }
+    }
   }
     void fills(){
     for (int i = 0; i<grid.w; i++) {

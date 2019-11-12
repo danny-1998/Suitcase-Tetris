@@ -90,14 +90,11 @@ void draw()
       if (gameOn) {
         if (now - currentTime > dt) {
           currentTime = now;
-          if (currentBlock.currentBlockY < grid.h-1 && blockPlace._new == false) {
+          if (currentBlock.currentBlockY < grid.h-1) {
             currentBlock.oneStepDown();
             //beep.play();
             println("dropping down" + " Position of block:" + currentBlock.currentBlockY + " Grid height:" + grid.h);
-          } else if (blockPlace._new == true) {
-            blockPlace._new = false;
-      currentBlock.newBlock = true;
-      blockPlace.B_lock = false;
+          } else if (currentBlock.currentBlockY == grid.h-1) {
             currentBlock = new CurrentBlock();
             currentBlock.newBlock();
             println("new block");

@@ -23,9 +23,9 @@ class Location {
     //println(tBlock.maxY);
     if (currentBlock.blockPicker == 1) {// t-block
       if ((tBlock.maxY >= grid.h-1) ||
-        ((grid.cells[tBlock.mainBlockX][tBlock.maxY+1] == 1) ||
-        ((grid.cells[tBlock.minX][tBlock.mainBlockY+1] == 1) && (tBlock.minX != tBlock.mainBlockX)) ||
-        ((grid.cells[tBlock.maxX][tBlock.mainBlockY+1] == 1) && (tBlock.maxX != tBlock.mainBlockX)) ) ) {
+      ((grid.cells[tBlock.mainBlockX][tBlock.maxY+1] == 1) ||
+      ((grid.cells[tBlock.minX][tBlock.mainBlockY+1] == 1) && (tBlock.minX != tBlock.mainBlockX)) ||
+      ((grid.cells[tBlock.maxX][tBlock.mainBlockY+1] == 1) && (tBlock.maxX != tBlock.mainBlockX)) ) ) {
         //println("hier is de bodem");
         B_lock = true;
         //noLoop();
@@ -39,7 +39,7 @@ class Location {
       }
     }
     if (currentBlock.blockPicker == 3) {// point-block
-      println(pointBlock.mainBlockY);
+    println(pointBlock.mainBlockY);
       if ((pointBlock.mainBlockY >= grid.h-1) || (grid.cells[pointBlock.mainBlockX][pointBlock.mainBlockY+1] == 1)/**/) {
         //println("hier is de bodem");
         //println(pointBlock.mainBlockY);
@@ -48,9 +48,7 @@ class Location {
       }
     }
     if (currentBlock.blockPicker == 4) {// s-block
-      if ( (sBlock.maxY >= grid.h-1) ||
-        ( (grid.cells[sBlock.width3][sBlock.maxY+1] == 1) //||
-        ) ) {
+      if (sBlock.maxY >= grid.h-1) {
         //println("hier is de bodem");
         B_lock = true;
         //noLoop();
@@ -67,10 +65,11 @@ class Location {
         }
       }
     }
-    if (_new == true && keyCode == DOWN && keyPressed) {
+    if (_new == true) {
       _new = false;
       currentBlock.newBlock = true;
       B_lock = false;
+      
     }
   }
 }

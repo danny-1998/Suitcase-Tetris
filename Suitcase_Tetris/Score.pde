@@ -5,7 +5,7 @@ class Score {
   // - is this block out of the top?
   //   - if yes: make the game stop
   //   - if no: do nothing
-  
+
   //how many points is one block worth:
   //  - T = 200
   //  - S = 200
@@ -26,7 +26,7 @@ class Score {
       if ((currentBlock.newBlock == true) && (blockPlace.filled[i][1] > 0)) {
         GameOver = true;
       }
-      if (blockPlace.filled[2][16] == 1) {
+      if (blockPlace.filled[2][5] == 1) {
         GameOver = true;
       }
     }
@@ -42,9 +42,10 @@ class Score {
       rect(0, 0, width, height);
     }
   }
-  
-  void scoreCounter(){
-  
+
+  void scoreCounter() {
+    if (blockPlace.filled[1][1] == 1) {
+      Score += 50;
+    }
   }
-  
 }

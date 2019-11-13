@@ -1,22 +1,33 @@
 class Control {
   //By Ole Neuman
-  boolean lock;
+  boolean firstPress;
   int rotation, cooldown1, cooldown2, cooldown3;
   boolean top = false;
 
   Control() {
     rotation = 0;
+    firstPress = true;
   }
 
   void controllsV3() {
     if (keysPressed[LEFT] && currentBlock.minX > 0 && cooldown1 == 0) {
       currentBlock.currentBlockX -= 1;
-      cooldown1 = 4;
+      if(firstPress){
+       firstPress = false;
+       cooldown1 = 25;
+      } else {
+      cooldown1 = 3;
+      }
     }
     
     if (keysPressed[RIGHT] && currentBlock.maxX < grid.w-1 && cooldown1 == 0) {
       currentBlock.currentBlockX += 1;
-      cooldown1 = 4;
+      if(firstPress){
+       firstPress = false;
+       cooldown1 = 25;
+      } else {
+      cooldown1 = 3;
+      }
     }
     
     if (keysPressed[UP] && cooldown2 == 0) {

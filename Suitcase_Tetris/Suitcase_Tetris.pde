@@ -57,26 +57,11 @@ void setup()
   fullScreen();
   gameOn = true;
   dt = 1000;
-  //beep = new SoundFile(this, "beep.wav");
-  //bgmusic = new SoundFile(this, "background_music.wav");
-
-
-
-
-  
-
-  //bgmusic.loop();
-
-
-  //bgmusic.loop();
-
-
 }
 
 void draw()
 {
   background(255);
-  //blockPlace.draw();
   if (!score.GameOver) {
     grid.drawGrid();
     blockPlace.fills();
@@ -110,14 +95,6 @@ void draw()
   if (score.GameOver) {
     score.gameOver();
   }
-  /*if (keyPressed == true)//in milliseconds
-   {
-   image(img1, 0, 0);
-   }
-   else {
-   //rest of the code
-   image(img2, 0, 0);
-   }*/
 }
 
 void keyPressed() {
@@ -128,4 +105,8 @@ void keyPressed() {
 void keyReleased() {
   if (keyCode >= KEY_LIMIT) return;
   keysPressed[keyCode] = false;
+  if(keyCode == LEFT || keyCode == RIGHT){
+  control.cooldown1 = 0;
+  control.firstPress = true;
+  }
 }

@@ -26,7 +26,7 @@ class OBlock {
   void OBlockDraw() {
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
-    
+
     width1=mainBlockX+1;
     height1=mainBlockY;
 
@@ -38,7 +38,7 @@ class OBlock {
 
     minX = mainBlockX;
     maxX = mainBlockX+1;
-    
+
     maxY = mainBlockY+1;
 
     grid.cells[mainBlockX][mainBlockY] = 1;

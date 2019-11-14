@@ -29,9 +29,9 @@ void setup()
 {
   //img2 = loadImage("2.jpg");
   grid = new Grid();
-  
+
   loadAssets ();
-  
+
   tBlock = new TBlock();
   pointBlock = new PointBlock();
   oBlock = new OBlock();
@@ -57,6 +57,11 @@ void setup()
   fullScreen();
   gameOn = true;
   dt = 1000;
+  reset();
+}
+
+void reset(){
+//PLEASE HELP HERE -- KIANO
 }
 
 void draw()
@@ -100,13 +105,17 @@ void draw()
 void keyPressed() {
   if (keyCode >= KEY_LIMIT) return;
   keysPressed[keyCode] = true;
+
+  if (key == ENTER) {
+    reset();
+  }
 }
 
 void keyReleased() {
   if (keyCode >= KEY_LIMIT) return;
   keysPressed[keyCode] = false;
-  if(keyCode == LEFT || keyCode == RIGHT){
-  control.cooldown1 = 0;
-  control.firstPress = true;
+  if (keyCode == LEFT || keyCode == RIGHT) {
+    control.cooldown1 = 0;
+    control.firstPress = true;
   }
 }

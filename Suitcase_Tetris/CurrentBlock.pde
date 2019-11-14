@@ -11,15 +11,15 @@ class CurrentBlock {
     blockPicker = 1;
     newBlock = true;
   }
-  
-  void newBlock(){
-    if(newBlock){
-     currentBlockY = 1;
-     currentBlockX = 11;
-     blockPicker = ceil(random(1,7));
-    newBlock = false;
-    println(blockPicker);
-  }
+
+  void newBlock() {
+    if (newBlock) {
+      currentBlockY = 1;
+      currentBlockX = 11;
+      blockPicker = ceil(random(1, 7));
+      newBlock = false;
+      println(blockPicker);
+    }
   }
   void currentBlockDraw() {
     if (blockPicker==1) {
@@ -74,7 +74,8 @@ class CurrentBlock {
       onEdgeLeft = false;
       onEdgeRight = false;
       wallClockwise = false;
-      wallAnticlockwise = false;;
+      wallAnticlockwise = false;
+      ;
     }
     if (blockPicker == 4) {
       minX = sBlock.minX;
@@ -112,15 +113,15 @@ class CurrentBlock {
       onEdgeLeft = commaBlock.onEdgeLeft;
       onEdgeRight = commaBlock.onEdgeRight;
     }
-    if (blockPicker == 9){
+    if (blockPicker == 9) {
       minX = iBlock.minX;
       maxX = iBlock.maxX;
       onEdgeLeft = iBlock.onEdgeLeft;
       onEdgeRight = iBlock.onEdgeRight;
     }
   }
-  
+
   void oneStepDown() { 
-    currentBlockY += 1; 
-  } 
+    currentBlockY += 1;
+  }
 }

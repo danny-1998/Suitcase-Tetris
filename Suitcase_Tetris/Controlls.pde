@@ -12,24 +12,24 @@ class Control {
   void controllsV3() {
     if (keysPressed[LEFT] && currentBlock.minX > 0 && cooldown1 == 0) {
       currentBlock.currentBlockX -= 1;
-      if(firstPress){
-       firstPress = false;
-       cooldown1 = 25;
+      if (firstPress) {
+        firstPress = false;
+        cooldown1 = 25;
       } else {
-      cooldown1 = 3;
+        cooldown1 = 3;
       }
     }
-    
+
     if (keysPressed[RIGHT] && currentBlock.maxX < grid.w-1 && cooldown1 == 0) {
       currentBlock.currentBlockX += 1;
-      if(firstPress){
-       firstPress = false;
-       cooldown1 = 25;
+      if (firstPress) {
+        firstPress = false;
+        cooldown1 = 25;
       } else {
-      cooldown1 = 3;
+        cooldown1 = 3;
       }
     }
-    
+
     if (keysPressed[UP] && cooldown2 == 0) {
       if (currentBlock.onEdgeLeft && currentBlock.wallClockwise) {           
         currentBlock.currentBlockX+=1;
@@ -48,7 +48,7 @@ class Control {
       rotation+=1;
       cooldown2 = 10;
     }
-    
+
     if (keysPressed[90] && currentBlock.currentBlockY > grid.h-1 && cooldown2 == 0 ) {
       if (currentBlock.onEdgeLeft==true && currentBlock.wallAnticlockwise) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid
         currentBlock.currentBlockX+=1;

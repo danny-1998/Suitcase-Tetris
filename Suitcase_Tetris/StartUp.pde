@@ -1,4 +1,2 @@
-class StartUp{
-
-  
+class StartUp {
 }

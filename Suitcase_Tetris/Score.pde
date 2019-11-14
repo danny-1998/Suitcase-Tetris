@@ -1,21 +1,6 @@
 //by Kiano Wortel
 
 class Score {
-  // what do i need to add
-  // - is this block out of the top?
-  //   - if yes: make the game stop
-  //   - if no: do nothing
-
-  //how many points is one block worth:
-  //  - T = 200  == Shirt V
-  //  - S = 200  == 
-  //  - O = 200  == Book V
-  //  - I = 200  == Comb V
-  //  - Z = 200  == 
-  //  - J = 200  == 
-  //  - L = 200  == Sock V
-  //  - . = 50   == Coin V
-  //  - , = 150  == 
 
   int Score = 0;
   float Textx = 850;
@@ -23,10 +8,10 @@ class Score {
   boolean GameOver = false;
   boolean BlockOverBlock = false;
   boolean[][] ScorePlus = new boolean[22][20];
-  
-  
+
+
   void scoreDraw() {
-    
+
     for (int i = 0; i < grid.w; i++) {
       if ((currentBlock.newBlock == true) && (blockPlace.filled[i][1] > 0)) {
         GameOver = true;
@@ -50,16 +35,24 @@ class Score {
       textSize(80);
       text(Score, Textx, Texty);
     }
+
+    //    if (score.GameOver == true) {
+    //      bgmusic.stop();
+    //      whateverthenewmusicsnameis.loop();
+    //    }
+    
+    
   }
 
+
   void scoreCounter() {
-    for(int w = 0; w < 22; w++){
-      for(int h = 0; h<20; h++){  
-    if (blockPlace.filled[w][h] == 1 && ScorePlus[w][h] == false) {
-      ScorePlus[w][h] = true;
-      Score += 50;
-    }
-    text(Score, 50, 50);
+    for (int w = 0; w < 22; w++) {
+      for (int h = 0; h<20; h++) {  
+        if (blockPlace.filled[w][h] == 1 && ScorePlus[w][h] == false) {
+          ScorePlus[w][h] = true;
+          Score += 50;
+        }
+        text(Score, 50, 50);
       }
     }
   }

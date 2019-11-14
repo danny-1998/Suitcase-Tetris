@@ -59,7 +59,7 @@ class ZBlock {
       minX = mainBlockX-1;
       maxX = mainBlockX;
       maxY = mainBlockY + 1;
-      
+
       wallClockwise = true;
       wallAnticlockwise = true;
     } else

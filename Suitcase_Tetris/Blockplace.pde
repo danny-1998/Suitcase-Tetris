@@ -83,6 +83,25 @@ class Location {
         //noLoop();
       }
     }
+    if (currentBlock.blockPicker == 8) {// l-block
+      if ((commaBlock.maxY >= grid.h-1)||
+      (grid.cells[commaBlock.mainBlockX][commaBlock.maxY+1] == 1)||
+      ((grid.cells[commaBlock.minX][commaBlock.mainBlockY+1] == 1) && (commaBlock.minX != commaBlock.mainBlockX ))||
+      ((grid.cells[commaBlock.maxX][commaBlock.mainBlockY+1] == 1) && (commaBlock.maxX != commaBlock.mainBlockX))
+        ) {
+        B_lock = true;
+        //noLoop();
+      }
+    }
+    if (currentBlock.blockPicker == 9) {// i-block
+      if ((iBlock.maxY >= grid.h-1)||
+        ((control.rotation == 0 || control.rotation == 2) && (grid.cells[iBlock.minX][iBlock.maxY+1] == 1))||
+        ((control.rotation == 1 || control.rotation == 3) && ((grid.cells[iBlock.block1X][iBlock.block1Y+1] == 1) || (grid.cells[iBlock.mainBlockX][iBlock.mainBlockY+1] == 1) || (grid.cells[iBlock.block3X][iBlock.block3Y+1] == 1) || (grid.cells[iBlock.block4X][iBlock.block4Y+1] == 1)))
+        ) {
+        B_lock = true;
+        //noLoop();
+        }
+    }
   }
   void fills() {
     for (int i = 0; i<grid.w; i++) {

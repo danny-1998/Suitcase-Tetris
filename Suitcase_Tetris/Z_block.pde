@@ -107,6 +107,7 @@ class ZBlock {
         maxX = mainBlockX+1;
       }
 
+
     if (mainBlockX == 0) {            
       onEdgeLeft = true;
     } else {

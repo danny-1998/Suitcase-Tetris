@@ -60,8 +60,8 @@ void setup()
   reset();
 }
 
-void reset(){
-//PLEASE HELP HERE -- KIANO
+void reset() {
+  //PLEASE HELP HERE -- KIANO
 }
 
 void draw()
@@ -84,11 +84,9 @@ void draw()
       if (gameOn) {
         if (now - currentTime > dt) {
           currentTime = now;
-           
-            currentBlock.oneStepDown();
-            beep.play();
-            println("dropping down" + " Position of block:" + currentBlock.currentBlockY + " Grid height:" + grid.h);
-          
+          currentBlock.oneStepDown();
+          beep.play();
+          //println("dropping down" + " Position of block:" + currentBlock.currentBlockY + " Grid height:" + grid.h);
         }
       }
     }

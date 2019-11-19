@@ -40,8 +40,6 @@ class Score {
     //      bgmusic.stop();
     //      whateverthenewmusicsnameis.loop();
     //    }
-    
-    
   }
 
 

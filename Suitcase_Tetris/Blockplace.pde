@@ -1,5 +1,5 @@
 class Location {
-  //By Yves Prinz
+  //Door Yves Prinz
   /* Deze class houd de positie en oriëntatie van de CurrentBlock bij als deze iets onder zich raakt, de bodem  of een ander blok.
    vervolgens slaat het die informatie op zodat dit blok ook getekend blijft,
    en geeft een signaal aan de CurrentBlock dat deze een nieuw blok mag maken.
@@ -30,33 +30,27 @@ class Location {
         //println("hier is de bodem");
         land = true;
         //noLoop();
+      } else {
+        land =false;
       }
-        
-        else{
-          land =false;
-        }
     }
     if (currentBlock.blockPicker == 2) {// o-block
       if ((oBlock.maxY >= grid.h-1) || (grid.cells[oBlock.width2][oBlock.maxY+1] == 1) || (grid.cells[oBlock.width3][oBlock.maxY+1] == 1) ) {
         land = true;
         //noLoop();
+      } else {
+        land =false;
       }
-        
-        else{
-          land =false;
-        }
     }
     if (currentBlock.blockPicker == 3) {// point-block
-      println(pointBlock.mainBlockY);
+      //println(pointBlock.mainBlockY);
       if ((pointBlock.mainBlockY >= grid.h-1) || (grid.cells[pointBlock.mainBlockX][pointBlock.mainBlockY+1] == 1)/**/) {
         //println(pointBlock.mainBlockY);
         land = true;
         //noLoop();
+      } else {
+        land =false;
       }
-        
-        else{
-          land =false;
-        }
     }
     if (currentBlock.blockPicker == 4) {// s-block
       if ((sBlock.maxY >= grid.h-1) || ((control.rotation == 3 || control.rotation == 1) && ((grid.cells[sBlock.maxX][sBlock.maxY+1] == 1) || (grid.cells[sBlock.minX][sBlock.maxY]==1))) ||
@@ -64,11 +58,9 @@ class Location {
         ) {
         land = true;
         //noLoop();
+      } else {
+        land =false;
       }
-        
-        else{
-          land =false;
-        }
     }
     if (currentBlock.blockPicker == 5) {// z-block
       if ((zBlock.maxY >= grid.h-1) || ((control.rotation == 3 || control.rotation == 1) && ((grid.cells[zBlock.minX][zBlock.maxY+1] == 1) || (grid.cells[zBlock.maxX][zBlock.maxY]==1))) ||
@@ -76,11 +68,9 @@ class Location {
         ) {
         land = true;
         //noLoop();
+      } else {
+        land =false;
       }
-        
-        else{
-          land =false;
-        }
     }
     if (currentBlock.blockPicker == 6) {// j-block
       if ((jBlock.maxY >= grid.h-1)||
@@ -91,11 +81,9 @@ class Location {
         ) {
         land = true;
         //noLoop();
+      } else {
+        land =false;
       }
-        
-        else{
-          land =false;
-        }
     }
     if (currentBlock.blockPicker == 7) {// l-block
       if ((lBlock.maxY >= grid.h-1)||
@@ -106,25 +94,21 @@ class Location {
         ) {
         land = true;
         //noLoop();
+      } else {
+        land =false;
       }
-        
-        else{
-          land =false;
-        }
     }
     if (currentBlock.blockPicker == 8) {// l-block
       if ((commaBlock.maxY >= grid.h-1)||
-      (grid.cells[commaBlock.mainBlockX][commaBlock.maxY+1] == 1)||
-      ((grid.cells[commaBlock.minX][commaBlock.mainBlockY+1] == 1) && (commaBlock.minX != commaBlock.mainBlockX ))||
-      ((grid.cells[commaBlock.maxX][commaBlock.mainBlockY+1] == 1) && (commaBlock.maxX != commaBlock.mainBlockX))
+        (grid.cells[commaBlock.mainBlockX][commaBlock.maxY+1] == 1)||
+        ((grid.cells[commaBlock.minX][commaBlock.mainBlockY+1] == 1) && (commaBlock.minX != commaBlock.mainBlockX ))||
+        ((grid.cells[commaBlock.maxX][commaBlock.mainBlockY+1] == 1) && (commaBlock.maxX != commaBlock.mainBlockX))
         ) {
         land = true;
         //noLoop();
+      } else {
+        land =false;
       }
-        
-        else{
-          land =false;
-        }
     }
     if (currentBlock.blockPicker == 9) {// i-block
       if ((iBlock.maxY >= grid.h-1)||
@@ -133,11 +117,9 @@ class Location {
         ) {
         land = true;
         //noLoop();
-        }
-        
-        else{
-          land =false;
-        }
+      } else {
+        land =false;
+      }
     }
   }
   void fills() {

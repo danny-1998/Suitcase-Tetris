@@ -68,7 +68,13 @@ class Control {
       cooldown2 = 10;
     }
     if (keysPressed[DOWN] && cooldown3 ==0) {
-      currentBlock.currentBlockY+=1;
+      if (blockPlace.land != true){
+      currentBlock.currentBlockY += 1;
+    }
+    else if(blockPlace.land == true){
+      blockPlace.check = true;
+     blockPlace.fills();
+    }
       cooldown3 = 5;
     }
     if (cooldown1 > 0) cooldown1--;

@@ -121,7 +121,13 @@ class CurrentBlock {
     }
   }
 
-  void oneStepDown() { 
-    currentBlockY += 1;
+  void oneStepDown() {
+    if (blockPlace.land != true){
+      currentBlockY += 1;
+    }
+    else if(blockPlace.land == true){
+      blockPlace.check = true;
+     blockPlace.fills();
+    }
   }
 }

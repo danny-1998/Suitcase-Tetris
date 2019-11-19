@@ -84,15 +84,11 @@ void draw()
       if (gameOn) {
         if (now - currentTime > dt) {
           currentTime = now;
-          if (currentBlock.currentBlockY < grid.h-1) {
+           
             currentBlock.oneStepDown();
             beep.play();
             println("dropping down" + " Position of block:" + currentBlock.currentBlockY + " Grid height:" + grid.h);
-          } else if (currentBlock.currentBlockY == grid.h-1) {
-            currentBlock = new CurrentBlock();
-            currentBlock.newBlock();
-            println("new block");
-          }
+          
         }
       }
     }

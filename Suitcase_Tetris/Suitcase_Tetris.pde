@@ -57,8 +57,25 @@ void setup()
   fullScreen();
   gameOn = true;
   dt = 1000;
+<<<<<<< Updated upstream
   reset();
 }
+=======
+  //beep = new SoundFile(this, "beep.wav");
+  //bgmusic = new SoundFile(this, "background_music.wav");
+
+
+
+
+
+  
+
+  //bgmusic.loop();
+
+
+  //bgmusic.loop();
+
+>>>>>>> Stashed changes
 
 void reset(){
 //PLEASE HELP HERE -- KIANO

@@ -124,10 +124,12 @@ class CurrentBlock {
   void oneStepDown() {
     if (blockPlace.land != true){
       currentBlockY += 1;
+      fill(random(255),random(255),random(255));
     }
     else if(blockPlace.land == true){
       blockPlace.check = true;
      blockPlace.fills();
+     fill(random(255),random(255),random(255));
     }
   }
 }

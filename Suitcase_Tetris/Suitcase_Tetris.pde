@@ -7,7 +7,7 @@ Location blockPlace;
 PointBlock pointBlock;
 OBlock oBlock;
 SBlock sBlock;
-
+HomeScreen home;
 ZBlock zBlock;
 JBlock jBlock;
 Lblock lBlock;
@@ -29,7 +29,7 @@ void setup()
 {
   //img2 = loadImage("2.jpg");
   grid = new Grid();
-
+home = new HomeScreen();
   loadAssets ();
 
   tBlock = new TBlock();
@@ -67,7 +67,7 @@ void reset() {
 void draw()
 {
   background(255);
-  if (!score.GameOver) {
+  if (!score.GameOver && home.gameStart) {
     grid.drawGrid();
     blockPlace.fills();
     score.scoreDraw();
@@ -94,6 +94,10 @@ void draw()
   if (score.GameOver) {
     score.gameOver();
   }
+  
+  //if (!score.GameOver && !home.gameStart){
+  home.homeDraw();
+  //}
 }
 
 void keyPressed() {
@@ -101,7 +105,26 @@ void keyPressed() {
   keysPressed[keyCode] = true;
 
   if (key == ENTER) {
-    reset();
+    home.level = true;
+  }
+  
+  if (keyCode == 49 || keyCode == 97){
+  home.gameStart = true;
+  home.level = false;
+  home.e = true;
+  // difficulty = easy
+  }
+  if (keyCode == 50 || keyCode == 98){
+  home.gameStart = true;
+  home.level = false;
+  home.m = true;
+  // difficulty = medium
+  }
+  if (keyCode == 51 || keyCode == 99){
+  home.gameStart = true;
+  home.level = false;
+  home.h = true;
+  // difficulty = hard
   }
 }
 

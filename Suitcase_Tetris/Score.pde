@@ -36,10 +36,10 @@ class Score {
       text(Score, Textx, Texty);
     }
 
-    //    if (score.GameOver == true) {
-    //      bgmusic.stop();
+        if (score.GameOver == true) {
+          bgmusic.stop();
     //      whateverthenewmusicsnameis.loop();
-    //    }
+        }
   }
 
 

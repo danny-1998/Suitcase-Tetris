@@ -13,7 +13,7 @@ class PointBlock {
 
   PointBlock() {
     mainBlockX=6;
-    mainBlockY=13;
+    mainBlockY=1;
     minX = mainBlockX;
     maxX = mainBlockX;
   }
@@ -22,6 +22,22 @@ class PointBlock {
 
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
+    
+    if (mainBlockX > 0) {
+          if (grid.cells[mainBlockX-1][mainBlockY] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 1) {
+          if (grid.cells[mainBlockX+1][mainBlockY] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
+        }
+    
     grid.cells[mainBlockX][mainBlockY] = 1;
     minX = mainBlockX;
     maxX = mainBlockX;

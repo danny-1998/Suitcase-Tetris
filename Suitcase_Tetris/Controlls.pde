@@ -3,6 +3,7 @@ class Control {
   boolean firstPress;
   int rotation, cooldown1, cooldown2, cooldown3;
   boolean top = false;
+  public boolean blockLeft, blockRight;
 
   Control() {
     rotation = 0;
@@ -10,7 +11,7 @@ class Control {
   }
 
   void controllsV3() {
-    if (keysPressed[LEFT] && currentBlock.minX > 0 && cooldown1 == 0) {
+    if (keysPressed[65] && currentBlock.minX > 0 && cooldown1 == 0 && !blockLeft) {
       currentBlock.currentBlockX -= 1;
       if (firstPress) {
         firstPress = false;
@@ -20,7 +21,7 @@ class Control {
       }
     }
 
-    if (keysPressed[RIGHT] && currentBlock.maxX < grid.w-1 && cooldown1 == 0) {
+    if (keysPressed[68] && currentBlock.maxX < grid.w-1 && cooldown1 == 0 && !blockRight) {
       currentBlock.currentBlockX += 1;
       if (firstPress) {
         firstPress = false;
@@ -30,7 +31,7 @@ class Control {
       }
     }
 
-    if (keysPressed[UP] && cooldown2 == 0) {
+    if (keysPressed[87] && cooldown2 == 0) {
       if (currentBlock.onEdgeLeft && currentBlock.wallClockwise) {           
         currentBlock.currentBlockX+=1;
       } else

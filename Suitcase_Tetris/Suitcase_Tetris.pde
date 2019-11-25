@@ -131,7 +131,7 @@ void keyPressed() {
 void keyReleased() {
   if (keyCode >= KEY_LIMIT) return;
   keysPressed[keyCode] = false;
-  if (keyCode == LEFT || keyCode == RIGHT) {
+  if (keyCode == 65 || keyCode == 68) {
     control.cooldown1 = 0;
     control.firstPress = true;
   }

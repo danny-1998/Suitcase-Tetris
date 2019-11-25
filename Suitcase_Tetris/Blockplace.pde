@@ -6,11 +6,11 @@ class Location {
    */
   //int test = 0;
   int filled[][] = new int[grid.w][grid.h]; // welke plekken op de grid gevult moeten zijn
-  boolean land = false; // geeft aan wanneer een block klaar is
-  boolean _new = false;
-  boolean check = false;
+  boolean land = false; // geeft aan wanneer een block de vloer of een ander blok onder zich aanraakt
+  boolean _new = false; // als deze true is moet er een nieuw blok verschijnen
+  boolean check = false; // tussenvariabele om te kijken of het gehele 'maak een nieuw blok' proces goed gaat
 
-  void setup() {
+  void setup() { // hier wordt de filled variabele gevuld met waarden zodat er geen error ontstaat zodra deze opgeroepen wordt voor de eerste keer.
     for (int i = 0; i<grid.w; i++) {
       for (int b = 0; b<grid.h; b++) {
         filled[i][b] = 0;
@@ -19,9 +19,11 @@ class Location {
   }
 
   void check() {
-    //grid.cells[12][10] = 1; //blok wat altijd(?) aan is voor collision testing
+    //grid.cells[12][10] = 1; //blok wat altijd aan is voor collision testing
 
     //println(tBlock.maxY);
+    //in de komende if statements wordt er gekeken naar de verschillende blokken formaties en wanneer er een blok onder aanwezig is.
+    //gezien ieder blok een andere vorm heeft, moet ze allemaal op een andere manier worden gecheckt
     if (currentBlock.blockPicker == 1) {// t-block
       if ((tBlock.maxY >= grid.h-1) ||
         ((grid.cells[tBlock.mainBlockX][tBlock.maxY+1] == 1) ||
@@ -98,7 +100,7 @@ class Location {
         land =false;
       }
     }
-    if (currentBlock.blockPicker == 8) {// l-block
+    if (currentBlock.blockPicker == 8) {// comma-block
       if ((commaBlock.maxY >= grid.h-1)||
         (grid.cells[commaBlock.mainBlockX][commaBlock.maxY+1] == 1)||
         ((grid.cells[commaBlock.minX][commaBlock.mainBlockY+1] == 1) && (commaBlock.minX != commaBlock.mainBlockX ))||
@@ -122,19 +124,21 @@ class Location {
       }
     }
   }
-  void fills() {
+  //dit waren de 'bottom checks'
+  
+  void fills() { //deze functie zorgt er voor dat als er een tetrimino klaar is met vallen, de blokken waar de tetrimino uit bestond onderdeel worden van de stage zodat het volgende blok er op kan vallen.
     for (int i = 0; i<grid.w; i++) {
       for (int b = 0; b<grid.h; b++) {
         if ((grid.cells[i][b] == 1) && (check == true)) {
-          filled[i][b] = grid.cells[i][b];
+          filled[i][b] = grid.cells[i][b]; //eerst worden alle velden die al actief waren gekopieërd naar de variabele 'filled'
           _new = true;
         }
         if (filled[i][b] == 1) {
-          grid.cells[i][b] = filled[i][b];
+          grid.cells[i][b] = filled[i][b]; // dan worden hier alle cells in de grid gelijk gemaakt aan 'filled'. filled bestaat nu uit grid.cells en het nieuwe, net gevallen blok.
         }
       }
     }
-    if (_new == true) {
+    if (_new == true) { //hier wordt aan de currentBlock class gemeld dat er een nieuw blok moet komen nu dat het veld compleet is.
       _new = false;
       currentBlock.newBlock = true;
       check = false;

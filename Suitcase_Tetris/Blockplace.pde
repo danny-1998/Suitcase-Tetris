@@ -26,7 +26,7 @@ class Location {
       //spriteN[i] = new PImage
     }
     
-    for (int a = 0; a < 500; a++) {
+   /*for (int a = 0; a < 500; a++) {
       for (int b = 0; b < 500; b++) {
         for (int c = 0; c < 500; c++) {
           spriteX[a] = 2000;
@@ -35,12 +35,14 @@ class Location {
         }
       }
     }
+    */
   }
+  
 
   void check() {
-    for (int a =0; a <24; a++) {
-      println(spriteN[a]);
-    }
+    //for (int a =0; a <24; a++) {
+    //  println(spriteN[a]);
+    //}
     //grid.cells[12][10] = 1; //blok wat altijd aan is voor collision testing
 
     //println(tBlock.maxY);
@@ -145,10 +147,10 @@ class Location {
         land =false;
       }
     }
-    for (int a =0; a <500; a++) {
+    for (int a = 0; a <500; a++) {
       image(spriteN[spritewah[a]], spriteX[a], spriteY[a]);
     }
-    image(spriteN[0], 500, 500);
+    //image(spriteN[0], 500, 500);
   }
   //dit waren de 'bottom checks'
 

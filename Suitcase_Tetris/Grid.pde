@@ -33,7 +33,7 @@ class Grid {
           //fill(cells[i][j]);
           //fill(random(255),random(255),random(255));
           //DISCO PARTY CODE
-          rect(i*q, j*q, q, q);
+          //rect(i*q, j*q, q, q);
         }
       }
     }

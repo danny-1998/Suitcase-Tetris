@@ -109,7 +109,7 @@ class Control {
       rotation-=1;
       cooldown2 = 10;
     }
-    if (keysPressed[DOWN] && cooldown3 ==0) {
+    if (keysPressed[83] && cooldown3 ==0) {
       fill(random(255), random(255), random(255));
       if (blockPlace.land != true) {
         currentBlock.currentBlockY += 1;

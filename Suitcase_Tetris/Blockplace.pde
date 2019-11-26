@@ -5,6 +5,8 @@ class Location {
    en geeft een signaal aan de CurrentBlock dat deze een nieuw blok mag maken.
    */
   //int test = 0;
+  int sprite[][] = new int[500][500];
+  int uwu, owo;
   int filled[][] = new int[grid.w][grid.h]; // welke plekken op de grid gevult moeten zijn
   boolean land = false; // geeft aan wanneer een block de vloer of een ander blok onder zich aanraakt
   boolean _new = false; // als deze true is moet er een nieuw blok verschijnen
@@ -135,9 +137,15 @@ class Location {
         }
         if (filled[i][b] == 1) {
           grid.cells[i][b] = filled[i][b]; // dan worden hier alle cells in de grid gelijk gemaakt aan 'filled'. filled bestaat nu uit grid.cells en het nieuwe, net gevallen blok.
+          
         }
       }
     }
+    
+    //if ((control,rotation == 0) || (control.rotation == 2))
+        //  sprite[uwu][owo] = 0;
+        // uwu+=1;
+          
     if (_new == true) { //hier wordt aan de currentBlock class gemeld dat er een nieuw blok moet komen nu dat het veld compleet is.
       _new = false;
       currentBlock.newBlock = true;

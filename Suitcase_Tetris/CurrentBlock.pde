@@ -17,7 +17,7 @@ class CurrentBlock {
       control.rotation = 0;
       currentBlockY = 1;
       currentBlockX = 11;
-      blockPicker = ceil(random(0, 9));
+      blockPicker = ceil(random(9, 9));
       newBlock = false;
       //println(blockPicker);
     }

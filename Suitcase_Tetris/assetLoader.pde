@@ -4,8 +4,10 @@ SoundFile beep, bgmusic;
 
 PImage Level, logo;
 
-PImage commaSprite, ISprite, JSprite, LSprite, OSprite, pointSprite, SSprite, ZSprite, TSprite; 
-
+PImage commaSprite0, ISprite0, JSprite0, LSprite0, OSprite0, pointSprite0, SSprite0, ZSprite0, TSprite0; 
+PImage commaSprite1, ISprite1, JSprite1, LSprite1, SSprite1, ZSprite1, TSprite1; 
+PImage commaSprite2, ISprite2, JSprite2, LSprite2, TSprite2; 
+PImage commaSprite3, ISprite3, JSprite3, LSprite3, TSprite3; 
 
 public void loadAssets () {
   // sounds
@@ -16,13 +18,32 @@ public void loadAssets () {
   Level = loadImage("./sprites/TemporaryDifficultySelectForTesting.png" ); // as the name suggests, its temporary to test if the homescreen works - kiano :)
   logo = loadImage("./sprites/logo img.png");
 
-  
+
   // images
-  commaSprite = loadImage("comma.png");
-  ISprite = loadImage ("I.png");
-  JSprite = loadImage ("J.png");
-  LSprite = loadImage ("L.png");
-  
+  commaSprite0 = loadImage("./sprites/comma-0.png");
+  ISprite0 = loadImage ("./sprites/I-0.png");
+  JSprite0 = loadImage ("./sprites/J-0.png");
+  LSprite0 = loadImage ("./sprites/L-0.png");
+  OSprite0 = loadImage("./sprites/O.png");
+  pointSprite0 = loadImage("./sprites/point.png");
+  SSprite0 = loadImage("./sprites/S-0.png");
+  ZSprite0 = loadImage("./sprites/Z-0.png");
+  TSprite0 = loadImage("./sprites/T-0.png");
+  commaSprite1 = loadImage("./sprites/comma-1.png");
+  ISprite1 = loadImage ("./sprites/I-1.png");
+  JSprite1 = loadImage ("./sprites/J-1.png");
+  LSprite1 = loadImage ("./sprites/L-1.png");
+  SSprite1 = loadImage("./sprites/S-1.png");
+  ZSprite1 = loadImage("./sprites/Z-1.png");
+  TSprite1 = loadImage("./sprites/T-1.png");
+  commaSprite2 = loadImage("./sprites/comma-2.png");
+  JSprite2 = loadImage ("./sprites/J-2.png");
+  LSprite2 = loadImage ("./sprites/L-2.png");
+  TSprite2 = loadImage("./sprites/T-2.png");
+  commaSprite3 = loadImage("./sprites/comma-3.png");
+  JSprite3 = loadImage ("./sprites/J-3.png");
+  LSprite3 = loadImage ("./sprites/L-3.png");
+  TSprite3 = loadImage("./sprites/T-3.png");
 }
 
 // Spritesheet class to draw sprite animations
@@ -54,7 +75,7 @@ class SpriteSheet {
 
     drawImage.copy(sourceImage, 
       frame*frameWidth, 0, frameWidth, sourceImage.height, 
-      0, 0, frameWidth, sourceImage.height);    
+      0, 0, frameWidth, sourceImage.height);
   }
 
   // draw the target image

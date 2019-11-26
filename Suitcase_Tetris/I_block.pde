@@ -1,3 +1,5 @@
+// Nina Brochard
+
 class IBlock {
   /*diagram of how im coding this I_Block in the grid:
    *                [1]
@@ -50,7 +52,7 @@ class IBlock {
     }
 
     if (mainBlockX == 0) {            
-      onEdgeLeft = true;
+      onEdgeLeft = true;                  // makes sure the block doesn't go off the grid
     } else {
       onEdgeLeft = false;
     }
@@ -61,7 +63,7 @@ class IBlock {
       onEdgeRight = false;
     }
     
-    if (control.rotation == 0 || control.rotation == 2) {
+    if (control.rotation == 0 || control.rotation == 2) {              // all ofthe following code is for rotating the block
       if (mainBlockX > 0) { 
         if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0 || grid.cells[block4X-1][block4Y] > 0) {
           control.blockLeft = true;
@@ -95,7 +97,7 @@ class IBlock {
       }
     }
 
-    grid.cells[mainBlockX][mainBlockY] = 1;
+    grid.cells[mainBlockX][mainBlockY] = 1;            // places the block on the grid
     grid.cells[block1X][block1Y] = 1;
     grid.cells[block3X][block3Y] = 1;
     grid.cells[block4X][block4Y] = 1;

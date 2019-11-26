@@ -1,3 +1,5 @@
+// Loads all of the sounds and images
+
 SoundFile beep, bgmusic;
 <<<<<<< Updated upstream
 PImage Level, logo;

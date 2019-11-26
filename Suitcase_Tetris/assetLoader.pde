@@ -12,7 +12,7 @@ PImage commaSprite3, ISprite3, JSprite3, LSprite3, TSprite3;
 PImage spriteN[] = new PImage[24];
 SoundFile beep, bgmusic, gameover;
 
-PImage Level, logo;
+PImage Level, logo, game;
 
 PImage commaSprite, ISprite, JSprite, LSprite, OSprite, pointSprite, SSprite, ZSprite, TSprite; 
 
@@ -31,7 +31,7 @@ public void loadAssets () {
 
   Level = loadImage("./sprites/TemporaryDifficultySelectForTesting.png" ); // as the name suggests, its temporary to test if the homescreen works - kiano :)
   logo = loadImage("./sprites/logo img.png");
-
+  game = loadImage("./sprites/Gamebg.png");
 
 
   // images

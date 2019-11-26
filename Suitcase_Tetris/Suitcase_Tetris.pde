@@ -159,8 +159,8 @@ void draw()
 }
 
 void keyPressed() {
-  if (keyCode >= KEY_LIMIT) return;
-  keysPressed[keyCode] = true;
+  if (keyCode >= KEY_LIMIT) return;    //if a key is pressed that has a keyCode higher than the key limit, the function doesnt go further than this, so it doesnt potentially break anything
+  keysPressed[keyCode] = true;         //if a key is pressed, it turns a boolean specific to that key to true, which gets used in the controlls
 
   if (key == ENTER) {
     home.level = true;
@@ -187,10 +187,10 @@ void keyPressed() {
 }
 
 void keyReleased() {
-  if (keyCode >= KEY_LIMIT) return;
-  keysPressed[keyCode] = false;
-  if (keyCode == 65 || keyCode == 68) {
-    control.cooldown1 = 0;
+  if (keyCode >= KEY_LIMIT) return;           //if a key is released that has a keyCode higher than the key limit, the function doesnt go further than this, so it doesnt potentially break anything
+  keysPressed[keyCode] = false;               //when a key gets released, it switches a boolean specific to that key to false, which stops the input towards the controls
+  if (keyCode == 65 || keyCode == 68) {       //if the a or d keys get released, it resets their cooldown, so that you can move more precise and at your own speed when tapping the controls, instead of holding them
+    control.cooldown1 = 0;                    //it also re-engages the firstPress boolean, which helps with the accuracy of the controls
     control.firstPress = true;
   }
 

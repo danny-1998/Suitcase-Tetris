@@ -28,10 +28,6 @@ class SBlock {
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
 
-  SBlock() {
-    mainBlockX=5;
-    mainBlockY=10;
-  }
 
   void SBlockDraw() {
     ZeroX = mainBlockX*50+300;

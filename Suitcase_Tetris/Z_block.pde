@@ -27,10 +27,7 @@ class ZBlock {
   int ThreeY;
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
-  ZBlock() {
-    mainBlockX=5;
-    mainBlockY=10;
-  }
+
 
   void ZBlockDraw() {
     ZeroX = mainBlockX*50+300;

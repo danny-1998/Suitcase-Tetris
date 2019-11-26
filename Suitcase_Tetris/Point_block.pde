@@ -13,12 +13,6 @@ class PointBlock {
   int ZeroX;
   int ZeroY;
 
-  PointBlock() {
-    mainBlockX=6;
-    mainBlockY=1;
-    minX = mainBlockX;
-    maxX = mainBlockX;
-  }
 
   void PointBlockDraw() {
 ZeroX = mainBlockX*50+350;

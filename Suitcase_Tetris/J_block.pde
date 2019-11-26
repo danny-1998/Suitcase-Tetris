@@ -39,6 +39,11 @@ class JBlock {
 
       width3= mainBlockX;
       height3=mainBlockY+1;
+      
+      grid.cells[currentBlock.currentBlockX][currentBlock.currentBlockY-1] = 1;
+      grid.cells[currentBlock.currentBlockX][currentBlock.currentBlockY] = 1;
+      grid.cells[currentBlock.currentBlockX][currentBlock.currentBlockY+1] = 1;
+      grid.cells[currentBlock.currentBlockX-1][currentBlock.currentBlockY+1] = 1;
 
       minX = mainBlockX-1;
       maxX = mainBlockX;

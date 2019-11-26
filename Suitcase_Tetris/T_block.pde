@@ -9,6 +9,14 @@ class TBlock { //<>// //<>// //<>//
   int block0X, block0Y;
   int block1X, block1Y;
   int block3X, block3Y;
+    int ZeroX;
+  int ZeroY;
+  int OneX;
+  int OneY;
+  int TwoX;
+  int TwoY;
+  int ThreeX;
+  int ThreeY;
 
   boolean onEdgeLeft, onEdgeRight; //if the piece is next to the wall, and has a possibility of rotating outside of the array, the boolean is true
   boolean wallClockwise, wallAnticlockwise; //if you would rotate the piece clockwise or anticlockwise, and it would end up outside of the array, the boolean is true. This is used in the controlls to make sure that doesnt happen
@@ -20,6 +28,14 @@ class TBlock { //<>// //<>// //<>//
   }
 
   void TBlockDraw() {
+     ZeroX = mainBlockX*50+300;
+   ZeroY = mainBlockY*50-10;
+   OneX = mainBlockX*50+350;
+   OneY = mainBlockY*50-10;
+   TwoX = mainBlockX*50+300;
+   TwoY = mainBlockY*50+40;
+   ThreeX = mainBlockX*50+300;
+   ThreeY = mainBlockY*50-10;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
     if (control.rotation == 0) {            //      [0]
@@ -104,6 +120,7 @@ class TBlock { //<>// //<>// //<>//
 
 
     if (control.rotation == 0) {
+      image(TSprite0, ZeroX, ZeroY);
       if (mainBlockX > 1) { 
         if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0) {
           control.blockLeft = true;
@@ -121,6 +138,7 @@ class TBlock { //<>// //<>// //<>//
     }
 
     if (control.rotation == 1) {
+      image(TSprite1, OneX, OneY);
       if (mainBlockX > 0) {
         if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0) {
           control.blockLeft = true;
@@ -138,6 +156,7 @@ class TBlock { //<>// //<>// //<>//
     }
 
     if (control.rotation == 2) {
+      image(TSprite2, TwoX, TwoY);
       if (mainBlockX > 1) {
         if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
           control.blockLeft = true;
@@ -155,6 +174,7 @@ class TBlock { //<>// //<>// //<>//
     }
 
     if (control.rotation == 3) {
+      image(TSprite3, ThreeX, ThreeY);
       if (mainBlockX > 1) {
         if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
           control.blockLeft = true;

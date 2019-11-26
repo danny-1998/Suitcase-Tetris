@@ -17,6 +17,8 @@ class OBlock {
   int height3;
   int minX, maxX;
   int maxY;
+  int ZeroX;
+  int ZeroY;
 
   OBlock() {
     mainBlockX=10;
@@ -24,6 +26,10 @@ class OBlock {
   }
 
   void OBlockDraw() {
+    
+    ZeroX = mainBlockX*50+350;
+   ZeroY = mainBlockY*50+40;
+   image(OSprite0, ZeroX, ZeroY);
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 

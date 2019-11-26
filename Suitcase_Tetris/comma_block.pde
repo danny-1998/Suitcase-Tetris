@@ -8,11 +8,20 @@ class CommaBlock {
    *               1 = main
    */
 
+
   int mainBlockX, mainBlockY;
   int block0X, block0Y;
   int block2X, block2Y;
   int minX, maxX;
   int maxY;
+  int ZeroX = mainBlockX*50+350;
+  int ZeroY = mainBlockY*50-10;
+  int OneX = mainBlockX*50+300;
+  int OneY = mainBlockX*50+300;
+  int TwoX = mainBlockX*50+350;
+  int TwoY = mainBlockY*50-10;
+  int ThreeX = mainBlockY*50+40;
+  int ThreeY = mainBlockY*50+40;
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
 
@@ -22,6 +31,14 @@ class CommaBlock {
   }
 
   void CommaBlockDraw () {
+  ZeroX = mainBlockX*50+350;
+   ZeroY = mainBlockY*50-10;
+   OneX = mainBlockX*50+350;
+   OneY = mainBlockY*50+40;
+   TwoX = mainBlockX*50+300;
+   TwoY = mainBlockY*50+40;
+   ThreeX = mainBlockX*50+300;
+   ThreeY = mainBlockY*50-10;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
@@ -99,6 +116,7 @@ class CommaBlock {
     }
 
 if (control.rotation == 0) {                // all of the following code is for rotating the block
+ image(commaSprite0, ZeroX, ZeroY);
       if (mainBlockX > 0) { 
         if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
           control.blockLeft = true;
@@ -116,6 +134,7 @@ if (control.rotation == 0) {                // all of the following code is for 
     }
 
     if (control.rotation == 1) {
+       image(commaSprite1, OneX, OneY);
       if (mainBlockX > 0) {
         if (grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block2X-1][block2Y] > 0) {
           control.blockLeft = true;
@@ -133,6 +152,7 @@ if (control.rotation == 0) {                // all of the following code is for 
     }
 
     if (control.rotation == 2) {
+       image(commaSprite2, TwoX, TwoY);
       if (mainBlockX > 1) {
         if (grid.cells[block2X-1][block2Y] > 0 || grid.cells[block0X-1][block0Y] > 0) {
           control.blockLeft = true;
@@ -150,6 +170,7 @@ if (control.rotation == 0) {                // all of the following code is for 
     }
 
     if (control.rotation == 3) {
+       image(commaSprite3, ThreeX, ThreeY);
       if (mainBlockX > 1) {
         if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block2X-1][block2Y] > 0) {
           control.blockLeft = true;

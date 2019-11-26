@@ -18,6 +18,14 @@ class JBlock {
   int height3;
   int minX, maxX;
   int maxY;
+  int ZeroX;
+  int ZeroY;
+  int OneX;
+  int OneY;
+  int TwoX;
+  int TwoY;
+  int ThreeX;
+  int ThreeY;
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
 
@@ -27,6 +35,14 @@ class JBlock {
   }
 
   void JBlockDraw() {
+     ZeroX = mainBlockX*50+300;
+   ZeroY = mainBlockY*50-10;
+   OneX = mainBlockX*50+300;
+   OneY = mainBlockY*50-10;
+   TwoX = mainBlockX*50+350;
+   TwoY = mainBlockY*50-10;
+   ThreeX = mainBlockX*50+300;
+   ThreeY = mainBlockY*50+40;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
@@ -117,6 +133,7 @@ class JBlock {
       onEdgeRight = false; 
 
       if (control.rotation == 0) {
+        image(JSprite0, ZeroX, ZeroY);
         if (mainBlockX > 1) { 
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
             control.blockLeft = true;
@@ -134,6 +151,7 @@ class JBlock {
       }
 
       if (control.rotation == 1) {
+        image(JSprite1, OneX, OneY);
         if (mainBlockX > 1) {
           if (grid.cells[width2-1][height2] > 0 || grid.cells[width3-1][height3] > 0) {
             control.blockLeft = true;
@@ -151,6 +169,7 @@ class JBlock {
       }
 
       if (control.rotation == 2) {
+        image(JSprite2, TwoX, TwoY);
         if (mainBlockX > 0) {
           if (grid.cells[width1-1][height1] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[width3-1][height3] > 0) {
             control.blockLeft = true;
@@ -168,6 +187,7 @@ class JBlock {
       }
 
       if (control.rotation == 3) {
+        image(JSprite3, ThreeX, ThreeY);
         if (mainBlockX > 1) {
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0) {
             control.blockLeft = true;

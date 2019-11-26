@@ -10,6 +10,8 @@ class PointBlock {
   int mainBlockY;
   int minX, maxX;
   int maxY;
+  int ZeroX;
+  int ZeroY;
 
   PointBlock() {
     mainBlockX=6;
@@ -19,10 +21,11 @@ class PointBlock {
   }
 
   void PointBlockDraw() {
-
+ZeroX = mainBlockX*50+350;
+   ZeroY = mainBlockY*50+40;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
-    
+    image(pointSprite0, ZeroX, ZeroY);
     if (mainBlockX > 0) {
           if (grid.cells[mainBlockX-1][mainBlockY] > 0) {
             control.blockLeft = true;

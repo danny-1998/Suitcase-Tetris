@@ -17,6 +17,14 @@ class SBlock {
   int height3;
   int minX, maxX;
   int maxY;
+   int ZeroX;
+  int ZeroY;
+  int OneX;
+  int OneY;
+  int TwoX;
+  int TwoY;
+  int ThreeX;
+  int ThreeY;
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
 
@@ -26,6 +34,14 @@ class SBlock {
   }
 
   void SBlockDraw() {
+    ZeroX = mainBlockX*50+300;
+   ZeroY = mainBlockY*50+40;
+   OneX = mainBlockX*50+350;
+   OneY = mainBlockY*50-10;
+   TwoX = mainBlockX*50+300;
+   TwoY = mainBlockY*50+40;
+   ThreeX = mainBlockX*50+350;
+   ThreeY = mainBlockY*50-10;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
@@ -103,6 +119,7 @@ class SBlock {
       onEdgeRight = false; 
 
       if (control.rotation == 0) {
+        image(SSprite0, ZeroX, ZeroY);
         if (mainBlockX > 1) { 
           if (grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[width2-1][height2] > 0) {
             control.blockLeft = true;
@@ -120,6 +137,7 @@ class SBlock {
       }
 
       if (control.rotation == 1) {
+        image(SSprite1, OneX, OneY);
         if (mainBlockX > 0) {
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
             control.blockLeft = true;
@@ -137,6 +155,7 @@ class SBlock {
       }
 
       if (control.rotation == 2) {
+        image(SSprite0, TwoX, TwoY);
         if (mainBlockX > 1) { 
           if (grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[width2-1][height2] > 0) {
             control.blockLeft = true;
@@ -154,6 +173,7 @@ class SBlock {
       }
 
       if (control.rotation == 3) {
+        image(SSprite1, ThreeX, ThreeY);
         if (mainBlockX > 0) {
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
             control.blockLeft = true;

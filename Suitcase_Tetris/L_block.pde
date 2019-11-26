@@ -15,6 +15,14 @@ class Lblock {
   int block3X, block3Y;
   int minX, maxX;
   int maxY;
+  int ZeroX;
+  int ZeroY;
+  int OneX;
+  int OneY;
+  int TwoX;
+  int TwoY;
+  int ThreeX;
+  int ThreeY;
   boolean wallClockwise, wallAnticlockwise;
   boolean onEdgeLeft, onEdgeRight;
 
@@ -24,6 +32,14 @@ class Lblock {
   }
 
   void LblockDraw () {
+    ZeroX = mainBlockX*50+350;
+   ZeroY = mainBlockY*50-10;
+   OneX = mainBlockX*50+300;
+   OneY = mainBlockY*50+40;
+   TwoX = mainBlockX*50+300;
+   TwoY = mainBlockY*50-10;
+   ThreeX = mainBlockX*50+300;
+   ThreeY = mainBlockY*50-10;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
@@ -112,6 +128,7 @@ class Lblock {
     }
     
     if (control.rotation == 0) {            // all of the following code is for rotating the block
+     image(LSprite0, ZeroX, ZeroY);
       if (mainBlockX > 0) { 
         if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[block2X-1][block2Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
           control.blockLeft = true;
@@ -129,6 +146,7 @@ class Lblock {
     }
 
     if (control.rotation == 1) {
+      image(LSprite1, OneX, OneY);
       if (mainBlockX > 1) {
         if (grid.cells[block2X-1][block2Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
           control.blockLeft = true;
@@ -146,6 +164,7 @@ class Lblock {
     }
 
     if (control.rotation == 2) {
+      image(LSprite2, TwoX, TwoY);
       if (mainBlockX > 1) {
         if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0) {
           control.blockLeft = true;
@@ -163,6 +182,7 @@ class Lblock {
     }
 
     if (control.rotation == 3) {
+      image(LSprite3, ThreeX, ThreeY);
       if (mainBlockX > 1) {
         if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
           control.blockLeft = true;

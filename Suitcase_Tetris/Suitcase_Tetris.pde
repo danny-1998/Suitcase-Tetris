@@ -63,30 +63,30 @@ void setup()
   reset();
 }
 
-<<<<<<< Updated upstream
+
 //beep = new SoundFile(this, "beep.wav");
 //bgmusic = new SoundFile(this, "background_music.wav");
 
-=======
+
   //beep = new SoundFile(this, "beep.wav");
   //bgmusic = new SoundFile(this, "background_music.wav");
->>>>>>> Stashed changes
 
 
 
 
 
-
-//bgmusic.loop();
 
 
 //bgmusic.loop();
 
 
-<<<<<<< Updated upstream
-=======
+//bgmusic.loop();
 
->>>>>>> Stashed changes
+
+
+
+
+
 
 void reset() {
   //PLEASE HELP HERE -- KIANO

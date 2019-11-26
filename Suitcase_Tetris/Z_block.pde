@@ -29,8 +29,8 @@ class ZBlock {
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
-    if (control.rotation == 0) {              //   [1][M]
-      width1=mainBlockX-1;                    //      [2][3]
+    if (control.rotation == 0 || control.rotation == 2) {              //   [1][M]
+      width1=mainBlockX-1;                                             //      [2][3]
       height1=mainBlockY;
 
       width2= mainBlockX;
@@ -46,57 +46,28 @@ class ZBlock {
       wallClockwise = false;
       wallAnticlockwise = false;
     } else 
-    if (control.rotation == 1) {        //        [1]
-      width1 = mainBlockX;              //     [2][M]
-      height1 = mainBlockY-1;           //     [3]
-
-      width2 = mainBlockX-1;
-      height2 = mainBlockY;
-
-      width3 = mainBlockX-1;
-      height3 = mainBlockY+1;
-
-      minX = mainBlockX-1;
-      maxX = mainBlockX;
-      maxY = mainBlockY + 1;
-
+    if (control.rotation == 1 || control.rotation == 3) {                      //        [1]
+   grid.cells[currentBlock.currentBlockX][currentBlock.currentBlockY-1] = 1;   //     [2][M]
+   grid.cells[currentBlock.currentBlockX-1][currentBlock.currentBlockY] = 1;   //     [3]
+   grid.cells[currentBlock.currentBlockX][currentBlock.currentBlockY] = 1;
+   grid.cells[currentBlock.currentBlockX-1][currentBlock.currentBlockY+1] = 1;
+   
+   width1 = mainBlockX;
+   height1 = mainBlockY-1;
+   
+   width2 = mainBlockX-1;
+   height2 = mainBlockY;
+   
+   width3 = mainBlockX-1;
+   height3 = mainBlockY+1;
+   
+   minX = mainBlockX-1;
+   maxX = mainBlockX;
+   maxY = mainBlockY + 1;
+            
       wallClockwise = true;
       wallAnticlockwise = true;
-    } else
-      if (control.rotation == 2) {           //      [1][0]
-        width1=mainBlockX-1;                 //         [2][3]
-        height1=mainBlockY;
-
-        width2= mainBlockX;
-        height2 = mainBlockY+1;
-
-        width3= mainBlockX+1;
-        height3=mainBlockY+1;
-
-        minX = mainBlockX-1;
-        maxX = mainBlockX+1;
-        maxY = mainBlockY + 1;
-
-        wallClockwise = false;
-        wallAnticlockwise = false;
-      } else
-        if (control.rotation == 3) {        //        [1]
-          width1 = mainBlockX;              //     [2][0]
-          height1 = mainBlockY-1;           //     [3]
-
-          width2 = mainBlockX-1;
-          height2 = mainBlockY;
-
-          width3 = mainBlockX-1;
-          height3 = mainBlockY+1;
-
-          minX = mainBlockX-1;
-          maxX = mainBlockX;
-          maxY = mainBlockY + 1; 
-
-          wallClockwise = true;
-          wallAnticlockwise = true;
-        }    
+    }
 
     if (control.rotation == 3 || control.rotation == 1) {
       minX = mainBlockX-1;

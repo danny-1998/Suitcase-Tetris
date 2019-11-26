@@ -1,7 +1,7 @@
 class Control {
   //By Ole Neuman
   boolean firstPress;
-  int rotation, cooldown1, cooldown2, cooldown3;
+  int rotation, cooldown1, cooldown2, cooldown3, cooldownAmount;
   boolean top = false;
   public boolean blockLeft, blockRight;
 
@@ -11,57 +11,31 @@ class Control {
   }
 
   void controllsV3() {
+    if(home.e){
+     cooldownAmount = 3; 
+    } else if(home.m){
+     cooldownAmount = 10; 
+    } else if (home.h){
+     cooldownAmount = 15; 
+    }
     if (keysPressed[65] && currentBlock.minX > 0 && cooldown1 == 0 && !blockLeft) {
       currentBlock.currentBlockX -= 1;
-      if (firstPress && home.e == true) {
+      if (firstPress) {
         firstPress = false;
         cooldown1 = 25;
       } else {
-        firstPress = false;
-        cooldown1 = 3;
-      }
-      //De cooldown op de tijd tussen verplaatsingen naar links in Easy difficulty is hier 3
-      if (firstPress && home.m == true) {
-        firstPress = false;
-        cooldown1 = 25;
-      } else {
-        firstPress = false;
-        cooldown1 = 10;
-      }
-      //De cooldown op de tijd tussen verplaatsingen naar links in Medium difficulty is hier 10
-      if (firstPress && home.h == true) {
-        firstPress = false;
-        cooldown1 = 25;
-      } else {
-        firstPress = false;
-        cooldown1 = 15;
+        cooldown1 = cooldownAmount;
       }
     }
     //De cooldown op de tijd tussen verplaatsingen naar links in Hard difficulty is hier 15
     if (keysPressed[68] && currentBlock.maxX < grid.w-1 && cooldown1 == 0 && !blockRight) {
       currentBlock.currentBlockX += 1;
-      if (firstPress && home.e == true) {
+      if (firstPress) {
         firstPress = false;
         cooldown1 = 25;
       } else {
         firstPress = false;
-        cooldown1 = 3;
-      }
-      //De cooldown op de tijd tussen verplaatsingen naar rechts in Easy difficulty is hier 3
-      if (firstPress && home.m == true) {
-        firstPress = false;
-        cooldown1 = 25;
-      } else {
-        firstPress = false;
-        cooldown1 = 10;
-      }
-      //De cooldown op de tijd tussen verplaatsingen naar rechts in Medium difficulty is hier 10
-      if (firstPress && home.h == true) {
-        firstPress = false;
-        cooldown1 = 25;
-      } else {
-        firstPress = false;
-        cooldown1 = 15;
+        cooldown1 = cooldownAmount;
       }
       //De cooldown op de tijd tussen verplaatsingen naar rechts in Hard difficulty is hier 15
     }

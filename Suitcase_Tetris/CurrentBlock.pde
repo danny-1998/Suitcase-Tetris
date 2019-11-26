@@ -1,5 +1,5 @@
 class CurrentBlock {
-  float blockPicker;
+  int blockPicker;
   int currentBlockX, currentBlockY;
   int minX, maxX;
   boolean onEdgeLeft, onEdgeRight;
@@ -14,9 +14,10 @@ class CurrentBlock {
 
   void newBlock() {
     if (newBlock) {
+      control.rotation = 0;
       currentBlockY = 1;
       currentBlockX = 11;
-      blockPicker = ceil(random(9));
+      blockPicker = ceil(random(9, 9));
       newBlock = false;
       //println(blockPicker);
     }
@@ -104,18 +105,24 @@ class CurrentBlock {
     if (blockPicker == 7) {
       minX = lBlock.minX;
       maxX = lBlock.maxX;
+      wallClockwise = lBlock.wallClockwise;
+      wallAnticlockwise = lBlock.wallAnticlockwise;
       onEdgeLeft = lBlock.onEdgeLeft;
       onEdgeRight = lBlock.onEdgeRight;
     }
     if (blockPicker == 8) {
       minX = commaBlock.minX;
       maxX = commaBlock.maxX;
+      wallClockwise = commaBlock.wallClockwise;
+      wallAnticlockwise = commaBlock.wallAnticlockwise;
       onEdgeLeft = commaBlock.onEdgeLeft;
       onEdgeRight = commaBlock.onEdgeRight;
     }
     if (blockPicker == 9) {
       minX = iBlock.minX;
       maxX = iBlock.maxX;
+      wallClockwise = iBlock.wallClockwise;
+      wallAnticlockwise = iBlock.wallAnticlockwise;
       onEdgeLeft = iBlock.onEdgeLeft;
       onEdgeRight = iBlock.onEdgeRight;
     }

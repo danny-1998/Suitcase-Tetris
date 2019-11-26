@@ -13,6 +13,7 @@ class Lblock {
   int block3X, block3Y;
   int minX, maxX;
   int maxY;
+  boolean wallClockwise, wallAnticlockwise;
   boolean onEdgeLeft, onEdgeRight;
 
   Lblock() {
@@ -37,6 +38,9 @@ class Lblock {
       minX = mainBlockX;
       maxX = mainBlockX+1;
       maxY = mainBlockY + 1;
+      
+      wallClockwise = true;
+      wallAnticlockwise = true;
     }
 
     if (control.rotation == 1) {
@@ -52,6 +56,9 @@ class Lblock {
       minX = mainBlockX-1;
       maxX = mainBlockX+1;
       maxY = mainBlockY + 1;
+     
+      wallClockwise = false;
+      wallAnticlockwise = false;
     }
 
     if (control.rotation == 2) {
@@ -67,6 +74,9 @@ class Lblock {
       minX = mainBlockX-1;
       maxX = mainBlockX;
       maxY = mainBlockY + 1;
+      
+      wallClockwise = true;
+      wallAnticlockwise = true;
     }
 
     if (control.rotation == 3) {
@@ -82,6 +92,9 @@ class Lblock {
       minX = mainBlockX-1;
       maxX = mainBlockX+1;
       maxY = mainBlockY;
+      
+      wallClockwise = false;
+      wallAnticlockwise = false;
     }
 
     if (mainBlockX == 0) {            

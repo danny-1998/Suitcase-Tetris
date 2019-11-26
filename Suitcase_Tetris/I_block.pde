@@ -12,6 +12,7 @@ class IBlock {
   int block3X, block3Y;
   int block4X, block4Y;
   int minX, maxX;
+  boolean wallClockwise, wallAnticlockwise;
   boolean onEdgeLeft, onEdgeRight;
   int maxY;
 
@@ -32,6 +33,9 @@ class IBlock {
       minX = mainBlockX;
       maxX = mainBlockX;
       maxY = mainBlockY + 2;
+      
+      wallClockwise = true;
+      wallAnticlockwise = true;
     }
 
     if (control.rotation == 1 || control.rotation == 3) {
@@ -47,6 +51,9 @@ class IBlock {
       minX = mainBlockX - 1;
       maxX = mainBlockX + 2;
       maxY = mainBlockY;
+      
+      wallClockwise = false;
+      wallAnticlockwise = false;
     }
 
     if (mainBlockX == 0) {            

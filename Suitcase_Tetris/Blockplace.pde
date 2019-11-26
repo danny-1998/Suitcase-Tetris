@@ -169,6 +169,7 @@ class Location {
 
     if (_new == true) { //hier wordt aan de currentBlock class gemeld dat er een nieuw blok moet komen nu dat het veld compleet is.
       _new = false;
+      // rotation 1
       if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) {
           spriteX[uwu] = tBlock.ZeroX;
@@ -225,6 +226,7 @@ class Location {
           uwu+=1;
         }
       }
+      // orientatie 2
       if (control.rotation == 1) {
         if (currentBlock.blockPicker == 1) {
           spriteX[uwu] = tBlock.OneX;
@@ -281,6 +283,8 @@ class Location {
           uwu+=1;
         }
       }
+      
+      // draai 3
       if (control.rotation == 2) {
         if (currentBlock.blockPicker == 1) {
           spriteX[uwu] = tBlock.TwoX;
@@ -337,7 +341,8 @@ class Location {
           uwu+=1;
         }
       }
-      if (control.rotation == 1) {
+      // twist 4
+      if (control.rotation == 3) {
         if (currentBlock.blockPicker == 1) {
           spriteX[uwu] = tBlock.ThreeX;
           spriteY[uwu] = tBlock.ThreeY;

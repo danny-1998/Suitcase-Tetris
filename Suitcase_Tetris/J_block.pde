@@ -133,7 +133,7 @@ class JBlock {
       onEdgeRight = false; 
 
       if (control.rotation == 0) {
-        image(JSprite0, ZeroX, ZeroY);
+        image(spriteN[2], ZeroX, ZeroY);
         if (mainBlockX > 1) { 
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
             control.blockLeft = true;
@@ -151,7 +151,7 @@ class JBlock {
       }
 
       if (control.rotation == 1) {
-        image(JSprite1, OneX, OneY);
+        image(spriteN[11], OneX, OneY);
         if (mainBlockX > 1) {
           if (grid.cells[width2-1][height2] > 0 || grid.cells[width3-1][height3] > 0) {
             control.blockLeft = true;
@@ -169,7 +169,7 @@ class JBlock {
       }
 
       if (control.rotation == 2) {
-        image(JSprite2, TwoX, TwoY);
+        image(spriteN[17], TwoX, TwoY);
         if (mainBlockX > 0) {
           if (grid.cells[width1-1][height1] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[width3-1][height3] > 0) {
             control.blockLeft = true;
@@ -187,7 +187,7 @@ class JBlock {
       }
 
       if (control.rotation == 3) {
-        image(JSprite3, ThreeX, ThreeY);
+        image(spriteN[21], ThreeX, ThreeY);
         if (mainBlockX > 1) {
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0) {
             control.blockLeft = true;

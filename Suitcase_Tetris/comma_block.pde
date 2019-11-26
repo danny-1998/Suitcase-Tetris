@@ -116,7 +116,7 @@ class CommaBlock {
     }
 
 if (control.rotation == 0) {                // all of the following code is for rotating the block
- image(commaSprite0, ZeroX, ZeroY);
+ image(spriteN[0], ZeroX, ZeroY);
       if (mainBlockX > 0) { 
         if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
           control.blockLeft = true;

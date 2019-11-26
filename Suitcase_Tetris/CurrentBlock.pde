@@ -17,7 +17,7 @@ class CurrentBlock {
       control.rotation = 0;
       currentBlockY = 1;
       currentBlockX = 11;
-      blockPicker = ceil(random(1, 9));
+      blockPicker = ceil(random(9));
       newBlock = false;
       //println(blockPicker);
     }
@@ -131,11 +131,11 @@ class CurrentBlock {
   void oneStepDown() {
     if (blockPlace.land != true) {
       currentBlockY += 1;
-      fill(random(255), random(255), random(255));
+      //fill(random(255), random(255), random(255));
     } else if (blockPlace.land == true) {
       blockPlace.check = true;
       blockPlace.fills();
-      fill(random(255), random(255), random(255));
+      //fill(random(255), random(255), random(255));
     }
   }
 }

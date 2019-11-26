@@ -27,7 +27,6 @@ class ZBlock {
   int ThreeY;
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
-
   ZBlock() {
     mainBlockX=5;
     mainBlockY=10;
@@ -107,7 +106,7 @@ class ZBlock {
       onEdgeRight = false; 
       
      if (control.rotation == 0) {
-       image(ZSprite0, ZeroX, ZeroY);
+       image(spriteN[7], ZeroX, ZeroY);
       if (mainBlockX > 1) { 
         if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0) {
           control.blockLeft = true;
@@ -125,7 +124,7 @@ class ZBlock {
     }
 
     if (control.rotation == 1) {
-      image(ZSprite1, OneX, OneY);
+      image(spriteN[14], OneX, OneY);
       if (mainBlockX > 1) {
         if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[width3-1][height3] > 0) {
           control.blockLeft = true;
@@ -143,7 +142,7 @@ class ZBlock {
     }
 
     if (control.rotation == 2) {
-      image(ZSprite0, TwoX, TwoY);
+      image(spriteN[7], TwoX, TwoY);
       if (mainBlockX > 1) { 
         if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0) {
           control.blockLeft = true;
@@ -161,7 +160,7 @@ class ZBlock {
     }
 
     if (control.rotation == 3) {
-      image(ZSprite1, ThreeX, ThreeY);
+      image(spriteN[14], ThreeX, ThreeY);
      if (mainBlockX > 1) {
         if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[width3-1][height3] > 0) {
           control.blockLeft = true;

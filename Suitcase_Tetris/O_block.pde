@@ -29,7 +29,7 @@ class OBlock {
     
     ZeroX = mainBlockX*50+350;
    ZeroY = mainBlockY*50+40;
-   image(OSprite0, ZeroX, ZeroY);
+   image(spriteN[4], ZeroX, ZeroY);
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 

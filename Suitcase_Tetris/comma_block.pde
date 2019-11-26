@@ -1,3 +1,5 @@
+// Nina Brochard
+
 class CommaBlock { 
 
   /*diagram of how im coding this comma_Block in the grid:
@@ -87,7 +89,7 @@ class CommaBlock {
     if (mainBlockX == 0) {            
       onEdgeLeft = true;
     } else {
-      onEdgeLeft = false;
+      onEdgeLeft = false;            // makes sure the block doesn't go off the grid
     }
 
     if (mainBlockX == grid.w-1) {   
@@ -96,7 +98,7 @@ class CommaBlock {
       onEdgeRight = false;
     }
 
-if (control.rotation == 0) {
+if (control.rotation == 0) {                // all of the following code is for rotating the block
       if (mainBlockX > 0) { 
         if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
           control.blockLeft = true;
@@ -165,7 +167,7 @@ if (control.rotation == 0) {
     }
 
     grid.cells[mainBlockX][mainBlockY] = 1;
-    grid.cells[block0X][block0Y] = 1;
+    grid.cells[block0X][block0Y] = 1;                  // places the block on the grid
     grid.cells[block2X][block2Y] = 1;
   }
 }

@@ -119,7 +119,7 @@ class SBlock {
       onEdgeRight = false; 
 
       if (control.rotation == 0) {
-        image(SSprite0, ZeroX, ZeroY);
+        image(spriteN[6], ZeroX, ZeroY);
         if (mainBlockX > 1) { 
           if (grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[width2-1][height2] > 0) {
             control.blockLeft = true;
@@ -137,7 +137,7 @@ class SBlock {
       }
 
       if (control.rotation == 1) {
-        image(SSprite1, OneX, OneY);
+        image(spriteN[13], OneX, OneY);
         if (mainBlockX > 0) {
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
             control.blockLeft = true;
@@ -155,7 +155,7 @@ class SBlock {
       }
 
       if (control.rotation == 2) {
-        image(SSprite0, TwoX, TwoY);
+        image(spriteN[6], TwoX, TwoY);
         if (mainBlockX > 1) { 
           if (grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[width2-1][height2] > 0) {
             control.blockLeft = true;
@@ -173,7 +173,7 @@ class SBlock {
       }
 
       if (control.rotation == 3) {
-        image(SSprite1, ThreeX, ThreeY);
+        image(spriteN[13], ThreeX, ThreeY);
         if (mainBlockX > 0) {
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
             control.blockLeft = true;

@@ -81,7 +81,7 @@ class IBlock {
     }
 
     if (control.rotation == 0 || control.rotation == 2) {              // all ofthe following code is for rotating the block
-      image(ISprite0, ZeroTwoX, ZeroTwoY);
+      image(spriteN[1], ZeroTwoX, ZeroTwoY);
       if (mainBlockX > 0) { 
         if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0 || grid.cells[block4X-1][block4Y] > 0) {
           control.blockLeft = true;
@@ -99,7 +99,7 @@ class IBlock {
     }
 
     if (control.rotation == 1 || control.rotation == 3) {
-      image(ISprite1, OneThreeX, OneThreeY);
+      image(spriteN[10], OneThreeX, OneThreeY);
       if (mainBlockX > 1) {
         if (grid.cells[block1X-1][block1Y] > 0) {
           control.blockLeft = true;

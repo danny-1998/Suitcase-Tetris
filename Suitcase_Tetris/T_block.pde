@@ -120,7 +120,7 @@ class TBlock { //<>// //<>// //<>//
 
 
     if (control.rotation == 0) {
-      image(TSprite0, ZeroX, ZeroY);
+      image(spriteN[8], ZeroX, ZeroY);
       if (mainBlockX > 1) { 
         if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0) {
           control.blockLeft = true;
@@ -138,7 +138,7 @@ class TBlock { //<>// //<>// //<>//
     }
 
     if (control.rotation == 1) {
-      image(TSprite1, OneX, OneY);
+      image(spriteN[15], OneX, OneY);
       if (mainBlockX > 0) {
         if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0) {
           control.blockLeft = true;
@@ -156,7 +156,7 @@ class TBlock { //<>// //<>// //<>//
     }
 
     if (control.rotation == 2) {
-      image(TSprite2, TwoX, TwoY);
+      image(spriteN[19], TwoX, TwoY);
       if (mainBlockX > 1) {
         if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
           control.blockLeft = true;
@@ -174,7 +174,7 @@ class TBlock { //<>// //<>// //<>//
     }
 
     if (control.rotation == 3) {
-      image(TSprite3, ThreeX, ThreeY);
+      image(spriteN[23], ThreeX, ThreeY);
       if (mainBlockX > 1) {
         if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
           control.blockLeft = true;

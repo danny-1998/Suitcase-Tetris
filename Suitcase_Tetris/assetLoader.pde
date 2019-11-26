@@ -59,7 +59,6 @@ public void loadAssets () {
   JSprite3 = loadImage ("./sprites/J-3.png");
   LSprite3 = loadImage ("./sprites/L-3.png");
   TSprite3 = loadImage("./sprites/T-3.png");
-  
 }
 
 // Spritesheet class to draw sprite animations
@@ -101,4 +100,10 @@ class SpriteSheet {
 
   
   // images
+
+  
+ 
+  
+
+
 }

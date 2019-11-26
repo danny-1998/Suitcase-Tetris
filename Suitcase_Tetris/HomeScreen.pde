@@ -28,6 +28,7 @@ class HomeScreen {
 // e = easy, m = medium, h = hard. dit verandert de kleur van de blokken: e=groen m=blauw h=rood
     if (e == true) {
       fill(0, 255, 0);
+      
     }
     if (m == true) {
       fill(0, 255, 255);

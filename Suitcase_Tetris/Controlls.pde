@@ -13,22 +13,57 @@ class Control {
   void controllsV3() {
     if (keysPressed[65] && currentBlock.minX > 0 && cooldown1 == 0 && !blockLeft) {
       currentBlock.currentBlockX -= 1;
-      if (firstPress) {
+      if (firstPress && home.e == true) {
         firstPress = false;
         cooldown1 = 25;
       } else {
+        firstPress = false;
         cooldown1 = 3;
+      }
+      //De cooldown op de tijd tussen verplaatsingen naar links in Easy difficulty is hier 3
+      if (firstPress && home.m == true) {
+        firstPress = false;
+        cooldown1 = 25;
+      } else {
+        firstPress = false;
+        cooldown1 = 10;
+      }
+      //De cooldown op de tijd tussen verplaatsingen naar links in Medium difficulty is hier 10
+      if (firstPress && home.h == true) {
+        firstPress = false;
+        cooldown1 = 25;
+      } else {
+        firstPress = false;
+        cooldown1 = 15;
       }
     }
-
+    //De cooldown op de tijd tussen verplaatsingen naar links in Hard difficulty is hier 15
     if (keysPressed[68] && currentBlock.maxX < grid.w-1 && cooldown1 == 0 && !blockRight) {
       currentBlock.currentBlockX += 1;
-      if (firstPress) {
+      if (firstPress && home.e == true) {
         firstPress = false;
         cooldown1 = 25;
       } else {
+        firstPress = false;
         cooldown1 = 3;
       }
+      //De cooldown op de tijd tussen verplaatsingen naar rechts in Easy difficulty is hier 3
+      if (firstPress && home.m == true) {
+        firstPress = false;
+        cooldown1 = 25;
+      } else {
+        firstPress = false;
+        cooldown1 = 10;
+      }
+      //De cooldown op de tijd tussen verplaatsingen naar rechts in Medium difficulty is hier 10
+      if (firstPress && home.h == true) {
+        firstPress = false;
+        cooldown1 = 25;
+      } else {
+        firstPress = false;
+        cooldown1 = 15;
+      }
+      //De cooldown op de tijd tussen verplaatsingen naar rechts in Hard difficulty is hier 15
     }
 
     if (keysPressed[87] && cooldown2 == 0) {

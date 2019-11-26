@@ -68,58 +68,58 @@ void draw()
 {
   background(255);
   if (!score.GameOver && home.gameStart) {
-    grid.drawGrid();
-    blockPlace.fills();
-    score.scoreDraw();
-    score.scoreCounter();
-    grid.gridClear();
-    currentBlock.newBlock();
-    currentBlock.currentBlockDraw();
-    blockPlace.check();
-    currentBlock.currentBlockControlls();
-    control.controllsV3();
-    if (grid != null) {
-      grid.drawGrid();
-      int now = millis();
-      if (gameOn) {
-        if (home.e == true) {
-          if (now - currentTime > dt) {
-            currentTime = now;
-            currentBlock.oneStepDown();
-            beep.play();
-            //Dit is Easy difficulty, Easy difficulty gaat om de 1000 milliseconde 1 blokje omlaag.
-          }
-        }
-      }
-      if (gameOn) {
-        if (home.m == true) {
-          if (now - currentTime > 500) {
-            currentTime = now;
-            currentBlock.oneStepDown();
-            beep.play();
-            //Dit is Medium difficulty, Medium difficulty gaat om de 500 milliseconde 1 blokje omlaag
-          }
-        }
-      }
-      if (gameOn) {
-        if (home.h == true) {
-          if (now - currentTime > 200) {
-            currentTime = now;
-            currentBlock.oneStepDown();
-            beep.play();
-            //Dit is Hard difficulty, Hard difficulty gaat om de 200 milliseconde 1 blokje omlaag
-          }
-        }
-      }
-    }
-  }
-  if (score.GameOver) {
-    score.gameOver();
-  }
 
-  //if (!score.GameOver && !home.gameStart){
-  home.homeDraw();
-  //}
+    if (!score.GameOver) {
+
+      grid.drawGrid();
+      blockPlace.draw();
+      grid.gridClear();
+
+      currentBlock.newBlock();
+
+
+      //tBlock.TBlockDraw();
+      //pointBlock.PointBlockDraw();
+      //oBlock.OBlockDraw();
+      //sBlock.SBlockDraw();
+
+      currentBlock.currentBlockDraw();
+      currentBlock.currentBlockControlls();
+      control.keyPressed();
+      score.scoreDraw();
+      if (grid != null) {
+        grid.drawGrid();
+        blockPlace.fills();
+        score.scoreDraw();
+        score.scoreCounter();
+        grid.gridClear();
+        currentBlock.newBlock();
+        currentBlock.currentBlockDraw();
+        blockPlace.check();
+        currentBlock.currentBlockControlls();
+        control.controllsV3();
+        if (grid != null) {
+          grid.drawGrid();
+          int now = millis();
+          if (gameOn) {
+            if (now - currentTime > dt) {
+              currentTime = now;
+              currentBlock.oneStepDown();
+              beep.play();
+              //println("dropping down" + " Position of block:" + currentBlock.currentBlockY + " Grid height:" + grid.h);
+            }
+          }
+        }
+      }
+      if (score.GameOver) {
+        score.gameOver();
+      }
+
+      //if (!score.GameOver && !home.gameStart){
+      home.homeDraw();
+    }
+    //}
+  }
 }
 
 void keyPressed() {
@@ -150,6 +150,7 @@ void keyPressed() {
   }
 }
 
+
 void keyReleased() {
   if (keyCode >= KEY_LIMIT) return;
   keysPressed[keyCode] = false;
@@ -157,13 +158,4 @@ void keyReleased() {
     control.cooldown1 = 0;
     control.firstPress = true;
   }
-
-  /*if (keyPressed == true)//in milliseconds
-   {
-   image(img1, 0, 0);
-   }
-   else {
-   //rest of the code
-   image(img2, 0, 0);
-   }*/
 }

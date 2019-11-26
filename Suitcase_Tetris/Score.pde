@@ -28,8 +28,7 @@ class Score {
     }
     // game over screen
     if (GameOver == true) {
-      noStroke();
-      fill(255, 0, 0);
+      fill(255,0,0);
       rect(0, 0, width, height);
       textMode(CENTER);
       fill(255);

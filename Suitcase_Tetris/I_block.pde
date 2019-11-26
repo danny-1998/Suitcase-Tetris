@@ -13,11 +13,22 @@ class IBlock {
   int block1X, block1Y;
   int block3X, block3Y;
   int block4X, block4Y;
+  int ZeroTwoX = mainBlockX*50+350;
+  int ZeroTwoY = mainBlockY*50-10;
+  int OneThreeX = mainBlockX*50+300;
+  int OneThreeY = mainBlockY*50+40;
   int minX, maxX, maxY;
+
+
   boolean wallClockwise, wallAnticlockwise;
+
   boolean onEdgeLeft, onEdgeRight;
 
   void IBlockDraw () {
+    ZeroTwoX = mainBlockX*50+350;
+    ZeroTwoY = mainBlockY*50-10;
+    OneThreeX = mainBlockX*50+300;
+    OneThreeY = mainBlockY*50+40;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
@@ -34,7 +45,7 @@ class IBlock {
       minX = mainBlockX;
       maxX = mainBlockX;
       maxY = mainBlockY + 2;
-      
+
       wallClockwise = true;
       wallAnticlockwise = true;
     }
@@ -52,7 +63,7 @@ class IBlock {
       minX = mainBlockX - 1;
       maxX = mainBlockX + 2;
       maxY = mainBlockY;
-      
+
       wallClockwise = false;
       wallAnticlockwise = false;
     }
@@ -68,8 +79,9 @@ class IBlock {
     } else {
       onEdgeRight = false;
     }
-    
+
     if (control.rotation == 0 || control.rotation == 2) {              // all ofthe following code is for rotating the block
+      image(ISprite0, ZeroTwoX, ZeroTwoY);
       if (mainBlockX > 0) { 
         if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0 || grid.cells[block4X-1][block4Y] > 0) {
           control.blockLeft = true;
@@ -87,6 +99,7 @@ class IBlock {
     }
 
     if (control.rotation == 1 || control.rotation == 3) {
+      image(ISprite1, OneThreeX, OneThreeY);
       if (mainBlockX > 1) {
         if (grid.cells[block1X-1][block1Y] > 0) {
           control.blockLeft = true;

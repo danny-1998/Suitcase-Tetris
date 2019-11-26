@@ -22,6 +22,7 @@ class Score {
         if (keysPressed[32]) {
           grid.gridClear();
           blockPlace.filledClear();
+          blockPlace.uwu = 0;
           for (int w = 0; w < 22; w++) {
             for (int h = 0; h<20; h++) {  
               ScorePlus[w][h] = false;

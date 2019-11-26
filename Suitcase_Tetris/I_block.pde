@@ -13,12 +13,8 @@ class IBlock {
   int block1X, block1Y;
   int block3X, block3Y;
   int block4X, block4Y;
-<<<<<<< HEAD
   int minX, maxX, maxY;
-=======
-  int minX, maxX;
   boolean wallClockwise, wallAnticlockwise;
->>>>>>> master
   boolean onEdgeLeft, onEdgeRight;
 
   void IBlockDraw () {

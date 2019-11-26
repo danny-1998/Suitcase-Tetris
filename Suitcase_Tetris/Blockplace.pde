@@ -144,4 +144,12 @@ class Location {
       check = false;
     }
   }
+  
+  void filledClear() {
+     for (int i = 0; i<grid.w; i++) {
+      for (int b = 0; b<grid.h; b++) {
+        filled[i][b] = 0;
+      }
+     }
+  }
 }

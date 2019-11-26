@@ -131,6 +131,10 @@ void draw()
       }
     }
   }
+  stroke(255, 0, 0);
+  strokeWeight(4);
+  line(0, height*0.409, width, height*0.409);
+  strokeWeight(1);
   if (score.GameOver) {
     score.gameOver();
   }

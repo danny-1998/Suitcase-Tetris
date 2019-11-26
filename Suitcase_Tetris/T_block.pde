@@ -1,4 +1,4 @@
-class TBlock { //<>// //<>//
+class TBlock { //<>// //<>// //<>//
   /* By Ole Neuman
    *diagram of how im coding this T_Block in the grid:
    *                [0]
@@ -91,15 +91,84 @@ class TBlock { //<>// //<>//
           wallAnticlockwise = true;
         }                             //                                    |[1]
     if (mainBlockX == 0) {            //if the piece is up to the wall like |[M][0]
-      onEdgeLeft = true;              //                                    |[3]
+      onEdgeLeft = true;              //                                    |[3]   
     } else {
       onEdgeLeft = false;
     }
-    //                                       [3]|
+                                     //                                       [3]|
     if (mainBlockX == grid.w-1) {    //if the piece is up to the wall like [0][M]|
       onEdgeRight = true;            //                                       [1]|
     } else {
       onEdgeRight = false;
+    }
+
+
+    if (control.rotation == 0) {
+      if (mainBlockX > 1) { 
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 3) {
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block3X+1][block3Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 1) {
+      if (mainBlockX > 0) {
+        if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block1X+1][block1Y] > 0 || grid.cells[block3X+1][block3Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 2) {
+      if (mainBlockX > 1) {
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block1X+1][block1Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 3) {
+      if (mainBlockX > 1) {
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 1) {
+        if (grid.cells[block1X+1][block1Y] > 0 || grid.cells[block3X+1][block3Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
     }
 
     currentBlock.currentBlockX = mainBlockX;
@@ -108,6 +177,6 @@ class TBlock { //<>// //<>//
     grid.cells[mainBlockX][mainBlockY] = 1;
     grid.cells[block0X][block0Y] = 1;
     grid.cells[block1X][block1Y] = 1;
-    grid.cells[block3X][block3Y]  = 1;
+    grid.cells[block3X][block3Y] = 1;
   }
 }

@@ -27,7 +27,7 @@ class Lblock {
     if (control.rotation == 0) {
       block1X = mainBlockX;
       block1Y = mainBlockY - 1;
-      //    [1]
+                                          //    [1]
       block2X = mainBlockX;               //    [0]       
       block2Y = mainBlockY + 1;           //    [2][3]
 
@@ -42,7 +42,7 @@ class Lblock {
     if (control.rotation == 1) {
       block1X = mainBlockX + 1;
       block1Y = mainBlockY;
-      //    [2][0][1]      
+                                          //    [2][0][1]      
       block2X = mainBlockX - 1;           //    [3]                    
       block2Y = mainBlockY;                     
 
@@ -57,7 +57,7 @@ class Lblock {
     if (control.rotation == 2) {
       block1X = mainBlockX;
       block1Y = mainBlockY + 1;
-      //    [3][2]
+                                          //    [3][2]
       block2X = mainBlockX;               //       [0]       
       block2Y = mainBlockY - 1;           //       [1]
 
@@ -72,7 +72,7 @@ class Lblock {
     if (control.rotation == 3) {
       block1X = mainBlockX - 1;
       block1Y = mainBlockY;
-      //          [3]
+                                          //          [3]
       block2X = mainBlockX + 1;           //    [1][0][2]       
       block2Y = mainBlockY;           
 
@@ -94,6 +94,74 @@ class Lblock {
       onEdgeRight = true;
     } else {
       onEdgeRight = false;
+    }
+    
+    if (control.rotation == 0) {
+      if (mainBlockX > 0) { 
+        if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[block2X-1][block2Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block1X+1][block1Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0 ||  grid.cells[block3X+1][block3Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 1) {
+      if (mainBlockX > 1) {
+        if (grid.cells[block2X-1][block2Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block1X+1][block1Y] > 0 || grid.cells[block3X+1][block3Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 2) {
+      if (mainBlockX > 1) {
+        if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 1) {
+        if (grid.cells[block2X+1][block2Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0 || grid.cells[block1X+1][block1Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 3) {
+      if (mainBlockX > 1) {
+        if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block2X+1][block2Y] > 0 || grid.cells[block3X+1][block3Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
     }
 
     grid.cells[mainBlockX][mainBlockY] = 1;

@@ -90,6 +90,7 @@ class SBlock {
         minX = mainBlockX-1;
         maxX = mainBlockX+1;
       }
+
     if (mainBlockX == 0) {            
       onEdgeLeft = true;
     } else {
@@ -100,6 +101,74 @@ class SBlock {
       onEdgeRight = true;
     } else {
       onEdgeRight = false; 
+
+      if (control.rotation == 0) {
+        if (mainBlockX > 1) { 
+          if (grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[width2-1][height2] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 2) {
+          if (grid.cells[width1+1][height1] > 0 || grid.cells[width3+1][height3] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
+        }
+      }
+
+      if (control.rotation == 1) {
+        if (mainBlockX > 0) {
+          if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 2) {
+          if (grid.cells[width1+1][height1] > 0 || grid.cells[width2+1][height2] > 0 || grid.cells[width3+1][height3] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
+        }
+      }
+
+      if (control.rotation == 2) {
+        if (mainBlockX > 1) { 
+          if (grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[width2-1][height2] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 2) {
+          if (grid.cells[width1+1][height1] > 0 || grid.cells[width3+1][height3] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
+        }
+      }
+
+      if (control.rotation == 3) {
+        if (mainBlockX > 0) {
+          if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 2) {
+          if (grid.cells[width1+1][height1] > 0 || grid.cells[width2+1][height2] > 0 || grid.cells[width3+1][height3] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
+        }
+      }
 
       grid.cells[mainBlockX][mainBlockY] = 1;
       grid.cells[width1][height1] = 1;

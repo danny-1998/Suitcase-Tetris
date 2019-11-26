@@ -16,9 +16,9 @@ class CurrentBlock {
     if (newBlock) {
       currentBlockY = 1;
       currentBlockX = 11;
-      blockPicker = ceil(random(1, 7));
+      blockPicker = ceil(random(9));
       newBlock = false;
-      println(blockPicker);
+      //println(blockPicker);
     }
   }
   void currentBlockDraw() {
@@ -121,7 +121,14 @@ class CurrentBlock {
     }
   }
 
-  void oneStepDown() { 
-    currentBlockY += 1;
+  void oneStepDown() {
+    if (blockPlace.land != true) {
+      currentBlockY += 1;
+      fill(random(255), random(255), random(255));
+    } else if (blockPlace.land == true) {
+      blockPlace.check = true;
+      blockPlace.fills();
+      fill(random(255), random(255), random(255));
+    }
   }
 }

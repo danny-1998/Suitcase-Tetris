@@ -6,7 +6,7 @@ class Grid {
   int [][] cells = new int[w][h];
 
   Grid() {
-    for (int i = 0; i < w; i ++) {
+    for (int i = 0; i < w; i ++) { //<>//
       for (int j = 0; j < h; j ++) {
         cells[i][j] = 0;
         //        if(j>h-3 && i<w-1){
@@ -28,9 +28,9 @@ class Grid {
 
     stroke(80);
     for (int i = 0; i < w; i ++) {
-      for (int j = 0; j < h; j ++) {
+      for (int j = 0; j < h; j ++) { //<>//
         if (cells[i][j] != 0) {
-          fill(cells[i][j]);
+          //fill(cells[i][j]);
           //fill(random(255),random(255),random(255));
           //DISCO PARTY CODE
           rect(i*q, j*q, q, q);

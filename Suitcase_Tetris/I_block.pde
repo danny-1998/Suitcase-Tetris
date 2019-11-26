@@ -25,7 +25,7 @@ class IBlock {
 
       block3X = mainBlockX;              //    [1]
       block3Y = mainBlockY + 1;          //    [2]
-      //    [3]
+                                         //    [3]
       block4X = mainBlockX;              //    [4]
       block4Y = mainBlockY + 2;
 
@@ -59,6 +59,40 @@ class IBlock {
       onEdgeRight = true;
     } else {
       onEdgeRight = false;
+    }
+    
+    if (control.rotation == 0 || control.rotation == 2) {
+      if (mainBlockX > 0) { 
+        if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0 || grid.cells[block4X-1][block4Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 1) {
+        if (grid.cells[block1X+1][block1Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0 || grid.cells[block3X+1][block3Y] > 0|| grid.cells[block4X+1][block4Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 1 || control.rotation == 3) {
+      if (mainBlockX > 1) {
+        if (grid.cells[block1X-1][block1Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 3) {
+        if (grid.cells[block4X+1][block4Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
     }
 
     grid.cells[mainBlockX][mainBlockY] = 1;

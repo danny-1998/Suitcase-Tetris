@@ -18,8 +18,8 @@ class HomeScreen {
       rect(0, 0, width, height);
       textMode(CENTER);
       fill(0);
-      text("Press ENTER to continue", score.Textx, 3*(height/4));
-      image(logo, 2*(width/7), height/4);
+      text("Press START to continue", score.Textx, 3*(height/4));
+      //image(logo, 2*(width/7), height/4);
     }
 // temporary level select tool
     if (level == true) {

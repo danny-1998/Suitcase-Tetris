@@ -2,6 +2,7 @@ import processing.sound.*;
 PImage img1, img2;
 
 Grid grid;
+SpriteSheet spriteSheet;
 TBlock tBlock;
 Location blockPlace;
 PointBlock pointBlock;
@@ -31,7 +32,7 @@ void setup()
   grid = new Grid();
   home = new HomeScreen();
   loadAssets ();
-
+spriteSheet = new SpriteSheet("suitcase tetris logo.png", 17);
   tBlock = new TBlock();
   pointBlock = new PointBlock();
   oBlock = new OBlock();
@@ -114,6 +115,8 @@ void draw()
 
   //if (!score.GameOver && !home.gameStart){
   home.homeDraw();
+  spriteSheet.update();
+  spriteSheet.draw(2*(width/7), height/4);
   //}
 }
 

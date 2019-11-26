@@ -66,7 +66,7 @@ class Control {
       //De cooldown op de tijd tussen verplaatsingen naar rechts in Hard difficulty is hier 15
     }
 
-    if (keysPressed[87] && cooldown2 == 0) {
+    if (keysPressed[87] && cooldown2 == 0 && currentBlock.currentBlockY < grid.h-1) {
       if (currentBlock.onEdgeLeft && currentBlock.wallClockwise) {           
         currentBlock.currentBlockX+=1;
       } else
@@ -80,12 +80,15 @@ class Control {
         if ((rotation==0 || rotation==2) && currentBlock.currentBlockX == grid.w-2) {
           currentBlock.currentBlockX-=1;
         }
+        if (currentBlock.currentBlockY == 18) {
+          currentBlock.currentBlockY -= 1;
+        }
       }
       rotation+=1;
       cooldown2 = 10;
     }
 
-    if (keysPressed[90] && currentBlock.currentBlockY > grid.h-1 && cooldown2 == 0 ) {
+    if (keysPressed[90] && currentBlock.currentBlockY < grid.h-1 && cooldown2 == 0 ) {
       if (currentBlock.onEdgeLeft==true && currentBlock.wallAnticlockwise) {           //if the block is pressed against the wall with the center of rotation, it gets pushed one to the side so it doesnt rotate out of the grid
         currentBlock.currentBlockX+=1;
       } else
@@ -98,6 +101,9 @@ class Control {
         }
         if ((rotation==0 || rotation==2) && currentBlock.currentBlockX == grid.w-2) {
           currentBlock.currentBlockX-=1;
+        }
+        if (currentBlock.currentBlockY == 18) {
+          currentBlock.currentBlockY -= 1;
         }
       }
       rotation-=1;

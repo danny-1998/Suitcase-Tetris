@@ -18,14 +18,16 @@ class HomeScreen {
       rect(0, 0, width, height);
       textMode(CENTER);
       fill(0);
-      text("Press ENTER to continue", score.Textx, 3*(height/4));
-      image(logo, 2*(width/7), height/4);
+      text("Press START to continue", score.Textx, 3*(height/4));
+      spriteSheet.update();
+      spriteSheet.draw(2*(width/7), height/4);
+      //image(logo, 2*(width/7), height/4);
     }
-// temporary level select tool
+    // temporary level select tool
     if (level == true) {
       image(Level, 0, 0, width, height);
     }
-// e = easy, m = medium, h = hard. dit verandert de kleur van de blokken: e=groen m=blauw h=rood
+    // e = easy, m = medium, h = hard. dit verandert de kleur van de blokken: e=groen m=blauw h=rood
     if (e == true) {
       fill(0, 255, 0);
       

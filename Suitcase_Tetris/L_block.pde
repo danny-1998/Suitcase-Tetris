@@ -1,3 +1,5 @@
+// Nina Brochard
+
 class Lblock {
   /*diagram of how im coding this L_Block in the grid:
    *                [1]
@@ -13,6 +15,7 @@ class Lblock {
   int block3X, block3Y;
   int minX, maxX;
   int maxY;
+  boolean wallClockwise, wallAnticlockwise;
   boolean onEdgeLeft, onEdgeRight;
 
   Lblock() {
@@ -37,6 +40,9 @@ class Lblock {
       minX = mainBlockX;
       maxX = mainBlockX+1;
       maxY = mainBlockY + 1;
+      
+      wallClockwise = true;
+      wallAnticlockwise = true;
     }
 
     if (control.rotation == 1) {
@@ -52,6 +58,9 @@ class Lblock {
       minX = mainBlockX-1;
       maxX = mainBlockX+1;
       maxY = mainBlockY + 1;
+     
+      wallClockwise = false;
+      wallAnticlockwise = false;
     }
 
     if (control.rotation == 2) {
@@ -67,6 +76,9 @@ class Lblock {
       minX = mainBlockX-1;
       maxX = mainBlockX;
       maxY = mainBlockY + 1;
+      
+      wallClockwise = true;
+      wallAnticlockwise = true;
     }
 
     if (control.rotation == 3) {
@@ -82,12 +94,15 @@ class Lblock {
       minX = mainBlockX-1;
       maxX = mainBlockX+1;
       maxY = mainBlockY;
+      
+      wallClockwise = false;
+      wallAnticlockwise = false;
     }
 
     if (mainBlockX == 0) {            
       onEdgeLeft = true;
     } else {
-      onEdgeLeft = false;
+      onEdgeLeft = false;                  // makes sure the block doesn't go off the grid
     }
 
     if (mainBlockX == grid.w-1) {   
@@ -96,7 +111,7 @@ class Lblock {
       onEdgeRight = false;
     }
     
-    if (control.rotation == 0) {
+    if (control.rotation == 0) {            // all of the following code is for rotating the block
       if (mainBlockX > 0) { 
         if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[block2X-1][block2Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
           control.blockLeft = true;
@@ -165,7 +180,7 @@ class Lblock {
     }
 
     grid.cells[mainBlockX][mainBlockY] = 1;
-    grid.cells[block1X][block1Y] = 1;
+    grid.cells[block1X][block1Y] = 1;                // places the block on the grid
     grid.cells[block2X][block2Y] = 1;
     grid.cells[block3X][block3Y] = 1;
   }

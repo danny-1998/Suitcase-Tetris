@@ -32,7 +32,7 @@ void setup()
   grid = new Grid();
   home = new HomeScreen();
   loadAssets ();
-spriteSheet = new SpriteSheet("suitcase tetris logo.png", 17);
+  spriteSheet = new SpriteSheet("suitcase tetris logo.png", 17);
   tBlock = new TBlock();
   pointBlock = new PointBlock();
   oBlock = new OBlock();
@@ -58,25 +58,25 @@ spriteSheet = new SpriteSheet("suitcase tetris logo.png", 17);
   fullScreen();
   gameOn = true;
   dt = 1000;
-<<<<<<< Updated upstream
+
   reset();
 }
-=======
-  //beep = new SoundFile(this, "beep.wav");
-  //bgmusic = new SoundFile(this, "background_music.wav");
+
+//beep = new SoundFile(this, "beep.wav");
+//bgmusic = new SoundFile(this, "background_music.wav");
 
 
 
 
 
-  
-
-  //bgmusic.loop();
 
 
-  //bgmusic.loop();
+//bgmusic.loop();
 
->>>>>>> Stashed changes
+
+//bgmusic.loop();
+
+
 
 void reset() {
   //PLEASE HELP HERE -- KIANO
@@ -115,8 +115,7 @@ void draw()
 
   //if (!score.GameOver && !home.gameStart){
   home.homeDraw();
-  spriteSheet.update();
-  spriteSheet.draw(2*(width/7), height/4);
+
   //}
 }
 

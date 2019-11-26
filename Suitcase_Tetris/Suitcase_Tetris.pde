@@ -68,8 +68,8 @@ void setup()
 //bgmusic = new SoundFile(this, "background_music.wav");
 
 
-  //beep = new SoundFile(this, "beep.wav");
-  //bgmusic = new SoundFile(this, "background_music.wav");
+//beep = new SoundFile(this, "beep.wav");
+//bgmusic = new SoundFile(this, "background_music.wav");
 
 
 
@@ -95,6 +95,7 @@ void reset() {
 void draw()
 {
   background(255);
+  home.screenSelector();
   if (!score.GameOver && home.gameStart) {
     grid.drawGrid();
     blockPlace.fills();
@@ -147,10 +148,9 @@ void draw()
   strokeWeight(1);
   if (score.GameOver) {
     score.gameOver();
-    
-    }
-    
-    
+  }
+
+
 
   //if (!score.GameOver && !home.gameStart){
   home.homeDraw();
@@ -161,29 +161,6 @@ void draw()
 void keyPressed() {
   if (keyCode >= KEY_LIMIT) return;    //if a key is pressed that has a keyCode higher than the key limit, the function doesnt go further than this, so it doesnt potentially break anything
   keysPressed[keyCode] = true;         //if a key is pressed, it turns a boolean specific to that key to true, which gets used in the controlls
-
-  if (key == ENTER) {
-    home.level = true;
-  }
-
-  if (keyCode == 49 || keyCode == 97) {
-    home.gameStart = true;
-    home.level = false;
-    home.e = true;
-    // difficulty = easy
-  }
-  if (keyCode == 50 || keyCode == 98) {
-    home.gameStart = true;
-    home.level = false;
-    home.m = true;
-    // difficulty = medium
-  }
-  if (keyCode == 51 || keyCode == 99) {
-    home.gameStart = true;
-    home.level = false;
-    home.h = true;
-    // difficulty = hard
-  }
 }
 
 void keyReleased() {

@@ -26,19 +26,16 @@ class Score {
           for (int w = 0; w < 22; w++) {
             for (int h = 0; h<20; h++) {  
               ScorePlus[w][h] = false;
-              println("YOINK YOU CAN DELETE");
             }
           }
         }
       }
       if ((currentBlock.newBlock == true) && (blockPlace.filled[i][7] > 0)) {
         GameOver = true;
-        println("YEET");
       }
 
       if (blockPlace.filled[2][5] == 1) {
         GameOver = true;
-        println("BITCH");
       }
     }
   }
@@ -49,6 +46,7 @@ class Score {
     }
     // game over screen
     if (GameOver == true) {
+      home.gameState = 3;
       fill(255, 0, 0);
       rect(0, 0, width, height);
       textMode(CENTER);

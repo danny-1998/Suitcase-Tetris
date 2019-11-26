@@ -9,6 +9,7 @@ class Score {
   boolean CheckPoint = false;
   boolean BlockOverBlock = false;
   boolean[][] ScorePlus = new boolean[22][20];
+  boolean lock;
 
 
   void scoreDraw() {
@@ -66,7 +67,14 @@ class Score {
 
     if (score.GameOver == true) {
       bgmusic.stop();
-      //      whateverthenewmusicsnameis.loop();
+      if (!lock) {
+        gameover.play();
+        lock = true;
+      }
+    } else {
+      if (lock) {
+        lock = false;
+      }
     }
   }
 

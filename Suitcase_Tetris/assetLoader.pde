@@ -1,5 +1,6 @@
 // Loads all of the sounds and images
 
+<<<<<<< Updated upstream
 SoundFile beep, bgmusic;
 
 PImage Level, logo;
@@ -8,16 +9,30 @@ PImage commaSprite0, ISprite0, JSprite0, LSprite0, OSprite0, pointSprite0, SSpri
 PImage commaSprite1, ISprite1, JSprite1, LSprite1, SSprite1, ZSprite1, TSprite1; 
 PImage commaSprite2, ISprite2, JSprite2, LSprite2, TSprite2; 
 PImage commaSprite3, ISprite3, JSprite3, LSprite3, TSprite3; 
+=======
+SoundFile beep, bgmusic, gameover;
+
+PImage Level, logo;
+
+PImage commaSprite, ISprite, JSprite, LSprite, OSprite, pointSprite, SSprite, ZSprite, TSprite; 
+
+>>>>>>> Stashed changes
 
 public void loadAssets () {
   // sounds
   beep = new SoundFile(this, "./sounds/beep.wav");
-  bgmusic = new SoundFile(this, "./sounds/bgmusic.wav"); // t is nog niet hoe ik het wil dus er komt nog verandering in
+  bgmusic = new SoundFile(this, "./sounds/suitcase_bop.wav");
   bgmusic.loop();
+<<<<<<< Updated upstream
+=======
+  gameover = new SoundFile(this, "./sounds/gameover.wav");
+  
+>>>>>>> Stashed changes
 
   Level = loadImage("./sprites/TemporaryDifficultySelectForTesting.png" ); // as the name suggests, its temporary to test if the homescreen works - kiano :)
   logo = loadImage("./sprites/logo img.png");
 
+<<<<<<< Updated upstream
 
   // images
   commaSprite0 = loadImage("./sprites/comma-0.png");
@@ -82,4 +97,14 @@ class SpriteSheet {
   void draw(float x, float y) {
     image(drawImage, x, y);
   }
+=======
+  
+  // images
+  commaSprite = loadImage("comma.png");
+  ISprite = loadImage ("I.png");
+  JSprite = loadImage ("J.png");
+  LSprite = loadImage ("L.png");
+  
+
+>>>>>>> Stashed changes
 }

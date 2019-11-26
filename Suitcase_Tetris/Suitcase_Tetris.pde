@@ -26,6 +26,7 @@ boolean gameOn;
 int dt, currentTime;
 final int KEY_LIMIT = 1024;
 boolean[] keysPressed = new boolean[KEY_LIMIT];
+
 void setup()
 {
   //img2 = loadImage("2.jpg");
@@ -62,9 +63,14 @@ void setup()
   reset();
 }
 
+<<<<<<< Updated upstream
 //beep = new SoundFile(this, "beep.wav");
 //bgmusic = new SoundFile(this, "background_music.wav");
 
+=======
+  //beep = new SoundFile(this, "beep.wav");
+  //bgmusic = new SoundFile(this, "background_music.wav");
+>>>>>>> Stashed changes
 
 
 
@@ -77,6 +83,10 @@ void setup()
 //bgmusic.loop();
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 void reset() {
   //PLEASE HELP HERE -- KIANO
@@ -137,7 +147,10 @@ void draw()
   strokeWeight(1);
   if (score.GameOver) {
     score.gameOver();
-  }
+    
+    }
+    
+    
 
   //if (!score.GameOver && !home.gameStart){
   home.homeDraw();

@@ -147,10 +147,11 @@ class Location {
         land =false;
       }
     }
-    for (int a = 0; a <500; a++) {
+    for (int a = 0; a <uwu; a++) {
       image(spriteN[spritewah[a]], spriteX[a], spriteY[a]);
-    }
+      }
     //image(spriteN[0], 500, 500);
+    println(uwu);
   }
   //dit waren de 'bottom checks'
 

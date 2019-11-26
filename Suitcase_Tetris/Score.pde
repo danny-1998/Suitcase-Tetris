@@ -1,4 +1,4 @@
-//by Kiano Wortel
+//by Kiano Wortel, Danny Ha and Jeffrey Baas
 
 class Score {
   // in deze class wordt bijhouden of de speler game over is en wat zijn/haar score is

@@ -17,7 +17,7 @@ class CurrentBlock {
       control.rotation = 0;                //resets the rotation to the 1st position
       currentBlockY = 1;                   //resets the new block's Ypos to 1 below the ceiling
       currentBlockX = 11;                  //resets the new block's Xpos to the middle of the field
-      blockPicker = ceil(random(1));       //picks a new random integer to decide which new block to draw
+      blockPicker = ceil(random(1,9));       //picks a new random integer to decide which new block to draw
       newBlock = false;                    //a new block has been picked, so the boolean that starts the process is set to false
       //println(blockPicker);
     }

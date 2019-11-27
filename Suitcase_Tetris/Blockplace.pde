@@ -172,7 +172,7 @@ class Location {
 
     if (_new == true) { //hier wordt aan de currentBlock class gemeld dat er een nieuw blok moet komen nu dat het veld compleet is.
       _new = false;
-      // rotation 1
+      // in dit gedeelte wordt een sprite gelinkt aan een onderdeel van de sprite arrays om er voor te zorgen dat de sprites blijven zodra een blok geplaatst is.
       if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) {
           spriteX[uwu] = tBlock.ZeroX;
@@ -262,20 +262,20 @@ class Location {
           uwu+=1;
         }
         if (currentBlock.blockPicker == 6) {
-          spriteX[uwu] = jBlock.ZeroX;
-          spriteY[uwu] = jBlock.ZeroY;
+          spriteX[uwu] = jBlock.OneX;
+          spriteY[uwu] = jBlock.OneY;
           spritewah[uwu] = 11;
           uwu+=1;
         }
         if (currentBlock.blockPicker == 7) {
-          spriteX[uwu] = lBlock.ZeroX;
-          spriteY[uwu] = lBlock.ZeroY;
+          spriteX[uwu] = lBlock.OneX;
+          spriteY[uwu] = lBlock.OneY;
           spritewah[uwu] = 12;
           uwu+=1;
         }
         if (currentBlock.blockPicker == 8) {
-          spriteX[uwu] = commaBlock.ZeroX;
-          spriteY[uwu] = commaBlock.ZeroY;
+          spriteX[uwu] = commaBlock.OneX;
+          spriteY[uwu] = commaBlock.OneY;
           spritewah[uwu] = 9;
           uwu+=1;
         }
@@ -308,14 +308,14 @@ class Location {
           uwu+=1;
         }
         if (currentBlock.blockPicker == 4) {
-          spriteX[uwu] = sBlock.ZeroX;
-          spriteY[uwu] = sBlock.ZeroY;
+          spriteX[uwu] = sBlock.TwoX;
+          spriteY[uwu] = sBlock.TwoY;
           spritewah[uwu] = 6;
           uwu+=1;
         }
         if (currentBlock.blockPicker == 5) {
-          spriteX[uwu] = zBlock.ZeroX;
-          spriteY[uwu] = zBlock.ZeroY;
+          spriteX[uwu] = zBlock.TwoX;
+          spriteY[uwu] = zBlock.TwoY;
           spritewah[uwu] = 7;
           uwu+=1;
         }
@@ -365,14 +365,14 @@ class Location {
           uwu+=1;
         }
         if (currentBlock.blockPicker == 4) {
-          spriteX[uwu] = sBlock.OneX;
-          spriteY[uwu] = sBlock.OneY;
+          spriteX[uwu] = sBlock.ThreeX;
+          spriteY[uwu] = sBlock.ThreeY;
           spritewah[uwu] = 13;
           uwu+=1;
         }
         if (currentBlock.blockPicker == 5) {
-          spriteX[uwu] = zBlock.OneX;
-          spriteY[uwu] = zBlock.OneY;
+          spriteX[uwu] = zBlock.ThreeX;
+          spriteY[uwu] = zBlock.ThreeY;
           spritewah[uwu] = 14;
           uwu+=1;
         }

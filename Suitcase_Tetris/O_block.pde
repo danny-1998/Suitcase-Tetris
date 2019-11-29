@@ -20,10 +20,7 @@ class OBlock {
   int ZeroX;
   int ZeroY;
 
-  OBlock() {
-    mainBlockX=10;
-    mainBlockY=10;
-  }
+
 
   void OBlockDraw() {
     

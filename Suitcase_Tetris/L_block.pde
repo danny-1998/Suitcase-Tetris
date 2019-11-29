@@ -26,10 +26,7 @@ class Lblock {
   boolean wallClockwise, wallAnticlockwise;
   boolean onEdgeLeft, onEdgeRight;
 
-  Lblock() {
-    mainBlockX = 5;
-    mainBlockY = 5;
-  }
+  
 
   void LblockDraw () {
     ZeroX = mainBlockX*50+350;

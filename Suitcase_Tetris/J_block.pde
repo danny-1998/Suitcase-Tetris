@@ -29,10 +29,7 @@ class JBlock {
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
 
-  JBlock() {
-    mainBlockX=5;
-    mainBlockY=10;
-  }
+ 
 
   void JBlockDraw() {
      ZeroX = mainBlockX*50+300;

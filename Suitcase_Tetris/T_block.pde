@@ -9,27 +9,20 @@ class TBlock { //<>// //<>// //<>//
   int block0X, block0Y;
   int block1X, block1Y;
   int block3X, block3Y;
-    int ZeroX;
-  int ZeroY;
-  int OneX;
-  int OneY;
-  int TwoX;
-  int TwoY;
-  int ThreeX;
-  int ThreeY;
+  int ZeroX, ZeroY;
+  int OneX, OneY;
+  int TwoX, TwoY;
+  int ThreeX, ThreeY;
 
-  boolean onEdgeLeft, onEdgeRight; //if the piece is next to the wall, and has a possibility of rotating outside of the array, the boolean is true
-  boolean wallClockwise, wallAnticlockwise; //if you would rotate the piece clockwise or anticlockwise, and it would end up outside of the array, the boolean is true. This is used in the controlls to make sure that doesnt happen
-  int minX, maxX;              //the minimum and maximum X value the block can have before going outside of the array, and thus crashing the program 
-  int maxY;
-  TBlock() {
-    mainBlockX = 11;
-    mainBlockY =  1;
-  }
+  boolean onEdgeLeft, onEdgeRight;            //if the piece is next to the wall, and has a possibility of rotating outside of the array, the boolean is true
+  boolean wallClockwise, wallAnticlockwise;   //if you would rotate the piece clockwise or anticlockwise, and it would end up outside of the array, the boolean is true. This is used in the controlls to make sure that doesnt happen
+  int minX, maxX;                             //the minimum and maximum X value the block can have before going outside of the array, and thus crashing the program 
+  int maxY;                                   //the maximum Y value the block can have before going outside of the array via the bottom
+  
 
   void TBlockDraw() {
-     ZeroX = mainBlockX*50+300;
-   ZeroY = mainBlockY*50-10;
+   ZeroX = mainBlockX*50+300;                  //the coördinates of the sprite image used for this block
+   ZeroY = mainBlockY*50-10;                   //these are based off of the position of the block in the grid, and then translated to actual screen coördinates
    OneX = mainBlockX*50+350;
    OneY = mainBlockY*50-10;
    TwoX = mainBlockX*50+300;
@@ -38,7 +31,9 @@ class TBlock { //<>// //<>// //<>//
    ThreeY = mainBlockY*50-10;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
-    if (control.rotation == 0) {            //      [0]
+    
+    
+    if (control.rotation == 0) {            //      [0]      a visual representation of how the code defines the blocks in relation to eachother
       block0X = mainBlockX;                 //   [1][M][3]
       block0Y = mainBlockY-1;
 
@@ -106,30 +101,30 @@ class TBlock { //<>// //<>// //<>//
           wallClockwise = true;
           wallAnticlockwise = true;
         }                             //                                    |[1]
-    if (mainBlockX == 0) {            //if the piece is up to the wall like |[M][0]
+    if (mainBlockX == 0) {            //if the piece is up to the wall like |[M][0]      the boolean is true
       onEdgeLeft = true;              //                                    |[3]   
     } else {
       onEdgeLeft = false;
     }
                                      //                                       [3]|
-    if (mainBlockX == grid.w-1) {    //if the piece is up to the wall like [0][M]|
+    if (mainBlockX == grid.w-1) {    //if the piece is up to the wall like [0][M]|       the boolean is true
       onEdgeRight = true;            //                                       [1]|
     } else {
       onEdgeRight = false;
     }
 
-
-    if (control.rotation == 0) {
-      image(spriteN[8], ZeroX, ZeroY);
-      if (mainBlockX > 1) { 
-        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0) {
-          control.blockLeft = true;
+  
+    if (control.rotation == 0) {                          //the collision calculations, which check if there is a block to the left or right of any of the T-Block pieces
+      image(spriteN[8], ZeroX, ZeroY);                    //based on the rotation of the piece, a different sprite gets called, which corresponds to the oriëntation the piece has
+      if (mainBlockX > 1) {                               //the calculations are only active if there is 1 square of room between the block and both walls, because otherwise they cause a ArrayOutOfBoundsException
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0) {      //the first part of the calculations checks for blocks on the left side, and activates the blockLeft
+          control.blockLeft = true;                                                          //boolean if there is, which stops the block from moving more to the left
         } else {
           control.blockLeft = false;
         }
       }
-      if (mainBlockX < grid.w - 3) {
-        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block3X+1][block3Y] > 0) {
+      if (mainBlockX < grid.w - 3) {                                                         //the second part of the calculation checks for blocks on the right side, and activates the blockRight 
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block3X+1][block3Y] > 0) {      //array if there is, preventing the block from moving any more to the right
           control.blockRight = true;
         } else {
           control.blockRight = false;
@@ -137,7 +132,7 @@ class TBlock { //<>// //<>// //<>//
       }
     }
 
-    if (control.rotation == 1) {
+    if (control.rotation == 1) {                                                             //same thing as in the block above here, except for a different rotation
       image(spriteN[15], OneX, OneY);
       if (mainBlockX > 0) {
         if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0) {
@@ -191,11 +186,8 @@ class TBlock { //<>// //<>// //<>//
       }
     }
 
-    currentBlock.currentBlockX = mainBlockX;
-    currentBlock.currentBlockY = mainBlockY;
-
-    grid.cells[mainBlockX][mainBlockY] = 1;
-    grid.cells[block0X][block0Y] = 1;
+    grid.cells[mainBlockX][mainBlockY] = 1;            //here the variables, which depend on the rotation, get put into the cells[][] array, so that they actually appear on screen and in
+    grid.cells[block0X][block0Y] = 1;                  //the calculations at other places
     grid.cells[block1X][block1Y] = 1;
     grid.cells[block3X][block3Y] = 1;
   }

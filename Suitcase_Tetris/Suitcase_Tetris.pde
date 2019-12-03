@@ -31,6 +31,7 @@ boolean[] keysPressed = new boolean[KEY_LIMIT];
 void setup()
 {
   //img2 = loadImage("2.jpg");
+
   grid = new Grid();
   home = new HomeScreen();
   loadAssets ();

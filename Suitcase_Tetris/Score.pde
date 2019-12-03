@@ -19,7 +19,7 @@ class Score {
     // als er een blok boven de "koffer" uit steekt betekend het GameOver
     for (int i = 0; i < grid.w; i++) {
       if (filledPercentage > 60/*blockPlace.filled[i][12] == 1*/) {
-        textSize(48);
+        textSize(100);
         fill(255, 0, 0);
         text("Next suitcase?", 10, 10);
         if (keysPressed[32]) {
@@ -66,7 +66,7 @@ class Score {
       rect(0, 0, width, height);
       textMode(CENTER);
       fill(255);
-      textSize(80);
+      textSize(100);
       text(Score, Textx, Texty);
       if (keysPressed[ENTER]) {
         grid.gridClear();
@@ -104,7 +104,7 @@ class Score {
           ScorePlus[w][h] = true;
           Score += 50;
         }
-        textSize(24);
+        textSize(100);
         text(Score, Scorex, Scorey);
       }
     }
@@ -121,6 +121,7 @@ class Score {
       }
     }
     filledPercentage = filledAmount/264*100;
+    textSize(100);
     String sd = nf(filledPercentage, 0, 1);
     text(sd+"/100%", 100, 500);
   }

@@ -30,14 +30,7 @@ class SBlock {
 
 
   void SBlockDraw() {
-    ZeroX = mainBlockX*50+300;
-   ZeroY = mainBlockY*50+40;
-   OneX = mainBlockX*50+350;
-   OneY = mainBlockY*50-10;
-   TwoX = mainBlockX*50+300;
-   TwoY = mainBlockY*50+40;
-   ThreeX = mainBlockX*50+350;
-   ThreeY = mainBlockY*50-10;
+ 
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
@@ -192,5 +185,13 @@ class SBlock {
       grid.cells[width3][height3] = 1;
     }
     maxY = mainBlockY+1;
+       ZeroX = mainBlockX*50+300;
+   ZeroY = mainBlockY*50+40;
+   OneX = mainBlockX*50+350;
+   OneY = mainBlockY*50-10;
+   TwoX = mainBlockX*50+300;
+   TwoY = mainBlockY*50+40;
+   ThreeX = mainBlockX*50+350;
+   ThreeY = mainBlockY*50-10;
   }
 }

@@ -23,13 +23,9 @@ class OBlock {
 
 
   void OBlockDraw() {
-    
-    ZeroX = mainBlockX*50+350;
-   ZeroY = mainBlockY*50+40;
-   image(spriteN[4], ZeroX, ZeroY);
-    mainBlockX = currentBlock.currentBlockX;
+        mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
-
+    
     width1=mainBlockX+1;
     height1=mainBlockY;
 
@@ -63,5 +59,10 @@ class OBlock {
     grid.cells[width1][height1] = 1;
     grid.cells[width2][height2] = 1;
     grid.cells[width3][height3] = 1;
+    
+    ZeroX = mainBlockX*50+350;
+   ZeroY = mainBlockY*50+40;
+   image(spriteN[4], ZeroX, ZeroY);
+
   }
 }

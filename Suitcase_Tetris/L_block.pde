@@ -29,15 +29,8 @@ class Lblock {
   
 
   void LblockDraw () {
-    ZeroX = mainBlockX*50+350;
-   ZeroY = mainBlockY*50-10;
-   OneX = mainBlockX*50+300;
-   OneY = mainBlockY*50+40;
-   TwoX = mainBlockX*50+300;
-   TwoY = mainBlockY*50-10;
-   ThreeX = mainBlockX*50+300;
-   ThreeY = mainBlockY*50-10;
-    mainBlockX = currentBlock.currentBlockX;
+    
+        mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
     if (control.rotation == 0) {
@@ -200,5 +193,14 @@ class Lblock {
     grid.cells[block1X][block1Y] = 1;                // places the block on the grid
     grid.cells[block2X][block2Y] = 1;
     grid.cells[block3X][block3Y] = 1;
+    
+        ZeroX = mainBlockX*50+350;
+   ZeroY = mainBlockY*50-10;
+   OneX = mainBlockX*50+300;
+   OneY = mainBlockY*50+40;
+   TwoX = mainBlockX*50+300;
+   TwoY = mainBlockY*50-10;
+   ThreeX = mainBlockX*50+300;
+   ThreeY = mainBlockY*50-10;
   }
 }

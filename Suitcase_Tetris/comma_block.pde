@@ -31,14 +31,6 @@ class CommaBlock {
   }
 
   void CommaBlockDraw () {
-  ZeroX = mainBlockX*50+350;
-   ZeroY = mainBlockY*50-10;
-   OneX = mainBlockX*50+350;
-   OneY = mainBlockY*50+40;
-   TwoX = mainBlockX*50+300;
-   TwoY = mainBlockY*50+40;
-   ThreeX = mainBlockX*50+300;
-   ThreeY = mainBlockY*50-10;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
@@ -190,5 +182,14 @@ if (control.rotation == 0) {                // all of the following code is for 
     grid.cells[mainBlockX][mainBlockY] = 1;
     grid.cells[block0X][block0Y] = 1;                  // places the block on the grid
     grid.cells[block2X][block2Y] = 1;
+    
+    ZeroX = mainBlockX*50+350;
+   ZeroY = mainBlockY*50-10;
+   OneX = mainBlockX*50+350;
+   OneY = mainBlockY*50+40;
+   TwoX = mainBlockX*50+300;
+   TwoY = mainBlockY*50+40;
+   ThreeX = mainBlockX*50+300;
+   ThreeY = mainBlockY*50-10;
   }
 }

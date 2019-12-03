@@ -29,7 +29,7 @@ public void loadAssets () {
   gameover = new SoundFile(this, "./sounds/gameover.wav");
 
  kerst = loadImage("./sprites/kerstmuts.png");
-   kerst.resize(50, 50);
+   kerst.resize(150, 150);
 
   Level = loadImage("./sprites/TemporaryDifficultySelectForTesting.png" ); // as the name suggests, its temporary to test if the homescreen works - kiano :)
   logo = loadImage("./sprites/logo img.png");

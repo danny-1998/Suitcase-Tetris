@@ -5,6 +5,8 @@ class Score {
   int Score = 0;
   float Textx = 850;
   float Texty = height/2;
+  float Scorex = width/2 - 880;
+  float Scorey = height/2 - 250 ;
   boolean GameOver = false;
   boolean CheckPoint = false;
   boolean BlockOverBlock = false;
@@ -19,7 +21,7 @@ class Score {
       if (filledPercentage > 60/*blockPlace.filled[i][12] == 1*/) {
         textSize(48);
         fill(255, 0, 0);
-        text("You can delete now", 10, 10);
+        text("Next suitcase?", 10, 10);
         if (keysPressed[32]) {
           grid.gridClear();
           blockPlace.filledClear();
@@ -103,7 +105,7 @@ class Score {
           Score += 50;
         }
         textSize(24);
-        text(Score, 50, 50);
+        text(Score, Scorex, Scorey);
       }
     }
   }

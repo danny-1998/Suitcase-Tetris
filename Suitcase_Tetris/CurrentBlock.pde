@@ -1,14 +1,21 @@
 class CurrentBlock {
-  int blockPicker;
+  IntList blockList = new IntList();
+  int blockPicker, blockNr;
   int currentBlockX, currentBlockY;
   int minX, maxX;
   boolean onEdgeLeft, onEdgeRight;
   boolean wallClockwise, wallAnticlockwise;
   boolean newBlock = false;
   CurrentBlock() {
+    for (int u = 0; u<2; u++) {
+      for (int i = 1; i <10; i++) {
+        blockList.append(i);
+      }
+    }
+    println(blockList);
     currentBlockX = 11;
     currentBlockY = 1;
-    blockPicker = 1;
+    blockPicker = 0;
     newBlock = true;
   }
 
@@ -17,7 +24,16 @@ class CurrentBlock {
       control.rotation = 0;                //resets the rotation to the 1st position
       currentBlockY = 1;                   //resets the new block's Ypos to 1 below the ceiling
       currentBlockX = 11;                  //resets the new block's Xpos to the middle of the field
-      blockPicker = ceil(random(9));       //picks a new random integer to decide which new block to draw
+      blockNr = (int)random(blockList.size());       //picks a new random integer to decide which new block to draw
+      blockPicker = blockList.get(blockNr);
+      blockList.remove(blockNr);
+      if (blockList.size() == 0) {
+        for (int u = 0; u<2; u++) {
+          for (int i = 1; i <10; i++) {
+            blockList.append(i);
+          }
+        }
+      }
       newBlock = false;                    //a new block has been picked, so the boolean that starts the process is set to false
       //println(blockPicker);
     }

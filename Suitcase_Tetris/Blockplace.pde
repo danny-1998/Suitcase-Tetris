@@ -42,9 +42,11 @@ class Location {
   void check() {
     
     //image(kerst, (currentBlock.maxX*50)+240, (currentBlock.currentBlockY*50)-90);
+    if(kerstmode){
     tint(255,50);
     image(kerst, (currentBlock.maxX*50)+240, (currentBlock.currentBlockY*50)-90);
     tint(255,255);
+    }
     
     //for (int a =0; a <24; a++) {
     //  println(spriteN[a]);

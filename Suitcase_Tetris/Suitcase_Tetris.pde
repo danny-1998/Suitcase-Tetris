@@ -1,5 +1,7 @@
 import processing.sound.*;
 PImage img1, img2;
+boolean kerstmode = false;
+int cool = 5;
 
 Grid grid;
 SpriteSheet spriteSheet;
@@ -97,8 +99,18 @@ void reset() {
   //NOBODY WILL HELP YOU, THERE IS NO GOD HERE!!
 }
 
-void draw()
-{
+void draw(){
+  if (keyPressed == true){
+    if ((key == 'k') || (key == 'K')){
+      if (cool == 0)
+      kerstmode = !kerstmode;
+      cool = 5;
+    }
+  }
+  if(cool > 0){
+  cool--;
+  }
+  
   background(255);
   home.screenSelector();
   if (!score.GameOver && home.gameStart) {
@@ -161,6 +173,7 @@ void draw()
   home.homeDraw();
 
   //}
+  
 }
 
 void keyPressed() {

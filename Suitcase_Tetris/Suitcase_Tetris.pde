@@ -188,6 +188,9 @@ void keyReleased() {
     control.cooldown1 = 0;                    //it also re-engages the firstPress boolean, which helps with the accuracy of the controls
     control.firstPress = true;
   }
+ if(keyCode == SHIFT){
+    control.shiftLock = false;
+  }
 
   /*if (keyPressed == true)//in milliseconds
    {

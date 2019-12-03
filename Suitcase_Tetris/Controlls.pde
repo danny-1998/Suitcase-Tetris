@@ -1,6 +1,6 @@
 class Control {
   //By Ole Neuman
-  boolean firstPress;
+  boolean firstPress, shiftLock, landed;
   int rotation, cooldown1, cooldown2, cooldown3, cooldownAmount;
   boolean top = false;
   public boolean blockLeft, blockRight;
@@ -8,15 +8,16 @@ class Control {
   Control() {
     rotation = 0;
     firstPress = true;
+    shiftLock = false;
   }
 
   void controllsV3() {
-    if(home.e){              //if easy mode is selected, the cooldown of a block moving side to side is 3 frames
-     cooldownAmount = 3; 
-    } else if(home.m){       //if normal mode is selected, the cooldown of a block moving side to side is 10 frames
-     cooldownAmount = 10;   
-    } else if (home.h){      //if hard mode is selected, the cooldown is 15 frames
-     cooldownAmount = 15; 
+    if (home.e) {              //if easy mode is selected, the cooldown of a block moving side to side is 3 frames
+      cooldownAmount = 3;
+    } else if (home.m) {       //if normal mode is selected, the cooldown of a block moving side to side is 10 frames
+      cooldownAmount = 10;
+    } else if (home.h) {      //if hard mode is selected, the cooldown is 15 frames
+      cooldownAmount = 15;
     }
     if (keysPressed[65] && currentBlock.minX > 0 && cooldown1 ==  0 && !blockLeft) {      //if a is pressed, and the block is not on the left edge, and the cooldown is inactive,
       currentBlock.currentBlockX -= 1;                                                    //and there is no block to the left of the current block, it moves 1 space to the left
@@ -27,7 +28,7 @@ class Control {
         cooldown1 = cooldownAmount;    //if this is not the initial press, the cooldown is equal to the difficulty specific cooldown
       }
     }
-    
+
     if (keysPressed[68] && currentBlock.maxX < grid.w-1 && cooldown1 == 0 && !blockRight) { //same as the block above, except it is checking the right side of the block
       currentBlock.currentBlockX += 1;
       if (firstPress) {
@@ -99,6 +100,41 @@ class Control {
     }
     if (rotation<0) {                              //if the rotation variable is lower than 1 (the 1st rotation position), it sets it to 3 (the 4th rotation position),  so the rotation keeps looping
       rotation = 3;
+    }
+    if (keysPressed[SHIFT] && !shiftLock) {
+      hardDrop();
+      shiftLock = true;
+      println("bruh");
+    }
+  }
+
+  void hardDrop() {
+    if (currentBlock.blockPicker == 1) {
+      int h;
+      if(control.rotation == 0){
+       h = 0;
+      } else {
+        h = 1;
+      }
+      for (int i = currentBlock.currentBlockY; i < grid.h-1; i++) {
+        if ((i+h >= grid.h-1) ||
+          ((grid.cells[tBlock.mainBlockX][i+h] == 1) ||
+          ((grid.cells[tBlock.minX][i+h] == 1) && (tBlock.minX != tBlock.mainBlockX)) ||
+          ((grid.cells[tBlock.maxX][i+h] == 1) && (tBlock.maxX != tBlock.mainBlockX)) ) ) {
+          currentBlock.currentBlockY = i;
+          return;
+        }
+      }
+    }
+    if (currentBlock.blockPicker == 2) {
+      for (int i = currentBlock.currentBlockY; i < grid.h-1; i++) {
+        if ((i+1 >= grid.h-1) || (grid.cells[oBlock.width2][i+1+1] == 1) || (grid.cells[oBlock.width3][i+1+1] == 1) ) {
+          currentBlock.currentBlockY = i;
+          return;
+        } else {
+          currentBlock.currentBlockY = grid.h-2;
+        }
+      }
     }
   }
 }

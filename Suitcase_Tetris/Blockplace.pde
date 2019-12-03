@@ -159,7 +159,6 @@ class Location {
       image(spriteN[spritewah[a]], spriteX[a], spriteY[a]);
       }
     //image(spriteN[0], 500, 500);
-    println(uwu);
   }
   //dit waren de 'bottom checks'
 

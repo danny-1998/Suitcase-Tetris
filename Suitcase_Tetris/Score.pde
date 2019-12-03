@@ -19,16 +19,16 @@ class Score {
     // als er een blok boven de "koffer" uit steekt betekend het GameOver
     for (int i = 0; i < grid.w; i++) {
       if (filledPercentage > 60/*blockPlace.filled[i][12] == 1*/) {
-        textSize(48);
+        textSize(100);
         fill(255, 0, 0);
         text("Next suitcase?", 10, 10);
         if (keysPressed[32]) {
           grid.gridClear();
           blockPlace.filledClear();
           blockPlace.uwu = 0;
-          dt1 = dt1 * 0.95;
-          dt2 = dt2 * 0.87;
-          dt3 = dt3 * 0.8;
+          dt1 = dt1 - (22/10);
+          dt2 = dt2 - (22/15);
+          dt3 = dt3 - (22/22);
           for (int w = 0; w < 22; w++) {
             for (int h = 0; h<20; h++) {  
               ScorePlus[w][h] = false;
@@ -40,9 +40,9 @@ class Score {
         grid.gridClear();
         blockPlace.filledClear();
         blockPlace.uwu = 0;
-        dt1 = dt1 * 0.95;
-        dt2 = dt2 * 0.87;
-        dt3 = dt3 * 0.8;
+        dt1 = dt1 - (22/10);
+        dt2 = dt2 - (22/15);
+        dt3 = dt3 - (22/22);
         Score = Score + 25000;
       }
       if ((currentBlock.newBlock == true) && (blockPlace.filled[i][7] > 0)) {
@@ -66,7 +66,7 @@ class Score {
       rect(0, 0, width, height);
       textMode(CENTER);
       fill(255);
-      textSize(80);
+      textSize(100);
       text(Score, Textx, Texty);
       if (keysPressed[ENTER]) {
         grid.gridClear();
@@ -76,6 +76,9 @@ class Score {
         home.e = false;
         home.m = false;
         home.h = false;
+        dt1 = 1000;
+        dt2 = 500;
+        dt3 = 200;
       }
     }
 
@@ -101,7 +104,7 @@ class Score {
           ScorePlus[w][h] = true;
           Score += 50;
         }
-        textSize(24);
+        textSize(100);
         text(Score, Scorex, Scorey);
       }
     }
@@ -118,6 +121,8 @@ class Score {
       }
     }
     filledPercentage = filledAmount/264*100;
-    text(filledPercentage+"/100%", 100, 500);
+    textSize(100);
+    String sd = nf(filledPercentage, 0, 1);
+    text(sd+"/100%", 100, 500);
   }
 }

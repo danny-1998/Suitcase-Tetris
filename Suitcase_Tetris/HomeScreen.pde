@@ -20,8 +20,9 @@ class HomeScreen {
       fill (255, 174, 201);
       rect(0, 0, width, height);
       textMode(CENTER);
+      textSize(50);
       fill(0);
-      text("Press START to continue", score.Textx, 3*(height/4));
+      text("Press START to continue", score.Textx-75, 3*(height/4));
       spriteSheet.update();
       spriteSheet.draw(2*(width/7), height/4);
       //image(logo, 2*(width/7), height/4);

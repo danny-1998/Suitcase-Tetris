@@ -1,10 +1,6 @@
 // Loads all of the sounds and images
 
-
-
-
-
-
+PFont font;
 PImage commaSprite0, ISprite0, JSprite0, LSprite0, OSprite0, pointSprite0, SSprite0, ZSprite0, TSprite0; 
 PImage commaSprite1, ISprite1, JSprite1, LSprite1, SSprite1, ZSprite1, TSprite1; 
 PImage commaSprite2, ISprite2, JSprite2, LSprite2, TSprite2; 
@@ -20,6 +16,11 @@ PImage commaSprite, ISprite, JSprite, LSprite, OSprite, pointSprite, SSprite, ZS
 
 
 public void loadAssets () {
+  
+  //font
+  font = createFont("./data/font.ttf", 100);
+  
+    textFont(font);
   // sounds
   beep = new SoundFile(this, "./sounds/beep.wav");
   bgmusic = new SoundFile(this, "./sounds/suitcase_bop.wav");
@@ -28,8 +29,7 @@ public void loadAssets () {
 
   gameover = new SoundFile(this, "./sounds/gameover.wav");
 
- kerst = loadImage("./sprites/kerstmuts.png");
-   kerst.resize(50, 50);
+ 
 
   Level = loadImage("./sprites/TemporaryDifficultySelectForTesting.png" ); // as the name suggests, its temporary to test if the homescreen works - kiano :)
   logo = loadImage("./sprites/logo img.png");
@@ -87,6 +87,9 @@ public void loadAssets () {
   spriteN[21] = loadImage ("./sprites/J-3.png");
   spriteN[22] = loadImage ("./sprites/L-3.png");
   spriteN[23] = loadImage("./sprites/T-3.png");
+  
+  kerst = loadImage("./sprites/kerstmuts.png");
+   kerst.resize(240, 220);
 
 }
 

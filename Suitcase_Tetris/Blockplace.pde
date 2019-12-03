@@ -40,14 +40,19 @@ class Location {
   
 
   void check() {
-    image(kerst, (currentBlock.maxX*50)+360, (currentBlock.currentBlockY*50)+20);
+    
+    //image(kerst, (currentBlock.maxX*50)+240, (currentBlock.currentBlockY*50)-90);
+    tint(255,50);
+    image(kerst, (currentBlock.maxX*50)+240, (currentBlock.currentBlockY*50)-90);
+    tint(255,255);
+    
     //for (int a =0; a <24; a++) {
     //  println(spriteN[a]);
     //}
     //grid.cells[12][10] = 1; //blok wat altijd aan is voor collision testing
 
     //println(tBlock.maxY);
-    //in de komende if statements wordt er gekeken naar de verschillende blokken formaties en wanneer er een blok onder aanwezig is.
+    //in de komende if statements wordt er gekeken naar de verschillende blokken formaties en wanneer er een blok eronder aanwezig is.
     //gezien ieder blok een andere vorm heeft, moet ze allemaal op een andere manier worden gecheckt
     if (currentBlock.blockPicker == 1) {// t-block
       if ((tBlock.maxY >= grid.h-1) ||

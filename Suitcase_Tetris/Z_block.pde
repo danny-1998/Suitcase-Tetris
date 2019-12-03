@@ -55,6 +55,11 @@ class ZBlock {
    grid.cells[currentBlock.currentBlockX-1][currentBlock.currentBlockY] = 1;   //     [3]
    grid.cells[currentBlock.currentBlockX][currentBlock.currentBlockY] = 1;
    grid.cells[currentBlock.currentBlockX-1][currentBlock.currentBlockY+1] = 1;
+   if(currentBlock.currentBlockX == 21){
+      image(spriteN[14], currentBlock.currentBlockX*50+300, currentBlock.currentBlockY*50-10);
+      ZeroX = currentBlock.currentBlockX*50+300;
+      ZeroY = currentBlock.currentBlockY*50-10;
+   }
    
    width1 = mainBlockX;
    height1 = mainBlockY-1;

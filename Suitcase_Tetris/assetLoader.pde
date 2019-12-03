@@ -35,7 +35,7 @@ public void loadAssets () {
 
 
   // images
-<<<<<<< HEAD
+
   commaSprite0 = loadImage("./sprites/comma-0.png");
   ISprite0 = loadImage ("./sprites/I-0.png");
   JSprite0 = loadImage ("./sprites/J-0.png");
@@ -60,7 +60,7 @@ public void loadAssets () {
   JSprite3 = loadImage ("./sprites/J-3.png");
   LSprite3 = loadImage ("./sprites/L-3.png");
   TSprite3 = loadImage("./sprites/T-3.png");
-=======
+
   spriteN[0]  = loadImage("./sprites/comma-0.png");
   spriteN[1] = loadImage ("./sprites/I-0.png");
   spriteN[2] = loadImage ("./sprites/J-0.png");
@@ -85,7 +85,7 @@ public void loadAssets () {
   spriteN[21] = loadImage ("./sprites/J-3.png");
   spriteN[22] = loadImage ("./sprites/L-3.png");
   spriteN[23] = loadImage("./sprites/T-3.png");
->>>>>>> master
+
 }
 
 // Spritesheet class to draw sprite animations

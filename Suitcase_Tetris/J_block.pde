@@ -32,15 +32,8 @@ class JBlock {
  
 
   void JBlockDraw() {
-     ZeroX = mainBlockX*50+300;
-   ZeroY = mainBlockY*50-10;
-   OneX = mainBlockX*50+300;
-   OneY = mainBlockY*50-10;
-   TwoX = mainBlockX*50+350;
-   TwoY = mainBlockY*50-10;
-   ThreeX = mainBlockX*50+300;
-   ThreeY = mainBlockY*50+40;
-    mainBlockX = currentBlock.currentBlockX;
+    
+        mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
     if (control.rotation == 0) {              //   [1]
@@ -200,6 +193,15 @@ class JBlock {
           }
         }
       }
+      
+           ZeroX = mainBlockX*50+300;
+   ZeroY = mainBlockY*50-10;
+   OneX = mainBlockX*50+300;
+   OneY = mainBlockY*50-10;
+   TwoX = mainBlockX*50+350;
+   TwoY = mainBlockY*50-10;
+   ThreeX = mainBlockX*50+300;
+   ThreeY = mainBlockY*50+40;
 
       grid.cells[mainBlockX][mainBlockY] = 1;
       grid.cells[width1][height1] = 1;

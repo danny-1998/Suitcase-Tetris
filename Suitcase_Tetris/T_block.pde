@@ -21,14 +21,6 @@ class TBlock { //<>// //<>// //<>//
   
 
   void TBlockDraw() {
-   ZeroX = mainBlockX*50+300;                  //the coördinates of the sprite image used for this block
-   ZeroY = mainBlockY*50-10;                   //these are based off of the position of the block in the grid, and then translated to actual screen coördinates
-   OneX = mainBlockX*50+350;
-   OneY = mainBlockY*50-10;
-   TwoX = mainBlockX*50+300;
-   TwoY = mainBlockY*50+40;
-   ThreeX = mainBlockX*50+300;
-   ThreeY = mainBlockY*50-10;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
     
@@ -185,10 +177,22 @@ class TBlock { //<>// //<>// //<>//
         }
       }
     }
+    
+        mainBlockX = currentBlock.currentBlockX;
+    mainBlockY = currentBlock.currentBlockY;
 
     grid.cells[mainBlockX][mainBlockY] = 1;            //here the variables, which depend on the rotation, get put into the cells[][] array, so that they actually appear on screen and in
     grid.cells[block0X][block0Y] = 1;                  //the calculations at other places
     grid.cells[block1X][block1Y] = 1;
     grid.cells[block3X][block3Y] = 1;
+    
+    ZeroX = mainBlockX*50+300;                  //the coördinates of the sprite image used for this block
+   ZeroY = mainBlockY*50-10;                   //these are based off of the position of the block in the grid, and then translated to actual screen coördinates
+   OneX = mainBlockX*50+350;
+   OneY = mainBlockY*50-10;
+   TwoX = mainBlockX*50+300;
+   TwoY = mainBlockY*50+40;
+   ThreeX = mainBlockX*50+300;
+   ThreeY = mainBlockY*50-10;
   }
 }

@@ -30,14 +30,6 @@ class ZBlock {
 
 
   void ZBlockDraw() {
-    ZeroX = mainBlockX*50+300;
-   ZeroY = mainBlockY*50+40;
-   OneX = mainBlockX*50+300;
-   OneY = mainBlockY*50-10;
-   TwoX = mainBlockX*50+300;
-   TwoY = mainBlockY*50+40;
-   ThreeX = mainBlockX*50+300;
-   ThreeY = mainBlockY*50-10;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
@@ -174,11 +166,20 @@ class ZBlock {
       }
     }
       
-
-      grid.cells[mainBlockX][mainBlockY] = 1;
+    }
+    
+    grid.cells[mainBlockX][mainBlockY] = 1;
       grid.cells[width1][height1] = 1;
       grid.cells[width2][height2] = 1;
       grid.cells[width3][height3] = 1;
-    }
+    
+    ZeroX = mainBlockX*50+300;
+   ZeroY = mainBlockY*50+40;
+   OneX = mainBlockX*50+300;
+   OneY = mainBlockY*50-10;
+   TwoX = mainBlockX*50+300;
+   TwoY = mainBlockY*50+40;
+   ThreeX = mainBlockX*50+300;
+   ThreeY = mainBlockY*50-10;
   }
 }

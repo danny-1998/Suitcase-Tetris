@@ -23,8 +23,9 @@ Control control;
 CurrentBlock currentBlock, nextPiece;
 Score score;
 boolean gameOn;
-int dt, currentTime;
+float dt1, dt2, dt3, currentTime;
 final int KEY_LIMIT = 1024;
+float filledAmount = 0;
 boolean[] keysPressed = new boolean[KEY_LIMIT];
 
 void setup()
@@ -55,10 +56,12 @@ void setup()
 
   lBlock = new Lblock();
   iBlock = new IBlock();
+  dt1 = 1000;
+  dt2 = 500;
+  dt3 = 200;
 
   fullScreen();
   gameOn = true;
-  dt = 1000;
 
   reset();
 }
@@ -90,6 +93,7 @@ void setup()
 
 void reset() {
   //PLEASE HELP HERE -- KIANO
+  //NOBODY WILL HELP YOU, THERE IS NO GOD HERE!!
 }
 
 void draw()
@@ -100,6 +104,7 @@ void draw()
     grid.drawGrid();
     blockPlace.fills();
     score.scoreDraw();
+    score.filledCounter();
     score.scoreCounter();
     grid.gridClear();
     currentBlock.newBlock();
@@ -112,7 +117,7 @@ void draw()
       int now = millis();
       if (gameOn) {
         if (home.e == true) {
-          if (now - currentTime > dt) {
+          if (now - currentTime > dt1) {
             currentTime = now;
             currentBlock.oneStepDown();
             beep.play();
@@ -122,7 +127,7 @@ void draw()
       }
       if (gameOn) {
         if (home.m == true) {
-          if (now - currentTime > 500) {
+          if (now - currentTime > dt2) {
             currentTime = now;
             currentBlock.oneStepDown();
             beep.play();
@@ -132,7 +137,7 @@ void draw()
       }
       if (gameOn) {
         if (home.h == true) {
-          if (now - currentTime > 200) {
+          if (now - currentTime > dt3) {
             currentTime = now;
             currentBlock.oneStepDown();
             beep.play();
@@ -149,7 +154,6 @@ void draw()
   if (score.GameOver) {
     score.gameOver();
   }
-
 
 
   //if (!score.GameOver && !home.gameStart){

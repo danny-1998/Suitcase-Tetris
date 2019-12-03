@@ -10,6 +10,7 @@ PImage commaSprite1, ISprite1, JSprite1, LSprite1, SSprite1, ZSprite1, TSprite1;
 PImage commaSprite2, ISprite2, JSprite2, LSprite2, TSprite2; 
 PImage commaSprite3, ISprite3, JSprite3, LSprite3, TSprite3; 
 PImage spriteN[] = new PImage[24];
+PImage kerst;
 SoundFile beep, bgmusic, gameover;
 
 PImage Level, logo, game;
@@ -26,8 +27,9 @@ public void loadAssets () {
 
 
   gameover = new SoundFile(this, "./sounds/gameover.wav");
-  
 
+ kerst = loadImage("./sprites/kerstmuts.png");
+   kerst.resize(50, 50);
 
   Level = loadImage("./sprites/TemporaryDifficultySelectForTesting.png" ); // as the name suggests, its temporary to test if the homescreen works - kiano :)
   logo = loadImage("./sprites/logo img.png");

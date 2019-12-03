@@ -25,10 +25,6 @@ class IBlock {
   boolean onEdgeLeft, onEdgeRight;
 
   void IBlockDraw () {
-    ZeroTwoX = mainBlockX*50+350;
-    ZeroTwoY = mainBlockY*50-10;
-    OneThreeX = mainBlockX*50+300;
-    OneThreeY = mainBlockY*50+40;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
@@ -120,5 +116,10 @@ class IBlock {
     grid.cells[block1X][block1Y] = 1;
     grid.cells[block3X][block3Y] = 1;
     grid.cells[block4X][block4Y] = 1;
+    
+        ZeroTwoX = mainBlockX*50+350;
+    ZeroTwoY = mainBlockY*50-10;
+    OneThreeX = mainBlockX*50+300;
+    OneThreeY = mainBlockY*50+40;
   }
 }

@@ -3,6 +3,7 @@ class Grid {
   int w = 22;
   int h = 20;
   int q = 50;
+  int filledAmount = 0;
   int [][] cells = new int[w][h];
 
   Grid() {
@@ -15,6 +16,7 @@ class Grid {
       }
     }
   }
+  
   void drawGrid() {
     stroke(120);
     pushMatrix();

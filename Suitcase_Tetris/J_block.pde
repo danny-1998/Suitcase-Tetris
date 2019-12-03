@@ -50,7 +50,11 @@ class JBlock {
       grid.cells[currentBlock.currentBlockX][currentBlock.currentBlockY] = 1;
       grid.cells[currentBlock.currentBlockX][currentBlock.currentBlockY+1] = 1;
       grid.cells[currentBlock.currentBlockX-1][currentBlock.currentBlockY+1] = 1;
-
+      if(currentBlock.currentBlockX == 21){
+      image(spriteN[2], currentBlock.currentBlockX*50+300, currentBlock.currentBlockY*50-10);
+      ZeroX = currentBlock.currentBlockX*50+300;
+      ZeroY = currentBlock.currentBlockY*50-10;
+      }
       minX = mainBlockX-1;
       maxX = mainBlockX;
       maxY = mainBlockY + 1;
@@ -194,7 +198,7 @@ class JBlock {
         }
       }
       
-           ZeroX = mainBlockX*50+300;
+   ZeroX = mainBlockX*50+300;
    ZeroY = mainBlockY*50-10;
    OneX = mainBlockX*50+300;
    OneY = mainBlockY*50-10;

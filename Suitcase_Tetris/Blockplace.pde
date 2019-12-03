@@ -47,7 +47,7 @@ class Location {
     //grid.cells[12][10] = 1; //blok wat altijd aan is voor collision testing
 
     //println(tBlock.maxY);
-    //in de komende if statements wordt er gekeken naar de verschillende blokken formaties en wanneer er een blok onder aanwezig is.
+    //in de komende if statements wordt er gekeken naar de verschillende blokken formaties en wanneer er een blok eronder aanwezig is.
     //gezien ieder blok een andere vorm heeft, moet ze allemaal op een andere manier worden gecheckt
     if (currentBlock.blockPicker == 1) {// t-block
       if ((tBlock.maxY >= grid.h-1) ||

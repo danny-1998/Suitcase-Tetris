@@ -85,6 +85,7 @@ class Control {
     if (keysPressed[83] && cooldown3 ==0) {        //when you press the s key, and the cooldown is inactive, it moves your block 1 place downwards
       if (blockPlace.land != true) {               //but only if your block is not touching anything on the bottom side of it, otherwise you would easily clip into other blocks, and the floor
         currentBlock.currentBlockY += 1;
+        currentTime = now;
       } else if (blockPlace.land == true) {        //if your block is touching something at the bottom, it calls all the functions necessairy to save its position to the filled[][] array
         blockPlace.check = true;
         blockPlace.fills();

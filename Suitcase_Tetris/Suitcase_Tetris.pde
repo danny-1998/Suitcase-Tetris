@@ -24,6 +24,7 @@ CommaBlock commaBlock;
 Control control;
 CurrentBlock currentBlock, nextPiece;
 Score score;
+int now;
 boolean gameOn;
 float dt1, dt2, dt3, currentTime;
 final int KEY_LIMIT = 1024;
@@ -127,7 +128,7 @@ void draw(){
     control.controllsV3();
     if (grid != null) {
       grid.drawGrid();
-      int now = millis();
+      now = millis();
       if (gameOn) {
         if (home.e == true) {
           if (now - currentTime > dt1) {

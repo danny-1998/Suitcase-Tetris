@@ -159,7 +159,7 @@ class Location {
     for (int a = 0; a <uwu; a++) {
       image(spriteN[spritewah[a]], spriteX[a], spriteY[a]);
       }
-      for (int i = currentBlock.currentBlockY; i < grid.h-1; i++){
+      /*for (int i = currentBlock.currentBlockY; i < grid.h-1; i++){
         if(grid.cells[currentBlock.currentBlockX][i] == 1){
           ghosty-=50;
         }
@@ -167,7 +167,7 @@ class Location {
       tint(255, 50);
       image(spriteN[currentBlock.blockPicker*control.rotation], (currentBlock.currentBlockX*50)+350, ghosty);
       tint(255, 255);
-      ghosty = 940;
+      ghosty = 940;*/
     //image(spriteN[0], 500, 500);
     //println(uwu+1); //hoeveel blokken er op het scherm zijn
   }

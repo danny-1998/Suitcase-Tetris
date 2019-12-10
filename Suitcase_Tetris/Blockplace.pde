@@ -261,7 +261,7 @@ class Location {
         fill(255);
       text(point[a]*50, spriteX[a], spriteY[a]+50 );
       }*/
-      b=0;
+      b=15;
       currentBlock.newBlock = true;
       check = false;
     }
@@ -280,9 +280,9 @@ class Location {
  //text(/*point[uwu]*50*/"Test", spriteX[uwu], spriteY[uwu]+50);
    textSize( 100-(pow((50-b), 2))/10);
    fill(0);
-   text(point[uwu-1]*50, spriteX[uwu-1]+25, spriteY[uwu-1]+60);
+   text(point[uwu-1]*50, spriteX[uwu-1]+25, spriteY[uwu-1]);
    fill(0,255,0);
     }
- b++;
+ b+=3;
 }
 }

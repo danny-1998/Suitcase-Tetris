@@ -43,9 +43,11 @@ class CurrentBlock {
         for (int i = 0; i < 18; i++) {
           blockNr = (int)random(blockList.size());
           blockOrder.set(i, blockList.get(blockNr));
+          blockList.remove(blockNr);
         }
         println(blockOrder);
       }
+      println(blockPicker);
       newBlock = false;                    //a new block has been picked, so the boolean that starts the process is set to false
       //println(blockPicker);
     }

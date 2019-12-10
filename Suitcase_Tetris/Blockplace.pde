@@ -281,7 +281,6 @@ class Location {
    textSize( 100-(pow((50-b), 2))/10);
    fill(0);
    text(point[uwu-1]*50, spriteX[uwu-1]+25, spriteY[uwu-1]+60);
-   println(spriteX[uwu]);
    fill(0,255,0);
     }
  b++;

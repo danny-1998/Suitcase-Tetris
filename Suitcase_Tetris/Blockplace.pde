@@ -10,6 +10,8 @@ class Location {
   int spritewah[] = new int [500];
   int sprite;
   int ghosty = 940;
+  int point[] = new int [500];
+  int b = 0;
 
   int uwu;
   int filled[][] = new int[grid.w][grid.h]; // welke plekken op de grid gevult moeten zijn
@@ -159,6 +161,7 @@ class Location {
     for (int a = 0; a <uwu; a++) {
       image(spriteN[spritewah[a]], spriteX[a], spriteY[a]);
       }
+      
       /*for (int i = currentBlock.currentBlockY; i < grid.h-1; i++){
         if(grid.cells[currentBlock.currentBlockX][i] == 1){
           ghosty-=50;
@@ -189,8 +192,19 @@ class Location {
 
 
     if (_new == true) { //hier wordt aan de currentBlock class gemeld dat er een nieuw blok moet komen nu dat het veld compleet is.
+    text(point[uwu]*50, spriteX[uwu], spriteY[uwu]+50);
       _new = false;
       // in dit gedeelte wordt een sprite gelinkt aan een onderdeel van de sprite arrays om er voor te zorgen dat de sprites blijven zodra een blok geplaatst is.
+      if((currentBlock.blockPicker != 3) && (currentBlock.blockPicker != 8)){
+        point[uwu] = 4;
+      }
+      if(currentBlock.blockPicker == 3){
+        point[uwu] = 1;
+      }
+      if(currentBlock.blockPicker == 8){
+        point[uwu] = 3;
+      }
+      
       //rotatie 1
       if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8; uwu+=1;}
@@ -243,6 +257,11 @@ class Location {
         if (currentBlock.blockPicker == 9) { spriteX[uwu] = iBlock.OneThreeX; spriteY[uwu] = iBlock.OneThreeY; spritewah[uwu] = 10; uwu+=1;}
       }
       
+      /*for (int a = 0; a <uwu; a++) {
+        fill(255);
+      text(point[a]*50, spriteX[a], spriteY[a]+50 );
+      }*/
+      b=0;
       currentBlock.newBlock = true;
       check = false;
     }
@@ -255,4 +274,16 @@ class Location {
       }
     }
   }
+  
+  void pointAnim (){
+    if((b < 81) && (b > 18.4)&&(uwu>=1)){
+ //text(/*point[uwu]*50*/"Test", spriteX[uwu], spriteY[uwu]+50);
+   textSize( 100-(pow((50-b), 2))/10);
+   fill(0);
+   text(point[uwu-1]*50, spriteX[uwu-1]+25, spriteY[uwu-1]+60);
+   println(spriteX[uwu]);
+   fill(0,255,0);
+    }
+ b++;
+}
 }

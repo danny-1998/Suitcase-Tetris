@@ -1,6 +1,7 @@
 class CurrentBlock {
   IntList blockList = new IntList();
-  int blockPicker, blockNr;
+  IntList blockOrder = new IntList(18);
+  int blockPicker, blockNr, blockCounter;
   int currentBlockX, currentBlockY;
   int minX, maxX;
   boolean onEdgeLeft, onEdgeRight;
@@ -12,27 +13,38 @@ class CurrentBlock {
         blockList.append(i);
       }
     }
-    println(blockList);
+    for (int i = 0; i < 18; i++) {
+      blockNr = (int)random(blockList.size());
+      blockOrder.set(i, blockList.get(blockNr));
+      blockList.remove(blockNr);
+    }
+    println(blockOrder);
     currentBlockX = 11;
     currentBlockY = 1;
     blockPicker = 0;
     newBlock = true;
+    blockCounter = -1;
   }
 
   void newBlock() {
     if (newBlock) {                        //when a new block should spawn at the top of the screen, it sets the necessairy variables to the values that they should
       control.rotation = 0;                //resets the rotation to the 1st position
       currentBlockY = 1;                   //resets the new block's Ypos to 1 below the ceiling
-      currentBlockX = 11;                  //resets the new block's Xpos to the middle of the field
-      blockNr = (int)random(blockList.size());       //picks a new random integer to decide which new block to draw
-      blockPicker = blockList.get(blockNr);
-      blockList.remove(blockNr);
-      if (blockList.size() == 0) {
+      currentBlockX = 11;        //resets the new block's Xpos to the middle of the field
+      blockCounter +=1;
+      blockPicker = blockOrder.get(blockCounter);
+      if (blockCounter >16) {
         for (int u = 0; u<2; u++) {
           for (int i = 1; i <10; i++) {
             blockList.append(i);
+            blockCounter = -1;
           }
         }
+        for (int i = 0; i < 18; i++) {
+          blockNr = (int)random(blockList.size());
+          blockOrder.set(i, blockList.get(blockNr));
+        }
+        println(blockOrder);
       }
       newBlock = false;                    //a new block has been picked, so the boolean that starts the process is set to false
       //println(blockPicker);

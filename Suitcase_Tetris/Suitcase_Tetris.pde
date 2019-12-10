@@ -174,9 +174,12 @@ void draw(){
   home.homeDraw();
 
   //}
-  
+  /*for (int i = 184; i<810; i++){
+    print(" i = " + i + " ");
+  print( 1000-(pow((500-i), 2))/100);
+  }*/
+  blockPlace.pointAnim();
 }
-
 void keyPressed() {
   if (keyCode >= KEY_LIMIT) return;    //if a key is pressed that has a keyCode higher than the key limit, the function doesnt go further than this, so it doesnt potentially break anything
   keysPressed[keyCode] = true;         //if a key is pressed, it turns a boolean specific to that key to true, which gets used in the controlls

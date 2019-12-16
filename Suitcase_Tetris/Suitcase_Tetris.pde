@@ -15,6 +15,7 @@ ZBlock zBlock;
 JBlock jBlock;
 Lblock lBlock;
 IBlock iBlock;
+Tutorial tutorial;
 
 
 PointBlock pointblock;
@@ -60,6 +61,7 @@ void setup()
 
   lBlock = new Lblock();
   iBlock = new IBlock();
+  tutorial = new Tutorial();
   dt1 = 1000;
   dt2 = 500;
   dt3 = 200;

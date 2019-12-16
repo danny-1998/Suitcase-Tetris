@@ -67,6 +67,9 @@ class HomeScreen {
         h = true;                                        //if you press the 3 key it activates hard mode, and advances the gameState to 3
         gameState = 2;
       }
+      if (keysPressed[52] || keysPressed[100]){
+       gameState = 4; 
+      }
     }
     if (gameState == 2) {
       gameStart = true;                            //if the gameState is at 2, it starts the gameplay itself. If you die in the game, the gameState advances to 3
@@ -93,6 +96,9 @@ class HomeScreen {
         }
         score.Score = 0;
       }
+    }
+    if (gameState == 4) {
+      tutorial.draw();
     }
   }
 }

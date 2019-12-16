@@ -18,6 +18,8 @@ class Control {
       cooldownAmount = 10;
     } else if (home.h) {      //if hard mode is selected, the cooldown is 15 frames
       cooldownAmount = 15;
+    } else if (home.gameState == 4){
+     cooldownAmount = 3; 
     }
     if (keysPressed[65] && currentBlock.minX > 0 && cooldown1 ==  0 && !blockLeft) {      //if a is pressed, and the block is not on the left edge, and the cooldown is inactive,
       currentBlock.currentBlockX -= 1;                                                    //and there is no block to the left of the current block, it moves 1 space to the left
@@ -139,3 +141,11 @@ class Control {
     }
   }
 }
+
+// key a is linked to left button
+// key d is linked to right button
+// key s is linked to down button
+// key w is linked to the right soulder button
+// key z is linked to left shoulder button
+// key c is linked to A button
+// spacebar is linked to Y button

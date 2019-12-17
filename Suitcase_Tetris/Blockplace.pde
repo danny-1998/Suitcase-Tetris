@@ -3,6 +3,7 @@ class Location {
   /* Deze class houd de positie en oriëntatie van de CurrentBlock bij als deze iets onder zich raakt, de bodem  of een ander blok.
    vervolgens slaat het die informatie op zodat dit blok ook getekend blijft,
    en geeft een signaal aan de CurrentBlock dat deze een nieuw blok mag maken.
+   dit beïnvloed de sprites en de daadwerkelijke blokken.
    */
   //int test = 0;
   int spriteX[] = new int[500];
@@ -12,6 +13,12 @@ class Location {
   int ghosty = 940;
   int point[] = new int [500];
   int b = 0;
+  int roundCount = 50;
+  int roundX[] = new int [roundCount];
+  int roundY[] = new int [roundCount];
+  float roundSize[] = new float[roundCount];
+  boolean spawn;
+  int rotate[] = new int [roundCount];
 
   int uwu;
   int filled[][] = new int[grid.w][grid.h]; // welke plekken op de grid gevult moeten zijn
@@ -39,6 +46,7 @@ class Location {
       }
     }
     */
+    
   }
   
 
@@ -275,14 +283,42 @@ class Location {
     }
   }
   
+  //dit stuk is voor een kleine animatie die plaats vind als je een blok plaatst. het laat zien hoeveel punten je hebt gekregen voor dat blok.
   void pointAnim (){
     if((b < 81) && (b > 18.4)&&(uwu>=1)){
  //text(/*point[uwu]*50*/"Test", spriteX[uwu], spriteY[uwu]+50);
    textSize( 100-(pow((50-b), 2))/10);
-   fill(0);
+   //fill(0);
    text(point[uwu-1]*50, spriteX[uwu-1]+25, spriteY[uwu-1]);
-   fill(0,255,0);
+   //fill(0,255,0);
     }
  b+=3;
 }
+void spawnAnim (){
+  if (land){
+   for(int i = 0; i< blockPlace.roundCount; i++){ //voor spawn particle effect (niet te verwarren met 'spawing some particle effects')
+   roundX[i]=0;
+   roundY[i]=0;
+      roundSize[i] = random(10,50);
+      rotate[i] = int(random(360));
+      //println(roundSize[i]);
+      //rotate(random(360));
+    } 
+  }
+    for(int i = 0; i< roundCount; i++){
+      noStroke();
+      pushMatrix();
+      color c = color(255, 200-(roundX[i]*3));
+      fill(c);
+      translate(width/2.1, 150);
+      rotate(rotate[i]);
+      //translate();
+      rect(roundX[i], roundY[i], roundSize[i], roundSize[i]);
+      roundX[i] +=3;
+      roundY[i] +=3;
+      //println(roundSize[i]); 
+      popMatrix();
+  }
+}
+
 }

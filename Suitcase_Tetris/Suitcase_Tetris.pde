@@ -15,8 +15,7 @@ ZBlock zBlock;
 JBlock jBlock;
 Lblock lBlock;
 IBlock iBlock;
-Tutorial tutorial;
-
+Tutorial tutorial; 
 
 PointBlock pointblock;
 OBlock oblock;
@@ -61,7 +60,7 @@ void setup()
 
   lBlock = new Lblock();
   iBlock = new IBlock();
-  tutorial = new Tutorial();
+  tutorial = new Tutorial(); 
   dt1 = 1000;
   dt2 = 500;
   dt3 = 200;
@@ -70,6 +69,7 @@ void setup()
   gameOn = true;
 
   reset();
+  blockPlace.setup();
 }
 
 
@@ -137,6 +137,7 @@ void draw(){
     blockPlace.check();
     currentBlock.currentBlockControlls();
     control.controllsV3();
+    blockPlace.spawnAnim();
     if (grid != null) {
       grid.drawGrid();
       now = millis();

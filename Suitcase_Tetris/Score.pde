@@ -21,8 +21,9 @@ class Score {
       if (filledPercentage > 60/*blockPlace.filled[i][12] == 1*/) {
         textSize(100);
         fill(255, 0, 0);
-        text("Next suitcase?", 100, 550);
-        text("Press Y!", 100, 600);
+        text("Next", 10, 550);
+        text("suitcase?", 10, 600);
+        text("Press Y!", 10, 650);
         if (keysPressed[32]) {
           grid.gridClear();
           blockPlace.filledClear();
@@ -124,6 +125,6 @@ class Score {
     filledPercentage = filledAmount/264*100;
     textSize(100);
     String sd = nf(filledPercentage, 0, 1);
-    text(sd+"/100%", 100, 500);
+    text(sd+"/100%", 10, 500);
   }
 }

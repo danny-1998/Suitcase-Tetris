@@ -34,7 +34,7 @@ class IBlock {
 
       block3X = mainBlockX;              //    [1]
       block3Y = mainBlockY + 1;          //    [2]
-                                         //    [3]
+      //    [3]
       block4X = mainBlockX;              //    [4]
       block4Y = mainBlockY + 2;
 
@@ -75,49 +75,126 @@ class IBlock {
     } else {
       onEdgeRight = false;
     }
-
-    if (control.rotation == 0 || control.rotation == 2) {              // all ofthe following code is for rotating the block
-      image(spriteN[1], ZeroTwoX, ZeroTwoY);
-      if (mainBlockX > 0) { 
-        if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0 || grid.cells[block4X-1][block4Y] > 0) {
-          control.blockLeft = true;
-        } else {
-          control.blockLeft = false;
+    //difficulty=easy
+    if (home.e == true) {
+      if (control.rotation == 0 || control.rotation == 2) {              // all ofthe following code is for rotating the block
+        image(spriteN[1], ZeroTwoX, ZeroTwoY);
+        if (mainBlockX > 0) { 
+          if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0 || grid.cells[block4X-1][block4Y] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 1) {
+          if (grid.cells[block1X+1][block1Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0 || grid.cells[block3X+1][block3Y] > 0|| grid.cells[block4X+1][block4Y] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
         }
       }
-      if (mainBlockX < grid.w - 1) {
-        if (grid.cells[block1X+1][block1Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0 || grid.cells[block3X+1][block3Y] > 0|| grid.cells[block4X+1][block4Y] > 0) {
-          control.blockRight = true;
-        } else {
-          control.blockRight = false;
+
+      if (control.rotation == 1 || control.rotation == 3) {
+        image(spriteN[10], OneThreeX, OneThreeY);
+        if (mainBlockX > 1) {
+          if (grid.cells[block1X-1][block1Y] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 3) {
+          if (grid.cells[block4X+1][block4Y] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
         }
       }
     }
-
-    if (control.rotation == 1 || control.rotation == 3) {
-      image(spriteN[10], OneThreeX, OneThreeY);
-      if (mainBlockX > 1) {
-        if (grid.cells[block1X-1][block1Y] > 0) {
-          control.blockLeft = true;
-        } else {
-          control.blockLeft = false;
+    //difficulty=balanced
+    if (home.m == true) {
+      if (control.rotation == 0 || control.rotation == 2) {              // all ofthe following code is for rotating the block
+        image(spriteN[25], ZeroTwoX, ZeroTwoY);
+        if (mainBlockX > 0) { 
+          if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0 || grid.cells[block4X-1][block4Y] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 1) {
+          if (grid.cells[block1X+1][block1Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0 || grid.cells[block3X+1][block3Y] > 0|| grid.cells[block4X+1][block4Y] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
         }
       }
-      if (mainBlockX < grid.w - 3) {
-        if (grid.cells[block4X+1][block4Y] > 0) {
-          control.blockRight = true;
-        } else {
-          control.blockRight = false;
+
+      if (control.rotation == 1 || control.rotation == 3) {
+        image(spriteN[34], OneThreeX, OneThreeY);
+        if (mainBlockX > 1) {
+          if (grid.cells[block1X-1][block1Y] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 3) {
+          if (grid.cells[block4X+1][block4Y] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
         }
       }
     }
+    //difficulty=hard
+    if (home.h == true) {
+      if (control.rotation == 0 || control.rotation == 2) {              // all ofthe following code is for rotating the block
+        image(spriteN[1], ZeroTwoX, ZeroTwoY);
+        if (mainBlockX > 0) { 
+          if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0 || grid.cells[block4X-1][block4Y] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 1) {
+          if (grid.cells[block1X+1][block1Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0 || grid.cells[block3X+1][block3Y] > 0|| grid.cells[block4X+1][block4Y] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
+        }
+      }
 
+      if (control.rotation == 1 || control.rotation == 3) {
+        image(spriteN[10], OneThreeX, OneThreeY);
+        if (mainBlockX > 1) {
+          if (grid.cells[block1X-1][block1Y] > 0) {
+            control.blockLeft = true;
+          } else {
+            control.blockLeft = false;
+          }
+        }
+        if (mainBlockX < grid.w - 3) {
+          if (grid.cells[block4X+1][block4Y] > 0) {
+            control.blockRight = true;
+          } else {
+            control.blockRight = false;
+          }
+        }
+      }
+    }
     grid.cells[mainBlockX][mainBlockY] = 1;            // places the block on the grid
     grid.cells[block1X][block1Y] = 1;
     grid.cells[block3X][block3Y] = 1;
     grid.cells[block4X][block4Y] = 1;
-    
-        ZeroTwoX = mainBlockX*50+350;
+
+    ZeroTwoX = mainBlockX*50+350;
     ZeroTwoY = mainBlockY*50-10;
     OneThreeX = mainBlockX*50+300;
     OneThreeY = mainBlockY*50+40;

@@ -105,7 +105,8 @@ class TBlock { //<>// //<>// //<>//
       onEdgeRight = false;
     }
 
-  
+  //easy
+  if (home.e == true) {
     if (control.rotation == 0) {                          //the collision calculations, which check if there is a block to the left or right of any of the T-Block pieces
       image(spriteN[8], ZeroX, ZeroY);                    //based on the rotation of the piece, a different sprite gets called, which corresponds to the oriëntation the piece has
       if (mainBlockX > 1) {                               //the calculations are only active if there is 1 square of room between the block and both walls, because otherwise they cause a ArrayOutOfBoundsException
@@ -177,7 +178,157 @@ class TBlock { //<>// //<>// //<>//
         }
       }
     }
-    
+  }
+//balanced
+  if (home.m == true) {
+    if (control.rotation == 0) {                          //the collision calculations, which check if there is a block to the left or right of any of the T-Block pieces
+      image(spriteN[8+24], ZeroX, ZeroY);                    //based on the rotation of the piece, a different sprite gets called, which corresponds to the oriëntation the piece has
+      if (mainBlockX > 1) {                               //the calculations are only active if there is 1 square of room between the block and both walls, because otherwise they cause a ArrayOutOfBoundsException
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0) {      //the first part of the calculations checks for blocks on the left side, and activates the blockLeft
+          control.blockLeft = true;                                                          //boolean if there is, which stops the block from moving more to the left
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 3) {                                                         //the second part of the calculation checks for blocks on the right side, and activates the blockRight 
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block3X+1][block3Y] > 0) {      //array if there is, preventing the block from moving any more to the right
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 1) {                                                             //same thing as in the block above here, except for a different rotation
+      image(spriteN[15+24], OneX, OneY);
+      if (mainBlockX > 0) {
+        if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block1X+1][block1Y] > 0 || grid.cells[block3X+1][block3Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 2) {
+      image(spriteN[19+24], TwoX, TwoY);
+      if (mainBlockX > 1) {
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block1X+1][block1Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 3) {
+      image(spriteN[23+24], ThreeX, ThreeY);
+      if (mainBlockX > 1) {
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 1) {
+        if (grid.cells[block1X+1][block1Y] > 0 || grid.cells[block3X+1][block3Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+  }
+  //insane
+    if (home.h == true) {
+    if (control.rotation == 0) {                          //the collision calculations, which check if there is a block to the left or right of any of the T-Block pieces
+      image(spriteN[8], ZeroX, ZeroY);                    //based on the rotation of the piece, a different sprite gets called, which corresponds to the oriëntation the piece has
+      if (mainBlockX > 1) {                               //the calculations are only active if there is 1 square of room between the block and both walls, because otherwise they cause a ArrayOutOfBoundsException
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0) {      //the first part of the calculations checks for blocks on the left side, and activates the blockLeft
+          control.blockLeft = true;                                                          //boolean if there is, which stops the block from moving more to the left
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 3) {                                                         //the second part of the calculation checks for blocks on the right side, and activates the blockRight 
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block3X+1][block3Y] > 0) {      //array if there is, preventing the block from moving any more to the right
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 1) {                                                             //same thing as in the block above here, except for a different rotation
+      image(spriteN[15], OneX, OneY);
+      if (mainBlockX > 0) {
+        if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block1X+1][block1Y] > 0 || grid.cells[block3X+1][block3Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 2) {
+      image(spriteN[19], TwoX, TwoY);
+      if (mainBlockX > 1) {
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block1X+1][block1Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 3) {
+      image(spriteN[23], ThreeX, ThreeY);
+      if (mainBlockX > 1) {
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block1X-1][block1Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 1) {
+        if (grid.cells[block1X+1][block1Y] > 0 || grid.cells[block3X+1][block3Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+  }
+
+
         mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 

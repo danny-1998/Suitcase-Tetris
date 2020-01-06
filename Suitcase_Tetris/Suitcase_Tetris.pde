@@ -124,6 +124,7 @@ void draw(){
     score.scoreCounter();
     grid.gridClear();
     currentBlock.newBlock();
+    if (home.e||home.h){
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 1) {image(spriteN[8], 130, 30 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 2) {image(spriteN[4], 150, 42 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 3) {image(spriteN[5], 175, 60 ); }
@@ -133,6 +134,18 @@ void draw(){
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 7) {image(spriteN[22], 130, 40 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 8) {image(spriteN[20], 150, 30 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 9) {image(spriteN[10], 95, 60 ); }
+    }
+    if (home.m){
+        if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 1) {image(spriteN[8+24], 130, 30 ); }
+        if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 2) {image(spriteN[4+24], 150, 42 ); }
+        if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 3) {image(spriteN[5+24], 175, 60 ); }
+        if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 4) {image(spriteN[6+24], 125, 30 ); }
+        if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 5) {image(spriteN[7+24], 125, 42 ); }
+        if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 6) {image(spriteN[21+24], 130, 40 ); }
+        if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 7) {image(spriteN[22+24], 130, 40 ); }
+        if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 8) {image(spriteN[20+24], 150, 30 ); }
+        if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 9) {image(spriteN[10+24], 95, 60 ); }
+    }
     currentBlock.currentBlockDraw();
     blockPlace.check();
     currentBlock.currentBlockControlls();

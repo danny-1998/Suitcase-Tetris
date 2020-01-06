@@ -380,7 +380,7 @@ void ghost (){
   tint(255,50);
   bott = currentBlock.currentBlockY*50;
   if (control.rotation == 0) {
-        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, tBlock.ZeroY); }
+        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, bott); }
         if (currentBlock.blockPicker == 2) {}
         if (currentBlock.blockPicker == 3) {}
         if (currentBlock.blockPicker == 4) {}

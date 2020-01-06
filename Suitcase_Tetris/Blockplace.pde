@@ -54,7 +54,7 @@ class Location {
   void check() {
     
     //image(kerst, (currentBlock.maxX*50)+240, (currentBlock.currentBlockY*50)-90);
-    if(kerstmode){
+    if(kerstmode){ // voor kerst easter egg
     tint(255,50);
     image(kerst, (currentBlock.maxX*50)+240, (currentBlock.currentBlockY*50)-90);
     tint(255,255);
@@ -168,6 +168,7 @@ class Location {
       }
     }
     for (int a = 0; a <uwu; a++) {
+      //println(spritewah[a], spriteX[a], spriteY[a]);
       image(spriteN[spritewah[a]], spriteX[a], spriteY[a]);
       }
       
@@ -213,7 +214,7 @@ class Location {
       if(currentBlock.blockPicker == 8){
         point[uwu] = 3;
       }
-      
+      if(home.e || home.h){
       //rotatie 1
       if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8; uwu+=1;}
@@ -265,7 +266,60 @@ class Location {
         if (currentBlock.blockPicker == 8) { spriteX[uwu] = commaBlock.ThreeX; spriteY[uwu] = commaBlock.ThreeY; spritewah[uwu] = 20; uwu+=1;}
         if (currentBlock.blockPicker == 9) { spriteX[uwu] = iBlock.OneThreeX; spriteY[uwu] = iBlock.OneThreeY; spritewah[uwu] = 10; uwu+=1;}
       }
+      }
+      if(home.m){ //als de difficulty balanced is moeten er andere sprites geladen worden.
+       if (control.rotation == 0) {
+        if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8+24; uwu+=1;}
+        if (currentBlock.blockPicker == 2) { spriteX[uwu] = oBlock.ZeroX; spriteY[uwu] = oBlock.ZeroY; spritewah[uwu] = 4+24; uwu+=1;}
+        if (currentBlock.blockPicker == 3) { spriteX[uwu] = pointBlock.ZeroX; spriteY[uwu] = pointBlock.ZeroY; spritewah[uwu] = 5+24; uwu+=1;}
+        if (currentBlock.blockPicker == 4) { spriteX[uwu] = sBlock.ZeroX; spriteY[uwu] = sBlock.ZeroY; spritewah[uwu] = 6+24; uwu+=1;}
+        if (currentBlock.blockPicker == 5) { spriteX[uwu] = zBlock.ZeroX; spriteY[uwu] = zBlock.ZeroY; spritewah[uwu] = 7+24; uwu+=1;}
+        if (currentBlock.blockPicker == 6) { spriteX[uwu] = jBlock.ZeroX; spriteY[uwu] = jBlock.ZeroY; spritewah[uwu] = 2+24; uwu+=1;}
+        if (currentBlock.blockPicker == 7) { spriteX[uwu] = lBlock.ZeroX; spriteY[uwu] = lBlock.ZeroY; spritewah[uwu] = 3+24; uwu+=1;}
+        if (currentBlock.blockPicker == 8) { spriteX[uwu] = commaBlock.ZeroX; spriteY[uwu] = commaBlock.ZeroY; spritewah[uwu] = 0+24; uwu+=1;}
+        if (currentBlock.blockPicker == 9) { spriteX[uwu] = iBlock.ZeroTwoX; spriteY[uwu] = iBlock.ZeroTwoY; spritewah[uwu] = 1+24; uwu+=1;}
+      }
       
+      // orientatie 2
+      if (control.rotation == 1) {
+        if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.OneX; spriteY[uwu] = tBlock.OneY; spritewah[uwu] = 15+24; uwu+=1;}
+        if (currentBlock.blockPicker == 2) { spriteX[uwu] = oBlock.ZeroX; spriteY[uwu] = oBlock.ZeroY; spritewah[uwu] = 4+24; uwu+=1;}
+        if (currentBlock.blockPicker == 3) { spriteX[uwu] = pointBlock.ZeroX; spriteY[uwu] = pointBlock.ZeroY; spritewah[uwu] = 5+24; uwu+=1;}
+        if (currentBlock.blockPicker == 4) { spriteX[uwu] = sBlock.OneX; spriteY[uwu] = sBlock.OneY; spritewah[uwu] = 13+24; uwu+=1;}
+        if (currentBlock.blockPicker == 5) { spriteX[uwu] = zBlock.OneX; spriteY[uwu] = zBlock.OneY; spritewah[uwu] = 14+24; uwu+=1;}
+        if (currentBlock.blockPicker == 6) { spriteX[uwu] = jBlock.OneX; spriteY[uwu] = jBlock.OneY; spritewah[uwu] = 11+24; uwu+=1;}
+        if (currentBlock.blockPicker == 7) { spriteX[uwu] = lBlock.OneX; spriteY[uwu] = lBlock.OneY; spritewah[uwu] = 12+24; uwu+=1;}
+        if (currentBlock.blockPicker == 8) { spriteX[uwu] = commaBlock.OneX; spriteY[uwu] = commaBlock.OneY; spritewah[uwu] = 9+24; uwu+=1;}
+        if (currentBlock.blockPicker == 9) { spriteX[uwu] = iBlock.OneThreeX; spriteY[uwu] = iBlock.OneThreeY; spritewah[uwu] = 10+24; uwu+=1;}
+      }
+      
+      // draai 3
+      if (control.rotation == 2) {
+        if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.TwoX; spriteY[uwu] = tBlock.TwoY; spritewah[uwu] = 19+24; uwu+=1;}
+        if (currentBlock.blockPicker == 2) { spriteX[uwu] = oBlock.ZeroX; spriteY[uwu] = oBlock.ZeroY; spritewah[uwu] = 4+24; uwu+=1;}
+        if (currentBlock.blockPicker == 3) { spriteX[uwu] = pointBlock.ZeroX; spriteY[uwu] = pointBlock.ZeroY; spritewah[uwu] = 5+24; uwu+=1;}
+        if (currentBlock.blockPicker == 4) { spriteX[uwu] = sBlock.TwoX; spriteY[uwu] = sBlock.TwoY; spritewah[uwu] = 6+24; uwu+=1;}
+        if (currentBlock.blockPicker == 5) { spriteX[uwu] = zBlock.TwoX; spriteY[uwu] = zBlock.TwoY; spritewah[uwu] = 7+24; uwu+=1;}
+        if (currentBlock.blockPicker == 6) { spriteX[uwu] = jBlock.TwoX; spriteY[uwu] = jBlock.TwoY; spritewah[uwu] = 17+24; uwu+=1;}
+        if (currentBlock.blockPicker == 7) { spriteX[uwu] = lBlock.TwoX; spriteY[uwu] = lBlock.TwoY; spritewah[uwu] = 18+24; uwu+=1;}
+        if (currentBlock.blockPicker == 8) { spriteX[uwu] = commaBlock.TwoX; spriteY[uwu] = commaBlock.TwoY; spritewah[uwu] = 16+24; uwu+=1;}
+        if (currentBlock.blockPicker == 9) { spriteX[uwu] = iBlock.ZeroTwoX; spriteY[uwu] = iBlock.ZeroTwoY; spritewah[uwu] = 1+24; uwu+=1;}
+      }
+      
+      // twist 4
+      if (control.rotation == 3) {
+        if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ThreeX; spriteY[uwu] = tBlock.ThreeY; spritewah[uwu] = 23+24; uwu+=1;}
+        if (currentBlock.blockPicker == 2) { spriteX[uwu] = oBlock.ZeroX; spriteY[uwu] = oBlock.ZeroY; spritewah[uwu] = 4+24; uwu+=1;}
+        if (currentBlock.blockPicker == 3) { spriteX[uwu] = pointBlock.ZeroX; spriteY[uwu] = pointBlock.ZeroY; spritewah[uwu] = 5+24; uwu+=1;}
+        if (currentBlock.blockPicker == 4) { spriteX[uwu] = sBlock.ThreeX; spriteY[uwu] = sBlock.ThreeY; spritewah[uwu] = 13+24; uwu+=1;}
+        if (currentBlock.blockPicker == 5) { spriteX[uwu] = zBlock.ThreeX; spriteY[uwu] = zBlock.ThreeY; spritewah[uwu] = 14+24; uwu+=1;}
+        if (currentBlock.blockPicker == 6) { spriteX[uwu] = jBlock.ThreeX; spriteY[uwu] = jBlock.ThreeY; spritewah[uwu] = 21+24; uwu+=1;}
+        if (currentBlock.blockPicker == 7) { spriteX[uwu] = lBlock.ThreeX; spriteY[uwu] = lBlock.ThreeY; spritewah[uwu] = 22+24; uwu+=1;}
+        if (currentBlock.blockPicker == 8) { spriteX[uwu] = commaBlock.ThreeX; spriteY[uwu] = commaBlock.ThreeY; spritewah[uwu] = 20+24; uwu+=1;}
+        if (currentBlock.blockPicker == 9) { spriteX[uwu] = iBlock.OneThreeX; spriteY[uwu] = iBlock.OneThreeY; spritewah[uwu] = 10+24; uwu+=1;}
+      } 
+        
+      }
       /*for (int a = 0; a <uwu; a++) {
         fill(255);
       text(point[a]*50, spriteX[a], spriteY[a]+50 );

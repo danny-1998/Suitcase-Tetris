@@ -19,6 +19,7 @@ class Location {
   float roundSize[] = new float[roundCount];
   boolean spawn;
   int rotate[] = new int [roundCount];
+  int bott ;
 
   int uwu;
   int filled[][] = new int[grid.w][grid.h]; // welke plekken op de grid gevult moeten zijn
@@ -296,7 +297,7 @@ class Location {
 }
 void spawnAnim (){
   if (land){
-   for(int i = 0; i< blockPlace.roundCount; i++){ //voor spawn particle effect (niet te verwarren met 'spawing some particle effects')
+   for(int i = 0; i< blockPlace.roundCount; i++){ //voor spawn particle effect (niet te verwarren met 'spawning some particle effects')
    roundX[i]=0;
    roundY[i]=0;
       roundSize[i] = random(10,50);
@@ -319,6 +320,62 @@ void spawnAnim (){
       //println(roundSize[i]); 
       popMatrix();
   }
+}
+
+void ghost (){
+  tint(255,50);
+  bott = currentBlock.currentBlockY*50;
+  if (control.rotation == 0) {
+        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, tBlock.ZeroY); }
+        if (currentBlock.blockPicker == 2) {}
+        if (currentBlock.blockPicker == 3) {}
+        if (currentBlock.blockPicker == 4) {}
+        if (currentBlock.blockPicker == 5) {}
+        if (currentBlock.blockPicker == 6) {}
+        if (currentBlock.blockPicker == 7) {}
+        if (currentBlock.blockPicker == 8) {}
+        if (currentBlock.blockPicker == 9) {}
+      }
+      
+      // orientatie 2
+      if (control.rotation == 1) {
+        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, tBlock.ZeroY); }
+        if (currentBlock.blockPicker == 2) {}
+        if (currentBlock.blockPicker == 3) {}
+        if (currentBlock.blockPicker == 4) {}
+        if (currentBlock.blockPicker == 5) {}
+        if (currentBlock.blockPicker == 6) {}
+        if (currentBlock.blockPicker == 7) {}
+        if (currentBlock.blockPicker == 8) {}
+        if (currentBlock.blockPicker == 9) {}
+      }
+      
+      // draai 3
+      if (control.rotation == 2) {
+        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, tBlock.ZeroY); }
+        if (currentBlock.blockPicker == 2) {}
+        if (currentBlock.blockPicker == 3) {}
+        if (currentBlock.blockPicker == 4) {}
+        if (currentBlock.blockPicker == 5) {}
+        if (currentBlock.blockPicker == 6) {}
+        if (currentBlock.blockPicker == 7) {}
+        if (currentBlock.blockPicker == 8) {}
+        if (currentBlock.blockPicker == 9) {}
+      }
+      
+      // twist 4
+      if (control.rotation == 3) {
+        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, tBlock.ZeroY); }
+        if (currentBlock.blockPicker == 2) {}
+        if (currentBlock.blockPicker == 3) {}
+        if (currentBlock.blockPicker == 4) {}
+        if (currentBlock.blockPicker == 5) {}
+        if (currentBlock.blockPicker == 6) {}
+        if (currentBlock.blockPicker == 7) {}
+        if (currentBlock.blockPicker == 8) {}
+        if (currentBlock.blockPicker == 9) {}
+      }
+      tint(255,255);
 }
 
 }

@@ -180,7 +180,9 @@ void draw(){
   if (score.GameOver) {
     score.gameOver();
   }
-
+  println(dt1);
+  println(dt2);
+  println(dt3);
 
   //if (!score.GameOver && !home.gameStart){
   home.homeDraw();

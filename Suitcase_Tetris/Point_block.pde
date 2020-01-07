@@ -38,8 +38,8 @@ class PointBlock {
    ZeroY = mainBlockY*50+40;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
-    //easy
-    if (home.e == true){
+    //easy/tutoreal
+    if (home.e == true || home.t == true){
         image(spriteN[5], ZeroX, ZeroY);
   }
   //balanced

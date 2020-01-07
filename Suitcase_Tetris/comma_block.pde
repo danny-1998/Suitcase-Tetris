@@ -107,7 +107,7 @@ class CommaBlock {
       onEdgeRight = false;
     }
 //easy
-if (home.e == true){
+if (home.e == true || home.t == true){
 if (control.rotation == 0) {                // all of the following code is for rotating the block
  image(spriteN[0], ZeroX, ZeroY);
       if (mainBlockX > 0) { 

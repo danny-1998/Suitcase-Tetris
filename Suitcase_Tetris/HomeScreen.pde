@@ -6,7 +6,8 @@ class HomeScreen {
   boolean level = false;
   boolean e = false;
   boolean m = false;
-  boolean h = false;   
+  boolean h = false;
+  boolean t = false;
   boolean musicLooping;
   int gameState;
 
@@ -99,6 +100,7 @@ class HomeScreen {
     }
     if (gameState == 4) {
       tutorial.draw();
+      t = true;
     }
   }
 }

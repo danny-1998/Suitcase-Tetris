@@ -126,8 +126,8 @@ class JBlock {
     } else {
       onEdgeRight = false; 
 
-      //easy
-      if (home.e == true) {
+      //easy or tutorial
+    if (home.e == true || home.t == true) {
         if (control.rotation == 0) {
           image(spriteN[2], ZeroX, ZeroY);
           if (mainBlockX > 1) { 

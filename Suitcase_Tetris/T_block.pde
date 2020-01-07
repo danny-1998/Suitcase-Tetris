@@ -106,7 +106,7 @@ class TBlock { //<>// //<>// //<>//
     }
 
   //easy
-  if (home.e == true) {
+  if (home.e == true || home.t == true) {
     if (control.rotation == 0) {                          //the collision calculations, which check if there is a block to the left or right of any of the T-Block pieces
       image(spriteN[8], ZeroX, ZeroY);                    //based on the rotation of the piece, a different sprite gets called, which corresponds to the oriëntation the piece has
       if (mainBlockX > 1) {                               //the calculations are only active if there is 1 square of room between the block and both walls, because otherwise they cause a ArrayOutOfBoundsException

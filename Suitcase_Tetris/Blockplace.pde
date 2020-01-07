@@ -20,6 +20,7 @@ class Location {
   boolean spawn;
   int rotate[] = new int [roundCount];
   int bott ;
+  int downCount;
 
   int uwu;
   int filled[][] = new int[grid.w][grid.h]; // welke plekken op de grid gevult moeten zijn
@@ -327,6 +328,7 @@ class Location {
       b=15;
       currentBlock.newBlock = true;
       check = false;
+      downCount = 0;
     }
   }
 
@@ -378,56 +380,144 @@ void spawnAnim (){
 
 void ghost (){
   tint(255,50);
-  bott = currentBlock.currentBlockY*50;
+  if (currentBlock.blockPicker == 1) {// t-block
+      if ((tBlock.maxY+downCount >= grid.h-1) ||
+        ((grid.cells[tBlock.mainBlockX][tBlock.maxY+1] == 1) ||
+        ((grid.cells[tBlock.minX][tBlock.mainBlockY+1] == 1) && (tBlock.minX != tBlock.mainBlockX)) ||
+        ((grid.cells[tBlock.maxX][tBlock.mainBlockY+1] == 1) && (tBlock.maxX != tBlock.mainBlockX)) ) ) {
+      }
+      else{
+       downCount+=1; 
+      }
+    }
+    if (currentBlock.blockPicker == 2) {// o-block
+      if ((oBlock.maxY+downCount >= grid.h-1) || (grid.cells[oBlock.width2][oBlock.maxY+1] == 1) || (grid.cells[oBlock.width3][oBlock.maxY+1] == 1) ) {
+      }
+      else{
+       downCount+=1; 
+      }
+    }
+    if (currentBlock.blockPicker == 3) {// point-block
+      //println(pointBlock.mainBlockY);
+      if ((pointBlock.mainBlockY+downCount >= grid.h-1) || (grid.cells[pointBlock.mainBlockX][pointBlock.mainBlockY+1] == 1)/**/) {
+      }
+      else{
+       downCount+=1; 
+      }
+    }
+    if (currentBlock.blockPicker == 4) {// s-block
+      if ((sBlock.maxY+downCount >= grid.h-1) || ((control.rotation == 3 || control.rotation == 1) && ((grid.cells[sBlock.maxX][sBlock.maxY+1] == 1) || (grid.cells[sBlock.minX][sBlock.maxY]==1))) ||
+        ((control.rotation == 0 || control.rotation == 2) && ((grid.cells[sBlock.minX][sBlock.maxY+1] == 1) || (grid.cells[sBlock.mainBlockX][sBlock.maxY+1]==1)|| (grid.cells[sBlock.maxX][sBlock.maxY]==1)))
+        ) {
+      }
+      else{
+       downCount+=1; 
+      }
+    }
+    if (currentBlock.blockPicker == 5) {// z-block
+      if ((zBlock.maxY+downCount >= grid.h-1) || ((control.rotation == 3 || control.rotation == 1) && ((grid.cells[zBlock.minX][zBlock.maxY+1] == 1) || (grid.cells[zBlock.maxX][zBlock.maxY]==1))) ||
+        ((control.rotation == 0 || control.rotation == 2) && ((grid.cells[zBlock.maxX][zBlock.maxY+1] == 1) || (grid.cells[zBlock.mainBlockX][zBlock.maxY+1]==1)|| (grid.cells[zBlock.minX][zBlock.maxY]==1)))
+        ) {
+      }
+      else{
+       downCount+=1; 
+      }
+    }
+    if (currentBlock.blockPicker == 6) {// j-block
+      if ((jBlock.maxY+downCount >= grid.h-1)||
+        ((control.rotation == 0) && ((grid.cells[jBlock.minX][jBlock.maxY+1] == 1) || (grid.cells[jBlock.maxX][jBlock.maxY+1]==1)))||
+        ((control.rotation == 1) && ((grid.cells[jBlock.minX][jBlock.maxY+1] == 1) || (grid.cells[jBlock.mainBlockX][jBlock.maxY+1] == 1) || (grid.cells[jBlock.maxX][jBlock.maxY+1] == 1)))||
+        ((control.rotation == 2) && ((grid.cells[jBlock.minX][jBlock.maxY+1] == 1) || (grid.cells[jBlock.maxX][jBlock.maxY-1] == 1)))||
+        ((control.rotation == 3) && ((grid.cells[jBlock.minX][jBlock.maxY] == 1) || (grid.cells[jBlock.mainBlockX][jBlock.maxY] == 1) || (grid.cells[jBlock.maxX][jBlock.maxY+1] == 1)))
+        ) {
+      }
+      else{
+       downCount+=1; 
+      }
+    }
+    if (currentBlock.blockPicker == 7) {// l-block
+      if ((lBlock.maxY+downCount >= grid.h-1)||
+        ((control.rotation == 0) && ((grid.cells[lBlock.minX][lBlock.maxY+1] == 1) || (grid.cells[lBlock.maxX][lBlock.maxY+1]==1)))||
+        ((control.rotation == 3) && ((grid.cells[lBlock.minX][lBlock.maxY+1] == 1) || (grid.cells[lBlock.mainBlockX][lBlock.maxY+1] == 1) || (grid.cells[lBlock.maxX][lBlock.maxY+1] == 1)))||
+        ((control.rotation == 2) && ((grid.cells[lBlock.minX][lBlock.maxY-1] == 1) || (grid.cells[lBlock.maxX][lBlock.maxY+1] == 1)))||
+        ((control.rotation == 1) && ((grid.cells[lBlock.minX][lBlock.maxY+1] == 1) || (grid.cells[lBlock.mainBlockX][lBlock.maxY] == 1) || (grid.cells[lBlock.maxX][lBlock.maxY] == 1)))
+        ) {
+      }
+      else{
+       downCount+=1; 
+      }
+    }
+    if (currentBlock.blockPicker == 8) {// comma-block
+      if ((commaBlock.maxY+downCount >= grid.h-1)||
+        (grid.cells[commaBlock.mainBlockX][commaBlock.maxY+1] == 1)||
+        ((grid.cells[commaBlock.minX][commaBlock.mainBlockY+1] == 1) && (commaBlock.minX != commaBlock.mainBlockX ))||
+        ((grid.cells[commaBlock.maxX][commaBlock.mainBlockY+1] == 1) && (commaBlock.maxX != commaBlock.mainBlockX))
+        ) {
+      }
+      else{
+       downCount+=1; 
+      }
+    }
+    if (currentBlock.blockPicker == 9) {// i-block
+      if ((iBlock.maxY+downCount >= grid.h-1)||
+        ((control.rotation == 0 || control.rotation == 2) && (grid.cells[iBlock.minX][iBlock.maxY+1] == 1))||
+        ((control.rotation == 1 || control.rotation == 3) && ((grid.cells[iBlock.block1X][iBlock.block1Y+1] == 1) || (grid.cells[iBlock.mainBlockX][iBlock.mainBlockY+1] == 1) || (grid.cells[iBlock.block3X][iBlock.block3Y+1] == 1) || (grid.cells[iBlock.block4X][iBlock.block4Y+1] == 1)))
+        ) {
+      }
+      else{
+       downCount+=1; 
+      }
+    }
+  bott = (downCount*50);
   if (control.rotation == 0) {
-        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, bott); }
-        if (currentBlock.blockPicker == 2) {}
-        if (currentBlock.blockPicker == 3) {}
-        if (currentBlock.blockPicker == 4) {}
-        if (currentBlock.blockPicker == 5) {}
-        if (currentBlock.blockPicker == 6) {}
-        if (currentBlock.blockPicker == 7) {}
-        if (currentBlock.blockPicker == 8) {}
-        if (currentBlock.blockPicker == 9) {}
+        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 2) {image(spriteN[4], oBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 3) {image(spriteN[5], pointBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 4) {image(spriteN[6], sBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 5) {image(spriteN[7], zBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 6) {image(spriteN[2], jBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 7) {image(spriteN[3], lBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 8) {image(spriteN[0], commaBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 9) {image(spriteN[1], iBlock.ZeroTwoX, bott);}
       }
       
       // orientatie 2
       if (control.rotation == 1) {
-        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, tBlock.ZeroY); }
-        if (currentBlock.blockPicker == 2) {}
-        if (currentBlock.blockPicker == 3) {}
-        if (currentBlock.blockPicker == 4) {}
-        if (currentBlock.blockPicker == 5) {}
-        if (currentBlock.blockPicker == 6) {}
-        if (currentBlock.blockPicker == 7) {}
-        if (currentBlock.blockPicker == 8) {}
-        if (currentBlock.blockPicker == 9) {}
+        if (currentBlock.blockPicker == 1) {image(spriteN[15], tBlock.OneX, bott);}
+        if (currentBlock.blockPicker == 2) {image(spriteN[4], oBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 3) {image(spriteN[5], pointBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 4) {image(spriteN[13], sBlock.OneX, bott);}
+        if (currentBlock.blockPicker == 5) {image(spriteN[14], zBlock.OneX, bott);}
+        if (currentBlock.blockPicker == 6) {image(spriteN[11], jBlock.OneX, bott);}
+        if (currentBlock.blockPicker == 7) {image(spriteN[12], lBlock.OneX, bott);}
+        if (currentBlock.blockPicker == 8) {image(spriteN[9], commaBlock.OneX, bott);}
+        if (currentBlock.blockPicker == 9) {image(spriteN[10], iBlock.OneThreeX, bott);}
       }
       
       // draai 3
       if (control.rotation == 2) {
-        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, tBlock.ZeroY); }
-        if (currentBlock.blockPicker == 2) {}
-        if (currentBlock.blockPicker == 3) {}
-        if (currentBlock.blockPicker == 4) {}
-        if (currentBlock.blockPicker == 5) {}
-        if (currentBlock.blockPicker == 6) {}
-        if (currentBlock.blockPicker == 7) {}
-        if (currentBlock.blockPicker == 8) {}
-        if (currentBlock.blockPicker == 9) {}
+        if (currentBlock.blockPicker == 1) {image(spriteN[19], tBlock.TwoX, bott);}
+        if (currentBlock.blockPicker == 2) {image(spriteN[4], oBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 3) {image(spriteN[5], pointBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 4) {image(spriteN[6], sBlock.TwoX, bott);}
+        if (currentBlock.blockPicker == 5) {image(spriteN[7], zBlock.TwoX, bott);}
+        if (currentBlock.blockPicker == 6) {image(spriteN[17], jBlock.TwoX, bott);}
+        if (currentBlock.blockPicker == 7) {image(spriteN[18], lBlock.TwoX, bott);}
+        if (currentBlock.blockPicker == 8) {image(spriteN[16], commaBlock.TwoX, bott);}
+        if (currentBlock.blockPicker == 9) {image(spriteN[1], iBlock.ZeroTwoX, bott);}
       }
       
       // twist 4
       if (control.rotation == 3) {
-        if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, tBlock.ZeroY); }
-        if (currentBlock.blockPicker == 2) {}
-        if (currentBlock.blockPicker == 3) {}
-        if (currentBlock.blockPicker == 4) {}
-        if (currentBlock.blockPicker == 5) {}
-        if (currentBlock.blockPicker == 6) {}
-        if (currentBlock.blockPicker == 7) {}
-        if (currentBlock.blockPicker == 8) {}
-        if (currentBlock.blockPicker == 9) {}
+        if (currentBlock.blockPicker == 1) {image(spriteN[23], tBlock.ThreeX, bott);}
+        if (currentBlock.blockPicker == 2) {image(spriteN[4], oBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 3) {image(spriteN[5], pointBlock.ZeroX, bott);}
+        if (currentBlock.blockPicker == 4) {image(spriteN[13], sBlock.ThreeX, bott);}
+        if (currentBlock.blockPicker == 5) {image(spriteN[14], zBlock.ThreeX, bott);}
+        if (currentBlock.blockPicker == 6) {image(spriteN[21], jBlock.ThreeX, bott);}
+        if (currentBlock.blockPicker == 7) {image(spriteN[22], lBlock.ThreeX, bott);}
+        if (currentBlock.blockPicker == 8) {image(spriteN[20], commaBlock.ThreeX, bott);}
+        if (currentBlock.blockPicker == 9) {image(spriteN[10], iBlock.OneThreeX, bott);}
       }
       tint(255,255);
 }

@@ -119,6 +119,7 @@ void draw(){
   if (!score.GameOver && home.gameStart) {
     grid.drawGrid();
     blockPlace.fills();
+    blockPlace.ghost();
     score.scoreDraw();
     score.filledCounter();
     score.scoreCounter();

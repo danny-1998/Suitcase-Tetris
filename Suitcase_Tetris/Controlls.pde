@@ -23,6 +23,7 @@ class Control {
     }
     if (keysPressed[65] && currentBlock.minX > 0 && cooldown1 ==  0 && !blockLeft) {      //if a is pressed, and the block is not on the left edge, and the cooldown is inactive,
       currentBlock.currentBlockX -= 1;                                                    //and there is no block to the left of the current block, it moves 1 space to the left
+      blockPlace.downCount=0;
       if (firstPress) {                //if this is the initial press, the cooldown is longer, so you dont accidentally move 2 blocks when you are tapping the move button
         firstPress = false;
         cooldown1 = 25;
@@ -33,6 +34,7 @@ class Control {
 
     if (keysPressed[68] && currentBlock.maxX < grid.w-1 && cooldown1 == 0 && !blockRight) { //same as the block above, except it is checking the right side of the block
       currentBlock.currentBlockX += 1;
+      blockPlace.downCount=0;
       if (firstPress) {
         firstPress = false;
         cooldown1 = 25;
@@ -60,6 +62,7 @@ class Control {
         }
       }
       rotation+=1;
+      blockPlace.downCount=0;
       cooldown2 = 10;                                                        // the cooldown between each rotation is 10 frames
     }
 
@@ -82,11 +85,13 @@ class Control {
         }
       }
       rotation-=1;
+      blockPlace.downCount=0;
       cooldown2 = 10;
     }
     if (keysPressed[83] && cooldown3 ==0) {        //when you press the s key, and the cooldown is inactive, it moves your block 1 place downwards
       if (blockPlace.land != true) {               //but only if your block is not touching anything on the bottom side of it, otherwise you would easily clip into other blocks, and the floor
         currentBlock.currentBlockY += 1;
+        blockPlace.downCount-=1;
         currentTime = now;
       } else if (blockPlace.land == true) {        //if your block is touching something at the bottom, it calls all the functions necessairy to save its position to the filled[][] array
         blockPlace.check = true;

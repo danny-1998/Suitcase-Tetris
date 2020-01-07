@@ -116,8 +116,8 @@ class Lblock {
     } else {
       onEdgeRight = false;
     }
-    //easy
-    if (home.e == true) {
+    //easy or tutoreal
+    if (home.e == true || home.t == true) {
       if (control.rotation == 0) {            // all of the following code is for rotating the block
         image(spriteN[3], ZeroX, ZeroY);
         if (mainBlockX > 0) { 

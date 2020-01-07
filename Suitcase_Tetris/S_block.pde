@@ -108,7 +108,7 @@ class SBlock {
       onEdgeRight = false; 
 
 //easy
-if (home.e == true){
+if (home.e == true || home.t == true){
       if (control.rotation == 0) {
         image(spriteN[6], ZeroX, ZeroY);
         if (mainBlockX > 1) { 

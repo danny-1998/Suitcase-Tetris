@@ -101,7 +101,7 @@ class ZBlock {
     }
 
     //easy
-    if (home.e == true) {
+    if (home.e == true || home.t == true) {
       if (control.rotation == 0) {
         image(spriteN[7], ZeroX, ZeroY);
         if (mainBlockX > 1) { 
@@ -249,7 +249,7 @@ class ZBlock {
       }
     }
     //insane
-    if (home.e == true) {
+    if (home.h == true) {
       if (control.rotation == 0) {
         image(spriteN[7+48], ZeroX, ZeroY);
         if (mainBlockX > 1) { 

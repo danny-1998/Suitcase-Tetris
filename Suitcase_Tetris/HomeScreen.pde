@@ -6,7 +6,8 @@ class HomeScreen {
   boolean level = false;
   boolean e = false;
   boolean m = false;
-  boolean h = false;   
+  boolean h = false;
+  boolean t = false;
   boolean musicLooping;
   int gameState;
 
@@ -67,8 +68,9 @@ class HomeScreen {
         h = true;                                        //if you press the 3 key it activates hard mode, and advances the gameState to 3
         gameState = 2;
       }
-      if (keysPressed[52] || keysPressed[100]){
-       gameState = 4; 
+      if (keysPressed[52] || keysPressed[100]) {
+        t = true;
+        gameState = 4;
       }
     }
     if (gameState == 2) {

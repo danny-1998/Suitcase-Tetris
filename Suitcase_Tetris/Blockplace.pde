@@ -6,23 +6,21 @@ class Location {
    dit beïnvloed de sprites en de daadwerkelijke blokken.
    */
   //int test = 0;
-  int spriteX[] = new int[500];
-  int spriteY[] = new int[500];
-  int spritewah[] = new int [500];
-  int sprite;
-  int ghosty = 940;
-  int point[] = new int [500];
-  int b = 0;
-  int roundCount = 50;
-  int roundX[] = new int [roundCount];
-  int roundY[] = new int [roundCount];
-  float roundSize[] = new float[roundCount];
-  boolean spawn;
-  int rotate[] = new int [roundCount];
-  int bott ;
-  int downCount;
+  //int win = 10;
+  int spriteX[] = new int[500]; //de X postitie van een geplaatst blok
+  int spriteY[] = new int[500]; //de Y postitie van een geplaatst blok
+  int spritewah[] = new int [500]; //bewaart het nummer van de sprites van de geplaatste blokken.
+  int point[] = new int [500]; // het aantal punten wat je krijgt voor het plaatsen van een blok.
+  int b; // deze variabele wordt gebruikt voor het bijhouden van het score animatie effect's grootte.
+  int roundCount = 50; // het aantal particles in het spawn-effect.
+  int roundX[] = new int [roundCount]; // de x positie van de particles.
+  int roundY[] = new int [roundCount]; // de y positie van de particles.
+  float roundSize[] = new float[roundCount]; // de grootte van de particles.
+  int rotate[] = new int [roundCount]; //
+  int bott ; //de extra afstand die de ghostblock naar beneden moet
+  int downCount; //het aantal blokken onder
 
-  int uwu;
+  int uwu; //het aantal blokken op het scherm, waarbij ik verwijs naar de hele blok formaties, inclusief het blok dat op dit moment wordt bestuurt.
   int filled[][] = new int[grid.w][grid.h]; // welke plekken op de grid gevult moeten zijn
   boolean land = false; // geeft aan wanneer een block de vloer of een ander blok onder zich aanraakt
   boolean _new = false; // als deze true is moet er een nieuw blok verschijnen
@@ -52,13 +50,18 @@ class Location {
   }
   
 
-  void check() {
-    
+  void check() { //hier gebeuren de collission detection dingen. en kerst.
     //image(kerst, (currentBlock.maxX*50)+240, (currentBlock.currentBlockY*50)-90);
-    if(kerstmode){ // voor kerst easter egg
-    tint(255,50);
-    image(kerst, (currentBlock.maxX*50)+240, (currentBlock.currentBlockY*50)-90);
-    tint(255,255);
+    if(kerstmode){ //als je kerst mode aan hebt staan wordt er een kerstmuts aan het vallende blok toegevoegd
+    pushMatrix();// om te zorgen dat niks anders wordt beinvloed door de translate, rotate en scale functies.
+    //tint(255,50);
+    //image(kerst, (currentBlock.maxX*50)+240, (currentBlock.currentBlockY*50)-90);
+    translate(1350,-220); //ik wil de muts een lichte angle geven, dus maak ik gebruik van translate om het wat practischer te maken.
+    rotate(radians(30)); //rotate
+    scale(1.7); //maakt de muts iets groter.
+    image(kerst, 0,0);
+    //tint(255,255);
+    popMatrix();
     }
     
     //for (int a =0; a <24; a++) {
@@ -168,7 +171,7 @@ class Location {
         land =false;
       }
     }
-    for (int a = 0; a <uwu; a++) {
+    for (int a = 0; a <uwu; a++) { //hier worden de geplaatste blokken afgebeeld. des te meer blokken, des te hoger uwu wordt.
       //println(spritewah[a], spriteX[a], spriteY[a]);
       image(spriteN[spritewah[a]], spriteX[a], spriteY[a]);
       }
@@ -203,7 +206,7 @@ class Location {
 
 
     if (_new == true) { //hier wordt aan de currentBlock class gemeld dat er een nieuw blok moet komen nu dat het veld compleet is.
-    text(point[uwu]*50, spriteX[uwu], spriteY[uwu]+50);
+    //text(point[uwu]*50, spriteX[uwu], spriteY[uwu]+50);
       _new = false;
       // in dit gedeelte wordt een sprite gelinkt aan een onderdeel van de sprite arrays om er voor te zorgen dat de sprites blijven zodra een blok geplaatst is.
       if((currentBlock.blockPicker != 3) && (currentBlock.blockPicker != 8)){
@@ -215,7 +218,10 @@ class Location {
       if(currentBlock.blockPicker == 8){
         point[uwu] = 3;
       }
-      if(home.e){
+      //for(int the; the < win; the++){}
+      // dit komende blok code staat twaalf keer in de code. een keer voor iedere rotatie van de sprites, en een keer voor iedere moeilijkheids graad.
+      //er zijn 4 verschillende orientaties die een blok kan hebben, en er zijn drie verschillende moeilijkheden.
+      if(home.e|| home.t){ // easy difficulty
       //rotatie 1
       if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8; uwu+=1;}
@@ -268,7 +274,7 @@ class Location {
         if (currentBlock.blockPicker == 9) { spriteX[uwu] = iBlock.OneThreeX; spriteY[uwu] = iBlock.OneThreeY; spritewah[uwu] = 10; uwu+=1;}
       }
       }
-      if(home.m){ //als de difficulty balanced is moeten er andere sprites geladen worden.
+      if(home.m){ //balanced difficulty
        if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8+24; uwu+=1;}
         if (currentBlock.blockPicker == 2) { spriteX[uwu] = oBlock.ZeroX; spriteY[uwu] = oBlock.ZeroY; spritewah[uwu] = 4+24; uwu+=1;}
@@ -321,7 +327,7 @@ class Location {
       } 
         
       }
-      if(home.h){
+      if(home.h){ // 'insane' difficulty
       //rotatie 1
       if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8+48; uwu+=1;}
@@ -385,7 +391,7 @@ class Location {
     }
   }
 
-  void filledClear() {
+  void filledClear() { //dit stuk code kan worden gebruikt om het veld leeg te halen, de sprites worden hier niet geregeld.
     for (int i = 0; i<grid.w; i++) {
       for (int b = 0; b<grid.h; b++) {
         filled[i][b] = 0;
@@ -404,9 +410,9 @@ class Location {
     }
  b+=3;
 }
-void spawnAnim (){
+void spawnAnim (){//voor spawn particle effect (niet te verwarren met 'spawning some particle effects')
   if (land){
-   for(int i = 0; i< blockPlace.roundCount; i++){ //voor spawn particle effect (niet te verwarren met 'spawning some particle effects')
+   for(int i = 0; i< roundCount; i++){ //hier worden de beginwaardes voor de particles bepaalt.
    roundX[i]=0;
    roundY[i]=0;
       roundSize[i] = random(10,50);
@@ -415,13 +421,13 @@ void spawnAnim (){
       //rotate(random(360));
     } 
   }
-    for(int i = 0; i< roundCount; i++){
+    for(int i = 0; i< roundCount; i++){ //in dit gedeelte vind het daadwerkelijke maken en bewegen van de particles plaats
       noStroke();
       pushMatrix();
-      color c = color(255, 200-(roundX[i]*3));
+      color c = color(255, 200-(roundX[i]*3)); //hier wordt de transparantie aangepast
       fill(c);
       translate(width/2.1, 150);
-      rotate(rotate[i]);
+      rotate(radians(rotate[i]));
       //translate();
       rect(roundX[i], roundY[i], roundSize[i], roundSize[i]);
       roundX[i] +=3;
@@ -431,8 +437,12 @@ void spawnAnim (){
   }
 }
 
-void ghost (){
+void ghost (){ //hier wordt de zogenaamde 'ghostblock' gemaakt. het laat zien waar het blok heen zal gaan als je het alleen nog zou laten vallen.
   tint(255,50);
+  // hier wordt dezelfde code als bij de collision detection gebruikt. het voornaamste verschil zit hem in de toevoeging van de 'downCount' variabele.
+  // deze variable laat het transarante blok in een keer naar beneden vallen. de rest zorgt er voor dat het stop met vallen.
+  // als er geen collision is, wordt 'downCount' met een verhoogt, en dus valt het transparante blok een extra naar beneden.
+  // 'downCount wordt weer naar 0 gebracht als het bestuurde blok wordt gedraait of opzij wordt geschoven.
   if (currentBlock.blockPicker == 1) {// t-block
       if ((tBlock.maxY+downCount >= grid.h-1) ||
         ((grid.cells[tBlock.mainBlockX][tBlock.maxY+1+downCount] == 1) ||
@@ -522,8 +532,9 @@ void ghost (){
        downCount+=1; 
       }
     }
-  bott = ((downCount-1)*50);
-  if (home.e){
+  bott = ((downCount-1)*50); //dit is de formule voor de extra afstand die de ghostblock moet afleggen.
+  // hier wordt een stuk code voor het bepalen van de moeilijkheid en oriantatie gebruikt, maar dan met als resultaat dat een andere afbeelding wordt geladen voor de ghostblock.
+  if (home.e ||  home.t){ //easy
   if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, tBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 2) {image(spriteN[4], oBlock.ZeroX, oBlock.ZeroY+bott);}
@@ -531,7 +542,7 @@ void ghost (){
         if (currentBlock.blockPicker == 4) {image(spriteN[6], sBlock.ZeroX, sBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 5) {image(spriteN[7], zBlock.ZeroX, zBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 6) {image(spriteN[2], jBlock.ZeroX, jBlock.ZeroY+bott);}
-        if (currentBlock.blockPicker == 7) {image(spriteN[3], lBlock.ZeroX, lBlock.ZeroX+bott);}
+        if (currentBlock.blockPicker == 7) {image(spriteN[3], lBlock.ZeroX, lBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 8) {image(spriteN[0], commaBlock.ZeroX, commaBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 9) {image(spriteN[1], iBlock.ZeroTwoX, iBlock.ZeroTwoY+bott);}
       }
@@ -575,7 +586,7 @@ void ghost (){
         if (currentBlock.blockPicker == 9) {image(spriteN[10], iBlock.OneThreeX, iBlock.OneThreeY+bott);}
       }
   }
-  if (home.m){
+  if (home.m){ //balanced
   if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) {image(spriteN[8+24], tBlock.ZeroX, tBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 2) {image(spriteN[4+24], oBlock.ZeroX, oBlock.ZeroY+bott);}
@@ -583,7 +594,7 @@ void ghost (){
         if (currentBlock.blockPicker == 4) {image(spriteN[6+24], sBlock.ZeroX, sBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 5) {image(spriteN[7+24], zBlock.ZeroX, zBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 6) {image(spriteN[2+24], jBlock.ZeroX, jBlock.ZeroY+bott);}
-        if (currentBlock.blockPicker == 7) {image(spriteN[3+24], lBlock.ZeroX, lBlock.ZeroX+bott);}
+        if (currentBlock.blockPicker == 7) {image(spriteN[3+24], lBlock.ZeroX, lBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 8) {image(spriteN[0+24], commaBlock.ZeroX, commaBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 9) {image(spriteN[1+24], iBlock.ZeroTwoX, iBlock.ZeroTwoY+bott);}
       }
@@ -627,7 +638,7 @@ void ghost (){
         if (currentBlock.blockPicker == 9) {image(spriteN[10+24], iBlock.OneThreeX, iBlock.OneThreeY+bott);}
       }
   }
-  if (home.h){
+  if (home.h){ // 'insane'
   if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) {image(spriteN[8+48], tBlock.ZeroX, tBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 2) {image(spriteN[4+48], oBlock.ZeroX, oBlock.ZeroY+bott);}
@@ -635,7 +646,7 @@ void ghost (){
         if (currentBlock.blockPicker == 4) {image(spriteN[6+48], sBlock.ZeroX, sBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 5) {image(spriteN[7+48], zBlock.ZeroX, zBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 6) {image(spriteN[2+48], jBlock.ZeroX, jBlock.ZeroY+bott);}
-        if (currentBlock.blockPicker == 7) {image(spriteN[3+48], lBlock.ZeroX, lBlock.ZeroX+bott);}
+        if (currentBlock.blockPicker == 7) {image(spriteN[3+48], lBlock.ZeroX, lBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 8) {image(spriteN[0+48], commaBlock.ZeroX, commaBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 9) {image(spriteN[1+48], iBlock.ZeroTwoX, iBlock.ZeroTwoY+bott);}
       }

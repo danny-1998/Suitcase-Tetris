@@ -5,7 +5,7 @@ PImage commaSprite0, ISprite0, JSprite0, LSprite0, OSprite0, pointSprite0, SSpri
 PImage commaSprite1, ISprite1, JSprite1, LSprite1, SSprite1, ZSprite1, TSprite1; 
 PImage commaSprite2, ISprite2, JSprite2, LSprite2, TSprite2; 
 PImage commaSprite3, ISprite3, JSprite3, LSprite3, TSprite3; 
-PImage spriteN[] = new PImage[48];
+PImage spriteN[] = new PImage[72];
 PImage kerst;
 SoundFile beep, bgmusic, gameover;
 
@@ -111,6 +111,30 @@ public void loadAssets () {
   spriteN[45] = loadImage ("./sprites/balanced sprites/J-3.png");
   spriteN[46] = loadImage ("./sprites/balanced sprites/L-3.png");
   spriteN[47] = loadImage("./sprites/balanced sprites/T-3.png");
+  spriteN[48]  = loadImage("./sprites/insane sprites/comma-0.png");
+  spriteN[49] = loadImage ("./sprites/insane sprites/I-0.png");
+  spriteN[50] = loadImage ("./sprites/insane sprites/J-0.png");
+  spriteN[51] = loadImage ("./sprites/insane sprites/L-0.png");
+  spriteN[52] = loadImage("./sprites/insane sprites/O.png");
+  spriteN[53] = loadImage("./sprites/insane sprites/point.png");
+  spriteN[54] = loadImage("./sprites/insane sprites/S-0.png");
+  spriteN[55] = loadImage("./sprites/insane sprites/Z-0.png");
+  spriteN[56] = loadImage("./sprites/insane sprites/T-0.png");
+  spriteN[57] = loadImage("./sprites/insane sprites/comma-1.png");
+  spriteN[58] = loadImage ("./sprites/insane sprites/I-1.png");
+  spriteN[59] = loadImage ("./sprites/insane sprites/J-1.png");
+  spriteN[60] = loadImage ("./sprites/insane sprites/L-1.png");
+  spriteN[61] = loadImage("./sprites/insane sprites/S-1.png");
+  spriteN[62] = loadImage("./sprites/insane sprites/Z-1.png");
+  spriteN[63] = loadImage("./sprites/insane sprites/T-1.png");
+  spriteN[64] = loadImage("./sprites/insane sprites/comma-2.png");
+  spriteN[65] = loadImage ("./sprites/insane sprites/J-2.png");
+  spriteN[66] = loadImage ("./sprites/insane sprites/L-2.png");
+  spriteN[67] = loadImage("./sprites/insane sprites/T-2.png");
+  spriteN[68] = loadImage("./sprites/insane sprites/comma-3.png");
+  spriteN[69] = loadImage ("./sprites/insane sprites/J-3.png");
+  spriteN[70] = loadImage ("./sprites/insane sprites/L-3.png");
+  spriteN[71] = loadImage("./sprites/insane sprites/T-3.png");
   
   kerst = loadImage("./sprites/kerstmuts.png");
    kerst.resize(240, 220);

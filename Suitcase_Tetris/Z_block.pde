@@ -251,7 +251,7 @@ class ZBlock {
     //insane
     if (home.e == true) {
       if (control.rotation == 0) {
-        image(spriteN[7], ZeroX, ZeroY);
+        image(spriteN[7+48], ZeroX, ZeroY);
         if (mainBlockX > 1) { 
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0) {
             control.blockLeft = true;
@@ -269,7 +269,7 @@ class ZBlock {
       }
 
       if (control.rotation == 1) {
-        image(spriteN[14], OneX, OneY);
+        image(spriteN[14+48], OneX, OneY);
         if (mainBlockX > 1) {
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[width3-1][height3] > 0) {
             control.blockLeft = true;
@@ -287,7 +287,7 @@ class ZBlock {
       }
 
       if (control.rotation == 2) {
-        image(spriteN[7], TwoX, TwoY);
+        image(spriteN[7+48], TwoX, TwoY);
         if (mainBlockX > 1) { 
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0) {
             control.blockLeft = true;
@@ -305,7 +305,7 @@ class ZBlock {
       }
 
       if (control.rotation == 3) {
-        image(spriteN[14], ThreeX, ThreeY);
+        image(spriteN[14+48], ThreeX, ThreeY);
         if (mainBlockX > 1) {
           if (grid.cells[width1-1][height1] > 0 || grid.cells[width2-1][height2] > 0 || grid.cells[width3-1][height3] > 0) {
             control.blockLeft = true;

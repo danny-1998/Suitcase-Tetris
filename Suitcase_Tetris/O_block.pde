@@ -72,7 +72,7 @@ class OBlock {
    }
    //insane
    if (home.h == true){
-   image(spriteN[4], ZeroX, ZeroY);
+   image(spriteN[4+48], ZeroX, ZeroY);
    }
   }
 }

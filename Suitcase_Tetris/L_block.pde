@@ -267,7 +267,7 @@ class Lblock {
     //insane
     if (home.h == true) {
       if (control.rotation == 0) {            // all of the following code is for rotating the block
-        image(spriteN[3], ZeroX, ZeroY);
+        image(spriteN[3+48], ZeroX, ZeroY);
         if (mainBlockX > 0) { 
           if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[block2X-1][block2Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
             control.blockLeft = true;
@@ -285,7 +285,7 @@ class Lblock {
       }
 
       if (control.rotation == 1) {
-        image(spriteN[12], OneX, OneY);
+        image(spriteN[12+48], OneX, OneY);
         if (mainBlockX > 1) {
           if (grid.cells[block2X-1][block2Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
             control.blockLeft = true;
@@ -303,7 +303,7 @@ class Lblock {
       }
 
       if (control.rotation == 2) {
-        image(spriteN[18], TwoX, TwoY);
+        image(spriteN[18+48], TwoX, TwoY);
         if (mainBlockX > 1) {
           if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block3X-1][block3Y] > 0) {
             control.blockLeft = true;
@@ -321,7 +321,7 @@ class Lblock {
       }
 
       if (control.rotation == 3) {
-        image(spriteN[22], ThreeX, ThreeY);
+        image(spriteN[22+48], ThreeX, ThreeY);
         if (mainBlockX > 1) {
           if (grid.cells[block1X-1][block1Y] > 0 || grid.cells[block3X-1][block3Y] > 0) {
             control.blockLeft = true;

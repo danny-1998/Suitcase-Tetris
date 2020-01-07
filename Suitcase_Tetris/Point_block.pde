@@ -48,7 +48,7 @@ class PointBlock {
   }
   //insane
   if (home.h == true){
-  image(spriteN[5], ZeroX, ZeroY);
+  image(spriteN[5+48], ZeroX, ZeroY);
   }
 }
 }

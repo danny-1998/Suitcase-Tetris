@@ -9,18 +9,18 @@ PImage spriteN[] = new PImage[72];
 PImage kerst;
 SoundFile beep, bgmusic, gameover;
 
-PImage Level, logo, game;
+PImage Level, logo, gameE, gameB, gameI;
 
 PImage commaSprite, ISprite, JSprite, LSprite, OSprite, pointSprite, SSprite, ZSprite, TSprite; 
 
 
 
 public void loadAssets () {
-  
+
   //font
   font = createFont("./data/font.ttf", 100);
-  
-    textFont(font);
+
+  textFont(font);
   // sounds
   beep = new SoundFile(this, "./sounds/beep.wav");
   bgmusic = new SoundFile(this, "./sounds/suitcase_bop.wav");
@@ -29,12 +29,13 @@ public void loadAssets () {
 
   gameover = new SoundFile(this, "./sounds/gameover.wav");
 
- 
+
 
   Level = loadImage("./sprites/TemporaryDifficultySelectForTesting.png" ); // as the name suggests, its temporary to test if the homescreen works - kiano :)
   logo = loadImage("./sprites/logo img.png");
-  game = loadImage("./sprites/Gamebg.png");
-
+  gameE = loadImage("./sprites/Gamebg-easy.png");
+  gameB = loadImage("./sprites/Gamebg-balanced.png");
+  gameI = loadImage("./sprites/Gamebg-insane.png");
 
   // images
 
@@ -135,10 +136,9 @@ public void loadAssets () {
   spriteN[69] = loadImage ("./sprites/insane sprites/J-3.png");
   spriteN[70] = loadImage ("./sprites/insane sprites/L-3.png");
   spriteN[71] = loadImage("./sprites/insane sprites/T-3.png");
-  
-  kerst = loadImage("./sprites/kerstmuts.png");
-   kerst.resize(240, 220);
 
+  kerst = loadImage("./sprites/kerstmuts.png");
+  kerst.resize(240, 220);
 }
 
 // Spritesheet class to draw sprite animations
@@ -178,12 +178,6 @@ class SpriteSheet {
     image(drawImage, x, y);
   }
 
-  
+
   // images
-
-  
- 
-  
-
-
 }

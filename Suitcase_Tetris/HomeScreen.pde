@@ -75,7 +75,15 @@ class HomeScreen {
     }
     if (gameState == 2) {
       gameStart = true;                            //if the gameState is at 2, it starts the gameplay itself. If you die in the game, the gameState advances to 3
-      image(game, 0, 0);
+      if (e == true){
+      image(gameE, 0, 0);
+      }
+      if (m == true){
+      image(gameE, 0, 0);
+      }
+      if (h == true){
+      image(gameE, 0, 0);
+      }
       if (!musicLooping) {                         //if the music is not looping yet, it starts to play the background music, and activates the musicLooping boolean
         bgmusic.loop();
         musicLooping = true;

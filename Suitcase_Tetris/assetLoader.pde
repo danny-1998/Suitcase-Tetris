@@ -1,6 +1,7 @@
 // Loads all of the sounds and images
 
 PFont font;
+PImage Pointer;
 PImage commaSprite0, ISprite0, JSprite0, LSprite0, OSprite0, pointSprite0, SSprite0, ZSprite0, TSprite0; 
 PImage commaSprite1, ISprite1, JSprite1, LSprite1, SSprite1, ZSprite1, TSprite1; 
 PImage commaSprite2, ISprite2, JSprite2, LSprite2, TSprite2; 
@@ -9,7 +10,7 @@ PImage spriteN[] = new PImage[72];
 PImage kerst;
 SoundFile beep, bgmusic, gameover;
 
-PImage Level, logo, gameE, gameB, gameI;
+PImage Level, logo, gameE, gameB, gameI, gameT;
 
 PImage commaSprite, ISprite, JSprite, LSprite, OSprite, pointSprite, SSprite, ZSprite, TSprite; 
 
@@ -30,12 +31,13 @@ public void loadAssets () {
   gameover = new SoundFile(this, "./sounds/gameover.wav");
 
 
-
+  Pointer = loadImage("./sprites/thatpointyboy.png");
   Level = loadImage("./sprites/TemporaryDifficultySelectForTesting.png" ); // as the name suggests, its temporary to test if the homescreen works - kiano :)
   logo = loadImage("./sprites/logo img.png");
   gameE = loadImage("./sprites/Gamebg-easy.png");
   gameB = loadImage("./sprites/Gamebg-balanced.png");
   gameI = loadImage("./sprites/Gamebg-insane.png");
+  gameT = loadImage("./sprites/Gamebg-tutorial.png");
 
   // images
 

@@ -103,6 +103,7 @@ void reset() {
 }
 
 void draw(){
+  noCursor();
   if (keyPressed == true){
     if ((key == 'k') || (key == 'K')){
       if (cool == 0)

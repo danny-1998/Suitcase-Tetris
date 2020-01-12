@@ -16,6 +16,8 @@ class HomeScreen {
   float pointX;
   float pointY;
   int gameState;
+  int navi;
+  boolean press;
 
 
 
@@ -90,33 +92,65 @@ class HomeScreen {
         bgmusic.loop();
         musicLooping = true;
       }
+      //to the right
+      if (keyCode == 68){
+      if (press == false){
+        navi++;
+      press = true;
+      }
+      }
+      if (keyCode != 68 && keyCode != 65){
+      if (press == true){
+      press = false;
+      }
+      }
+      println(navi);
+      if (navi > 3){
+      navi = 3;
+      }
+      //to the left
+      if (keyCode == 65){
+      if (press == false){
+        navi--;
+      press = true;
+      }
+      }
+      
+      
+      if (navi < 0){
+      navi = 0;
+      }
       //easy naar balanced
-      if (keysPressed[68] && Eselect == true){
+      if (navi == 1 && Eselect == true){
       Eselect = false;
       Bselect = true;
+      
       }
+      
+      
+      
       //balanced naar insane
-      if (keysPressed[68] && Bselect == true){
+      if (navi == 2 && Bselect == true){
       Bselect = false;
       Iselect = true;
       }
       //insane naar tutorial
-      if (keysPressed[68] && Iselect == true){
+      if (navi == 3 && Iselect == true){
       Iselect = false;
       Tselect = true;
       }
       //tutorial naar insane
-      if (keysPressed[65] && Tselect == true){
+      if (navi == 2 && Tselect == true){
       Tselect = false;
       Iselect = true;
       }
       //insane naar balanced
-      if (keysPressed[65] && Iselect == true){
+      if (navi == 1 && Iselect == true){
       Iselect = false;
       Bselect = true;
       }
       //balanced naar easy
-      if (keysPressed[65] && Bselect == true){
+      if (navi == 0 && Bselect == true){
       Bselect = false;
       Eselect = true;
       }

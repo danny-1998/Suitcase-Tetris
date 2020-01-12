@@ -164,7 +164,7 @@ class HomeScreen {
         h = true;                                        //if you press the 3 key it activates hard mode, and advances the gameState to 3
         gameState = 2;
       }
-      if (keysPressed[52] || keysPressed[100] || (pointX == (width / 16)*13 && keysPressed[67])) {
+      if (keysPressed[52] || keysPressed[100] || (pointX == (width / 16)*13 && keysPressed[67] && Tselect == true)) {
         t = true;
         gameState = 4;
       }

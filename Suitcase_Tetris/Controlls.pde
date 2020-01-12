@@ -147,10 +147,12 @@ class Control {
   }
 }
 
-// key a is linked to left button
-// key d is linked to right button
-// key s is linked to down button
-// key w is linked to the right soulder button
-// key z is linked to left shoulder button
-// key c is linked to A button
-// spacebar is linked to Y button
+// key a is linked to left button                .  left = left button
+// key d is linked to right button               .  right = right button
+// key s is linked to down button                .  down = down button
+// key w is linked to the right soulder button   .  s = x button
+// key z is linked to left shoulder button       .  up = up button
+// key c is linked to A button                   .  x = a button
+// spacebar is linked to Y button                .  a = y button
+// esc is linked to select                       .  esc = start button
+// enter is linked to start                      .  z = b button

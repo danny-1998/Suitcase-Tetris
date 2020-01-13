@@ -8,6 +8,8 @@ class Tutorial {
   boolean part6 = false;
   boolean part7 = false;
   boolean part8 = false;
+  boolean part9 = false;
+  boolean part10 = false;
   boolean drop = false;
 
   void draw() {
@@ -35,50 +37,62 @@ class Tutorial {
       }
     }
     if (tutorialStart == true) {
-      text ("hello welcome to the tutorial, press A", 10, 400);
+      fill (0, 200, 0 );
+      text ("hello welcome to the \ntutorial, press A", 10, 350);
     }
 
     if (part1 == true) {
-      text ("try moving left (left arrow)", 10, 400);
+      text ("try moving left \n(left arrow)", 10, 350);
     }
 
     if (part2 == true) {
-      text ("wow look at you! now try moving right", 10, 400);
+      text ("wow look at you! \nnow try moving right", 10, 350);
     }
 
     if (part3 == true) {
-      text ("try rotating right with the right shoulder buttons", 10, 400);
+      text ("try rotating right \nwith the X button", 10, 350);
     }
 
     if (part4 == true) {
-      text ("cool!! now rotate left", 10, 400);
+      text ("cool!! now rotate left \nwith the UP button", 10, 350);
     }
 
     if (part5 == true) {
       drop = true;
-      text ("the block takes a lot of time to drop", 10, 400);
+      text ("the block takes a lot \nof time to drop", 10, 350);
       text ("hold down to fall faster", 10, 475);
     }
 
     if (part6 == true) {
-      fill (0);
-      text ("great!", 10, 400);
-      text ("i think you got the hang of it", 10, 475);
+      fill (0, 200, 0);
+      text ("great! \ni think you got the hang of it", 10, 350);
       fill (0, 0, 255);
       text ("press A", 10, 550);
       //text ("or press start to go back to the difficulty selector", 10, 625);
     }
-    
-    if (part7 == true){
-      fill (0);
-      text ("place some blocks and then press Y", 10, 400);
+
+    if (part7 == true) {
+      fill (0, 200, 0);
+      text ("place some blocks \nand then press Y", 10, 350);
       text ("trust me, just do it", 10, 475);
     }
-    
+
     if (part8 == true) {
-      text ("SURPRISE! you just cleared all of your blocks", 10, 400);
-      text ("in this tutorial you can clear any time you want", 10, 475);
-      text ("", 10, 550);
+      fill (0, 200, 0);
+      text ("SURPRISE! you just \ncleared all of your \nblocks \nin this tutorial you \ncan clear any time \nyou want", 10, 350);
+      fill (0, 0, 255);
+      text ("press A", 10, 725);
+    }
+
+    if (part9 == true) {
+      fill (0, 200, 0);
+      text ("in the real game you \ncan only clear once \nyou've filled a certain \npercentage of the \nsuitcase", 10, 350);
+      fill (0, 0, 255);
+      text ("press A", 10, 725);
+    }
+    if (part10 == true) {
+      fill (0, 200, 0);
+      text ("this is the end.. \nof the tutorial :D \nyou can stay and \nparactise a bit more \nor press START to go \nback to difficulty selector", 10, 350);
     }
 
     if (keysPressed[67] && tutorialStart == true) {
@@ -114,12 +128,29 @@ class Tutorial {
       part6 = false;
       part7 = true;
     }
-    
+
     if (keysPressed[32] && part7 == true) {
       part7 = false;
       part8 = true;
     }
-    
+
+    if (keysPressed[67] && part8 == true) {
+      part8 = false;
+      part9 = true;
+    }
+
+    if (keysPressed[67] && part9 == true) {
+      part9 = false;
+      part10 = true;
+    }
+
+    if (part10== true && keysPressed[13]) {
+      home.gameState = 1;
+      grid.gridClear();
+      blockPlace.filledClear();
+      blockPlace.uwu = 0;
+    }
+
     if (keysPressed[32]) {
       grid.gridClear();
       blockPlace.filledClear();

@@ -144,7 +144,11 @@ class Tutorial {
       part10 = true;
     }
 
-    if (part10== true && keysPressed[13]) {
+    if (part10== true && keysPressed[10]) {
+      part10=false;
+      tutorialStart=true;
+      currentBlock.currentBlockX=11;
+      currentBlock.currentBlockY=1;
       home.gameState = 1;
       grid.gridClear();
       blockPlace.filledClear();

@@ -221,7 +221,7 @@ class Location {
       //for(int the; the < win; the++){}
       // dit komende blok code staat twaalf keer in de code. een keer voor iedere rotatie van de sprites, en een keer voor iedere moeilijkheids graad.
       //er zijn 4 verschillende orientaties die een blok kan hebben, en er zijn drie verschillende moeilijkheden.
-      if(home.e|| home.t){ // easy difficulty
+      if(home.e || home.t){ // easy difficulty
       //rotatie 1
       if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8; uwu+=1;}

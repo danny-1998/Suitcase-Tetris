@@ -2,6 +2,8 @@ import processing.sound.*;
 PImage img1, img2;
 boolean kerstmode = false;
 int cool = 5;
+boolean upload = false;
+boolean uploaddone = false;
 
 Grid grid;
 SpriteSheet spriteSheet;
@@ -34,7 +36,7 @@ boolean[] keysPressed = new boolean[KEY_LIMIT];
 void setup()
 {
   //img2 = loadImage("2.jpg");
-
+DatabasePrep();
   grid = new Grid();
   home = new HomeScreen();
   loadAssets ();

@@ -49,10 +49,12 @@ class Score {
       }
       if ((currentBlock.newBlock == true) && (blockPlace.filled[i][7] > 0)) {
         GameOver = true;
+        upload = true;
       }
 
       if (blockPlace.filled[2][5] == 1) {
         GameOver = true;
+        upload = true;
       }
     }
   }
@@ -63,14 +65,22 @@ class Score {
     }
     // game over screen
     if (GameOver == true) {
+      if(upload && !uploaddone){
+        punten = Score;
+        println("Uploading score...");
+        AllScores();
+        upload = false;
+        uploaddone = true;
+      }
+      //println("lol");
       home.gameState = 3;
       fill(255, 0, 0);
       rect(0, 0, width, height);
       textMode(CENTER);
       fill(255);
       textSize(100);
-      text(Score, Textx, Texty);
-      if (keysPressed[ENTER]) {
+      DatabaseText();;  if (keysPressed[ENTER]) {
+        uploaddone = true;
         grid.gridClear();
         blockPlace.filledClear();
         GameOver = false;

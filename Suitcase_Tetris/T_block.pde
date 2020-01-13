@@ -1,4 +1,4 @@
-class TBlock { //<>// //<>// //<>//
+class TBlock { //<>// //<>// //<>// //<>//
   /* By Ole Neuman
    *diagram of how im coding this T_Block in the grid:
    *                [0]

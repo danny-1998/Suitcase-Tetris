@@ -92,7 +92,7 @@ class Tutorial {
     }
     if (part10 == true) {
       fill (0, 200, 0);
-      text ("this is the end.. \nof the tutorial :D \nyou can stay and \nparactise a bit more \nor press START to go \nback to difficulty selector", 10, 350);
+      text ("this is the end.. \nof the tutorial :D \nyou can stay and \nparactise a bit more \nor press B to go \nback to difficulty selector", 10, 350);
     }
 
     if (keysPressed[67] && tutorialStart == true) {

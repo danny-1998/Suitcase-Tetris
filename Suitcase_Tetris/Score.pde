@@ -80,7 +80,8 @@ class Score {
       fill(255);
       textSize(100);
       DatabaseText();;  if (keysPressed[ENTER]) {
-        uploaddone = true;
+        uploaddone = false;
+        recordCount = 0;
         grid.gridClear();
         blockPlace.filledClear();
         GameOver = false;

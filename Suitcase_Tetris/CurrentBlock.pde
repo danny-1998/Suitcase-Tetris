@@ -160,6 +160,7 @@ class CurrentBlock {
 
   void oneStepDown() {                                          //this function gets called based on the status of a timer
     if (blockPlace.land != true) {                              //if the block does not have anything touching its bottom side, move it 1 space down
+    blockPlace.downCount-=1;
       currentBlockY += 1;
       //fill(random(255), random(255), random(255));
     } else if (blockPlace.land == true) {                       //if the block has something touching its bottom side, it calls the functions to save the block to the filled[][] array

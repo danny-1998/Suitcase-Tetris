@@ -38,6 +38,17 @@ class PointBlock {
    ZeroY = mainBlockY*50+40;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
+    //easy/tutoreal
+    if (home.e == true || home.t == true){
         image(spriteN[5], ZeroX, ZeroY);
   }
+  //balanced
+  if (home.m == true){
+  image(spriteN[5+24], ZeroX, ZeroY);
+  }
+  //insane
+  if (home.h == true){
+  image(spriteN[5+48], ZeroX, ZeroY);
+  }
+}
 }

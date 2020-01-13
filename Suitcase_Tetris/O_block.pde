@@ -62,7 +62,17 @@ class OBlock {
     
     ZeroX = mainBlockX*50+350;
    ZeroY = mainBlockY*50+40;
+   //easy/tutorial
+   if (home.e == true || home.t == true){
    image(spriteN[4], ZeroX, ZeroY);
-
+   }
+   //balanced
+   if (home.m == true){
+   image(spriteN[4+24], ZeroX, ZeroY);
+   }
+   //insane
+   if (home.h == true){
+   image(spriteN[4+48], ZeroX, ZeroY);
+   }
   }
 }

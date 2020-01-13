@@ -438,7 +438,7 @@ void spawnAnim (){//voor spawn particle effect (niet te verwarren met 'spawning 
 }
 
 void ghost (){ //hier wordt de zogenaamde 'ghostblock' gemaakt. het laat zien waar het blok heen zal gaan als je het alleen nog zou laten vallen.
-  tint(255,50);
+  tint(255,random(70, 110));
   // hier wordt dezelfde code als bij de collision detection gebruikt. het voornaamste verschil zit hem in de toevoeging van de 'downCount' variabele.
   // deze variable laat het transarante blok in een keer naar beneden vallen. de rest zorgt er voor dat het stop met vallen.
   // als er geen collision is, wordt 'downCount' met een verhoogt, en dus valt het transparante blok een extra naar beneden.

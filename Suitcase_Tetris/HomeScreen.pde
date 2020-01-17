@@ -1,7 +1,8 @@
 // by Kiano Wortel
 
 class HomeScreen {
-  // deze class bevat het hoofd menu en een temporary level/difficulty select
+  // deze class bevat alle verschillende schermen
+  // homescreen, difficulty select en mogelijkheid om naar de verschillende modus te gaan
   boolean gameStart = false;
   boolean level = false;
   boolean e = false;
@@ -36,7 +37,11 @@ class HomeScreen {
       spriteSheet.draw(2*(width/7), height/4);
       //image(logo, 2*(width/7), height/4);
     }
-    // temporary level select tool
+    // gamestate 0 = home screen
+    // gamestate 1 = difficulty select
+    // gamestate 2 = game
+    // gamestate 3 = game over
+    // gamestate 4 = tutorial
     if (gameState == 1) {
       image(Level, 0, 0, width, height);
       image(Pointer, pointX, pointY);
@@ -66,7 +71,7 @@ class HomeScreen {
         Iselect = false;
       }
     }
-    // e = easy, m = medium, h = hard. dit verandert de kleur van de blokken: e=groen m=blauw h=rood
+    // e = easy, m = medium/balanced, h = hard/insane. dit verandert de sprites en snelheid van de blokken: e=groen m=blauw h=rood
     if (e == true) {
       fill(0, 255, 0);
     }
@@ -92,67 +97,64 @@ class HomeScreen {
         bgmusic.loop();
         musicLooping = true;
       }
+      // dit zorgt ervoor dat de pointer kan bewegen
       //to the right
-      if (keyCode == 68){
-      if (press == false){
-        navi++;
-      press = true;
+      if (keyCode == 68) {
+        if (press == false) {
+          navi++;
+          press = true;
+        }
       }
-      }
-      if (keyCode != 68 && keyCode != 65){
-      if (press == true){
-      press = false;
-      }
+      if (keyCode != 68 && keyCode != 65) {
+        if (press == true) {
+          press = false;
+        }
       }
       println(navi);
-      if (navi > 3){
-      navi = 3;
+      if (navi > 3) {
+        navi = 3;
       }
       //to the left
-      if (keyCode == 65){
-      if (press == false){
-        navi--;
-      press = true;
+      if (keyCode == 65) {
+        if (press == false) {
+          navi--;
+          press = true;
+        }
       }
-      }
-      
-      
-      if (navi < 0){
-      navi = 0;
+
+
+      if (navi < 0) {
+        navi = 0;
       }
       //easy naar balanced
-      if (navi == 1 && Eselect == true){
-      Eselect = false;
-      Bselect = true;
-      
+      if (navi == 1 && Eselect == true) {
+        Eselect = false;
+        Bselect = true;
       }
-      
-      
-      
       //balanced naar insane
-      if (navi == 2 && Bselect == true){
-      Bselect = false;
-      Iselect = true;
+      if (navi == 2 && Bselect == true) {
+        Bselect = false;
+        Iselect = true;
       }
       //insane naar tutorial
-      if (navi == 3 && Iselect == true){
-      Iselect = false;
-      Tselect = true;
+      if (navi == 3 && Iselect == true) {
+        Iselect = false;
+        Tselect = true;
       }
       //tutorial naar insane
-      if (navi == 2 && Tselect == true){
-      Tselect = false;
-      Iselect = true;
+      if (navi == 2 && Tselect == true) {
+        Tselect = false;
+        Iselect = true;
       }
       //insane naar balanced
-      if (navi == 1 && Iselect == true){
-      Iselect = false;
-      Bselect = true;
+      if (navi == 1 && Iselect == true) {
+        Iselect = false;
+        Bselect = true;
       }
       //balanced naar easy
-      if (navi == 0 && Bselect == true){
-      Bselect = false;
-      Eselect = true;
+      if (navi == 0 && Bselect == true) {
+        Bselect = false;
+        Eselect = true;
       }
       if (keysPressed[49] || keysPressed[97] || (pointX == width / 16 && keysPressed[67])) {          //if you press the 1 key (2nd number is for the numpad) it activates easy mode and advances the gameState to 2
         e = true;
@@ -180,7 +182,7 @@ class HomeScreen {
       if (h == true) {
         image(gameI, 0, 0);
       }
-      
+
       if (!musicLooping) {                         //if the music is not looping yet, it starts to play the background music, and activates the musicLooping boolean
         bgmusic.loop();
         musicLooping = true;
@@ -206,10 +208,9 @@ class HomeScreen {
     }
     if (gameState == 4) {
       if (t == true) {
-      image(gameT, 0, 0);
+        image(gameT, 0, 0);
       }
       tutorial.draw();
-      
     }
   }
 }

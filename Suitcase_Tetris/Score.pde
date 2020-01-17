@@ -18,6 +18,7 @@ class Score {
   void scoreDraw() {
     // als er een blok boven de "koffer" uit steekt betekend het GameOver
     for (int i = 0; i < grid.w; i++) {
+      //dit is de code voor de melding die je krijgt als score >= 60%
       if (filledPercentage > 60/*blockPlace.filled[i][12] == 1*/) {
         textSize(100);
         fill(255, 0, 0);

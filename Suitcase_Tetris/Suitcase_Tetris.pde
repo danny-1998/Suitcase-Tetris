@@ -116,7 +116,6 @@ void draw(){
   if(cool > 0){
   cool--;
   }
-  
   background(255);
   home.screenSelector();
   if (!score.GameOver && home.gameStart) {

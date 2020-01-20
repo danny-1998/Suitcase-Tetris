@@ -15,7 +15,7 @@ class Tutorial {
 
   void draw() {
     textSize (50);
-    grid.drawGrid();
+    grid.drawGrid(); 
     blockPlace.fills();
     grid.gridClear();
     currentBlock.newBlock();
@@ -32,12 +32,12 @@ class Tutorial {
             currentTime = now;
             currentBlock.oneStepDown();
             beep.play();
-            //Dit is Easy difficulty, Easy difficulty gaat om de 1000 milliseconde 1 blokje omlaag.
+            //Dit is dezelfde snelheid als Easy difficulty, Easy difficulty gaat om de 1000 milliseconde 1 blokje omlaag.
           }
         }
       }
     }
-    if (tutorialStart == true) {
+    if (tutorialStart == true) {       // tutorial starts
       fill (0, 200, 0 );
       text ("hello welcome to the \ntutorial, press A", 10, 350);
     }
@@ -96,7 +96,7 @@ class Tutorial {
       text ("this is the end.. \nof the tutorial :D \nyou can stay and \nparactise a bit more \nor press B to go \nback to difficulty selector", 10, 350);
     }
 
-    if (keysPressed[67] && tutorialStart == true) {
+    if (keysPressed[67] && tutorialStart == true) {           // if a certain key is pressed, then the tutorial will go on to the next part
       tutorialStart = false;
       part1 = true;
     }
@@ -145,7 +145,7 @@ class Tutorial {
       part10 = true;
     }
 
-    if (part10== true && keysPressed[10]) {
+    if (part10== true && keysPressed[10]) {          // makes you go back to the difficulty selector and makes sure you can replay the tutorial
       part10=false;
       tutorialStart=true;
       currentBlock.currentBlockX=11;
@@ -156,7 +156,7 @@ class Tutorial {
       blockPlace.uwu = 0;
     }
 
-    if (keysPressed[32]) {
+    if (keysPressed[32]) {                          // lets you clear your suitcase any time you want during the tutorial
       grid.gridClear();
       blockPlace.filledClear();
       blockPlace.uwu = 0;

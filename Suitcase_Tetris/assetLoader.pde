@@ -40,7 +40,7 @@ public void loadAssets () {
   gameI = loadImage("./sprites/Gamebg-insane.png");
   gameT = loadImage("./sprites/Gamebg-tutorial.png");
 
-  // images
+  // block sprites
 
   spriteN[0]  = loadImage("./sprites/easy sprites/comma-0.png");
   spriteN[1] = loadImage ("./sprites/easy sprites/I-0.png");
@@ -135,7 +135,6 @@ class SpriteSheet {
   SpriteSheet(String imageName, int nFrames) {
     nFrames = 17;
     sourceImage = loadImage("./sprites/suitcase tetris logo.png");
-    this.nFrames = nFrames;
     frameWidth = sourceImage.width/nFrames;
     frameHeight = sourceImage.height;
     drawImage = createImage(frameWidth, sourceImage.height, ARGB);

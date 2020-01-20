@@ -1,6 +1,6 @@
 // The script below is an example in which a MYSQL database connection has been created and it has some methods to READ, WRITE, UPDATE and DELETE (CRUD) data in the database.
 // This example is based on https://github.com/fjenett/sql-library-processing/tree/master/examples/MySQL_example1
-
+//by yves and Danny
 import de.bezier.data.sql.*;
 
 MySQL msql;

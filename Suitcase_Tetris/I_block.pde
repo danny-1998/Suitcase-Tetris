@@ -34,7 +34,7 @@ class IBlock {
 
       block3X = mainBlockX;              //    [1]
       block3Y = mainBlockY + 1;          //    [2]
-      //    [3]
+                                         //    [3]
       block4X = mainBlockX;              //    [4]
       block4Y = mainBlockY + 2;
 

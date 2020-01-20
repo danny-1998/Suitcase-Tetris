@@ -61,7 +61,7 @@ class SBlock {
       wallAnticlockwise = true;
     } else
       if (control.rotation == 2) {           //      [0][1]
-        width1=mainBlockX+1;                    //[2][3]
+        width1=mainBlockX+1;                 //   [2][3]
         height1=mainBlockY;
 
         width2= mainBlockX-1;

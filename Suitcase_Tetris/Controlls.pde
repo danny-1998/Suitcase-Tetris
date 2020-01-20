@@ -1,5 +1,5 @@
 class Control {
-  //By Ole Neuman
+  //By Ole Neuman and Jeffrey
   boolean firstPress, shiftLock, landed;
   int rotation, cooldown1, cooldown2, cooldown3, cooldownAmount;
   boolean top = false;

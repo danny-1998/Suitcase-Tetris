@@ -50,7 +50,7 @@ class ZBlock {
       wallClockwise = false;
       wallAnticlockwise = false;
     } else 
-    if (control.rotation == 1 || control.rotation == 3) {                      //        [1]
+    if (control.rotation == 1 || control.rotation == 3) {                         //        [1]
       grid.cells[currentBlock.currentBlockX][currentBlock.currentBlockY-1] = 1;   //     [2][M]
       grid.cells[currentBlock.currentBlockX-1][currentBlock.currentBlockY] = 1;   //     [3]
       grid.cells[currentBlock.currentBlockX][currentBlock.currentBlockY] = 1;

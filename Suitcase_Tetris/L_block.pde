@@ -36,7 +36,7 @@ class Lblock {
     if (control.rotation == 0) {
       block1X = mainBlockX;
       block1Y = mainBlockY - 1;
-      //    [1]
+                                          //    [1]
       block2X = mainBlockX;               //    [0]       
       block2Y = mainBlockY + 1;           //    [2][3]
 
@@ -54,7 +54,7 @@ class Lblock {
     if (control.rotation == 1) {
       block1X = mainBlockX + 1;
       block1Y = mainBlockY;
-      //    [2][0][1]      
+                                          //    [2][0][1]      
       block2X = mainBlockX - 1;           //    [3]                    
       block2Y = mainBlockY;                     
 
@@ -72,7 +72,7 @@ class Lblock {
     if (control.rotation == 2) {
       block1X = mainBlockX;
       block1Y = mainBlockY + 1;
-      //    [3][2]
+                                          //    [3][2]
       block2X = mainBlockX;               //       [0]       
       block2Y = mainBlockY - 1;           //       [1]
 
@@ -90,7 +90,7 @@ class Lblock {
     if (control.rotation == 3) {
       block1X = mainBlockX - 1;
       block1Y = mainBlockY;
-      //          [3]
+                                          //          [3]
       block2X = mainBlockX + 1;           //    [1][0][2]       
       block2Y = mainBlockY;           
 

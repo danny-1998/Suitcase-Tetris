@@ -26,6 +26,7 @@ class Score {
         text("suitcase?", 10, 600);
         text("Press Y!", 10, 650);
         if (keysPressed[32]) {
+          //alles gaat sneller en grid wordt gecleared
           grid.gridClear();
           blockPlace.filledClear();
           blockPlace.uwu = 0;

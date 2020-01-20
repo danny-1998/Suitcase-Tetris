@@ -1,5 +1,6 @@
 // Loads all of the sounds and images
 
+//nina and yves
 PFont font;
 PImage Pointer;
 PImage commaSprite0, ISprite0, JSprite0, LSprite0, OSprite0, pointSprite0, SSprite0, ZSprite0, TSprite0; 

@@ -16,7 +16,7 @@ class Grid {
       }
     }
   }
-  
+  // 2D arrays met lines
   void drawGrid() {
     stroke(120);
     pushMatrix();

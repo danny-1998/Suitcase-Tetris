@@ -274,7 +274,7 @@ class Location {
         if (currentBlock.blockPicker == 9) { spriteX[uwu] = iBlock.OneThreeX; spriteY[uwu] = iBlock.OneThreeY; spritewah[uwu] = 10; uwu+=1;}
       }
       }
-      if(home.m){ //balanced difficulty
+      if(home.balanced){ //balanced difficulty
        if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8+24; uwu+=1;}
         if (currentBlock.blockPicker == 2) { spriteX[uwu] = oBlock.ZeroX; spriteY[uwu] = oBlock.ZeroY; spritewah[uwu] = 4+24; uwu+=1;}
@@ -586,7 +586,7 @@ void ghost (){ //hier wordt de zogenaamde 'ghostblock' gemaakt. het laat zien wa
         if (currentBlock.blockPicker == 9) {image(spriteN[10], iBlock.OneThreeX, iBlock.OneThreeY+bott);}
       }
   }
-  if (home.m){ //balanced
+  if (home.balanced){ //balanced
   if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) {image(spriteN[8+24], tBlock.ZeroX, tBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 2) {image(spriteN[4+24], oBlock.ZeroX, oBlock.ZeroY+bott);}

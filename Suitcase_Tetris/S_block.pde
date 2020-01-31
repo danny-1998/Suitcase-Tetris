@@ -182,7 +182,7 @@ if (home.e == true || home.t == true){
       }
 }
 //balanced
-if (home.m == true){
+if (home.balanced == true){
 if (control.rotation == 0) {
         image(spriteN[6+24], ZeroX, ZeroY);
         if (mainBlockX > 1) { 

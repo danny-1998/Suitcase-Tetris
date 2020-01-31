@@ -175,7 +175,7 @@ class ZBlock {
       }
     }
     //balanced
-    if (home.m == true) {
+    if (home.balanced == true) {
       if (control.rotation == 0) {
         image(spriteN[7+24], ZeroX, ZeroY);
         if (mainBlockX > 1) { 

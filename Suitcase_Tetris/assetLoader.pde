@@ -129,10 +129,13 @@ class SpriteSheet {
   int frameWidth;
   int frameHeight;
   int nFrames = 17;
+  
+  
   //int x, y;
 
   // Constructor takes name of source image and the amount of frames 
   SpriteSheet(String imageName, int nFrames) {
+
     nFrames = 17;
     sourceImage = loadImage("./sprites/suitcase tetris logo.png");
     frameWidth = sourceImage.width/nFrames;

@@ -6,7 +6,7 @@ class HomeScreen {
   boolean gameStart = false;
   boolean level = false;
   boolean e = false;
-  boolean m = false;
+  boolean balanced = false;
   boolean h = false;
   boolean t = false;
   boolean Eselect = true;
@@ -75,7 +75,7 @@ class HomeScreen {
     if (e == true) {
       fill(0, 255, 0);
     }
-    if (m == true) {
+    if (balanced == true) {
       fill(0, 255, 255);
     }
     if (h == true) {
@@ -160,7 +160,7 @@ class HomeScreen {
         e = true;
         gameState = 2;
       } else if (keysPressed[50] || keysPressed[98] || (pointX == (width / 16)*5 && keysPressed[67])) {
-        m = true;                                        //if you press the 2 key it activates medium mode and advances the gameState to 2
+        balanced = true;                                        //if you press the 2 key it activates medium mode and advances the gameState to 2
         gameState = 2;
       } else if (keysPressed[51] || keysPressed[99] || (pointX == (width / 16)*9 && keysPressed[67])) {
         h = true;                                        //if you press the 3 key it activates hard mode, and advances the gameState to 3
@@ -176,7 +176,7 @@ class HomeScreen {
       if (e == true) {
         image(gameE, 0, 0);
       }
-      if (m == true) {
+      if (balanced == true) {
         image(gameB, 0, 0);
       }
       if (h == true) {

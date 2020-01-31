@@ -181,7 +181,7 @@ if (control.rotation == 0) {                // all of the following code is for 
     }
 }
 //balanced
-if (home.m == true){
+if (home.balanced == true){
 if (control.rotation == 0) {                // all of the following code is for rotating the block
  image(spriteN[0+24], ZeroX, ZeroY);
       if (mainBlockX > 0) { 

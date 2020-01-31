@@ -114,7 +114,7 @@ class IBlock {
       }
     }
     //difficulty=balanced
-    if (home.m == true) {
+    if (home.balanced == true) {
       if (control.rotation == 0 || control.rotation == 2) {              // all ofthe following code is for rotating the block
         image(spriteN[25], ZeroTwoX, ZeroTwoY);
         if (mainBlockX > 0) { 

@@ -67,7 +67,7 @@ class OBlock {
    image(spriteN[4], ZeroX, ZeroY);
    }
    //balanced
-   if (home.m == true){
+   if (home.balanced == true){
    image(spriteN[4+24], ZeroX, ZeroY);
    }
    //insane

@@ -201,7 +201,7 @@ class JBlock {
         }
       }
       //difficulty = balanced
-      if (home.m == true) {
+      if (home.balanced == true) {
         if (control.rotation == 0) {
           image(spriteN[2+24], ZeroX, ZeroY);
           if (mainBlockX > 1) { 

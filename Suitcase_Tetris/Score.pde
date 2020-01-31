@@ -89,7 +89,7 @@ class Score {
         GameOver = false;
         Score = 0;
         home.e = false;
-        home.m = false;
+        home.balanced = false;
         home.h = false;
         dt1 = 1000;
         dt2 = 500;

@@ -138,7 +138,7 @@ void draw(){
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 8) {image(spriteN[20], 150, 30 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 9) {image(spriteN[10], 95, 60 ); }
     }
-    if (home.m){
+    if (home.balanced){
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 1) {image(spriteN[8+24], 130, 30 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 2) {image(spriteN[4+24], 150, 42 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 3) {image(spriteN[5+24], 175, 60 ); }
@@ -179,7 +179,7 @@ void draw(){
         }
       }
       if (gameOn) {
-        if (home.m == true) {
+        if (home.balanced == true) {
           if (now - currentTime > dt2) {
             currentTime = now;
             currentBlock.oneStepDown();

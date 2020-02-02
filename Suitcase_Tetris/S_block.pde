@@ -108,7 +108,7 @@ class SBlock {
       onEdgeRight = false; 
 
 //easy
-if (home.e == true || home.t == true){
+if (home.easy == true || home.tutorial == true){
       if (control.rotation == 0) {
         image(spriteN[6], ZeroX, ZeroY);
         if (mainBlockX > 1) { 
@@ -255,7 +255,7 @@ if (control.rotation == 0) {
         }
       }
 //insane
-if (home.h == true){
+if (home.insane == true){
 if (control.rotation == 0) {
         image(spriteN[6+48], ZeroX, ZeroY);
         if (mainBlockX > 1) { 

@@ -117,7 +117,7 @@ class Lblock {
       onEdgeRight = false;
     }
     //easy or tutoreal
-    if (home.e == true || home.t == true) {
+    if (home.easy == true || home.tutorial == true) {
       if (control.rotation == 0) {            // all of the following code is for rotating the block
         image(spriteN[3], ZeroX, ZeroY);
         if (mainBlockX > 0) { 
@@ -265,7 +265,7 @@ class Lblock {
       }
     }
     //insane
-    if (home.h == true) {
+    if (home.insane == true) {
       if (control.rotation == 0) {            // all of the following code is for rotating the block
         image(spriteN[3+48], ZeroX, ZeroY);
         if (mainBlockX > 0) { 

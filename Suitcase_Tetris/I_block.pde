@@ -76,7 +76,7 @@ class IBlock {
       onEdgeRight = false;
     }
     //difficulty=easy or tutorial
-    if (home.e == true || home.t == true) {
+    if (home.easy == true || home.tutorial == true) {
       if (control.rotation == 0 || control.rotation == 2) {              // all ofthe following code is for rotating the block
         image(spriteN[1], ZeroTwoX, ZeroTwoY);
         if (mainBlockX > 0) { 
@@ -152,7 +152,7 @@ class IBlock {
       }
     }
     //difficulty=hard
-    if (home.h == true) {
+    if (home.insane == true) {
       if (control.rotation == 0 || control.rotation == 2) {              // all ofthe following code is for rotating the block
         image(spriteN[1+48], ZeroTwoX, ZeroTwoY);
         if (mainBlockX > 0) { 

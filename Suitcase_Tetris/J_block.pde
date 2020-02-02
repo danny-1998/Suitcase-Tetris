@@ -127,7 +127,7 @@ class JBlock {
       onEdgeRight = false; 
 
       //easy or tutorial
-    if (home.e == true || home.t == true) {
+    if (home.easy == true || home.tutorial == true) {
         if (control.rotation == 0) {
           image(spriteN[2], ZeroX, ZeroY);
           if (mainBlockX > 1) { 
@@ -275,7 +275,7 @@ class JBlock {
         }
       }
       //insane
-      if (home.h == true) {
+      if (home.insane == true) {
         if (control.rotation == 0) {
           image(spriteN[2+48], ZeroX, ZeroY);
           if (mainBlockX > 1) { 

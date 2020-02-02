@@ -12,11 +12,11 @@ class Control {
   }
 
   void controllsV3() {
-    if (home.e) {              //if easy mode is selected, the cooldown of a block moving side to side is 3 frames
+    if (home.easy) {              //if easy mode is selected, the cooldown of a block moving side to side is 3 frames
       cooldownAmount = 3;
     } else if (home.balanced) {       //if normal mode is selected, the cooldown of a block moving side to side is 10 frames
       cooldownAmount = 10;
-    } else if (home.h) {      //if hard mode is selected, the cooldown is 15 frames
+    } else if (home.insane) {      //if hard mode is selected, the cooldown is 15 frames
       cooldownAmount = 15;
     } else if (home.gameState == 4){
      cooldownAmount = 3; 

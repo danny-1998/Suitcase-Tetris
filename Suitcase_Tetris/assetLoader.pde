@@ -2,7 +2,7 @@
 
 //nina and yves
 PFont font;
-PImage Pointer;
+PImage pointer;
 PImage commaSprite0, ISprite0, JSprite0, LSprite0, OSprite0, pointSprite0, SSprite0, ZSprite0, TSprite0; 
 PImage commaSprite1, ISprite1, JSprite1, LSprite1, SSprite1, ZSprite1, TSprite1; 
 PImage commaSprite2, ISprite2, JSprite2, LSprite2, TSprite2; 
@@ -32,7 +32,7 @@ public void loadAssets () {
   gameover = new SoundFile(this, "./sounds/gameover.wav");
 
 
-  Pointer = loadImage("./sprites/thatpointyboy.png");
+  pointer = loadImage("./sprites/thatpointyboy.png");
   Level = loadImage("./sprites/TemporaryDifficultySelectForTesting.png" ); // as the name suggests, its temporary to test if the homescreen works - kiano :)
   logo = loadImage("./sprites/logo img.png");
   gameE = loadImage("./sprites/Gamebg-easy.png");

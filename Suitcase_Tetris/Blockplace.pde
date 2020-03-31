@@ -223,7 +223,7 @@ class Location {
       //for(int the; the < win; the++){}
       // dit komende blok code staat twaalf keer in de code. een keer voor iedere rotatie van de sprites, en een keer voor iedere moeilijkheids graad.
       //er zijn 4 verschillende orientaties die een blok kan hebben, en er zijn drie verschillende moeilijkheden.
-      if(home.e || home.t){ // easy difficulty
+      if(home.easy || home.tutorial){ // easy difficulty
       //rotatie 1
       if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8; uwu+=1;}
@@ -276,7 +276,7 @@ class Location {
         if (currentBlock.blockPicker == 9) { spriteX[uwu] = iBlock.OneThreeX; spriteY[uwu] = iBlock.OneThreeY; spritewah[uwu] = 10; uwu+=1;}
       }
       }
-      if(home.m){ //balanced difficulty
+      if(home.balanced){ //balanced difficulty
        if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8+24; uwu+=1;}
         if (currentBlock.blockPicker == 2) { spriteX[uwu] = oBlock.ZeroX; spriteY[uwu] = oBlock.ZeroY; spritewah[uwu] = 4+24; uwu+=1;}
@@ -329,7 +329,7 @@ class Location {
       } 
         
       }
-      if(home.h){ // 'insane' difficulty
+      if(home.insane){ // 'insane' difficulty
       //rotatie 1
       if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) { spriteX[uwu] = tBlock.ZeroX; spriteY[uwu] = tBlock.ZeroY; spritewah[uwu] = 8+48; uwu+=1;}
@@ -536,7 +536,7 @@ void ghost (){ //hier wordt de zogenaamde 'ghostblock' gemaakt. het laat zien wa
     }
   bott = ((downCount-1)*50); //dit is de formule voor de extra afstand die de ghostblock moet afleggen.
   // hier wordt een stuk code voor het bepalen van de moeilijkheid en oriantatie gebruikt, maar dan met als resultaat dat een andere afbeelding wordt geladen voor de ghostblock.
-  if (home.e ||  home.t){ //easy
+  if (home.easy ||  home.tutorial){ //easy
   if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) {image(spriteN[8], tBlock.ZeroX, tBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 2) {image(spriteN[4], oBlock.ZeroX, oBlock.ZeroY+bott);}
@@ -588,7 +588,7 @@ void ghost (){ //hier wordt de zogenaamde 'ghostblock' gemaakt. het laat zien wa
         if (currentBlock.blockPicker == 9) {image(spriteN[10], iBlock.OneThreeX, iBlock.OneThreeY+bott);}
       }
   }
-  if (home.m){ //balanced
+  if (home.balanced){ //balanced
   if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) {image(spriteN[8+24], tBlock.ZeroX, tBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 2) {image(spriteN[4+24], oBlock.ZeroX, oBlock.ZeroY+bott);}
@@ -640,7 +640,7 @@ void ghost (){ //hier wordt de zogenaamde 'ghostblock' gemaakt. het laat zien wa
         if (currentBlock.blockPicker == 9) {image(spriteN[10+24], iBlock.OneThreeX, iBlock.OneThreeY+bott);}
       }
   }
-  if (home.h){ // 'insane'
+  if (home.insane){ // 'insane'
   if (control.rotation == 0) {
         if (currentBlock.blockPicker == 1) {image(spriteN[8+48], tBlock.ZeroX, tBlock.ZeroY+bott);}
         if (currentBlock.blockPicker == 2) {image(spriteN[4+48], oBlock.ZeroX, oBlock.ZeroY+bott);}

@@ -1,3 +1,4 @@
+//by Ole
 class CurrentBlock {
   IntList blockList = new IntList();
   IntList blockOrder = new IntList(18);

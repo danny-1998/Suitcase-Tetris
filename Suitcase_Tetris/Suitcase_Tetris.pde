@@ -116,10 +116,9 @@ void draw(){
   if(cool > 0){
   cool--;
   }
-  
   background(255);
   home.screenSelector();
-  if (!score.GameOver && home.gameStart) {
+  if (!score.gameOver && home.gameStart) {
     grid.drawGrid();
     blockPlace.fills();
     blockPlace.ghost();
@@ -128,7 +127,7 @@ void draw(){
     score.scoreCounter();
     grid.gridClear();
     currentBlock.newBlock();
-    if (home.e){
+    if (home.easy){
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 1) {image(spriteN[8], 130, 30 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 2) {image(spriteN[4], 150, 42 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 3) {image(spriteN[5], 175, 60 ); }
@@ -139,7 +138,7 @@ void draw(){
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 8) {image(spriteN[20], 150, 30 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 9) {image(spriteN[10], 95, 60 ); }
     }
-    if (home.m){
+    if (home.balanced){
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 1) {image(spriteN[8+24], 130, 30 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 2) {image(spriteN[4+24], 150, 42 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 3) {image(spriteN[5+24], 175, 60 ); }
@@ -150,7 +149,7 @@ void draw(){
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 8) {image(spriteN[20+24], 150, 30 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 9) {image(spriteN[10+24], 95, 60 ); }
     }
-    if (home.h){
+    if (home.insane){
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 1) {image(spriteN[8+48], 130, 30 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 2) {image(spriteN[4+48], 150, 42 ); }
         if (currentBlock.blockOrder.get(currentBlock.blockCounter+1) == 3) {image(spriteN[5+48], 175, 60 ); }
@@ -170,7 +169,7 @@ void draw(){
       grid.drawGrid();
       now = millis();
       if (gameOn) {
-        if (home.e == true) {
+        if (home.easy == true) {
           if (now - currentTime > dt1) {
             currentTime = now;
             currentBlock.oneStepDown();
@@ -180,7 +179,7 @@ void draw(){
         }
       }
       if (gameOn) {
-        if (home.m == true) {
+        if (home.balanced == true) {
           if (now - currentTime > dt2) {
             currentTime = now;
             currentBlock.oneStepDown();
@@ -190,7 +189,7 @@ void draw(){
         }
       }
       if (gameOn) {
-        if (home.h == true) {
+        if (home.insane == true) {
           if (now - currentTime > dt3) {
             currentTime = now;
             currentBlock.oneStepDown();
@@ -205,7 +204,7 @@ void draw(){
   strokeWeight(4);
   line(0, height*0.409, width, height*0.409);
   strokeWeight(1);
-  if (score.GameOver) {
+  if (score.gameOver) {
     score.gameOver();
   }
   println(dt1);

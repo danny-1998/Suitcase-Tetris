@@ -61,7 +61,7 @@ class SBlock {
       wallAnticlockwise = true;
     } else
       if (control.rotation == 2) {           //      [0][1]
-        width1=mainBlockX+1;                    //[2][3]
+        width1=mainBlockX+1;                 //   [2][3]
         height1=mainBlockY;
 
         width2= mainBlockX-1;
@@ -108,7 +108,7 @@ class SBlock {
       onEdgeRight = false; 
 
 //easy
-if (home.e == true || home.t == true){
+if (home.easy == true || home.tutorial == true){
       if (control.rotation == 0) {
         image(spriteN[6], ZeroX, ZeroY);
         if (mainBlockX > 1) { 
@@ -182,7 +182,7 @@ if (home.e == true || home.t == true){
       }
 }
 //balanced
-if (home.m == true){
+if (home.balanced == true){
 if (control.rotation == 0) {
         image(spriteN[6+24], ZeroX, ZeroY);
         if (mainBlockX > 1) { 
@@ -255,7 +255,7 @@ if (control.rotation == 0) {
         }
       }
 //insane
-if (home.h == true){
+if (home.insane == true){
 if (control.rotation == 0) {
         image(spriteN[6+48], ZeroX, ZeroY);
         if (mainBlockX > 1) { 

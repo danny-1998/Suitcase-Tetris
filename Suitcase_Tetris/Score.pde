@@ -3,14 +3,14 @@
 class Score {
   // in deze class wordt bijhouden of de speler game over is en wat zijn/haar score is
   int Score = 0;
-  float Textx = 850;
-  float Texty = height/2;
-  float Scorex = width/2 - 880;
-  float Scorey = height/2 - 250 ;
-  boolean GameOver = false;
-  boolean CheckPoint = false;
-  boolean BlockOverBlock = false;
-  boolean[][] ScorePlus = new boolean[22][20];
+  float TextX = 850;
+  float TextY = height/2;
+  float ScoreX = width/2 - 880;
+  float ScoreY = height/2 - 250 ;
+  boolean gameOver = false;
+  boolean checkPoint = false;
+  boolean blockOverBlock = false;
+  boolean[][] scorePlus = new boolean[22][20];
   boolean lock;
   float filledPercentage;
 
@@ -18,6 +18,7 @@ class Score {
   void scoreDraw() {
     // als er een blok boven de "koffer" uit steekt betekend het GameOver
     for (int i = 0; i < grid.w; i++) {
+      //dit is de code voor de melding die je krijgt als score >= 60%
       if (filledPercentage > 60/*blockPlace.filled[i][12] == 1*/) {
         textSize(100);
         fill(255, 0, 0);
@@ -25,6 +26,7 @@ class Score {
         text("suitcase?", 10, 600);
         text("Press Y!", 10, 650);
         if (keysPressed[32]) {
+          //alles gaat sneller en grid wordt gecleared
           grid.gridClear();
           blockPlace.filledClear();
           blockPlace.uwu = 0;
@@ -33,7 +35,7 @@ class Score {
           dt3 = dt3 - (22/22);
           for (int w = 0; w < 22; w++) {
             for (int h = 0; h<20; h++) {  
-              ScorePlus[w][h] = false;
+              scorePlus[w][h] = false;
             }
           }
         }
@@ -48,12 +50,12 @@ class Score {
         Score = Score + 25000;
       }
       if ((currentBlock.newBlock == true) && (blockPlace.filled[i][7] > 0)) {
-        GameOver = true;
+        gameOver = true;
         upload = true;
       }
 
       if (blockPlace.filled[2][5] == 1) {
-        GameOver = true;
+        gameOver = true;
         upload = true;
       }
     }
@@ -61,10 +63,10 @@ class Score {
   void gameOver() {
     if (control.top == true) {
       // stop the game
-      GameOver = true;
+      gameOver = true;
     }
     // game over screen
-    if (GameOver == true) {
+    if (gameOver == true) {
       if(upload && !uploaddone){
         punten = Score;
         println("Uploading score...");
@@ -80,21 +82,22 @@ class Score {
       fill(255);
       textSize(100);
       DatabaseText();;  if (keysPressed[ENTER]) {
-        uploaddone = true;
+        uploaddone = false;
+        recordCount = 0;
         grid.gridClear();
         blockPlace.filledClear();
-        GameOver = false;
+        gameOver = false;
         Score = 0;
-        home.e = false;
-        home.m = false;
-        home.h = false;
+        home.easy = false;
+        home.balanced = false;
+        home.insane = false;
         dt1 = 1000;
         dt2 = 500;
         dt3 = 200;
       }
     }
 
-    if (score.GameOver == true) {
+    if (score.gameOver == true) {
       bgmusic.stop();
       if (!lock) {
         gameover.play();
@@ -112,12 +115,12 @@ class Score {
     for (int w = 0; w < 22; w++) {
       for (int h = 0; h<20; h++) {  
         // voor ieder gevulde gridspace krijgt de speler 50 punten
-        if (blockPlace.filled[w][h] == 1 && ScorePlus[w][h] == false) {
-          ScorePlus[w][h] = true;
+        if (blockPlace.filled[w][h] == 1 && scorePlus[w][h] == false) {
+          scorePlus[w][h] = true;
           Score += 50;
         }
         textSize(100);
-        text(Score, Scorex, Scorey);
+        text(Score, ScoreX, ScoreY);
       }
     }
   }

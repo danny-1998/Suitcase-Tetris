@@ -1,10 +1,11 @@
 // The script below is an example in which a MYSQL database connection has been created and it has some methods to READ, WRITE, UPDATE and DELETE (CRUD) data in the database.
 // This example is based on https://github.com/fjenett/sql-library-processing/tree/master/examples/MySQL_example1
-
+//by yves and Danny
 import de.bezier.data.sql.*;
 
 MySQL msql;
-public String Username = "Yve"; //VOER JE NAAM HIER IN. BESTAAT UIT DRIE LETTERS EN KAN AL EERDER ZIJN GEBRUIKT
+public int recordCount = 0;
+public String Username = "TMH"; //VOER JE NAAM HIER IN. BESTAAT UIT DRIE LETTERS EN KAN AL EERDER ZIJN GEBRUIKT
 public int punten;
 
 // This is a data model class to reflect the content of the User entity from the database.
@@ -61,7 +62,7 @@ void AllScores()
         println( "==================================================" );
         msql.query("SELECT * FROM Highscore ORDER BY score DESC" );
         
-        int recordCount = 0; // aantal records in de database
+        //int recordCount = 0; // aantal records in de database
         while( msql.next() )
         {        
           println(msql.getString("Username") + " \t\t " + msql.getInt("score") );

@@ -1,7 +1,8 @@
 // Loads all of the sounds and images
 
+//nina and yves
 PFont font;
-PImage Pointer;
+PImage pointer;
 PImage commaSprite0, ISprite0, JSprite0, LSprite0, OSprite0, pointSprite0, SSprite0, ZSprite0, TSprite0; 
 PImage commaSprite1, ISprite1, JSprite1, LSprite1, SSprite1, ZSprite1, TSprite1; 
 PImage commaSprite2, ISprite2, JSprite2, LSprite2, TSprite2; 
@@ -31,11 +32,7 @@ public void loadAssets () {
   gameover = new SoundFile(this, "./sounds/gameover.wav");
 
 
-<<<<<<< HEAD
-
-=======
-  Pointer = loadImage("./sprites/thatpointyboy.png");
->>>>>>> master
+  pointer = loadImage("./sprites/thatpointyboy.png");
   Level = loadImage("./sprites/TemporaryDifficultySelectForTesting.png" ); // as the name suggests, its temporary to test if the homescreen works - kiano :)
   logo = loadImage("./sprites/logo img.png");
   gameE = loadImage("./sprites/Gamebg-easy.png");
@@ -43,7 +40,7 @@ public void loadAssets () {
   gameI = loadImage("./sprites/Gamebg-insane.png");
   gameT = loadImage("./sprites/Gamebg-tutorial.png");
 
-  // images
+  // block sprites
 
   spriteN[0]  = loadImage("./sprites/easy sprites/comma-0.png");
   spriteN[1] = loadImage ("./sprites/easy sprites/I-0.png");
@@ -132,13 +129,15 @@ class SpriteSheet {
   int frameWidth;
   int frameHeight;
   int nFrames = 17;
+  
+  
   //int x, y;
 
-  // Contructor takes name of source image and the amount of frames 
+  // Constructor takes name of source image and the amount of frames 
   SpriteSheet(String imageName, int nFrames) {
+
     nFrames = 17;
     sourceImage = loadImage("./sprites/suitcase tetris logo.png");
-    this.nFrames = nFrames;
     frameWidth = sourceImage.width/nFrames;
     frameHeight = sourceImage.height;
     drawImage = createImage(frameWidth, sourceImage.height, ARGB);

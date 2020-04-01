@@ -30,8 +30,10 @@ class HomeScreen {
   //select 2 = balanced
   //select 3 = insane
   //select 4 = tutorial
-
-
+  StringList letters = new StringList();
+  String userName = "";
+  String passWord = "";
+  Boolean userNameSelected = true;
 
 
 
@@ -40,6 +42,12 @@ class HomeScreen {
     if (gameState == "homeScreen") {
       fill (255, 174, 201);
       rect(0, 0, width, height);
+      String[] singleLetters = letters.array();
+      if(userNameSelected){
+      userName = join(singleLetters, "");
+      } else {
+      passWord = join(singleLetters, "");  
+      }
       textMode(CENTER);
       textSize(50);
       fill(0);
@@ -94,7 +102,12 @@ class HomeScreen {
         musicLooping = true;
       }
       if (keysPressed[ENTER]) {          //when you press enter, you advance the gameState to 1
-        gameState = "levelSelect";
+        if(userNameSelected){
+         userNameSelected = false; 
+         letters.clear();
+        } else {
+         //insert the strings to the database
+        }
       }
     }
     if (gameState == "levelSelect") {             //if the music is not looping yet, it starts to play the background music, and activates the musicLooping boolean

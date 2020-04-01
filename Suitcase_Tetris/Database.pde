@@ -5,13 +5,15 @@ import de.bezier.data.sql.*;
 
 MySQL msql;
 public int recordCount = 0;
-public String Username = "TMH"; //VOER JE NAAM HIER IN. BESTAAT UIT DRIE LETTERS EN KAN AL EERDER ZIJN GEBRUIKT
+public String Username; //VOER JE NAAM HIER IN. BESTAAT UIT DRIE LETTERS EN KAN AL EERDER ZIJN GEBRUIKT
+public String Password;
 public int punten;
 
 // This is a data model class to reflect the content of the User entity from the database.
 class RecordUser{
  
    public String Username;
+   public String Password;
    public int punten;
  
    public RecordUser(String Username, int punten){
@@ -55,7 +57,8 @@ void AllScores()
     {
       println("boop");
         println("doop");
-        msql.query("INSERT INTO Highscore (Username, score) values ('"+ Username +"', '"+ punten +"')");
+        println("I'm in");
+        msql.query("INSERT INTO Highscore (Username, score) values ('"+ Username +"', '"+ punten +"')"); //doe een query
         println("drie");
         //msql.query("DELETE FROM Highscore WHERE Username = 'dud'");
         println( "Username \t\t score \t\t " );
@@ -63,7 +66,7 @@ void AllScores()
         msql.query("SELECT * FROM Highscore ORDER BY score DESC" );
         
         //int recordCount = 0; // aantal records in de database
-        while( msql.next() )
+        while( msql.next() ) //als er in de database tabel nog entries zijn, ga dan nog eens door het volgende:
         {        
           println(msql.getString("Username") + " \t\t " + msql.getInt("score") );
           dbUsers.add(new RecordUser(msql.getString("Username"), msql.getInt("score")));
@@ -93,8 +96,8 @@ void DatabaseText(){
     text("Score", 250, positionY); 
     for(RecordUser record : dbUsers){
       
-      text("" + record.Username, 100, positionY+50); 
-      text("" + record.punten, 250, positionY+50);
+      text(record.Username, 100, positionY+50); 
+      text(record.punten, 250, positionY+50);
       positionY += positionYSpacing;
     }
 

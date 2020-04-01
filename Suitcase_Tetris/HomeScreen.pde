@@ -52,8 +52,8 @@ class HomeScreen {
       textMode(CENTER);
       textSize(50);
       fill(0);
-      text("Username", score.TextX-75, 3*(height/4));
-      text("Password", score.TextX-75, 3*(height/4)+30);
+      text(userName, score.TextX-75, 3*(height/4));
+      text(passWord, score.TextX-75, 3*(height/4)+30);
       spriteSheet.update();
       spriteSheet.draw(2*(width/7), height/4);
       //image(logo, 2*(width/7), height/4);
@@ -108,8 +108,7 @@ class HomeScreen {
          letters.clear();
          enterLock = true;
         } else if (!enterLock){
-         //insert the strings to the database
-         gameState = "levelSelect";
+          Login();
         }
       }
     }

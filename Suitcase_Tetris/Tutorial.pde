@@ -150,16 +150,16 @@ class Tutorial {
       tutorialStart=true;
       currentBlock.currentBlockX=11;
       currentBlock.currentBlockY=1;
-      home.gameState = 1;
+      home.gameState = "levelSelect";
       grid.gridClear();
       blockPlace.filledClear();
-      blockPlace.uwu = 0;
+      blockPlace.blockCount = 0;
     }
 
     if (keysPressed[32]) {                          // lets you clear your suitcase any time you want during the tutorial
       grid.gridClear();
       blockPlace.filledClear();
-      blockPlace.uwu = 0;
+      blockPlace.blockCount = 0;
     }
   }
 }

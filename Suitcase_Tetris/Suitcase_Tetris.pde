@@ -237,7 +237,9 @@ void keyPressed() {
 
       break;
     default:
+      if((65 < keyCode && keyCode < 90) || (48 < keyCode && keyCode < 57)){
       home.letters.append(key + "");
+      }
       break;
     }
   }

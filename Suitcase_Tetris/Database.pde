@@ -10,6 +10,8 @@ public String Password;
 public int punten;
 public int databaseID;
 public int highscore;
+public int time;
+public int gamesPlayed;
 
 // This is a data model class to reflect the content of the User entity from the database.
 class RecordUser {
@@ -76,6 +78,15 @@ void AllScores()
     while (msql.next()) { 
       highscore = msql.getInt("MAX(Highscore.score)");
     }
+    time = millis();
+    msql.query("SELECT * FROM Stat WHERE User_id = " + databaseID);
+    while(msql.next()){
+    time += (msql.getInt("Time_played"));
+    gamesPlayed = msql.getInt("Number_of_games");
+    }
+    println("runt dit?");
+    msql.query("UPDATE Stat SET Time_played = " + time + ", Number_of_games = " + (gamesPlayed+1)+ " WHERE User_id = " + databaseID);
+    println("dit runt");
   } else
   {
     // connection failed !

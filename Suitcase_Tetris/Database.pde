@@ -8,6 +8,7 @@ public int recordCount = 0;
 public String Username = "err"; //VOER JE NAAM HIER IN. BESTAAT UIT DRIE LETTERS EN KAN AL EERDER ZIJN GEBRUIKT
 public String Password;
 public int punten;
+public int databaseID;
 
 // This is a data model class to reflect the content of the User entity from the database.
 class RecordUser {
@@ -88,6 +89,7 @@ boolean passcheck = false;
 void Login() {
   String databaseName = "bla";
   String databasePass = "blo";
+
   println("beginning login process...");
   if (msql.connect() ) { //connecting to database
     println("starting query");
@@ -116,7 +118,13 @@ void Login() {
       println("new user detected. making account...");
       msql.query("INSERT INTO User (Username, Password) values ('"+ home.userName +"', '"+ home.passWord +"')"); //stop een nieuwe user in de User tabel in de database met de naam en het wachtwoord wat is opgeschreven in het startscherm
       println("new user created");
-      msql.query("INSERT INTO Setting (Music_volume, SFX_volume, Spriteset, Xmas_mode) VALUES ('100', '0', '0', '0')");
+      msql.query("SELECT User_id FROM User WHERE Username = '" + home.userName + "'");
+      println("check user_id");
+      while (msql.next()) {
+        databaseID = msql.getInt("User_id");
+        println("User_id = " + databaseID);
+      }
+      msql.query("INSERT INTO Setting (User_id, Music_volume, SFX_volume, Spriteset, Xmas_mode) VALUES ('"+ databaseID +"', '100', '0', '0', '0')");
       println("default settings created");
       Username = home.userName;
       home.gameState = "levelSelect";

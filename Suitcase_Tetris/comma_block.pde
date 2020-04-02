@@ -31,6 +31,14 @@ class CommaBlock {
   }
 
   void CommaBlockDraw () {
+    ZeroX = mainBlockX*50+350; 
+    ZeroY = mainBlockY*50-10; 
+    OneX = mainBlockX*50+350; 
+    OneY = mainBlockY*50+40; 
+    TwoX = mainBlockX*50+300; 
+    TwoY = mainBlockY*50+40; 
+    ThreeX = mainBlockX*50+300; 
+    ThreeY = mainBlockY*50-10; 
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 

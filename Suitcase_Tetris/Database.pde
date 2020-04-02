@@ -115,6 +115,9 @@ void Login() {
     } else {
       println("new user detected. making account...");
       msql.query("INSERT INTO User (Username, Password) values ('"+ home.userName +"', '"+ home.passWord +"')"); //stop een nieuwe user in de User tabel in de database met de naam en het wachtwoord wat is opgeschreven in het startscherm
+      println("new user created");
+      msql.query("INSERT INTO Setting (Music_volume, SFX_volume, Spriteset, Xmas_mode) VALUES ('100', '100', '0', '0')");
+      println("default settings created");
       Username = home.userName;
       home.gameState = "levelSelect";
     }

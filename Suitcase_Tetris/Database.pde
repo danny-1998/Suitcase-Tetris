@@ -59,7 +59,8 @@ void AllScores()
     println("boop");
     println("doop");
     println("I'm in");
-    //msql.query("INSERT INTO Highscore (Username, score) values ('"+ Username +"', '"+ punten +"')"); //doe een query
+    println("User_id =" + databaseID);
+    msql.query("INSERT INTO Highscore (User_id, score) values("+ databaseID +", "+ punten +")"); //doe een query
     //msql.query("DELETE FROM Highscore WHERE Username = 'dud'"); //delete a specific user entry
     println( "Username \t\t score \t\t " );
     println( "==================================================" );
@@ -113,6 +114,11 @@ void Login() {
       println("user exists");
       if (databasePass.equals(home.passWord)) {
         println("correct password, welcome " + home.userName);
+        msql.query("SELECT U.User_id FROM User U WHERE Username = '" + home.userName + "'");
+        while (msql.next()){
+        databaseID = msql.getInt("User_id");
+        println(databaseID);
+        }
         Username = home.userName;
         home.gameState = "levelSelect";
       } else {

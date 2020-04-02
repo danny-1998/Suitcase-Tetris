@@ -29,7 +29,7 @@ class Score {
           //alles gaat sneller en grid wordt gecleared
           grid.gridClear();
           blockPlace.filledClear();
-          blockPlace.uwu = 0;
+          blockPlace.blockCount = 0;
           dt1 = dt1 - (22/10);
           dt2 = dt2 - (22/15);
           dt3 = dt3 - (22/22);
@@ -43,7 +43,7 @@ class Score {
       if (filledPercentage == 100) {
         grid.gridClear();
         blockPlace.filledClear();
-        blockPlace.uwu = 0;
+        blockPlace.blockCount = 0;
         dt1 = dt1 - (22/10);
         dt2 = dt2 - (22/15);
         dt3 = dt3 - (22/22);
@@ -75,7 +75,7 @@ class Score {
         uploaddone = true;
       }
       //println("lol");
-      home.gameState = 3;
+      home.gameState = "gameOver";
       fill(255, 0, 0);
       rect(0, 0, width, height);
       textMode(CENTER);

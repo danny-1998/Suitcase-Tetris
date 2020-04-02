@@ -18,7 +18,7 @@ class Control {
       cooldownAmount = 10;
     } else if (home.insane) {      //if hard mode is selected, the cooldown is 15 frames
       cooldownAmount = 15;
-    } else if (home.gameState == 4){
+    } else if (home.gameState == "tutorial"){
      cooldownAmount = 3; 
     }
     if (keysPressed[65] && currentBlock.minX > 0 && cooldown1 ==  0 && !blockLeft) {      //if a is pressed, and the block is not on the left edge, and the cooldown is inactive,

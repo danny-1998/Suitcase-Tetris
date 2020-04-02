@@ -3,72 +3,94 @@
 class HomeScreen {
   // deze class bevat alle verschillende schermen
   // homescreen, difficulty select en mogelijkheid om naar de verschillende modus te gaan
-  boolean gameStart = false;
-  boolean level = false;
-  boolean easy = false;
-  boolean balanced = false;
-  boolean insane = false;
-  boolean tutorial = false;
-  boolean easySelected = true;
-  boolean balancedSelected = false;
-  boolean insaneSelected = false;
-  boolean tutorialSelected = false;
+  boolean gameStart;
+  boolean level;
+  boolean easy;
+  boolean balanced;
+  boolean insane;
+  boolean tutorial;
   boolean musicLooping;
-  float pointX;
+  float pointXstandard = width/16;
+  float pointX = pointXstandard;
+  float pointXAddEasy = 1;
+  float pointXAddBalanced = 5;
+  float pointXAddInsane = 9;
+  float pointXAddTutorial = 13;
   float pointY;
-  int gameState;
-  int navigation;
+  int difficultyScaler;
   boolean press;
-
-
+  String gameState = "homeScreen";
+  // gameState 1 = homeScreen
+  // gameState 2 = levelSelect
+  // gameState 3 = play
+  // gameState 4 = gameOver
+  // gameState 5 = tutorial
+  String select = "easy";
+  //select 1 = easy
+  //select 2 = balanced
+  //select 3 = insane
+  //select 4 = tutorial
+  StringList letters = new StringList();
+  String userName = "";
+  String passWord = "";
+  Boolean userNameSelected = true;
+  Boolean enterLock = false;
+  
+  float slide = 900;
+  float on = 1015;
+  float xmas = width + 300;
+  float sprite = 848;
 
 
 
   void homeDraw() {
     // gameStart houdt in dat de game bezig is (er zijn blokken die vallen)
-    if (gameState == 0) {
+    if (gameState == "homeScreen") {
       fill (255, 174, 201);
       rect(0, 0, width, height);
+      String[] singleLetters = letters.array();
+      if(userNameSelected){
+      userName = join(singleLetters, "");
+      } else {
+      passWord = join(singleLetters, "");  
+      }
       textMode(CENTER);
       textSize(50);
       fill(0);
-      text("Press B to continue", score.TextX-75, 3*(height/4));
+      text(userName, score.TextX-75, 3*(height/4));
+      text(passWord, score.TextX-75, 3*(height/4)+30);
+      if(passcheck){
+      text("Incorrect Password", score.TextX-75, 3*(height/4)+60);
+      }
       spriteSheet.update();
       spriteSheet.draw(2*(width/7), height/4);
       //image(logo, 2*(width/7), height/4);
     }
-    // gamestate 0 = home screen
-    // gamestate 1 = difficulty select
-    // gamestate 2 = game
-    // gamestate 3 = game over
-    // gamestate 4 = tutorial
-    if (gameState == 1) {
+
+    if (gameState == "levelSelect") {
+
       image(Level, 0, 0, width, height);
       image(pointer, pointX, pointY);
       pointY = height - (height / 4);
-      if (easySelected == true) {
-        pointX = width / 16;
-        balancedSelected = false;
-        insaneSelected = false;
-        tutorialSelected = false;
-      }
-      if (balancedSelected == true) {
-        pointX = (width / 16)*5;
-        easySelected = false;
-        insaneSelected = false;
-        tutorialSelected = false;
-      }
-      if (insaneSelected == true) {
-        pointX = (width / 16)*9;
-        easySelected = false;
-        balancedSelected = false;
-        tutorialSelected = false;
-      }
-      if (tutorialSelected == true) {
-        pointX = (width / 16)*13;
-        easySelected = false;
-        balancedSelected = false;
-        insaneSelected = false;
+
+      //location of the pointer
+      switch (select) {
+      case "easy": 
+        pointX = pointXstandard * pointXAddEasy;
+        break;
+      case "balanced":
+        pointX = pointXstandard * pointXAddBalanced;
+        break;
+      case "insane": 
+        pointX = pointXstandard * pointXAddInsane;
+        break;
+      case "tutorial":
+        pointX = pointXstandard * pointXAddTutorial;
+        break;
+
+      default:
+        println("error in select");
+        break;
       }
     }
     // e = easy, m = medium/balanced, h = hard/insane. dit verandert de sprites en snelheid van de blokken: e=groen m=blauw h=rood
@@ -83,25 +105,34 @@ class HomeScreen {
     }
   }
   void screenSelector() {
-    if (gameState == 0) {
+    if (gameState == "homeScreen") {
       if (!musicLooping) {               //if the music is not looping yet, it starts to play the background music, and activates the musicLooping boolean
         bgmusic.loop();
         musicLooping = true;
       }
-      if (keysPressed[ENTER]) {          //when you press enter, you advance the gameState to 1
-        gameState = 1;
+      if (keysPressed[ENTER] && !enterLock ) {          //when you press enter, you advance the gameState to 1
+        if(userNameSelected){
+         userNameSelected = false; 
+         letters.clear();
+         enterLock = true;
+        } else if (!enterLock){
+          Login();
+        }
       }
     }
-    if (gameState == 1) {             //if the music is not looping yet, it starts to play the background music, and activates the musicLooping boolean
+    if (gameState == "levelSelect") {             //if the music is not looping yet, it starts to play the background music, and activates the musicLooping boolean
       if (!musicLooping) {
         bgmusic.loop();
         musicLooping = true;
+      }
+      if (keyCode == 83){
+      gameState = "setting";
       }
       // dit zorgt ervoor dat de pointer kan bewegen
       //to the right
       if (keyCode == 68) {
         if (!press) {
-          navigation++;
+          difficultyScaler++;
           press = true;
         }
       }
@@ -110,69 +141,73 @@ class HomeScreen {
           press = false;
         }
       }
-      println(navigation);
-      if (navigation > 3) {
-        navigation = 3;
+
+      if (difficultyScaler > 4) {
+        difficultyScaler = 4;
       }
       //to the left
       if (keyCode == 65) {
         if (!press) {
-          navigation--;
+          difficultyScaler--;
           press = true;
         }
       }
 
+      //location of the pointer determents the dificulty that you play on
+      switch(difficultyScaler) {
+      case 1:
+        select = "easy";
+        break;
+      case 2:
+        select = "balanced";
+        break;
+      case 3:
+        select = "insane";
+        break;
+      case 4:
+        select = "tutorial";
+        break;
+      default:
+        difficultyScaler = 1;
+        println("error in scaler");
+        break;
+      }
+      //switch to playing state using the difficutly selected by the pointer after a (on the controler) or c (on keyboard) is pressed
+      switch(select) {
+      case "easy":
+        if (keysPressed[67]) {
+          easy = true;
+          gameState = "play";
+        }
+        break;
+      case "balanced":
+        if (keysPressed[67]) {
+          balanced = true;                                        
+          gameState = "play";
+        }
+        break;
+      case "insane":
+        if (keysPressed[67]) {
+          insane = true;                                        
+          gameState = "play";
+        }
+        break;
+      case "tutorial":
+        if (keysPressed[67]) {
+          tutorial = true;
+          gameState = "tutorial";
+        }
+        break;
 
-      if (navigation < 0) {
-        navigation = 0;
-      }
-      //easy naar balanced
-      if (navigation == 1 && easySelected) {
-        easySelected = false;
-        balancedSelected = true;
-      }
-      //balanced naar insane
-      if (navigation == 2 && balancedSelected) {
-        balancedSelected = false;
-        insaneSelected = true;
-      }
-      //insane naar tutorial
-      if (navigation == 3 && insaneSelected) {
-        insaneSelected = false;
-        tutorialSelected = true;
-      }
-      //tutorial naar insane
-      if (navigation == 2 && tutorialSelected) {
-        tutorialSelected = false;
-        insaneSelected = true;
-      }
-      //insane naar balanced
-      if (navigation == 1 && insaneSelected) {
-        insaneSelected = false;
-        balancedSelected = true;
-      }
-      //balanced naar easy
-      if (navigation == 0 && balancedSelected) {
-        balancedSelected = false;
-        easySelected = true;
-      }
-      if (keysPressed[49] || keysPressed[97] || (pointX == width / 16 && keysPressed[67])) {          //if you press the 1 key (2nd number is for the numpad) it activates easy mode and advances the gameState to 2
-        easy = true;
-        gameState = 2;
-      } else if (keysPressed[50] || keysPressed[98] || (pointX == (width / 16)*5 && keysPressed[67])) {
-        balanced = true;                                        //if you press the 2 key it activates medium mode and advances the gameState to 2
-        gameState = 2;
-      } else if (keysPressed[51] || keysPressed[99] || (pointX == (width / 16)*9 && keysPressed[67])) {
-        insane = true;                                        //if you press the 3 key it activates hard mode, and advances the gameState to 3
-        gameState = 2;
-      }
-      if (keysPressed[52] || keysPressed[100] || (pointX == (width / 16)*13 && keysPressed[67] && tutorialSelected == true)) {
-        tutorial = true;
-        gameState = 4;
+      default:
+        println("play error");
+        break;
       }
     }
-    if (gameState == 2) {
+    if (gameState == "play") {
+
       gameStart = true;                            //if the gameState is at 2, it starts the gameplay itself. If you die in the game, the gameState advances to 3
+
       if (easy) {
         image(gameE, 0, 0);
       }
@@ -190,14 +225,14 @@ class HomeScreen {
     } else {                                        //if the gameState is not 2, none of the gameplay code is run, which makes everything a bit more efficient
       gameStart = false;
     }
-    if (gameState == 3) {                            
+    if (gameState == "gameOver") {                            
       bgmusic.stop();                               //if the gameState is 3, the background music is stopped, and musicLooping is deactivated
       musicLooping = false;
       if (keysPressed[ENTER]) {                     //if you press the ENTER key, it resets all the variables which directly impact gameplay, and reverts the gameState to 1, so you can start the game again
-        gameState = 1;
+        gameState = "levelSelect";
         grid.gridClear();
         blockPlace.filledClear();
-        blockPlace.uwu = 0;
+        blockPlace.blockCount = 0;
         for (int w = 0; w < 22; w++) {
           for (int h = 0; h<20; h++) {  
             score.scorePlus[w][h] = false;
@@ -206,11 +241,50 @@ class HomeScreen {
         score.Score = 0;
       }
     }
-    if (gameState == 4) {
+    if (gameState == "tuturial") {
       if (tutorial) {
         image(gameT, 0, 0);
       }
-      tutorial.draw();
+    }
+    if (gameState == "setting"){
+      if (keyCode == 66){
+      gameState = "levelSelect";
+      }
+      
+    image(settingTab,0,0);
+    rect(slide, 540, 10, 50);
+    ellipse(on, 680, 50, 50);
+    if (keyCode == 79){
+    on = 1015;
+    }
+    if (keyCode == 80){
+    on = 1225;
+    }
+    text(userName, 755, 230);
+    text(passWord, 755, 350);
+    text("uwu", xmas, 815);
+    if (keyCode == 75){
+    xmas = 1080;
+    }
+    if (keyCode == 74){
+    xmas = width + 300;
+    }
+    rect(sprite, 990, 100, 10);
+    if (keyCode == 49){
+    sprite = 850;
+    }
+    if (keyCode == 50){
+    sprite = 1060;
+    }
+    if (keyCode == 51){
+    sprite = 1270;
+    }
+    if (keyCode == 37 && slide > 900){
+    slide -= 1;
+    }
+    if (keyCode == 39 && slide < 1400){
+    slide += 1;
+    }
     }
   }
 }

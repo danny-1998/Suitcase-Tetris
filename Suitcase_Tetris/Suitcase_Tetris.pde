@@ -224,6 +224,27 @@ void draw(){
 void keyPressed() {
   if (keyCode >= KEY_LIMIT) return;    //if a key is pressed that has a keyCode higher than the key limit, the function doesnt go further than this, so it doesnt potentially break anything
   keysPressed[keyCode] = true;         //if a key is pressed, it turns a boolean specific to that key to true, which gets used in the controlls
+
+  if (home.gameState == "homeScreen") {
+    switch(keyCode) {
+    case 8:
+      if (home.letters.size() > 0) {
+        home.letters.remove(home.letters.size()-1);
+      }
+      break;
+    case 10:
+      //to do on enter
+      break;
+    case 16:
+
+      break;
+    default:
+      if((64 < keyCode && keyCode < 91) || (47 < keyCode && keyCode < 58)){
+      home.letters.append(key + "");
+      }
+      break;
+    }
+  }
 }
 
 void keyReleased() {
@@ -235,6 +256,9 @@ void keyReleased() {
   }
  if(keyCode == SHIFT){
     control.shiftLock = false;
+  }
+  if(keyCode == ENTER){
+    home.enterLock = false;
   }
 
   /*if (keyPressed == true)//in milliseconds

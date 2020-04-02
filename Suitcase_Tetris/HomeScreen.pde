@@ -37,7 +37,9 @@ class HomeScreen {
   Boolean enterLock = false;
   
   float slide = 900;
-  float on = 0;
+  float on = 1015;
+  float xmas = width + 300;
+  float sprite = 848;
 
 
 
@@ -242,13 +244,38 @@ class HomeScreen {
       }
     }
     if (gameState == "setting"){
+      if (keyCode == 66){
+      gameState = "levelSelect";
+      }
+      
     image(settingTab,0,0);
     rect(slide, 540, 10, 50);
-    //ellipse();
+    ellipse(on, 680, 50, 50);
+    if (keyCode == 79){
+    on = 1015;
+    }
+    if (keyCode == 80){
+    on = 1225;
+    }
     text(userName, 755, 230);
     text(passWord, 755, 350);
-    //text();
-    //line();
+    text("uwu", xmas, 815);
+    if (keyCode == 75){
+    xmas = 1080;
+    }
+    if (keyCode == 74){
+    xmas = width + 300;
+    }
+    rect(sprite, 990, 100, 10);
+    if (keyCode == 49){
+    sprite = 850;
+    }
+    if (keyCode == 50){
+    sprite = 1060;
+    }
+    if (keyCode == 51){
+    sprite = 1270;
+    }
     if (keyCode == 37 && slide > 900){
     slide -= 1;
     }

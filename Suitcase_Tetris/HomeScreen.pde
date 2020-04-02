@@ -232,6 +232,7 @@ class HomeScreen {
       if (keysPressed[ENTER]) {                     //if you press the ENTER key, it resets all the variables which directly impact gameplay, and reverts the gameState to 1, so you can start the game again
         gameState = "levelSelect";
         grid.gridClear();
+        dbUsers.clear();
         blockPlace.filledClear();
         blockPlace.blockCount = 0;
         for (int w = 0; w < 22; w++) {

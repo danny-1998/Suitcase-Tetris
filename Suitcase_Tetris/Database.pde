@@ -5,10 +5,11 @@ import de.bezier.data.sql.*;
 
 MySQL msql;
 public int recordCount = 0;
-public String Username = "err"; //VOER JE NAAM HIER IN. BESTAAT UIT DRIE LETTERS EN KAN AL EERDER ZIJN GEBRUIKT
+public String Username = "err";
 public String Password;
 public int punten;
 public int databaseID;
+public int highscore;
 
 // This is a data model class to reflect the content of the User entity from the database.
 class RecordUser {
@@ -59,20 +60,22 @@ void AllScores()
     println("boop");
     println("doop");
     println("I'm in");
-    msql.query("INSERT INTO Highscore (Username, score) values ('"+ Username +"', '"+ punten +"')"); //doe een query
+    msql.query("INSERT INTO Highscore (User_id, score) values("+ databaseID +", "+ punten +")"); //doe een query
     //msql.query("DELETE FROM Highscore WHERE Username = 'dud'"); //delete a specific user entry
     println( "Username \t\t score \t\t " );
     println( "==================================================" );
-    msql.query("SELECT * FROM Highscore ORDER BY score DESC" ); // nog een query
+    msql.query("SELECT Highscore.User_id, Highscore.score, User.Username FROM Highscore INNER JOIN User ON Highscore.User_id=User.User_id ORDER BY Highscore.score DESC");
 
-    //int recordCount = 0; // aantal records in de database
-    while ( msql.next() ) //als er in de database tabel nog entries zijn, ga dan nog eens door het volgende:
-    {
-      println(msql.getString("Username") + " \t\t " + msql.getInt("score") );
-      dbUsers.add(new RecordUser(msql.getString("Username"), msql.getInt("score"))); // idk om eerlijk te zijn
+    //int recordCount = 0; // aantal records in de database 
+    while ( msql.next() ) { //als er in de database tabel nog entries zijn, ga dan nog eens door het volgende: 
+      println(msql.getString("User_id") + " \t\t " + msql.getInt("score") ); 
+      dbUsers.add(new RecordUser(msql.getString("User.Username"), msql.getInt("Highscore.Score"))); // idk om eerlijk te zijn 
       recordCount++;
+    } 
+    msql.query("SELECT User.Username, MAX(Highscore.score) FROM Highscore JOIN User ON User.User_id = Highscore.User_id WHERE Highscore.User_id = '"+ databaseID +"'"); 
+    while (msql.next()) { 
+      highscore = msql.getInt("MAX(Highscore.score)");
     }
-    println("Number of records: " + recordCount );
   } else
   {
     // connection failed !
@@ -110,20 +113,19 @@ void Login() {
         println("correct password, welcome " + home.userName);
         Username = home.userName;
         home.gameState = "levelSelect";
-         msql.query("SELECT U.User_id FROM User U WHERE Username = '" + home.userName + "'"); 
-        while (msql.next()){ 
-        databaseID = msql.getInt("User_id"); 
-        println(databaseID); 
+        msql.query("SELECT U.User_id FROM User U WHERE Username = '" + home.userName + "'"); 
+        while (msql.next()) { 
+          databaseID = msql.getInt("User_id"); 
+          println(databaseID);
         }
         msql.query("SELECT * FROM Setting WHERE User_id = "+ databaseID);
-        while(msql.next()){
-        home.slide = msql.getInt("Music_volume");
-        home.on = msql.getInt("SFX_volume");
-        home.xmas = msql.getInt("Xmas_mode");
-        home.sprite = msql.getInt("Spriteset");
-       println(home.slide); 
-      }
-        
+        while (msql.next()) {
+          home.slide = msql.getInt("Music_volume");
+          home.on = msql.getInt("SFX_volume");
+          home.xmas = msql.getInt("Xmas_mode");
+          home.sprite = msql.getInt("Spriteset");
+          println(home.slide);
+        }
       } else {
         println("you stupid");
         passcheck = true;
@@ -164,6 +166,9 @@ void DatabaseText() {
   //fill(51, 255, 0);  // old DOS green
 
   int positionY = positionYSpacing;
+  text("Personal Best", 500, positionY); 
+  text(home.userName, 500, positionY*2); 
+  text(highscore, 650, positionY*2); 
   text("Username", 100, positionY);
   text("Score", 250, positionY); 
   for (RecordUser record : dbUsers) {

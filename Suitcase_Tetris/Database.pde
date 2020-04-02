@@ -126,6 +126,8 @@ void Login() {
       }
       msql.query("INSERT INTO Setting (User_id, Music_volume, SFX_volume, Spriteset, Xmas_mode) VALUES ('"+ databaseID +"', '100', '0', '0', '0')");
       println("default settings created");
+      msql.query("INSERT INTO Stat (User_id, Time_played, Number_of_games) VALUES ('"+ databaseID +"', '0', '0')");
+      println("default test data created");
       Username = home.userName;
       home.gameState = "levelSelect";
     }

@@ -59,11 +59,11 @@ void AllScores()
     println("boop");
     println("doop");
     println("I'm in");
-    msql.query("INSERT INTO Highscore (Username, score) values ('"+ Username +"', '"+ punten +"')"); //doe een query
+    //msql.query("INSERT INTO Highscore (Username, score) values ('"+ Username +"', '"+ punten +"')"); //doe een query
     //msql.query("DELETE FROM Highscore WHERE Username = 'dud'"); //delete a specific user entry
     println( "Username \t\t score \t\t " );
     println( "==================================================" );
-    msql.query("SELECT * FROM Highscore ORDER BY score DESC" ); // nog een query
+    msql.query("SELECT Highscore.User_id, Highscore.score, User.Username FROM Highscore INNER JOIN User ON Highscore.User_id=User.User_id ORDER BY Highscore.score DESC");
 
     //int recordCount = 0; // aantal records in de database
     while ( msql.next() ) //als er in de database tabel nog entries zijn, ga dan nog eens door het volgende:
@@ -82,6 +82,11 @@ void AllScores()
     // - try connecting through other means (terminal or console / MySQL workbench / ...)
     println( " Failed to create MYSQL connection." );
   }
+  //int recordCount = 0; // aantal records in de database
+  while ( msql.next() ){ //als er in de database tabel nog entries zijn, ga dan nog eens door het volgende:
+    println(msql.getString("User_id") + " \t\t " + msql.getInt("score") );
+    dbUsers.add(new RecordUser(msql.getString("User.Username"), msql.getInt("Highscore.Score"))); // idk om eerlijk te zijn
+    recordCount++;
 }
 
 boolean passcheck = false;

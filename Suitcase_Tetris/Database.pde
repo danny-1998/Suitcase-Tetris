@@ -53,7 +53,7 @@ void CreateDatabaseConnection()
 
 void AllScores()
 {
-  if ( msql.connect() )
+  if ( msql.connect() ) //conncect met database
   {
     println("boop");
     println("doop");
@@ -62,13 +62,13 @@ void AllScores()
     //msql.query("DELETE FROM Highscore WHERE Username = 'dud'"); //delete a specific user entry
     println( "Username \t\t score \t\t " );
     println( "==================================================" );
-    msql.query("SELECT * FROM Highscore ORDER BY score DESC" );
+    msql.query("SELECT * FROM Highscore ORDER BY score DESC" ); // nog een query
 
     //int recordCount = 0; // aantal records in de database
     while ( msql.next() ) //als er in de database tabel nog entries zijn, ga dan nog eens door het volgende:
     {
       println(msql.getString("Username") + " \t\t " + msql.getInt("score") );
-      dbUsers.add(new RecordUser(msql.getString("Username"), msql.getInt("score")));
+      dbUsers.add(new RecordUser(msql.getString("Username"), msql.getInt("score"))); // idk om eerlijk te zijn
       recordCount++;
     }
     println("Number of records: " + recordCount );
@@ -89,12 +89,12 @@ void Login() {
   String databaseName = "bla";
   String databasePass = "blo";
   println("beginning login process...");
-  if (msql.connect() ) {
+  if (msql.connect() ) { //connecting to database
     println("starting query");
-    msql.query("SELECT * FROM User WHERE Username = '" + home.userName + "'");
+    msql.query("SELECT * FROM User WHERE Username = '" + home.userName + "'"); //query om te zoeken naar de username die je hebt opgeschreven op het inlogscherm
     println("query done");
     println("checking credentials...");
-    while (msql.next()) {
+    while (msql.next()) { // dit moet je gebruiken als je msql.getString wilt gebruiken (for some reason)
       databaseName = msql.getString("Username");
       println("naam in database: " + databaseName);
       println("ingevoerde naam: " + home.userName);
@@ -102,7 +102,7 @@ void Login() {
       println("pass in database: " + databasePass);
       println("ingevoerde pass: " + home.passWord);
     }
-    if (databaseName.equals(home.userName)) {
+    if (databaseName.equals(home.userName)) { //.equals gebruik je voor vergelijken van Strings in plaats van ==
       println("user exists");
       if (databasePass.equals(home.passWord)) {
         println("correct password, welcome " + home.userName);
@@ -114,7 +114,7 @@ void Login() {
       }
     } else {
       println("new user detected. making account...");
-      msql.query("INSERT INTO User (Username, Password) values ('"+ home.userName +"', '"+ home.passWord +"')");
+      msql.query("INSERT INTO User (Username, Password) values ('"+ home.userName +"', '"+ home.passWord +"')"); //stop een nieuwe user in de User tabel in de database met de naam en het wachtwoord wat is opgeschreven in het startscherm
       Username = home.userName;
       home.gameState = "levelSelect";
     }

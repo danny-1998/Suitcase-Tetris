@@ -233,7 +233,6 @@ class HomeScreen {
         gameState = "levelSelect";
         grid.gridClear();
         blockPlace.filledClear();
-        dbUsers.clear();
         blockPlace.blockCount = 0;
         for (int w = 0; w < 22; w++) {
           for (int h = 0; h<20; h++) {  

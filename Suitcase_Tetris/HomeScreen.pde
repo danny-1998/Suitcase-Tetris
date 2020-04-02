@@ -108,8 +108,7 @@ class HomeScreen {
          letters.clear();
          enterLock = true;
         } else if (!enterLock){
-         //insert the strings to the database
-         gameState = "levelSelect";
+          Login();
         }
       }
     }

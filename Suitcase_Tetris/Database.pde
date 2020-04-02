@@ -5,7 +5,7 @@ import de.bezier.data.sql.*;
 
 MySQL msql;
 public int recordCount = 0;
-public String Username; //VOER JE NAAM HIER IN. BESTAAT UIT DRIE LETTERS EN KAN AL EERDER ZIJN GEBRUIKT
+public String Username = "err"; //VOER JE NAAM HIER IN. BESTAAT UIT DRIE LETTERS EN KAN AL EERDER ZIJN GEBRUIKT
 public String Password;
 public int punten;
 
@@ -59,8 +59,7 @@ void AllScores()
         println("doop");
         println("I'm in");
         msql.query("INSERT INTO Highscore (Username, score) values ('"+ Username +"', '"+ punten +"')"); //doe een query
-        println("drie");
-        //msql.query("DELETE FROM Highscore WHERE Username = 'dud'");
+        //msql.query("DELETE FROM Highscore WHERE Username = 'dud'"); //delete a specific user entry
         println( "Username \t\t score \t\t " );
         println( "==================================================" );
         msql.query("SELECT * FROM Highscore ORDER BY score DESC" );
@@ -75,6 +74,41 @@ void AllScores()
         println("Number of records: " + recordCount );
     }
     else
+    {
+        // connection failed !
+        
+        // - check your login, password
+        // - check that your server runs on localhost and that the port is set right
+        // - try connecting through other means (terminal or console / MySQL workbench / ...)
+        println( " Failed to create MYSQL connection." );
+    }
+}
+
+void Login(){
+  if (msql.connect() ){
+    msql.query("SELECT * FROM User WHERE Username = '" + home.userName + "'");
+    String databaseName = msql.getString("Username");
+    println(databaseName);
+    if (databaseName == home.userName){
+      println("user exists");
+      String databasePass = msql.getString("Password");
+      if(databasePass == home.passWord){
+        println("correct password, welcome " + home.userName);
+        Username = home.userName;
+        home.gameState = "levelSelect";
+      }
+      else{
+        text("Incorrect Password", score.TextX-75, 3*(height/4)+60);
+      }
+    }
+    else{
+      println("new user detected. making account...");
+      msql.query("INSERT INTO User (Username, Password) values ('"+ home.userName +"', '"+ home.passWord +"')");
+      Username = home.userName;
+      home.gameState = "levelSelect";
+    }
+  }
+  else
     {
         // connection failed !
         

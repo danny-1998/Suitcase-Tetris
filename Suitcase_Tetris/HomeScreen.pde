@@ -59,6 +59,9 @@ class HomeScreen {
       fill(0);
       text(userName, score.TextX-75, 3*(height/4));
       text(passWord, score.TextX-75, 3*(height/4)+30);
+      if(passcheck){
+      text("Incorrect Password", score.TextX-75, 3*(height/4)+60);
+      }
       spriteSheet.update();
       spriteSheet.draw(2*(width/7), height/4);
       //image(logo, 2*(width/7), height/4);

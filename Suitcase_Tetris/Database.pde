@@ -83,6 +83,8 @@ void AllScores()
   }
 }
 
+boolean passcheck = false;
+
 void Login() {
   String databaseName = "bla";
   String databasePass = "blo";
@@ -108,7 +110,7 @@ void Login() {
         home.gameState = "levelSelect";
       } else {
         println("you stupid");
-        text("Incorrect Password", score.TextX-75, 3*(height/4)+60);
+        passcheck = true;
       }
     } else {
       println("new user detected. making account...");

@@ -117,6 +117,9 @@ class HomeScreen {
         bgmusic.loop();
         musicLooping = true;
       }
+      if (keyCode == 83){
+      gameState = "setting";
+      }
       // dit zorgt ervoor dat de pointer kan bewegen
       //to the right
       if (keyCode == 68) {
@@ -234,6 +237,9 @@ class HomeScreen {
       if (tutorial) {
         image(gameT, 0, 0);
       }
+    }
+    if (gameState == "setting"){
+    image(settingTab,0,0);
     }
   }
 }

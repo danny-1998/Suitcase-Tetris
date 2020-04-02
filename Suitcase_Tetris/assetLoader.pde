@@ -11,7 +11,7 @@ PImage spriteN[] = new PImage[72];
 PImage kerst;
 SoundFile beep, bgmusic, gameover;
 
-PImage Level, logo, gameE, gameB, gameI, gameT;
+PImage Level, logo, gameE, gameB, gameI, gameT, setting, settingTab;
 
 PImage commaSprite, ISprite, JSprite, LSprite, OSprite, pointSprite, SSprite, ZSprite, TSprite; 
 
@@ -39,6 +39,7 @@ public void loadAssets () {
   gameB = loadImage("./sprites/Gamebg-balanced.png");
   gameI = loadImage("./sprites/Gamebg-insane.png");
   gameT = loadImage("./sprites/Gamebg-tutorial.png");
+  settingTab = loadImage("./sprites/settingstab.png");
 
   // block sprites
 

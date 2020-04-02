@@ -252,7 +252,7 @@ class HomeScreen {
       }
       
     image(settingTab,0,0);
-    rect(slide, 540, 10, 50);
+    
     ellipse(on, 680, 50, 50);
     if (keyCode == 79){
     on = 1015;
@@ -279,6 +279,7 @@ class HomeScreen {
     if (keyCode == 51){
     sprite = 1270;
     }
+    rect(slide, 540, 10, 50);
     if (keyCode == 37 && slide > 900){
     slide -= 1;
     }

@@ -35,6 +35,9 @@ class HomeScreen {
   String passWord = "";
   Boolean userNameSelected = true;
   Boolean enterLock = false;
+  
+  float slide = 900;
+  float on = 0;
 
 
 
@@ -240,6 +243,18 @@ class HomeScreen {
     }
     if (gameState == "setting"){
     image(settingTab,0,0);
+    rect(slide, 540, 10, 50);
+    //ellipse();
+    text(userName, 755, 230);
+    text(passWord, 755, 350);
+    //text();
+    //line();
+    if (keyCode == 37 && slide > 900){
+    slide -= 1;
+    }
+    if (keyCode == 39 && slide < 1400){
+    slide += 1;
+    }
     }
   }
 }

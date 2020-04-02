@@ -31,6 +31,7 @@ class HomeScreen {
   //select 3 = insane
   //select 4 = tutorial
   StringList letters = new StringList();
+  int userID;
   String userName = "";
   String passWord = "";
   Boolean userNameSelected = true;

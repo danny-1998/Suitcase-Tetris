@@ -31,21 +31,13 @@ class CommaBlock {
   }
 
   void CommaBlockDraw () {
-    ZeroX = mainBlockX*50+350;
-    ZeroY = mainBlockY*50-10;
-    OneX = mainBlockX*50+350;
-    OneY = mainBlockY*50+40;
-    TwoX = mainBlockX*50+300;
-    TwoY = mainBlockY*50+40;
-    ThreeX = mainBlockX*50+300;
-    ThreeY = mainBlockY*50-10;
     mainBlockX = currentBlock.currentBlockX;
     mainBlockY = currentBlock.currentBlockY;
 
     if (control.rotation == 0) {
       block0X = mainBlockX;                  // the block looks like this:
       block0Y = mainBlockY - 1;              //        [0]
-      //        [M][2]              
+                                             //        [M][2]              
       block2X = mainBlockX + 1;
       block2Y = mainBlockY;
 
@@ -60,7 +52,7 @@ class CommaBlock {
     if (control.rotation == 1) {
       block0X = mainBlockX + 1;              // the block looks like this:
       block0Y = mainBlockY;                  //        [M][0]
-      //        [2]
+                                             //        [2]
       block2X = mainBlockX;
       block2Y = mainBlockY + 1;
 
@@ -75,7 +67,7 @@ class CommaBlock {
     if (control.rotation == 2) {
       block0X = mainBlockX;                  // the block looks like this:
       block0Y = mainBlockY + 1;              //     [2][M]
-      //        [0]
+                                             //        [0]
       block2X = mainBlockX - 1;
       block2Y = mainBlockY;
 
@@ -90,7 +82,7 @@ class CommaBlock {
     if (control.rotation == 3) {
       block0X = mainBlockX - 1;              // the block looks like this
       block0Y = mainBlockY;                  //            [2] 
-      //         [0][M]
+                                             //         [0][M]
       block2X = mainBlockX;
       block2Y = mainBlockY - 1;
 
@@ -114,6 +106,7 @@ class CommaBlock {
     } else {
       onEdgeRight = false;
     }
+<<<<<<< Updated upstream
 
 
       if (control.rotation == 0) {                // all of the following code is for rotating the block
@@ -138,8 +131,45 @@ class CommaBlock {
               control.blockRight = false;
             }
           }
+=======
+//easy
+if (home.easy == true || home.tutorial == true){
+if (control.rotation == 0) {                // all of the following code is for rotating the block
+ image(spriteN[0], ZeroX, ZeroY);
+      if (mainBlockX > 0) { 
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block2X+1][block2Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+
+    if (control.rotation == 1) {
+       image(spriteN[9], OneX, OneY);
+      if (mainBlockX > 0) {
+        if (grid.cells[mainBlockX-1][mainBlockY] > 0 || grid.cells[block2X-1][block2Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 2) {
+        if (grid.cells[block0X+1][block0Y] > 0 || grid.cells[block2X+1][block2Y] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+>>>>>>> Stashed changes
         }
 
+<<<<<<< Updated upstream
         if (control.rotation == 1) {
           image(spriteN[9], OneX, OneY);
           if (mainBlockX > 0) {
@@ -156,8 +186,18 @@ class CommaBlock {
               control.blockRight = false;
             }
           }
+=======
+    if (control.rotation == 2) {
+       image(spriteN[16], TwoX, TwoY);
+      if (mainBlockX > 1) {
+        if (grid.cells[block2X-1][block2Y] > 0 || grid.cells[block0X-1][block0Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+>>>>>>> Stashed changes
         }
 
+<<<<<<< Updated upstream
         if (control.rotation == 2) {
           image(spriteN[16], TwoX, TwoY);
           if (mainBlockX > 1) {
@@ -174,6 +214,35 @@ class CommaBlock {
               control.blockRight = false;
             }
           }
+=======
+    if (control.rotation == 3) {
+       image(spriteN[20], ThreeX, ThreeY);
+      if (mainBlockX > 1) {
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[block2X-1][block2Y] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+        }
+      }
+      if (mainBlockX < grid.w - 1) {
+        if (grid.cells[block2X+1][block2Y] > 0 || grid.cells[mainBlockX+1][mainBlockY] > 0) {
+          control.blockRight = true;
+        } else {
+          control.blockRight = false;
+        }
+      }
+    }
+}
+//balanced
+if (home.balanced == true){
+if (control.rotation == 0) {                // all of the following code is for rotating the block
+ image(spriteN[0+24], ZeroX, ZeroY);
+      if (mainBlockX > 0) { 
+        if (grid.cells[block0X-1][block0Y] > 0 || grid.cells[mainBlockX-1][mainBlockY] > 0) {
+          control.blockLeft = true;
+        } else {
+          control.blockLeft = false;
+>>>>>>> Stashed changes
         }
 
         if (control.rotation == 3) {

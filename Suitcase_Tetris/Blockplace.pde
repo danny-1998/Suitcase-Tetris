@@ -187,7 +187,6 @@ class Location {
       ghosty = 940;*/
     //image(spriteN[0], 500, 500);
     //println(uwu+1); //hoeveel blokken er op het scherm zijn
-    //println(uwu);
   }
   //dit waren de 'bottom checks'
 
@@ -200,7 +199,6 @@ class Location {
         }
         if (filled[i][b] == 1) {
           grid.cells[i][b] = filled[i][b]; // dan worden hier alle cells in de grid gelijk gemaakt aan 'filled'. filled bestaat nu uit grid.cells en het nieuwe, net gevallen blok.
-          
         }
       }
     }

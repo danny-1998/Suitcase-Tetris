@@ -159,6 +159,7 @@ class SpriteSheet {
     image(drawImage, x, y);
   }
 
+<<<<<<< Updated upstream
 
 
   // images
@@ -169,6 +170,8 @@ class SpriteSheet {
 
 
 
+=======
+>>>>>>> Stashed changes
 
   // images
 }

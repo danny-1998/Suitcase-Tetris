@@ -281,10 +281,10 @@ class HomeScreen {
     }
     rect(slide, 540, 10, 50);
     if (keyCode == 37 && slide > 900){
-    slide -= 1;
+    slide -= 5;
     }
     if (keyCode == 39 && slide < 1400){
-    slide += 1;
+    slide += 5;
     }
     }
   }

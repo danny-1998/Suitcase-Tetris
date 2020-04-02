@@ -159,7 +159,7 @@ class SpriteSheet {
     image(drawImage, x, y);
   }
 
-<<<<<<< HEAD
+
 
   // images
 
@@ -167,8 +167,8 @@ class SpriteSheet {
  
   
 
-=======
->>>>>>> master
+
+
 
   // images
 }

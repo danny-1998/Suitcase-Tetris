@@ -9,7 +9,7 @@ public String Username = "err"; //VOER JE NAAM HIER IN. BESTAAT UIT DRIE LETTERS
 public String Password;
 public int punten;
 public int databaseID;
-
+public int highscore;
 // This is a data model class to reflect the content of the User entity from the database.
 class RecordUser {
 
@@ -89,6 +89,11 @@ void AllScores()
     dbUsers.add(new RecordUser(msql.getString("User.Username"), msql.getInt("Highscore.Score"))); // idk om eerlijk te zijn
     recordCount++;
 }
+  msql.query("SELECT User.Username, MAX(Highscore.score) FROM Highscore JOIN User ON User.User_id = Highscore.User_id WHERE Highscore.User_id = '"+ databaseID +"'");
+  while(msql.next()){
+   highscore = msql.getInt("MAX(Highscore.score)"); 
+  }
+}
 
 boolean passcheck = false;
 
@@ -161,6 +166,9 @@ void DatabaseText() {
   //fill(51, 255, 0);  // old DOS green
 
   int positionY = positionYSpacing;
+  text("Personal Best", 500, positionY);
+  text(home.userName, 500, positionY*2);
+  text(highscore, 650, positionY*2);
   text("Username", 100, positionY);
   text("Score", 250, positionY); 
   for (RecordUser record : dbUsers) {

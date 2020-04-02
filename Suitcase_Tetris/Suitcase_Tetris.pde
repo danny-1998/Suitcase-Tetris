@@ -255,6 +255,9 @@ void keyReleased() {
  if(keyCode == SHIFT){
     control.shiftLock = false;
   }
+  if(keyCode == ENTER){
+    home.enterLock = false;
+  }
 
   /*if (keyPressed == true)//in milliseconds
    {

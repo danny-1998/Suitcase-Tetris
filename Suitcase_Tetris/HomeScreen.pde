@@ -34,6 +34,7 @@ class HomeScreen {
   String userName = "";
   String passWord = "";
   Boolean userNameSelected = true;
+  Boolean enterLock = false;
 
 
 
@@ -101,12 +102,14 @@ class HomeScreen {
         bgmusic.loop();
         musicLooping = true;
       }
-      if (keysPressed[ENTER]) {          //when you press enter, you advance the gameState to 1
+      if (keysPressed[ENTER] && !enterLock ) {          //when you press enter, you advance the gameState to 1
         if(userNameSelected){
          userNameSelected = false; 
          letters.clear();
-        } else {
+         enterLock = true;
+        } else if (!enterLock){
          //insert the strings to the database
+         gameState = "levelSelect";
         }
       }
     }

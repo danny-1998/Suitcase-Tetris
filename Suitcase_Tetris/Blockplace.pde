@@ -442,13 +442,12 @@ void ghost (){ //hier wordt de zogenaamde 'ghostblock' gemaakt. het laat zien wa
   // hier wordt dezelfde code als bij de collision detection gebruikt. het voornaamste verschil zit hem in de toevoeging van de 'downCount' variabele.
   // deze variable laat het transarante blok in een keer naar beneden vallen. de rest zorgt er voor dat het stop met vallen.
   // als er geen collision is, wordt 'downCount' met een verhoogt, en dus valt het transparante blok een extra naar beneden.
-  // 'downCount wordt weer naar 0 gebracht als het bestuurde blok wordt gedraait of opzij wordt geschoven.
+  // 'downCount' wordt weer naar 0 gebracht als het bestuurde blok wordt gedraait of opzij wordt geschoven.
   if (currentBlock.blockPicker == 1) {// t-block
       if ((tBlock.maxY+downCount >= grid.h-1) ||
         ((grid.cells[tBlock.mainBlockX][tBlock.maxY+1+downCount] == 1) ||
         ((grid.cells[tBlock.minX][tBlock.mainBlockY+1+downCount] == 1) && (tBlock.minX != tBlock.mainBlockX)) ||
         ((grid.cells[tBlock.maxX][tBlock.mainBlockY+1+downCount] == 1) && (tBlock.maxX != tBlock.mainBlockX)) ) ) {
-          //stop movement
       }
       else{
        downCount+=1; 

@@ -36,11 +36,11 @@ class HomeScreen {
   String passWord = "";
   Boolean userNameSelected = true;
   Boolean enterLock = false;
-  
-  float slide = 900;
-  float on = 1015;
-  float xmas = width + 300;
-  float sprite = 848;
+
+  int slide = 900;
+  int on = 1015;
+  int xmas = width + 300;
+  int sprite = 848;
 
 
 
@@ -50,18 +50,18 @@ class HomeScreen {
       fill (255, 174, 201);
       rect(0, 0, width, height);
       String[] singleLetters = letters.array();
-      if(userNameSelected){
-      userName = join(singleLetters, "");
+      if (userNameSelected) {
+        userName = join(singleLetters, "");
       } else {
-      passWord = join(singleLetters, "");  
+        passWord = join(singleLetters, "");
       }
       textMode(CENTER);
       textSize(50);
       fill(0);
       text(userName, score.TextX-75, 3*(height/4));
       text(passWord, score.TextX-75, 3*(height/4)+30);
-      if(passcheck){
-      text("Incorrect Password", score.TextX-75, 3*(height/4)+60);
+      if (passcheck) {
+        text("Incorrect Password", score.TextX-75, 3*(height/4)+60);
       }
       spriteSheet.update();
       spriteSheet.draw(2*(width/7), height/4);
@@ -112,11 +112,11 @@ class HomeScreen {
         musicLooping = true;
       }
       if (keysPressed[ENTER] && !enterLock ) {          //when you press enter, you advance the gameState to 1
-        if(userNameSelected){
-         userNameSelected = false; 
-         letters.clear();
-         enterLock = true;
-        } else if (!enterLock){
+        if (userNameSelected) {
+          userNameSelected = false; 
+          letters.clear();
+          enterLock = true;
+        } else if (!enterLock) {
           Login();
         }
       }
@@ -126,8 +126,8 @@ class HomeScreen {
         bgmusic.loop();
         musicLooping = true;
       }
-      if (keyCode == 83){
-      gameState = "setting";
+      if (keyCode == 83) {
+        gameState = "setting";
       }
       // dit zorgt ervoor dat de pointer kan bewegen
       //to the right
@@ -248,46 +248,51 @@ class HomeScreen {
         image(gameT, 0, 0);
       }
     }
-    if (gameState == "setting"){
-      if (keyCode == 66){
-      gameState = "levelSelect";
+    if (gameState == "setting") {
+      if (keyCode == 66) {
+        gameState = "levelSelect";
+        //database
+        msql.query("UPDATE Setting SET Music_volume = "+ slide +", SFX_volume = "+ on +", Xmas_mode = "+ xmas +", Spriteset = "+ sprite +" WHERE User_id = "+ databaseID);
+        println(slide);
+        println(databaseID);
+        //msql.query("UPDATE Setting SET Music_volume ="+ slide +" WHERE User_id ="+ databaseID);
       }
-      
-    image(settingTab,0,0);
-    
-    ellipse(on, 680, 50, 50);
-    if (keyCode == 79){
-    on = 1015;
-    }
-    if (keyCode == 80){
-    on = 1225;
-    }
-    text(userName, 755, 230);
-    text(passWord, 755, 350);
-    text("uwu", xmas, 815);
-    if (keyCode == 75){
-    xmas = 1080;
-    }
-    if (keyCode == 74){
-    xmas = width + 300;
-    }
-    rect(sprite, 990, 100, 10);
-    if (keyCode == 49){
-    sprite = 850;
-    }
-    if (keyCode == 50){
-    sprite = 1060;
-    }
-    if (keyCode == 51){
-    sprite = 1270;
-    }
-    rect(slide, 540, 10, 50);
-    if (keyCode == 37 && slide > 900){
-    slide -= 5;
-    }
-    if (keyCode == 39 && slide < 1400){
-    slide += 5;
-    }
+
+      image(settingTab, 0, 0);
+
+      ellipse(on, 680, 50, 50);
+      if (keyCode == 79) {
+        on = 1015;
+      }
+      if (keyCode == 80) {
+        on = 1225;
+      }
+      text(userName, 755, 230);
+      text(passWord, 755, 350);
+      text("uwu", xmas, 815);
+      if (keyCode == 75) {
+        xmas = 1080;
+      }
+      if (keyCode == 74) {
+        xmas = width + 300;
+      }
+      rect(sprite, 990, 100, 10);
+      if (keyCode == 49) {
+        sprite = 850;
+      }
+      if (keyCode == 50) {
+        sprite = 1060;
+      }
+      if (keyCode == 51) {
+        sprite = 1270;
+      }
+      rect(slide, 540, 10, 50);
+      if (keyCode == 37 && slide > 900) {
+        slide -= 5;
+      }
+      if (keyCode == 39 && slide < 1400) {
+        slide += 5;
+      }
     }
   }
 }

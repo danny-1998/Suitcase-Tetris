@@ -59,7 +59,7 @@ void AllScores()
     println("boop");
     println("doop");
     println("I'm in");
-    println("User_id =" + databaseID);
+    msql.query("INSERT INTO Highscore (Username, score) values ('"+ Username +"', '"+ punten +"')"); //doe een query
     msql.query("INSERT INTO Highscore (User_id, score) values("+ databaseID +", "+ punten +")"); //doe een query
     //msql.query("DELETE FROM Highscore WHERE Username = 'dud'"); //delete a specific user entry
     println( "Username \t\t score \t\t " );
@@ -119,13 +119,20 @@ void Login() {
       println("user exists");
       if (databasePass.equals(home.passWord)) {
         println("correct password, welcome " + home.userName);
-        msql.query("SELECT U.User_id FROM User U WHERE Username = '" + home.userName + "'");
-        while (msql.next()){
-        databaseID = msql.getInt("User_id");
-        println(databaseID);
-        }
         Username = home.userName;
         home.gameState = "levelSelect";
+        msql.query("SELECT * FROM Setting WHERE User_id = '"+ databaseID + "'");
+        while(msql.next()){
+        home.slide = msql.getInt("Music_volume");
+        home.on = msql.getInt("SFX_volume");
+        home.xmas = msql.getInt("Xmas_mode");
+        home.sprite = msql.getInt("Spriteset");
+        }
+        msql.query("SELECT U.User_id FROM User U WHERE Username = '" + home.userName + "'"); 
+        while (msql.next()){ 
+        databaseID = msql.getInt("User_id"); 
+        println(databaseID); 
+        } 
       } else {
         println("you stupid");
         passcheck = true;

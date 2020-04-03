@@ -9,6 +9,8 @@ public String Username = "err";
 public String Password;
 public int punten;
 public int databaseID;
+public String databaseName;
+public String databasePass;
 public int highscore;
 public int time;
 public int gamesPlayed;
@@ -101,9 +103,6 @@ void AllScores()
 boolean passcheck = false;
 
 void Login() {
-  String databaseName = "bla";
-  String databasePass = "blo";
-
   println("beginning login process...");
   if (msql.connect() ) { //connecting to database
     println("starting query");
